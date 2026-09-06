@@ -1,26 +1,408 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --lime: #B4F437;
+  --lime-hover: #9EE61C;
+  --lime-glow: rgba(180, 244, 55, 0.35);
+  --cobalt: #003B73;
+  --cobalt-bright: #1560BD;
+  --teal-dark: #0F4C5C;
+  --canvas-dark: #07090D;
+  --canvas-light: #F5F5F7;
+  --canvas-grey: #ECECEE;
+  --card-dark: #10141C;
+  --card-elevated: #161B26;
+  --script-red: #71717A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: var(--font-jakarta), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Primary Headings & Techno Display Font (Intelligen Style) */
+h1, h2, h3, .font-display {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.font-tech {
+  font-family: var(--font-space), monospace, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Handwritten Cursive Accent Font */
+.font-handwritten {
+  font-family: var(--font-caveat), cursive, sans-serif;
+}
+
+/* Desgro Media Outlined Stroke Typography */
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+  color: transparent;
+}
+
+.text-stroke-lime {
+  -webkit-text-stroke: 1.5px #FFFFFF;
+  color: transparent;
+}
+
+.text-stroke-black {
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.85);
+  color: transparent;
+}
+
+/* 3D Perspective Containers */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+  border-radius: 9999px;
+}
+
+/* Selection Highlight in GrowMedLink Lime */
+::selection {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+/* Stadium Borders */
+.rounded-stadium {
+  border-radius: 60px;
+}
+
+@media (min-width: 768px) {
+  .rounded-stadium {
+    border-radius: 100px;
+  }
+}
+
+/* Luxury Card Inset Sheen */
+.card-sheen {
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.card-sheen-lime {
+  box-shadow: 0 25px 60px -15px rgba(255, 255, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Desgro 3D Continuous Star / Asterisk Tumble Keyframes */
+@keyframes spin3D {
+  0% {
+    transform: rotateY(0deg) rotateX(15deg) rotateZ(0deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(-15deg) rotateZ(180deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(15deg) rotateZ(360deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.08);
+  }
+}
+
+.animate-spin-3d {
+  animation: spin3D 12s linear infinite;
+}
+
+.animate-spin-3d-fast {
+  animation: spin3D 8s linear infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+/* Holographic Light Sweep Across Cards */
+@keyframes cardSweep {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  50%, 100% {
+    transform: translateX(250%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+.animate-card-sweep {
+  animation: cardSweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Glowing Border Pulse for Active Lime Card */
+@keyframes borderGlowPulse {
+  0%, 100% {
+    box-shadow: 0 20px 50px -10px rgba(255, 255, 255, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 25px 70px -5px rgba(255, 255, 255, 0.65), 0 0 35px 2px rgba(255, 255, 255, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+.animate-card-glow-pulse {
+  animation: borderGlowPulse 3.5s ease-in-out infinite;
+}
+
+/* Gentle Zero-Gravity Floating for Fan Deck */
+@keyframes idleCardCenter {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes idleCardLeft {
+  0%, 100% {
+    transform: translateY(0px) rotate(-13deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-11.5deg);
+  }
+}
+
+@keyframes idleCardRight {
+  0%, 100% {
+    transform: translateY(0px) rotate(13deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(11.5deg);
+  }
+}
+
+/* Live Waveform Pulse */
+@keyframes wavePulse {
+  0%, 100% {
+    height: 6px;
+  }
+  50% {
+    height: 22px;
+  }
+}
+
+.animate-wave-1 {
+  animation: wavePulse 1.2s ease-in-out infinite;
+}
+.animate-wave-2 {
+  animation: wavePulse 1.2s ease-in-out infinite 0.2s;
+}
+.animate-wave-3 {
+  animation: wavePulse 1.2s ease-in-out infinite 0.4s;
+}
+.animate-wave-4 {
+  animation: wavePulse 1.2s ease-in-out infinite 0.6s;
+}
+
+/* Hardware-Accelerated Kinetic Marquee */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeScrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marqueeScrollReverse 28s linear infinite;
+}
+
+/* Continuous Founder Reels Autoscroll */
+@keyframes reelScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-reel-scroll {
+  animation: reelScroll 35s linear infinite;
+}
+
+.animate-reel-scroll-slow {
+  animation: reelScroll 50s linear infinite;
+}
+
+/* Metallic Text Shimmer Light Sweep */
+@keyframes textShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 35%,
+    #8B5CF6 50%,
+    #ffffff 65%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textShimmer 6s linear infinite;
+}
+
+/* High-Tech Radar Sonar Ping */
+@keyframes radarSonar {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.animate-radar-sonar {
+  animation: radarSonar 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Vertical Laser Scanner Sweep */
+@keyframes scannerSweep {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+.animate-scanner-sweep {
+  animation: scannerSweep 4.5s ease-in-out infinite;
+}
+
+/* Magnetic Button Pulse Glow */
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 15px 45px rgba(139, 92, 246, 0.65), 0 0 25px rgba(139, 92, 246, 0.35);
+    transform: scale(1.02);
+  }
+}
+
+.animate-button-pulse {
+  animation: buttonPulse 3.5s ease-in-out infinite;
+}
+
+/* Orbiting Satellite Animation */
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg) translateX(38px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(38px) rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbitSpin 8s linear infinite;
+}
+
+
+
