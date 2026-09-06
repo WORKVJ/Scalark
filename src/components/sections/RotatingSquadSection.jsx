@@ -13,7 +13,7 @@ export const SQUAD_MEMBERS = [
     bgGradient: 'from-[#FF5A1F] via-[#E04006] to-[#B82B00]',
     solidColor: '#FF5A1F',
     accentColor: '#FF7A45',
-    image: '/assets/squad/squad_orange.png',
+    image: '/assets/squad/squad_shirin.jpg',
     domain: 'OPERATIONS',
     metric: '65% Time Freed'
   },
@@ -25,7 +25,7 @@ export const SQUAD_MEMBERS = [
     bgGradient: 'from-[#2563EB] via-[#1D4ED8] to-[#1E3A8A]',
     solidColor: '#2563EB',
     accentColor: '#60A5FA',
-    image: '/assets/squad/squad_blue.png',
+    image: '/assets/squad/squad_riswan.jpg',
     domain: 'REVENUE',
     metric: '3.4x Pipeline'
   },
@@ -37,7 +37,7 @@ export const SQUAD_MEMBERS = [
     bgGradient: 'from-[#F59E0B] via-[#D97706] to-[#92400E]',
     solidColor: '#F59E0B',
     accentColor: '#FBBF24',
-    image: '/assets/squad/squad_amber.png',
+    image: '/assets/squad/squad_hamas.jpg',
     domain: 'FINANCE',
     metric: '100% Cash Visibility'
   },
@@ -49,7 +49,7 @@ export const SQUAD_MEMBERS = [
     bgGradient: 'from-[#8B5CF6] via-[#7C3AED] to-[#5B21B6]',
     solidColor: '#8B5CF6',
     accentColor: '#A78BFA',
-    image: '/assets/squad/squad_purple.png',
+    image: '/assets/squad/squad_thanzeer.jpg',
     domain: 'FOUNDATION',
     metric: '4.62x Valuation Multiple'
   },
@@ -61,7 +61,7 @@ export const SQUAD_MEMBERS = [
     bgGradient: 'from-[#9333EA] via-[#7E22CE] to-[#581C87]',
     solidColor: '#9333EA',
     accentColor: '#C084FC',
-    image: '/assets/squad/squad_violet.png',
+    image: '/assets/squad/squad_abdul.jpg',
     domain: 'SALES',
     metric: '+38% Net Margin'
   },
@@ -73,7 +73,7 @@ export const SQUAD_MEMBERS = [
     bgGradient: 'from-[#EC4899] via-[#DB2777] to-[#9D174D]',
     solidColor: '#EC4899',
     accentColor: '#F472B6',
-    image: '/assets/squad/squad_pink.png',
+    image: '/assets/squad/squad_nehal.jpg',
     domain: 'GOVERNANCE',
     metric: '98% Autonomy Rate'
   }
@@ -99,8 +99,27 @@ export default function RotatingSquadSection() {
 
   const cardCount = SQUAD_MEMBERS.length;
   const angleStep = 360 / cardCount;
-  // Radius of the 3D cylinder
-  const radius = 350;
+  
+  // Responsive radius of the 3D cylinder
+  const [radius, setRadius] = useState(350);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const w = window.innerWidth;
+      if (w < 480) {
+        setRadius(185);
+      } else if (w < 768) {
+        setRadius(230);
+      } else if (w < 1024) {
+        setRadius(290);
+      } else {
+        setRadius(350);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // 1. HIGH-PERFORMANCE PHYSICS ANIMATION LOOP
   useEffect(() => {
@@ -309,11 +328,11 @@ export default function RotatingSquadSection() {
 
           {/* RIGHT COLUMN: 3D CYLINDRICAL ROTATING STAGE */}
           <div
-            className="lg:col-span-7 h-[480px] sm:h-[540px] md:h-[580px] relative flex items-center justify-center select-none lg:pl-6 cursor-grab active:cursor-grabbing"
+            className="lg:col-span-7 h-[440px] sm:h-[520px] md:h-[580px] relative flex items-center justify-center select-none lg:pl-6 cursor-grab active:cursor-grabbing overflow-hidden sm:overflow-visible"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             style={{
-              perspective: '1300px',
+              perspective: radius < 250 ? '750px' : '1300px',
               perspectiveOrigin: '50% 50%'
             }}
           >
@@ -336,7 +355,7 @@ export default function RotatingSquadSection() {
                       e.stopPropagation();
                       setActiveMember(member);
                     }}
-                    className="absolute w-[180px] sm:w-[210px] md:w-[230px] h-[290px] sm:h-[330px] md:h-[360px] pointer-events-auto cursor-pointer group"
+                    className="absolute w-[155px] sm:w-[195px] md:w-[230px] h-[255px] sm:h-[315px] md:h-[360px] pointer-events-auto cursor-pointer group"
                     style={{
                       transformStyle: 'preserve-3d',
                       transform: `rotateY(${cardAngle}deg) translateZ(${radius}px) rotateX(-10deg)`,
@@ -351,7 +370,7 @@ export default function RotatingSquadSection() {
                       
                       {/* FRONT FACE (VISIBLE WHEN FACING CAMERA) */}
                       <div
-                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 flex flex-col justify-between border-2 border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden bg-gradient-to-b ${member.bgGradient}`}
+                        className={`absolute inset-0 rounded-2xl sm:rounded-3xl p-3 sm:p-4 flex flex-col justify-between border-2 border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden bg-gradient-to-b ${member.bgGradient}`}
                         style={{
                           backfaceVisibility: 'hidden',
                           WebkitBackfaceVisibility: 'hidden'
@@ -361,32 +380,33 @@ export default function RotatingSquadSection() {
                         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-white/30 to-transparent rounded-full pointer-events-none" />
 
                         {/* TOP BADGES */}
-                        <div className="flex items-center justify-between z-10">
-                          <span className="px-2.5 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-black uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/20">
+                        <div className="flex items-center justify-between z-10 gap-1">
+                          <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-[10px] font-mono font-black uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/20 truncate">
                             {member.domain}
                           </span>
-                          <span className="px-2 py-0.5 rounded-full text-[8.5px] sm:text-[9.5px] font-mono font-bold text-white bg-white/20 backdrop-blur-md">
+                          <span className="px-1.5 sm:px-2 py-0.5 rounded-full text-[7.5px] sm:text-[9.5px] font-mono font-bold text-white bg-white/20 backdrop-blur-md truncate">
                             {member.metric}
                           </span>
                         </div>
 
-                        {/* SILHOUETTE PORTRAIT PHOTO */}
-                        <div className="relative flex-1 w-full flex items-center justify-center my-1 overflow-hidden">
+                        {/* ARCHITECT PORTRAIT PHOTO */}
+                        <div className="relative flex-1 w-full my-1.5 overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 shadow-inner">
                           <Image
                             src={member.image}
                             alt={member.name}
                             fill
-                            sizes="(max-width: 768px) 210px, 230px"
-                            className="object-contain object-bottom drop-shadow-[0_15px_15px_rgba(0,0,0,0.7)] group-hover:scale-105 transition-transform duration-300"
+                            sizes="(max-width: 640px) 155px, (max-width: 768px) 195px, 230px"
+                            className="object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-95 contrast-105"
                           />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                         </div>
 
                         {/* BOTTOM TITLE & ROLE BADGE */}
-                        <div className="bg-black/80 backdrop-blur-md rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-white/15 z-10 shadow-lg">
-                          <div className="text-xs sm:text-sm font-black text-white tracking-tight truncate uppercase">
+                        <div className="bg-black/80 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-3 border border-white/15 z-10 shadow-lg">
+                          <div className="text-[11px] sm:text-sm font-black text-white tracking-tight truncate uppercase">
                             {member.name}
                           </div>
-                          <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-zinc-300 font-bold truncate">
+                          <div className="text-[8.5px] sm:text-[10px] font-mono uppercase tracking-wider text-zinc-300 font-bold truncate">
                             {member.role}
                           </div>
                         </div>
@@ -394,7 +414,7 @@ export default function RotatingSquadSection() {
 
                       {/* BACK FACE (CLEAN SOLID BRANDED BACK TO PREVENT MIRRORED REVERSED TEXT) */}
                       <div
-                        className="absolute inset-0 rounded-2xl sm:rounded-3xl p-5 flex flex-col items-center justify-center border-2 border-white/10 shadow-2xl"
+                        className="absolute inset-0 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col items-center justify-center border-2 border-white/10 shadow-2xl"
                         style={{
                           transform: 'rotateY(180deg)',
                           backfaceVisibility: 'hidden',
@@ -404,13 +424,13 @@ export default function RotatingSquadSection() {
                         }}
                       >
                         {/* SCALARK BRAND EMBLEM ON REAR */}
-                        <div className="w-14 h-14 rounded-2xl bg-black/50 border border-white/30 backdrop-blur-md flex items-center justify-center mb-3 shadow-inner">
-                          <span className="text-xl font-black text-white font-mono">S</span>
+                        <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-black/50 border border-white/30 backdrop-blur-md flex items-center justify-center mb-2 sm:mb-3 shadow-inner">
+                          <span className="text-lg sm:text-xl font-black text-white font-mono">S</span>
                         </div>
-                        <div className="text-xs font-mono font-black uppercase tracking-widest text-white/90 text-center">
+                        <div className="text-[11px] sm:text-xs font-mono font-black uppercase tracking-widest text-white/90 text-center">
                           SCALARK
                         </div>
-                        <div className="text-[9px] font-mono uppercase tracking-wider text-white/70 text-center mt-1">
+                        <div className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-white/70 text-center mt-1">
                           SYSTEMS ARCHITECTURE
                         </div>
                       </div>
@@ -422,10 +442,11 @@ export default function RotatingSquadSection() {
             </div>
 
             {/* USER INTERACTION PILL HINT AT BOTTOM OF 3D STAGE */}
-            <div className="absolute bottom-3 inset-x-0 flex justify-center pointer-events-none">
-              <div className="px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/15 text-[10px] sm:text-xs font-mono font-bold text-zinc-300 tracking-wider shadow-2xl flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                <span>DRAG TO ROTATE • SCROLL TO ACCELERATE • CLICK CARD TO INSPECT</span>
+            <div className="absolute bottom-2 sm:bottom-3 inset-x-0 flex justify-center pointer-events-none px-4">
+              <div className="px-3.5 sm:px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/15 text-[9.5px] sm:text-xs font-mono font-bold text-zinc-300 tracking-wider shadow-2xl flex items-center gap-2 max-w-[95%] sm:max-w-none">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0" />
+                <span className="sm:hidden">SWIPE TO ROTATE • TAP TO INSPECT</span>
+                <span className="hidden sm:inline">DRAG TO ROTATE • SCROLL TO ACCELERATE • CLICK CARD TO INSPECT</span>
               </div>
             </div>
           </div>
@@ -440,7 +461,7 @@ export default function RotatingSquadSection() {
           onClick={() => setActiveMember(null)}
         >
           <div
-            className="w-full max-w-lg rounded-3xl p-6 sm:p-8 bg-[#0D0F16] border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative"
+            className="w-full max-w-lg rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-[#0D0F16] border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* MODAL HEADER */}
@@ -462,7 +483,7 @@ export default function RotatingSquadSection() {
                   src={activeMember.image}
                   alt={activeMember.name}
                   fill
-                  className="object-contain object-bottom"
+                  className="object-cover object-center"
                 />
               </div>
               <div>

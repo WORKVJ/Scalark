@@ -77,15 +77,15 @@ export default function DiagnosisContactSection({ t }) {
   };
 
   return (
-    <section id="contact-diagnosis" className="py-24 sm:py-32 px-6 bg-[#F5F5F7] text-black relative overflow-hidden">
+    <section id="contact-diagnosis" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#F5F5F7] text-black relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         
         {/* GROWMEDLINK SIGNATURE SPLIT-PILL CTA CARD */}
         <ScrollReveal direction="up" distance={45} duration={850}>
-          <div className="rounded-[40px] sm:rounded-[60px] overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.18)] border-4 border-white grid grid-cols-1 lg:grid-cols-12 card-sheen">
+          <div className="rounded-3xl sm:rounded-[40px] md:rounded-[60px] overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.18)] border-2 sm:border-4 border-white grid grid-cols-1 lg:grid-cols-12 card-sheen">
           
           {/* LEFT HALF: VIBRANT LIME GREEN BANNER */}
-          <div className="lg:col-span-5 bg-[#FFFFFF] p-8 sm:p-12 md:p-14 text-black flex flex-col justify-between space-y-8 relative overflow-hidden">
+          <div className="lg:col-span-5 bg-[#FFFFFF] p-6 sm:p-10 md:p-14 text-black flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden">
             
             {/* Subtle dot overlay */}
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
@@ -125,7 +125,7 @@ export default function DiagnosisContactSection({ t }) {
           </div>
 
           {/* RIGHT HALF: DARK CHARCOAL FORM */}
-          <div className="lg:col-span-7 bg-[#222222] p-8 sm:p-12 md:p-14 text-white">
+          <div className="lg:col-span-7 bg-[#222222] p-6 sm:p-10 md:p-14 text-white">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-[#FFFFFF]/20 border-2 border-[#FFFFFF] text-[#FFFFFF] flex items-center justify-center mx-auto shadow-[0_0_25px_rgba(255,255,255,0.5)]">

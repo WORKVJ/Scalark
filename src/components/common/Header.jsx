@@ -166,7 +166,7 @@ export default function Header({ currentLang, setLang, t, openModal }) {
           {/* HIGH-CONTRAST ENTERPRISE CTA (STRIPE / LINEAR FINISH) */}
           <button
             onClick={() => scrollTo('contact-diagnosis')}
-            className="flex items-center gap-2 px-5 py-2.5 bg-white text-black hover:bg-zinc-200 text-xs font-bold rounded-full transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:scale-[1.02] active:scale-95"
+            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 bg-white text-black hover:bg-zinc-200 text-[11px] sm:text-xs font-bold rounded-full transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-95 whitespace-nowrap"
           >
             <span>Diagnose My Business</span>
             <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -175,7 +175,7 @@ export default function Header({ currentLang, setLang, t, openModal }) {
           {/* MOBILE MENU TOGGLE */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-9 h-9 rounded-full bg-[#11141C] border border-white/10 flex items-center justify-center text-white"
+            className="md:hidden w-9 h-9 rounded-full bg-[#11141C] border border-white/10 flex items-center justify-center text-white shrink-0 active:scale-95 cursor-pointer"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -183,10 +183,30 @@ export default function Header({ currentLang, setLang, t, openModal }) {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU DRAWER */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#07090E]/95 backdrop-blur-2xl z-40 md:hidden flex flex-col p-6 pt-24 space-y-6 pointer-events-auto">
-          <div className="space-y-4 text-lg font-semibold">
+        <div className="fixed inset-0 bg-[#07090E]/98 backdrop-blur-2xl z-50 md:hidden flex flex-col p-6 pt-5 space-y-6 pointer-events-auto overflow-y-auto">
+          {/* DRAWER HEADER WITH LOGO & CLOSE BUTTON */}
+          <div className="flex items-center justify-between pb-4 border-b border-white/10">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-white text-black flex items-center justify-center font-extrabold text-sm">
+                S
+              </div>
+              <span className="text-base font-bold tracking-tight text-white uppercase">
+                SCALARK
+              </span>
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center"
+              aria-label="Close menu"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* NAVIGATION LINKS */}
+          <div className="space-y-1 text-base font-semibold">
             <button
               onClick={() => scrollTo('hero')}
               className="w-full text-left text-zinc-200 hover:text-white py-3 border-b border-white/10 flex items-center justify-between"
@@ -237,10 +257,33 @@ export default function Header({ currentLang, setLang, t, openModal }) {
             </button>
           </div>
 
-          <div className="pt-4">
+          {/* MOBILE LANGUAGE SELECTOR */}
+          <div className="space-y-2 pt-2">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-bold">
+              Language / اللغة
+            </span>
+            <div className="grid grid-cols-4 gap-2">
+              {languages.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => selectLanguage(l.code)}
+                  className={`py-2 px-2 text-center rounded-xl text-xs font-mono font-bold transition-colors ${
+                    currentLang === l.code
+                      ? 'bg-white text-black shadow-md'
+                      : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'
+                  }`}
+                >
+                  {l.code}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* MOBILE CTA BUTTON */}
+          <div className="pt-2">
             <button
               onClick={() => scrollTo('contact-diagnosis')}
-              className="w-full py-3.5 bg-white text-black font-bold text-xs rounded-full shadow-lg flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-white text-black font-bold text-xs rounded-full shadow-lg flex items-center justify-center gap-2 active:scale-95"
             >
               <span>Diagnose My Business</span>
               <ArrowRight className="w-4 h-4" />

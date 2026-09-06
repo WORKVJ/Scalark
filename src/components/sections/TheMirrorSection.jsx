@@ -64,14 +64,14 @@ export default function TheMirrorSection({ t }) {
     <section id="the-mirror" className="relative py-24 sm:py-32 bg-[#F5F5F7] text-black overflow-hidden">
       
       {/* 1. GROWMEDLINK SIGNATURE OVERLAPPING STAT CAPSULE BANNER WITH ANIMATED COUNTERS */}
-      <ScrollReveal direction="up" distance={45} duration={800} className="max-w-5xl mx-auto px-6 mb-24">
-        <div className="relative rounded-[2.5rem] bg-[#FFFFFF] p-8 sm:p-12 shadow-[0_25px_60px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-white ring-1 ring-black/5">
+      <ScrollReveal direction="up" distance={45} duration={800} className="max-w-5xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+        <div className="relative rounded-3xl sm:rounded-[2.5rem] bg-[#FFFFFF] p-6 sm:p-12 shadow-[0_25px_60px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 border-2 sm:border-4 border-white ring-1 ring-black/5">
           
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px] rounded-[2.5rem] pointer-events-none" />
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px] rounded-3xl sm:rounded-[2.5rem] pointer-events-none" />
 
           {/* LEFT STAT */}
           <div className="text-center md:text-left space-y-1 relative z-10">
-            <div className="text-4xl sm:text-5xl font-black text-black tracking-tight font-tech">
+            <div className="text-3xl sm:text-5xl font-black text-black tracking-tight font-tech">
               <AnimatedCounter end={100} suffix="+" />
             </div>
             <div className="text-xs sm:text-sm font-black uppercase tracking-wider text-black font-sans">
@@ -83,11 +83,11 @@ export default function TheMirrorSection({ t }) {
           </div>
 
           {/* ELEVATED 3D OVERLAPPING CENTER CARD */}
-          <div className="relative md:-my-18 z-20 w-full md:w-auto min-w-[290px] sm:min-w-[340px] rounded-3xl bg-[#222222] text-white p-8 shadow-[0_30px_70px_rgba(0,0,0,0.6)] border-2 border-white/15 text-center transform hover:scale-105 transition-all duration-300 card-sheen">
-            <div className="w-14 h-14 rounded-full bg-[#8B5CF6]/15 border-2 border-[#8B5CF6] text-[#8B5CF6] flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(139,92,246,0.4)]">
-              <Award className="w-7 h-7 stroke-[2.5]" />
+          <div className="relative md:-my-18 z-20 w-full md:w-auto min-w-0 md:min-w-[320px] rounded-2xl sm:rounded-3xl bg-[#222222] text-white p-6 sm:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.6)] border-2 border-white/15 text-center transform hover:scale-105 transition-all duration-300 card-sheen">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#8B5CF6]/15 border-2 border-[#8B5CF6] text-[#8B5CF6] flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+              <Award className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
             </div>
-            <div className="text-4xl sm:text-5xl font-black text-white tracking-tight font-tech mb-1">
+            <div className="text-3xl sm:text-5xl font-black text-white tracking-tight font-tech mb-1">
               <AnimatedCounter end={98} suffix="%" />
             </div>
             <div className="text-xs font-black uppercase tracking-widest text-[#8B5CF6] mb-2 font-tech">

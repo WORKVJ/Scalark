@@ -178,14 +178,14 @@ export default function HeroSection({ t }) {
           </div>
 
           {/* WORKFLOW PIPELINE TABS (SCALARK.PDF SECTION 06: DIAGNOSE -> DESIGN -> IMPLEMENT -> MEASURE -> SCALE) */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-6">
+          <div className="flex sm:grid sm:grid-cols-5 gap-1.5 sm:gap-2 mb-6 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
             {Object.values(STAGES).map((stage) => {
               const isActive = activeStage === stage.id;
               return (
                 <button
                   key={stage.id}
                   onClick={() => setActiveStage(stage.id)}
-                  className={`px-3 py-2.5 rounded-xl text-left transition-all duration-200 border ${
+                  className={`px-3 py-2.5 rounded-xl text-left transition-all duration-200 border shrink-0 min-w-[96px] sm:min-w-0 flex-1 sm:flex-initial ${
                     isActive
                       ? 'bg-white/[0.08] border-white/20 text-white shadow-sm'
                       : 'bg-white/[0.02] border-white/[0.04] text-zinc-400 hover:text-white hover:bg-white/[0.04]'
@@ -197,7 +197,7 @@ export default function HeroSection({ t }) {
                     </span>
                     {isActive && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                   </div>
-                  <div className="text-xs font-bold uppercase tracking-wider font-sans">
+                  <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider font-sans">
                     {stage.title}
                   </div>
                 </button>

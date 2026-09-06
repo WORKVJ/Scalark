@@ -54,21 +54,22 @@ export default function CaseStudiesSection({ t }) {
           </p>
 
           {/* VIEW TOGGLE PILL: FOUNDER REELS VS WRITTEN REPORTS */}
-          <div className="mt-8 inline-flex items-center p-1 rounded-full bg-white/[0.06] border border-white/10">
+          <div className="mt-8 inline-flex items-center p-1 rounded-full bg-white/[0.06] border border-white/10 max-w-full">
             <button
               onClick={() => setViewMode('reels')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-mono font-bold transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all whitespace-nowrap ${
                 viewMode === 'reels'
                   ? 'bg-white text-black shadow-lg'
                   : 'text-zinc-400 hover:text-white'
               }`}
             >
               <Film className="w-3.5 h-3.5" />
-              <span>Founder Story Reels (Auto-Scroll)</span>
+              <span className="sm:hidden">Founder Reels</span>
+              <span className="hidden sm:inline">Founder Story Reels (Auto-Scroll)</span>
             </button>
             <button
               onClick={() => setViewMode('reports')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-mono font-bold transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all whitespace-nowrap ${
                 viewMode === 'reports'
                   ? 'bg-white text-black shadow-lg'
                   : 'text-zinc-400 hover:text-white'

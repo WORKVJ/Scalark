@@ -225,7 +225,7 @@ export default function FounderReelsCarousel() {
             <div
               key={`${reel.id}-${index}`}
               onClick={() => setSelectedReel(reel)}
-              className="group relative w-[240px] sm:w-[270px] md:w-[285px] h-[430px] sm:h-[480px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer border border-white/[0.12] hover:border-white/40 shadow-2xl transition-all duration-300 transform hover:-translate-y-2.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)] shrink-0 bg-zinc-950"
+              className="group relative w-[215px] sm:w-[260px] md:w-[285px] h-[390px] sm:h-[460px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer border border-white/[0.12] hover:border-white/40 shadow-2xl transition-all duration-300 transform hover:-translate-y-2.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)] shrink-0 bg-zinc-950"
             >
               {/* REEL BACKGROUND IMAGE */}
               <div className="absolute inset-0">
@@ -233,7 +233,7 @@ export default function FounderReelsCarousel() {
                   src={reel.image}
                   alt={reel.speaker}
                   fill
-                  sizes="(max-width: 640px) 240px, (max-width: 768px) 270px, 285px"
+                  sizes="(max-width: 640px) 215px, (max-width: 768px) 260px, 285px"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-95 contrast-105"
                   priority={index < 5}
                 />
@@ -317,7 +317,7 @@ export default function FounderReelsCarousel() {
       {selectedReel && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fadeIn">
           <div 
-            className="relative w-full max-w-4xl bg-[#0B0D13] border border-white/20 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
+            className="relative w-full max-w-4xl bg-[#0B0D13] border border-white/20 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* CLOSE BUTTON */}
@@ -330,7 +330,7 @@ export default function FounderReelsCarousel() {
             </button>
 
             {/* LEFT COLUMN: SIMULATED VERTICAL VIDEO PLAYER */}
-            <div className="w-full md:w-[380px] shrink-0 bg-black relative flex items-center justify-center overflow-hidden min-h-[360px] md:min-h-[560px]">
+            <div className="w-full md:w-[360px] shrink-0 bg-black relative flex items-center justify-center overflow-hidden h-[240px] sm:h-[300px] md:min-h-[560px]">
               <Image
                 src={selectedReel.image}
                 alt={selectedReel.speaker}
@@ -373,7 +373,7 @@ export default function FounderReelsCarousel() {
             </div>
 
             {/* RIGHT COLUMN: DETAILED CASE AUDIT BREAKDOWN */}
-            <div className="flex-1 p-6 sm:p-8 overflow-y-auto max-h-[560px] flex flex-col justify-between">
+            <div className="flex-1 p-5 sm:p-8 overflow-y-auto max-h-[60vh] md:max-h-[560px] flex flex-col justify-between">
               <div>
                 {/* HEADER INFO */}
                 <div className="flex items-center gap-2 mb-3">
