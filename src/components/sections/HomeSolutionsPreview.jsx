@@ -48,21 +48,21 @@ export default function HomeSolutionsPreview() {
   ];
 
   return (
-    <section className="py-14 sm:py-24 px-4 sm:px-6 bg-[#080B12] border-t border-white/10 relative overflow-hidden">
+    <section className="py-14 sm:py-24 px-4 sm:px-6 bg-[#061233] border-t border-white/10 relative overflow-hidden">
       {/* GLOW ACCENTS */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-violet-600/10 via-cyan-600/10 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#0E37A4]/25 via-blue-600/15 to-transparent blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-4 sm:gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-[#A78BFA] font-bold mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-[#0E37A4]/40 text-xs font-mono uppercase tracking-widest text-blue-300 font-bold mb-4">
               <span>SECTION 03 — STRATEGIC PILLARS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               4 Pillars of Business Architecture
             </h2>
-            <p className="mt-3 text-zinc-400 text-xs sm:text-base max-w-xl">
+            <p className="mt-3 text-zinc-300 text-xs sm:text-base max-w-xl">
               SCALARK addresses the 4 core domains that dictate whether a business stalls in founder firefighting or scales into an institution.
             </p>
           </div>
@@ -83,11 +83,11 @@ export default function HomeSolutionsPreview() {
             return (
               <div
                 key={p.num}
-                className={`rounded-2xl sm:rounded-3xl bg-[#0D121F] border ${p.color} p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl`}
+                className={`rounded-2xl sm:rounded-3xl bg-[#081B4E] border ${p.color} p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-mono font-bold text-zinc-500">
+                    <span className="text-xs font-mono font-bold text-zinc-400">
                       PILLAR {p.num}
                     </span>
                     <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full ${p.badge} uppercase tracking-wider`}>
@@ -95,7 +95,7 @@ export default function HomeSolutionsPreview() {
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-[#0E37A4]/30 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
 
@@ -103,14 +103,14 @@ export default function HomeSolutionsPreview() {
                     {p.title}
                   </h3>
 
-                  <p className="text-xs text-zinc-400 leading-relaxed mb-6">
+                  <p className="text-xs text-zinc-300 leading-relaxed mb-6">
                     {p.desc}
                   </p>
 
-                  <div className="space-y-2 pt-4 border-t border-white/5">
+                  <div className="space-y-2 pt-4 border-t border-white/10">
                     {p.highlights.map((h, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0E37A4] shrink-0" />
                         <span>{h}</span>
                       </div>
                     ))}

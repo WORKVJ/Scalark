@@ -69,8 +69,8 @@ export default function HomeFrameworkPreview() {
         
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-100 border border-zinc-200/80 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#7C3AED] font-bold mb-3 sm:mb-4 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-100 border border-zinc-200/80 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#0E37A4] font-bold mb-3 sm:mb-4 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0E37A4] animate-pulse" />
             <span>SECTION 04 — HOW WE WORK</span>
           </div>
           <h2 className="text-2xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-tight">
@@ -113,7 +113,7 @@ export default function HomeFrameworkPreview() {
               {/* SCALARK LOGO WITH MASKED CITYSCAPE (MATCHING REFERENCE ON WHITE) */}
               <div className="relative z-10 w-full aspect-square max-w-[260px] sm:max-w-[340px] mx-auto flex items-center justify-center my-2">
                 {/* Soft Backlight Glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-purple-200/40 to-blue-100/40 rounded-full blur-2xl scale-95 group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/40 to-blue-100/40 rounded-full blur-2xl scale-95 group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
                 
                 {/* Primary Masked City Logo Image */}
                 <div className="relative w-full h-full transform group-hover:scale-105 transition-transform duration-500">
@@ -140,7 +140,7 @@ export default function HomeFrameworkPreview() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xs font-mono font-black text-[#7C3AED]">
+                    <div className="text-xs font-mono font-black text-[#0E37A4]">
                       5-PHASE RUNTIME
                     </div>
                     <div className="text-[10px] font-mono text-zinc-400 font-semibold">
@@ -158,7 +158,7 @@ export default function HomeFrameworkPreview() {
                     onClick={() => setActivePhase(idx)}
                     className={`flex-1 py-1.5 px-1 rounded-lg text-[10px] font-mono font-bold uppercase tracking-wider transition-all text-center ${
                       activePhase === idx 
-                        ? 'bg-[#7C3AED] text-white shadow-md shadow-purple-500/25 scale-105' 
+                        ? 'bg-[#0E37A4] text-white shadow-md shadow-blue-500/25 scale-105' 
                         : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200/80 hover:text-zinc-950'
                     }`}
                   >
@@ -182,7 +182,7 @@ export default function HomeFrameworkPreview() {
                   onClick={() => setActivePhase(idx)}
                   className={`cursor-pointer rounded-2xl p-5 sm:p-6 transition-all duration-300 border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
                     isActive
-                      ? 'bg-gradient-to-r from-purple-50/90 via-white to-purple-50/50 border-[#8B5CF6]/60 shadow-[0_12px_32px_rgba(124,58,237,0.12)] scale-[1.01]'
+                      ? 'bg-gradient-to-r from-blue-50/90 via-white to-blue-50/50 border-[#0E37A4]/50 shadow-[0_12px_32px_rgba(14,55,164,0.14)] scale-[1.01]'
                       : 'bg-white border-zinc-200/90 hover:border-zinc-300 hover:bg-zinc-50/60 shadow-sm'
                   }`}
                 >
@@ -190,7 +190,7 @@ export default function HomeFrameworkPreview() {
                     {/* Phase Number & Icon */}
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all ${
                       isActive
-                        ? 'bg-[#7C3AED] text-white shadow-md shadow-purple-600/30'
+                        ? 'bg-[#0E37A4] text-white shadow-md shadow-blue-600/30'
                         : 'bg-zinc-100 border border-zinc-200/80 text-zinc-600'
                     }`}>
                       <Icon className="w-5 h-5" />
@@ -200,7 +200,7 @@ export default function HomeFrameworkPreview() {
                     <div>
                       <div className="flex items-center gap-2.5 mb-1">
                         <span className={`text-xs font-mono font-black ${
-                          isActive ? 'text-[#7C3AED]' : 'text-zinc-500'
+                          isActive ? 'text-[#0E37A4]' : 'text-zinc-500'
                         }`}>
                           PHASE {s.num}
                         </span>
@@ -228,7 +228,7 @@ export default function HomeFrameworkPreview() {
                   <div className="hidden sm:block shrink-0">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                       isActive
-                        ? 'bg-[#7C3AED] text-white translate-x-1 shadow-sm'
+                        ? 'bg-[#0E37A4] text-white translate-x-1 shadow-sm'
                         : 'text-zinc-400 bg-zinc-100'
                     }`}>
                       <ArrowRight className="w-4 h-4" />
@@ -245,7 +245,7 @@ export default function HomeFrameworkPreview() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4">
           <Link
             href="/how-we-work"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-zinc-950 text-white font-bold text-xs uppercase tracking-wider hover:bg-zinc-800 transition-all duration-200 shadow-xl active:scale-95"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#0E37A4] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#0A2A7E] transition-all duration-200 shadow-xl active:scale-95"
           >
             <span>Explore Full 5-Phase Methodology</span>
             <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />

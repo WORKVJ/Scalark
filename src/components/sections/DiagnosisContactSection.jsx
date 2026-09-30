@@ -71,31 +71,31 @@ export default function DiagnosisContactSection({ t }) {
         particleCount: 90,
         spread: 80,
         origin: { y: 0.6 },
-        colors: ['#8B5CF6', '#ffffff', '#000000']
+        colors: ['#0E37A4', '#1D56E8', '#ffffff']
       });
     }, 700);
   };
 
   return (
-    <section id="contact-diagnosis" className="py-12 sm:py-28 px-4 sm:px-6 bg-[#F5F5F7] text-black relative overflow-hidden">
+    <section id="contact-diagnosis" className="py-12 sm:py-28 px-4 sm:px-6 bg-[#061233] text-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         
         {/* GROWMEDLINK SIGNATURE SPLIT-PILL CTA CARD */}
         <ScrollReveal direction="up" distance={45} duration={850}>
-          <div className="rounded-2xl sm:rounded-[40px] md:rounded-[60px] overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.18)] border-2 sm:border-4 border-white grid grid-cols-1 lg:grid-cols-12 card-sheen">
+          <div className="rounded-2xl sm:rounded-[40px] md:rounded-[60px] overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.5)] border-2 sm:border-4 border-[#0E37A4]/50 grid grid-cols-1 lg:grid-cols-12 card-sheen">
           
-          {/* LEFT HALF: VIBRANT LIME GREEN BANNER */}
-          <div className="lg:col-span-5 bg-[#FFFFFF] p-5 sm:p-10 md:p-14 text-black flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden">
+          {/* LEFT HALF: ROYAL BLUE BANNER */}
+          <div className="lg:col-span-5 bg-gradient-to-br from-[#0E37A4] to-[#081B4E] p-5 sm:p-10 md:p-14 text-white flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden">
             
             {/* Subtle dot overlay */}
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
             <div className="space-y-3 sm:space-y-4 relative z-10">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-black flex items-center justify-center text-[#FFFFFF] shadow-xl">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white flex items-center justify-center text-[#0E37A4] shadow-xl">
                 <ChevronsRight className="w-6 h-6 sm:w-7 sm:h-7 stroke-[3]" />
               </div>
 
-              <span className="text-[10px] sm:text-xs font-mono font-black uppercase tracking-widest text-black bg-black/15 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full inline-block">
+              <span className="text-[10px] sm:text-xs font-mono font-black uppercase tracking-widest text-white bg-white/20 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full inline-block">
                 DIRECT ADVISORY DESK
               </span>
 
@@ -103,39 +103,39 @@ export default function DiagnosisContactSection({ t }) {
                 Ready to Fix Your Business System?
               </h2>
 
-              <p className="text-xs sm:text-base font-semibold text-black/85 leading-relaxed">
+              <p className="text-xs sm:text-base font-semibold text-blue-100/90 leading-relaxed">
                 Schedule a confidential 1-on-1 operational diagnosis with a senior SCALARK systems architect.
               </p>
             </div>
 
-            <div className="space-y-2.5 sm:space-y-3 pt-5 sm:pt-6 border-t border-black/20 relative z-10">
-              <div className="flex items-center gap-2.5 text-[11px] sm:text-xs font-black text-black">
-                <CheckCircle2 className="w-4 h-4 text-black shrink-0 stroke-[3]" />
+            <div className="space-y-2.5 sm:space-y-3 pt-5 sm:pt-6 border-t border-white/20 relative z-10">
+              <div className="flex items-center gap-2.5 text-[11px] sm:text-xs font-black text-white">
+                <CheckCircle2 className="w-4 h-4 text-white shrink-0 stroke-[3]" />
                 <span>Zero-obligation initial root-cause review</span>
               </div>
-              <div className="flex items-center gap-2.5 text-[11px] sm:text-xs font-black text-black">
-                <ShieldCheck className="w-4 h-4 text-black shrink-0 stroke-[3]" />
+              <div className="flex items-center gap-2.5 text-[11px] sm:text-xs font-black text-white">
+                <ShieldCheck className="w-4 h-4 text-white shrink-0 stroke-[3]" />
                 <span>Strict Non-Disclosure Agreement (NDA)</span>
               </div>
-              <div className="flex items-center gap-2.5 text-[11px] sm:text-xs font-black text-black">
-                <CheckCircle2 className="w-4 h-4 text-black shrink-0 stroke-[3]" />
+              <div className="flex items-center gap-2.5 text-[11px] sm:text-xs font-black text-white">
+                <CheckCircle2 className="w-4 h-4 text-white shrink-0 stroke-[3]" />
                 <span>Direct senior partner engagement</span>
               </div>
             </div>
           </div>
 
-          {/* RIGHT HALF: DARK CHARCOAL FORM */}
-          <div className="lg:col-span-7 bg-[#222222] p-5 sm:p-10 md:p-14 text-white">
+          {/* RIGHT HALF: ROYAL NAVY FORM */}
+          <div className="lg:col-span-7 bg-[#081B4E] p-5 sm:p-10 md:p-14 text-white">
             {submitted ? (
               <div className="text-center py-10 sm:py-12 space-y-4">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#FFFFFF]/20 border-2 border-[#FFFFFF] text-[#FFFFFF] flex items-center justify-center mx-auto shadow-[0_0_25px_rgba(255,255,255,0.5)]">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#0E37A4]/30 border-2 border-[#0E37A4] text-white flex items-center justify-center mx-auto shadow-[0_0_25px_rgba(14,55,164,0.5)]">
                   <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8 stroke-[3]" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black text-white">
                   Diagnosis Request Received
                 </h3>
-                <p className="text-zinc-300 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong className="text-white font-black">{formData.name || 'Partner'}</strong>. A senior SCALARK systems architect will review your operational context and reach out via <span className="text-[#FFFFFF] font-black">{formData.contactMethod}</span> within 24 hours.
+                <p className="text-blue-100/80 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
+                  Thank you, <strong className="text-white font-black">{formData.name || 'Partner'}</strong>. A senior SCALARK systems architect will review your operational context and reach out via <span className="text-blue-200 font-black">{formData.contactMethod}</span> within 24 hours.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -148,7 +148,7 @@ export default function DiagnosisContactSection({ t }) {
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-400">
+                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-blue-200/80">
                       Full Name *
                     </label>
                     <input
@@ -158,12 +158,12 @@ export default function DiagnosisContactSection({ t }) {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. John Doe"
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-black/60 border border-white/10 text-white placeholder-zinc-600 focus:outline-none focus:border-[#FFFFFF] focus:ring-2 focus:ring-[#FFFFFF]/20 transition-all text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0E37A4] focus:ring-2 focus:ring-[#0E37A4]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-400">
+                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-blue-200/80">
                       Company Name *
                     </label>
                     <input
@@ -173,14 +173,14 @@ export default function DiagnosisContactSection({ t }) {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="e.g. Acme Corp"
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-black/60 border border-white/10 text-white placeholder-zinc-600 focus:outline-none focus:border-[#FFFFFF] focus:ring-2 focus:ring-[#FFFFFF]/20 transition-all text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0E37A4] focus:ring-2 focus:ring-[#0E37A4]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-400">
+                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-blue-200/80">
                       Country / Location *
                     </label>
                     <input
@@ -190,19 +190,19 @@ export default function DiagnosisContactSection({ t }) {
                       value={formData.country}
                       onChange={handleChange}
                       placeholder="e.g. UAE, UK, Singapore, India..."
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-black/60 border border-white/10 text-white placeholder-zinc-600 focus:outline-none focus:border-[#FFFFFF] focus:ring-2 focus:ring-[#FFFFFF]/20 transition-all text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0E37A4] focus:ring-2 focus:ring-[#0E37A4]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-400">
+                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-blue-200/80">
                       Business Stage
                     </label>
                     <select
                       name="businessType"
                       value={formData.businessType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-black/60 border border-white/10 text-white focus:outline-none focus:border-[#FFFFFF] transition-colors text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white focus:outline-none focus:border-[#0E37A4] transition-colors text-base sm:text-sm font-medium"
                     >
                       <option value="Startup">Early-Stage Startup</option>
                       <option value="Growing Business">Rapid Growth Business</option>
@@ -213,14 +213,14 @@ export default function DiagnosisContactSection({ t }) {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-400">
+                  <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-blue-200/80">
                     Primary Operational Bottleneck
                   </label>
                   <select
                     name="challenge"
                     value={formData.challenge}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-black/60 border border-white/10 text-white focus:outline-none focus:border-[#FFFFFF] transition-colors text-base sm:text-sm font-medium"
+                    className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white focus:outline-none focus:border-[#0E37A4] transition-colors text-base sm:text-sm font-medium"
                   >
                     <option value="Operations">Operations & Owner Bottlenecks (SOPs)</option>
                     <option value="Sales">Sales Pipeline & Unpredictable Revenue</option>
@@ -232,7 +232,7 @@ export default function DiagnosisContactSection({ t }) {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 items-end">
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-400">
+                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-blue-200/80">
                       Preferred Channel
                     </label>
                     <div className="grid grid-cols-3 gap-1.5">
@@ -243,8 +243,8 @@ export default function DiagnosisContactSection({ t }) {
                           onClick={() => setFormData({ ...formData, contactMethod: method })}
                           className={`py-2.5 rounded-xl text-xs font-black border transition-all ${
                             formData.contactMethod === method
-                              ? 'bg-[#FFFFFF] text-black border-[#FFFFFF] shadow-md'
-                              : 'bg-black/60 text-zinc-400 border-white/10 hover:text-white'
+                              ? 'bg-[#0E37A4] text-white border-[#0E37A4] shadow-md'
+                              : 'bg-[#061233]/70 text-blue-200 border-[#0E37A4]/30 hover:text-white'
                           }`}
                         >
                           {method}
@@ -254,7 +254,7 @@ export default function DiagnosisContactSection({ t }) {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-zinc-400">
+                    <label className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-blue-200/80">
                       {formData.contactMethod} Detail *
                     </label>
                     <input
@@ -268,7 +268,7 @@ export default function DiagnosisContactSection({ t }) {
                           ? 'founder@company.com'
                           : '+971 50 ... / +91 ...'
                       }
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-black/60 border border-white/10 text-white placeholder-zinc-600 focus:outline-none focus:border-[#FFFFFF] focus:ring-2 focus:ring-[#FFFFFF]/20 transition-all text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0E37A4] focus:ring-2 focus:ring-[#0E37A4]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>
                 </div>
@@ -277,7 +277,7 @@ export default function DiagnosisContactSection({ t }) {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3.5 sm:py-4 bg-[#FFFFFF] hover:bg-[#E4E4E7] text-black font-black uppercase text-xs tracking-wider rounded-full transition-all duration-200 shadow-[0_10px_30px_rgba(255,255,255,0.35)] active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full py-3.5 sm:py-4 bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-black uppercase text-xs tracking-wider rounded-full transition-all duration-200 shadow-[0_10px_30px_rgba(14,55,164,0.45)] active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50"
                   >
                     <span>{submitting ? 'Transmitting Request...' : 'Book Operational Diagnosis'}</span>
                     <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />

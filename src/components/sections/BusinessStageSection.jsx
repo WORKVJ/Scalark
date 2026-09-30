@@ -18,17 +18,17 @@ export default function BusinessStageSection({ t }) {
   };
 
   return (
-    <section id="business-stage" className="py-14 sm:py-28 px-4 sm:px-6 bg-black border-t border-white/10">
+    <section id="business-stage" className="py-14 sm:py-28 px-4 sm:px-6 bg-[#061233] border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         {/* HEADER (NATYA STYLE) */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-zinc-500 mb-3 sm:mb-4 block font-mono">
+          <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-blue-300 mb-3 sm:mb-4 block font-mono">
             SECTION 03 — BUSINESS STAGES
           </span>
           <h3 className="text-2xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white mb-4 sm:mb-6">
             Where Is Your Business Right Now?
           </h3>
-          <p className="text-xs sm:text-lg text-zinc-400 font-normal leading-relaxed">
+          <p className="text-xs sm:text-lg text-zinc-300 font-normal leading-relaxed">
             Every business needs a different kind of support. Choose the stage that best describes you.
           </p>
         </div>
@@ -44,8 +44,8 @@ export default function BusinessStageSection({ t }) {
                 onMouseEnter={() => soundFx.playHover()}
                 className={`px-3.5 sm:px-6 py-2 sm:py-3 rounded-full text-[11px] sm:text-sm font-semibold uppercase tracking-wider transition-all duration-300 ${
                   isActive
-                    ? 'bg-white text-black shadow-xl scale-105'
-                    : 'bg-zinc-900/80 text-zinc-400 hover:text-white hover:bg-zinc-800 border border-white/10'
+                    ? 'bg-[#0E37A4] text-white shadow-xl scale-105 border border-[#0E37A4]'
+                    : 'bg-[#091E58]/80 text-zinc-300 hover:text-white hover:bg-[#0E37A4]/50 border border-white/10'
                 }`}
               >
                 <span>{stage.title}</span>
@@ -55,25 +55,25 @@ export default function BusinessStageSection({ t }) {
         </div>
 
         {/* ACTIVE STAGE SPOTLIGHT CARD (NATYA CARD CONTAINER) */}
-        <div className="rounded-2xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#151515] to-[#0a0a0a] border border-white/10 p-5 sm:p-14 shadow-2xl relative overflow-hidden">
+        <div className="rounded-2xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#091E58] to-[#061233] border border-[#0E37A4]/40 p-5 sm:p-14 shadow-2xl relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
             <div className="lg:col-span-8 space-y-4 sm:space-y-6">
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-white font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-zinc-200/10 border border-zinc-200/20">
+                <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-white font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/10 border border-white/20">
                   {activeStage.badge}
                 </span>
-                <span className="text-zinc-500 text-[11px] sm:text-xs font-mono">• Targeted Stage Architecture</span>
+                <span className="text-blue-300 text-[11px] sm:text-xs font-mono">• Targeted Stage Architecture</span>
               </div>
 
               <h4 className="text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white leading-tight">
                 {activeStage.headline}
               </h4>
 
-              <p className="text-sm sm:text-xl text-zinc-300 leading-relaxed font-normal">
+              <p className="text-sm sm:text-xl text-zinc-200 leading-relaxed font-normal">
                 {activeStage.summary}
               </p>
 
-              <p className="text-xs sm:text-base text-zinc-400 leading-relaxed">
+              <p className="text-xs sm:text-base text-zinc-300 leading-relaxed">
                 {activeStage.detail}
               </p>
 
@@ -88,7 +88,7 @@ export default function BusinessStageSection({ t }) {
             </div>
 
             {/* RIGHT COLUMN: CORE METRICS */}
-            <div className="lg:col-span-4 p-5 sm:p-8 rounded-xl sm:rounded-[2rem] bg-black/60 border border-white/10 space-y-3 sm:space-y-4">
+            <div className="lg:col-span-4 p-5 sm:p-8 rounded-xl sm:rounded-[2rem] bg-[#061233]/70 border border-[#0E37A4]/30 space-y-3 sm:space-y-4">
               <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold block mb-2 sm:mb-4">
                 KEY FOCUS AREAS
               </span>

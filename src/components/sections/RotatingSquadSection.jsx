@@ -47,9 +47,9 @@ export const SQUAD_MEMBERS = [
     name: 'THANZEER P.',
     role: 'CHIEF SYSTEMS ARCHITECT',
     specialty: 'Enterprise Governance, 120-Point Audit & Business Autonomy',
-    bgGradient: 'from-[#8B5CF6] via-[#7C3AED] to-[#5B21B6]',
-    solidColor: '#8B5CF6',
-    accentColor: '#A78BFA',
+    bgGradient: 'from-[#0E37A4] via-[#091E58] to-[#061233]',
+    solidColor: '#0E37A4',
+    accentColor: '#60A5FA',
     image: '/assets/squad/squad_thanzeer.jpg',
     domain: 'FOUNDATION',
     metric: '4.62x Valuation Multiple'
@@ -232,7 +232,7 @@ export default function RotatingSquadSection() {
     <section
       ref={containerRef}
       id="squad"
-      className="py-14 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/[0.08]"
+      className="py-14 sm:py-32 bg-[#061233] text-white relative overflow-hidden border-t border-[#0E37A4]/25"
       onMouseDown={handlePointerDown}
       onMouseMove={handlePointerMove}
       onMouseUp={handlePointerUp}
@@ -382,7 +382,7 @@ export default function RotatingSquadSection() {
 
                         {/* TOP BADGES */}
                         <div className="flex items-center justify-between z-10 gap-1">
-                          <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-[10px] font-mono font-black uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/20 truncate">
+                          <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-[10px] font-mono font-black uppercase tracking-wider bg-[#061233]/70 backdrop-blur-md text-white border border-[#0E37A4]/40 truncate">
                             {member.domain}
                           </span>
                           <span className="px-1.5 sm:px-2 py-0.5 rounded-full text-[7.5px] sm:text-[9.5px] font-mono font-bold text-white bg-white/20 backdrop-blur-md truncate">
@@ -403,7 +403,7 @@ export default function RotatingSquadSection() {
                         </div>
 
                         {/* BOTTOM TITLE & ROLE BADGE */}
-                        <div className="bg-black/80 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-3 border border-white/15 z-10 shadow-lg">
+                        <div className="bg-[#081B4E]/90 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-3 border border-[#0E37A4]/35 z-10 shadow-lg">
                           <div className="text-[11px] sm:text-sm font-black text-white tracking-tight truncate uppercase">
                             {member.name}
                           </div>
@@ -425,7 +425,7 @@ export default function RotatingSquadSection() {
                         }}
                       >
                         {/* SCALARK BRAND EMBLEM ON REAR */}
-                        <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-black/50 border border-white/30 backdrop-blur-md flex items-center justify-center mb-2 sm:mb-3 shadow-inner">
+                        <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/40 backdrop-blur-md flex items-center justify-center mb-2 sm:mb-3 shadow-inner">
                           <span className="text-lg sm:text-xl font-black text-white font-mono">S</span>
                         </div>
                         <div className="text-[11px] sm:text-xs font-mono font-black uppercase tracking-widest text-white/90 text-center">
@@ -444,7 +444,7 @@ export default function RotatingSquadSection() {
 
             {/* USER INTERACTION PILL HINT AT BOTTOM OF 3D STAGE */}
             <div className="absolute bottom-2 sm:bottom-3 inset-x-0 flex justify-center pointer-events-none px-4">
-              <div className="px-3.5 sm:px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/15 text-[9.5px] sm:text-xs font-mono font-bold text-zinc-300 tracking-wider shadow-2xl flex items-center gap-2 max-w-[95%] sm:max-w-none">
+              <div className="px-3.5 sm:px-4 py-1.5 rounded-full bg-[#081B4E]/90 backdrop-blur-md border border-[#0E37A4]/30 text-[9.5px] sm:text-xs font-mono font-bold text-blue-100 tracking-wider shadow-2xl flex items-center gap-2 max-w-[95%] sm:max-w-none">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0" />
                 <span className="sm:hidden">SWIPE TO ROTATE • TAP TO INSPECT</span>
                 <span className="hidden sm:inline">DRAG TO ROTATE • SCROLL TO ACCELERATE • CLICK CARD TO INSPECT</span>
@@ -458,11 +458,11 @@ export default function RotatingSquadSection() {
       {/* SQUAD MEMBER DETAIL MODAL */}
       {activeMember && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061233]/90 backdrop-blur-xl animate-fadeIn"
           onClick={() => setActiveMember(null)}
         >
           <div
-            className="w-full max-w-lg rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-[#0D0F16] border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative max-h-[90vh] overflow-y-auto"
+            className="w-full max-w-lg rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-[#081B4E] border border-[#0E37A4]/50 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* MODAL HEADER */}

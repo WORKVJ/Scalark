@@ -67,26 +67,26 @@ export default function DiagnosticEngineSection({ t }) {
   };
 
   return (
-    <section id="diagnosis-tool" className="py-28 md:py-36 px-6 bg-black border-t border-white/10 relative">
+    <section id="diagnosis-tool" className="py-28 md:py-36 px-6 bg-[#061233] border-t border-[#0E37A4]/20 relative">
       <div className="max-w-5xl mx-auto">
         {/* HEADER (NATYA STYLE) */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-zinc-500 mb-4 block font-mono">
+          <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-blue-300 mb-4 block font-mono">
             SECTION 09 & 23 // INTERACTIVE ASSESSMENT
           </span>
           <h3 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white mb-6">
             What's Your Biggest Business Challenge?
           </h3>
-          <p className="text-base sm:text-xl text-zinc-400 font-normal leading-relaxed">
+          <p className="text-base sm:text-xl text-blue-100/80 font-normal leading-relaxed">
             Select your most acute pressure point to uncover the systemic root cause and actionable recommendation.
           </p>
         </div>
 
         {/* CONTAINER CARD (NATYA CONTAINER) */}
-        <div className="bg-gradient-to-br from-[#151515] to-[#0a0a0a] rounded-[2.5rem] border border-white/10 p-8 sm:p-12 shadow-2xl space-y-10">
+        <div className="bg-gradient-to-br from-[#091E58] to-[#061233] rounded-[2.5rem] border border-[#0E37A4]/40 p-8 sm:p-12 shadow-2xl space-y-10">
           {/* 1. CHALLENGE CATEGORY PILLS (NATYA CAPSULE BUTTON STYLE) */}
           <div>
-            <label className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-4 block">
+            <label className="text-xs font-mono uppercase tracking-widest text-blue-200/70 mb-4 block">
               Step 1: Select Your Focus Area
             </label>
             <div className="flex flex-wrap gap-2.5">
@@ -96,8 +96,8 @@ export default function DiagnosticEngineSection({ t }) {
                   onClick={() => handleChallengeChange(cat)}
                   className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                     selectedChallenge === cat
-                      ? 'bg-white text-black shadow-lg scale-[1.02]'
-                      : 'bg-black/50 text-zinc-400 border border-white/10 hover:text-white hover:border-white/20'
+                      ? 'bg-[#0E37A4] text-white shadow-lg shadow-[#0E37A4]/40 scale-[1.02] border border-[#0E37A4]'
+                      : 'bg-[#081B4E]/60 text-blue-200/80 border border-[#0E37A4]/30 hover:text-white hover:border-[#0E37A4]'
                   }`}
                 >
                   {cat}
@@ -107,7 +107,7 @@ export default function DiagnosticEngineSection({ t }) {
           </div>
 
           {/* 2. QUESTION & OPTIONS */}
-          <div className="space-y-4 pt-6 border-t border-white/10">
+          <div className="space-y-4 pt-6 border-t border-[#0E37A4]/30">
             <div className="flex items-center justify-between">
               <label className="text-xs font-mono uppercase tracking-widest text-white font-bold">
                 Step 2: Which sounds most like your situation?
@@ -115,7 +115,7 @@ export default function DiagnosticEngineSection({ t }) {
               {showResult && (
                 <button
                   onClick={resetDiagnostic}
-                  className="text-xs font-mono text-zinc-500 hover:text-zinc-300 flex items-center gap-1.5 transition-colors"
+                  className="text-xs font-mono text-blue-300 hover:text-white flex items-center gap-1.5 transition-colors"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>Reset</span>
@@ -136,15 +136,15 @@ export default function DiagnosticEngineSection({ t }) {
                     onClick={() => handleOptionSelect(idx)}
                     className={`text-left p-5 rounded-2xl border transition-all duration-300 flex items-start space-x-3.5 ${
                       isSelected
-                        ? 'bg-white/10 border-white/80 text-white shadow-xl scale-[1.01]'
-                        : 'bg-black/40 border-white/10 text-zinc-300 hover:bg-black/80 hover:border-white/20'
+                        ? 'bg-[#0E37A4]/25 border-[#0E37A4] text-white shadow-xl scale-[1.01]'
+                        : 'bg-[#081B4E]/50 border-[#0E37A4]/25 text-blue-100 hover:bg-[#081B4E] hover:border-[#0E37A4]/50'
                     }`}
                   >
                     <div
                       className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                         isSelected
-                          ? 'border-white bg-white text-black'
-                          : 'border-zinc-600'
+                          ? 'border-[#0E37A4] bg-[#0E37A4] text-white'
+                          : 'border-blue-300/40'
                       }`}
                     >
                       {isSelected && <CheckCircle2 className="w-4 h-4" />}
@@ -158,30 +158,30 @@ export default function DiagnosticEngineSection({ t }) {
 
           {/* 3. DIAGNOSTIC RESULT & ONE-CLICK INTEL CALLOUT */}
           {showResult && selectedOptionIdx !== null && (
-            <div className="pt-6 border-t border-white/10 animate-in fade-in zoom-in-95 duration-300">
-              <div className="p-6 md:p-8 rounded-[2rem] bg-black/80 border border-zinc-200/30 space-y-4 shadow-2xl">
+            <div className="pt-6 border-t border-[#0E37A4]/30 animate-in fade-in zoom-in-95 duration-300">
+              <div className="p-6 md:p-8 rounded-[2rem] bg-[#081B4E]/90 border border-[#0E37A4]/40 space-y-4 shadow-2xl">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-white font-bold px-3 py-1 rounded-full bg-zinc-200/10 border border-zinc-200/20">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-white font-bold px-3 py-1 rounded-full bg-[#0E37A4] border border-[#0E37A4]">
                     SCALARK DIAGNOSIS
                   </span>
-                  <span className="text-xs font-mono text-zinc-500">{selectedChallenge} System</span>
+                  <span className="text-xs font-mono text-blue-200/70">{selectedChallenge} System</span>
                 </div>
 
                 <h5 className="text-lg md:text-xl font-bold text-white">
                   Identified Root Bottleneck:
                 </h5>
 
-                <p className="text-base text-zinc-200 leading-relaxed font-normal">
+                <p className="text-base text-blue-50 leading-relaxed font-normal">
                   {currentQuestions.options[selectedOptionIdx].diagnosis}
                 </p>
 
                 <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                  <p className="text-xs text-zinc-400">
+                  <p className="text-xs text-blue-200/80">
                     Ready to resolve this? We will pre-populate your inquiry directly with this diagnostic context.
                   </p>
                   <button
                     onClick={handleRequestDiagnosis}
-                    className="px-6 py-3.5 bg-white text-black font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-zinc-200 transition-all shadow-xl hover:scale-105 shrink-0 text-center"
+                    className="px-6 py-3.5 bg-[#0E37A4] text-white font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-[#0A2A7E] transition-all shadow-xl hover:scale-105 shrink-0 text-center"
                   >
                     Request Business Diagnosis →
                   </button>

@@ -23,8 +23,8 @@ export default function CaseStudiesSection({ t }) {
         <ScrollReveal direction="up" distance={30} className="mb-8 sm:mb-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-[10px] sm:text-xs font-mono font-bold text-[#7C3AED] mb-3 sm:mb-4 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-[#7C3AED]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-[#0E37A4]/20 text-[10px] sm:text-xs font-mono font-bold text-[#0E37A4] mb-3 sm:mb-4 shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 text-[#0E37A4]" />
                 <span>VERIFIED CLIENT OUTCOMES & INTERVIEWS</span>
               </div>
 
@@ -39,7 +39,7 @@ export default function CaseStudiesSection({ t }) {
                 onClick={() => setViewMode('reels')}
                 className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all whitespace-nowrap ${
                   viewMode === 'reels'
-                    ? 'bg-zinc-950 text-white shadow-md'
+                    ? 'bg-[#0E37A4] text-white shadow-md'
                     : 'text-zinc-600 hover:text-zinc-950'
                 }`}
               >
@@ -50,7 +50,7 @@ export default function CaseStudiesSection({ t }) {
                 onClick={() => setViewMode('reports')}
                 className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all whitespace-nowrap ${
                   viewMode === 'reports'
-                    ? 'bg-zinc-950 text-white shadow-md'
+                    ? 'bg-[#0E37A4] text-white shadow-md'
                     : 'text-zinc-600 hover:text-zinc-950'
                 }`}
               >
@@ -109,7 +109,7 @@ export default function CaseStudiesSection({ t }) {
                         <span className="text-zinc-900 font-medium">{cs.rootCause}</span>
                       </div>
                       <div className="pt-2 border-t border-zinc-200">
-                        <span className="text-[#7C3AED] font-bold">Our Approach: </span>
+                        <span className="text-[#0E37A4] font-bold">Our Approach: </span>
                         <span className="text-zinc-900 font-medium">{cs.approach}</span>
                       </div>
                     </div>
@@ -129,7 +129,7 @@ export default function CaseStudiesSection({ t }) {
                       </div>
                     </div>
 
-                    <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 group-hover:scale-110 group-hover:bg-zinc-950 group-hover:text-white transition-all">
+                    <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 group-hover:scale-110 group-hover:bg-[#0E37A4] group-hover:text-white transition-all">
                       <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                     </div>
                   </div>
@@ -143,7 +143,7 @@ export default function CaseStudiesSection({ t }) {
         <div className="mt-14 text-center">
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105"
           >
             <span>Explore All Client Case Studies</span>
             <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />

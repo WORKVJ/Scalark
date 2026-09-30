@@ -4,27 +4,27 @@
   --lime: #B4F437;
   --lime-hover: #9EE61C;
   --lime-glow: rgba(180, 244, 55, 0.35);
-  --cobalt: #003B73;
-  --cobalt-bright: #1560BD;
-  --teal-dark: #0F4C5C;
-  --canvas-dark: #07090D;
+  --cobalt: #0E37A4;
+  --cobalt-bright: #1D56E8;
+  --teal-dark: #0A2268;
+  --canvas-dark: #061233;
   --canvas-light: #F5F5F7;
   --canvas-grey: #ECECEE;
-  --card-dark: #10141C;
-  --card-elevated: #161B26;
+  --card-dark: #081B4E;
+  --card-elevated: #0B246C;
   --script-red: #71717A;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
-  background-color: #000000;
+  background-color: #061233;
   color: #ffffff;
   overflow-x: hidden;
 }
 
 body {
-  background-color: #000000;
+  background-color: #061233;
   color: #ffffff;
   overflow-x: hidden;
   max-width: 100vw;
@@ -86,11 +86,11 @@ h1, h2, h3, .font-display {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #061233;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FFFFFF;
+  background: #0E37A4;
   border-radius: 9999px;
 }
 
@@ -106,10 +106,10 @@ h1, h2, h3, .font-display {
   scrollbar-width: none !important;
 }
 
-/* Selection Highlight in GrowMedLink Lime */
+/* Selection Highlight in Royal Blue */
 ::selection {
-  background-color: #FFFFFF;
-  color: #000000;
+  background-color: #0E37A4;
+  color: #FFFFFF;
 }
 
 /* Stadium Borders */
@@ -338,7 +338,7 @@ h1, h2, h3, .font-display {
     90deg,
     #ffffff 0%,
     #ffffff 35%,
-    #8B5CF6 50%,
+    #0E37A4 50%,
     #ffffff 65%,
     #ffffff 100%
   );
@@ -393,11 +393,11 @@ h1, h2, h3, .font-display {
 /* Magnetic Button Pulse Glow */
 @keyframes buttonPulse {
   0%, 100% {
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 10px 30px rgba(14, 55, 164, 0.4);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 15px 45px rgba(139, 92, 246, 0.65), 0 0 25px rgba(139, 92, 246, 0.35);
+    box-shadow: 0 15px 45px rgba(14, 55, 164, 0.65), 0 0 25px rgba(14, 55, 164, 0.35);
     transform: scale(1.02);
   }
 }

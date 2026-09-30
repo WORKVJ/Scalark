@@ -75,8 +75,8 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
     } ${scrolled ? 'pt-2 sm:pt-3' : 'pt-3 sm:pt-5'}`}>
       <div className={`flex justify-between items-center w-full max-w-6xl transition-all duration-300 pointer-events-auto px-3 sm:px-6 py-2 sm:py-2.5 rounded-full ${
         scrolled 
-          ? 'bg-[#0B0E14]/95 backdrop-blur-xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.65)]' 
-          : 'bg-[#0B0E14]/75 backdrop-blur-md border border-white/10 shadow-lg'
+          ? 'bg-[#081B4E]/95 backdrop-blur-xl border border-[#0E37A4]/40 shadow-[0_12px_40px_rgba(4,14,46,0.7)]' 
+          : 'bg-[#081B4E]/80 backdrop-blur-md border border-[#0E37A4]/25 shadow-lg'
       }`}>
         
         {/* BRAND LOGO */}
@@ -100,7 +100,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
         </Link>
 
         {/* CENTER FLOATING PILL NAVBAR */}
-        <nav className="hidden md:flex items-center space-x-1 bg-[#10131A]/80 backdrop-blur-xl border border-white/[0.08] rounded-full px-3 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <nav className="hidden md:flex items-center space-x-1 bg-[#061438]/85 backdrop-blur-xl border border-[#0E37A4]/30 rounded-full px-3 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
           {navLinks.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -109,8 +109,8 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
                 href={item.href}
                 className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all rounded-full ${
                   isActive
-                    ? 'bg-white/10 text-white font-semibold shadow-inner'
-                    : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
+                    ? 'bg-[#0E37A4] text-white font-semibold shadow-sm'
+                    : 'text-zinc-300 hover:text-white hover:bg-white/[0.06]'
                 }`}
               >
                 {item.label}
@@ -125,24 +125,24 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
           <div className="relative hidden sm:block">
             <button
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="px-2.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-xs text-zinc-400 hover:text-white flex items-center space-x-1.5 transition-colors"
+              className="px-2.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-[#0E37A4]/30 text-xs text-zinc-300 hover:text-white flex items-center space-x-1.5 transition-colors"
               aria-label="Select Language"
             >
-              <Globe className="w-3 h-3 text-zinc-400" />
+              <Globe className="w-3 h-3 text-zinc-300" />
               <span className="font-mono text-[10px] uppercase font-semibold">{currentLang}</span>
               <ChevronDown className="w-2.5 h-2.5 opacity-60" />
             </button>
 
             {langDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-32 rounded-xl bg-[#11141C] border border-white/10 p-1.5 shadow-2xl backdrop-blur-2xl z-50">
+              <div className="absolute right-0 mt-2 w-32 rounded-xl bg-[#081B4E] border border-[#0E37A4]/40 p-1.5 shadow-2xl backdrop-blur-2xl z-50">
                 {languages.map((l) => (
                   <button
                     key={l.code}
                     onClick={() => selectLanguage(l.code)}
                     className={`w-full text-left px-3 py-1.5 rounded-lg text-xs flex items-center justify-between transition-colors ${
                       currentLang === l.code
-                        ? 'bg-white/15 text-white font-bold'
-                        : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                        ? 'bg-[#0E37A4] text-white font-bold'
+                        : 'text-zinc-300 hover:text-white hover:bg-white/5'
                     }`}
                   >
                     <span>{l.label}</span>
@@ -165,7 +165,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
           {/* MOBILE MENU TOGGLE */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-9 h-9 rounded-full bg-[#11141C] border border-white/10 flex items-center justify-center text-white shrink-0 active:scale-95 cursor-pointer"
+            className="md:hidden w-9 h-9 rounded-full bg-[#081B4E] border border-[#0E37A4]/40 flex items-center justify-center text-white shrink-0 active:scale-95 cursor-pointer"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -177,7 +177,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
       {mobileMenuOpen && (
         <div
           data-lenis-prevent
-          className="fixed inset-0 bg-[#07090E]/98 backdrop-blur-2xl z-50 md:hidden flex flex-col p-6 pt-5 space-y-6 pointer-events-auto overflow-y-auto"
+          className="fixed inset-0 bg-[#061233]/98 backdrop-blur-2xl z-50 md:hidden flex flex-col p-6 pt-5 space-y-6 pointer-events-auto overflow-y-auto"
         >
           {/* DRAWER HEADER WITH LOGO & CLOSE BUTTON */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10">

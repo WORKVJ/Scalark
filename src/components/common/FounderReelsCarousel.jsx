@@ -335,7 +335,7 @@ export default function FounderReelsCarousel() {
 
                 {/* BOTTOM COMPACT DURATION CHIP */}
                 <div className="absolute bottom-3 inset-x-3 z-10 text-center">
-                  <span className="inline-block px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono font-bold uppercase tracking-wider text-white">
+                  <span className="inline-block px-2.5 py-1 rounded-full bg-[#061233]/70 backdrop-blur-md text-[10px] font-mono font-bold uppercase tracking-wider text-white border border-[#0E37A4]/30">
                     {reel.duration}
                   </span>
                 </div>
@@ -358,7 +358,7 @@ export default function FounderReelsCarousel() {
         {/* AUDITED BREAKTHROUGH PILL */}
         <div className="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/90 text-xs font-mono font-bold text-zinc-800 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[#7C3AED]">{activeReel.tag}</span>
+          <span className="text-[#0E37A4]">{activeReel.tag}</span>
           <span className="text-zinc-300">•</span>
           <span>{activeReel.metric}</span>
         </div>
@@ -371,7 +371,7 @@ export default function FounderReelsCarousel() {
       {/* INTERACTIVE VIDEO / AUDIT MODAL */}
       {selectedReel && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061233]/85 backdrop-blur-xl animate-fadeIn"
           onClick={() => setSelectedReel(null)}
         >
           <div 
@@ -388,14 +388,14 @@ export default function FounderReelsCarousel() {
             </button>
 
             {/* LEFT COLUMN: SIMULATED VERTICAL VIDEO PLAYER */}
-            <div className="w-full md:w-[360px] shrink-0 bg-black relative flex items-center justify-center overflow-hidden h-[240px] sm:h-[300px] md:min-h-[560px]">
+            <div className="w-full md:w-[360px] shrink-0 bg-[#061233] relative flex items-center justify-center overflow-hidden h-[240px] sm:h-[300px] md:min-h-[560px]">
               <Image
                 src={selectedReel.image}
                 alt={selectedReel.speaker}
                 fill
                 className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#061233] via-[#061233]/20 to-[#061233]/40" />
 
               {/* SIMULATED VIDEO PROGRESS BAR */}
               <div className="absolute bottom-0 inset-x-0 h-1.5 bg-white/20">
@@ -408,7 +408,7 @@ export default function FounderReelsCarousel() {
               </div>
 
               {/* REEL OVERLAY INFO */}
-              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-[#061233]/70 backdrop-blur-md px-3 py-1 rounded-full border border-[#0E37A4]/30">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
                 <span className="text-xs font-mono font-bold text-white uppercase">SCALARK RECORDINGS</span>
               </div>
@@ -416,14 +416,14 @@ export default function FounderReelsCarousel() {
               {/* AUDIO / MUTE TOGGLE */}
               <button
                 onClick={() => setIsMuted(!isMuted)}
-                className="absolute bottom-4 right-4 z-10 p-2.5 rounded-full bg-black/70 backdrop-blur-md text-white border border-white/20 hover:bg-black"
+                className="absolute bottom-4 right-4 z-10 p-2.5 rounded-full bg-[#061233]/70 backdrop-blur-md text-white border border-[#0E37A4]/30 hover:bg-[#0E37A4]"
                 title={isMuted ? 'Unmute' : 'Mute'}
               >
                 {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
               </button>
 
               {/* LIVE CAPTION CALLOUT */}
-              <div className="absolute bottom-12 inset-x-4 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-center">
+              <div className="absolute bottom-12 inset-x-4 p-4 rounded-xl bg-[#061233]/80 backdrop-blur-md border border-[#0E37A4]/30 text-center">
                 <p className="text-xs font-semibold text-white">
                   "{selectedReel.caption}"
                 </p>
@@ -446,7 +446,7 @@ export default function FounderReelsCarousel() {
                 <h3 className="text-2xl sm:text-3xl font-black text-zinc-950 tracking-tight mb-1">
                   {selectedReel.speaker}
                 </h3>
-                <div className="text-sm font-semibold text-[#7C3AED] mb-6">
+                <div className="text-sm font-semibold text-[#0E37A4] mb-6">
                   {selectedReel.role} • {selectedReel.company}
                 </div>
 
@@ -502,7 +502,7 @@ export default function FounderReelsCarousel() {
                 <a
                   href="/contact"
                   onClick={() => setSelectedReel(null)}
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-zinc-950 text-white font-bold text-xs uppercase tracking-wider hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 shadow-xl"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#0E37A4] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#0A2A7E] transition-all flex items-center justify-center gap-2 shadow-xl"
                 >
                   <span>Book Architecture Diagnostic</span>
                   <ArrowUpRight className="w-4 h-4" />

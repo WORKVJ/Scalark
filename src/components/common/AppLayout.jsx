@@ -14,7 +14,7 @@ export default function AppLayout({ children }) {
   return (
     <LanguageProvider>
       <SmoothScroll>
-        <div className="relative bg-black text-white min-h-screen font-sans selection:bg-[#FFFFFF] selection:text-black overflow-x-hidden flex flex-col justify-between">
+        <div className="relative bg-[#061233] text-white min-h-screen font-sans selection:bg-[#0E37A4] selection:text-white overflow-x-hidden flex flex-col justify-between">
           {/* HARDWARE-ACCELERATED SCROLL PROGRESS BAR */}
           <ScrollProgressBar />
 

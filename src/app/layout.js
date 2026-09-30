@@ -42,7 +42,7 @@ import AppLayout from '@/components/common/AppLayout';
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`scroll-smooth ${plusJakarta.variable} ${spaceGrotesk.variable} ${caveat.variable}`}>
-      <body className="bg-black text-white min-h-screen antialiased selection:bg-[#FFFFFF] selection:text-black">
+      <body className="bg-[#061233] text-white min-h-screen antialiased selection:bg-[#0E37A4] selection:text-white">
         <AppLayout>
           {children}
         </AppLayout>

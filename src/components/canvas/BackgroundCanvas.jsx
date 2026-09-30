@@ -31,9 +31,9 @@ export default function BackgroundCanvas() {
     const colors = new Float32Array(particleCount * 3);
     const velocities = [];
 
-    // Violet color (#8B5CF6) & Crisp White (#FFFFFF)
+    // Royal Cobalt (#0E37A4) & Crisp White (#FFFFFF)
     const colorWhite = new THREE.Color(0xffffff);
-    const colorViolet = new THREE.Color(0x8b5cf6);
+    const colorCobalt = new THREE.Color(0x0e37a4);
     const colorZinc = new THREE.Color(0x71717a);
 
     for (let i = 0; i < particleCount; i++) {
@@ -42,9 +42,9 @@ export default function BackgroundCanvas() {
       positions[i * 3 + 1] = (Math.random() - 0.5) * 650;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 400;
 
-      // 14% particles are Electric Violet, rest are white/zinc
-      const isViolet = Math.random() < 0.14;
-      const col = isViolet ? colorViolet : (Math.random() < 0.6 ? colorWhite : colorZinc);
+      // 18% particles are Royal Cobalt Blue, rest are white/zinc
+      const isCobalt = Math.random() < 0.18;
+      const col = isCobalt ? colorCobalt : (Math.random() < 0.6 ? colorWhite : colorZinc);
       colors[i * 3] = col.r;
       colors[i * 3 + 1] = col.g;
       colors[i * 3 + 2] = col.b;
@@ -209,9 +209,9 @@ export default function BackgroundCanvas() {
       {/* Three.js Particle Mesh Canvas */}
       <div ref={containerRef} className="absolute inset-0 opacity-75" />
 
-      {/* Ambient Violet & White Glow Accents */}
-      <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#8B5CF6]/12 via-[#FFFFFF]/5 to-transparent rounded-full blur-[170px]" />
-      <div className="absolute top-[40%] -right-40 w-[600px] h-[600px] bg-[#8B5CF6]/8 rounded-full blur-[200px]" />
+      {/* Ambient Royal Cobalt & White Glow Accents */}
+      <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#0E37A4]/25 via-[#1D56E8]/10 to-transparent rounded-full blur-[170px]" />
+      <div className="absolute top-[40%] -right-40 w-[600px] h-[600px] bg-[#0E37A4]/15 rounded-full blur-[200px]" />
     </div>
   );
 }
