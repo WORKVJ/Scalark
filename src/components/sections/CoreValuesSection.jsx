@@ -15,7 +15,7 @@ export default function CoreValuesSection() {
       id: 'systems',
       title: 'Systems\nOver\nHeroes',
       bgClass: 'bg-[#0B4F9C]',
-      shadowClass: 'shadow-[0_20px_45px_rgba(11,79,156,0.3)]',
+      shadowClass: 'shadow-[0_20px_45px_rgba(11,79,156,0.35)]',
       description:
         'Every process, operational SOP, and management dashboard is structured to replace founder firefighting with sustainable institutional governance.'
     },
@@ -23,7 +23,7 @@ export default function CoreValuesSection() {
       id: 'integrity',
       title: 'Diagnostic\nIntegrity',
       bgClass: 'bg-[#70A52E]',
-      shadowClass: 'shadow-[0_20px_45px_rgba(112,165,46,0.3)]',
+      shadowClass: 'shadow-[0_20px_45px_rgba(112,165,46,0.35)]',
       description:
         'We maintain uncompromising diagnostic standards — uncovering true cash-flow, sales, and operational bottlenecks before prescribing solutions.'
     },
@@ -31,13 +31,13 @@ export default function CoreValuesSection() {
       id: 'growth',
       title: 'Border-Free\nGrowth',
       bgClass: 'bg-[#1F1F21]',
-      shadowClass: 'shadow-[0_20px_45px_rgba(31,31,33,0.3)]',
+      shadowClass: 'shadow-[0_20px_45px_rgba(31,31,33,0.35)]',
       description:
         'We build solid operational systems connecting enterprise growth across regional commercial hubs in Dubai, London, and Singapore.'
     }
   ];
 
-  // Auto-cycle through active cards
+  // Auto-cycle through active cards, automatically expanding width
   useEffect(() => {
     if (isPaused) return;
 
@@ -75,9 +75,9 @@ export default function CoreValuesSection() {
           </h2>
         </div>
 
-        {/* 3 Interactive Auto-Cycling Cards */}
+        {/* Horizontal Accordion: Cards automatically expand width when active */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 max-w-5xl mx-auto items-start"
+          className="flex flex-col md:flex-row gap-5 sm:gap-6 max-w-5xl mx-auto items-stretch justify-center w-full"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -88,15 +88,20 @@ export default function CoreValuesSection() {
               <div
                 key={val.id}
                 onClick={() => handleSelectCard(idx)}
-                className={`core-values-card relative rounded-[28px] p-7 sm:p-9 cursor-pointer transition-all duration-500 ease-out select-none flex flex-col justify-start min-h-[360px] sm:min-h-[400px] text-white ${val.bgClass} ${
+                style={{
+                  // On desktop, active card expands to ~2.2x width of inactive cards
+                  flex: isActive ? '2.25 1 0%' : '1 1 0%',
+                  transition: 'flex 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.65s cubic-bezier(0.25, 1, 0.5, 1)'
+                }}
+                className={`core-values-card relative rounded-[28px] p-7 sm:p-9 cursor-pointer select-none flex flex-col justify-start min-h-[220px] md:min-h-[420px] text-white ${val.bgClass} ${
                   isActive
-                    ? `${val.shadowClass} scale-[1.02] ring-4 ring-black/10`
-                    : 'shadow-[0_12px_30px_rgba(0,0,0,0.1)] opacity-95 hover:opacity-100 hover:scale-[1.01]'
+                    ? `${val.shadowClass} ring-4 ring-black/10`
+                    : 'shadow-[0_10px_25px_rgba(0,0,0,0.08)] opacity-95 hover:opacity-100'
                 }`}
               >
                 {/* Top Circle Icon with animated circular progress indicator on Active Card */}
                 <div className="mb-7 flex items-center justify-between">
-                  <div className="relative w-10 h-10 flex items-center justify-center">
+                  <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
                     {isActive ? (
                       <svg className="w-10 h-10 -rotate-90" viewBox="0 0 36 36">
                         <circle
@@ -131,13 +136,13 @@ export default function CoreValuesSection() {
 
                 {/* Monospace Typewriter-Style Title matching reference image */}
                 <h3
-                  className="text-xl sm:text-2xl text-white font-normal leading-snug tracking-wider whitespace-pre-line mb-4"
+                  className="text-xl sm:text-2xl text-white font-normal leading-snug tracking-wider whitespace-pre-line mb-4 shrink-0"
                   style={{ fontFamily: "'Courier New', Courier, monospace" }}
                 >
                   {val.title}
                 </h3>
 
-                {/* Description that shows when active (animated smoothly) */}
+                {/* Description that smoothly reveals when the card expands in width */}
                 <div
                   className={`transition-all duration-500 ease-out overflow-hidden ${
                     isActive
@@ -145,7 +150,7 @@ export default function CoreValuesSection() {
                       : 'opacity-0 max-h-0 -translate-y-2 pointer-events-none mt-0'
                   }`}
                 >
-                  <p className="text-xs sm:text-[13px] text-white/95 leading-relaxed font-sans font-normal">
+                  <p className="text-xs sm:text-[13px] text-white/95 leading-relaxed font-sans font-normal max-w-md">
                     {val.description}
                   </p>
                 </div>
