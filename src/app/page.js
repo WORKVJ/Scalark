@@ -1,7 +1,7 @@
 'use client';
 
 import HeroSection from '@/components/sections/HeroSection';
-import EnterpriseMetricsBar from '@/components/sections/EnterpriseMetricsBar';
+import CoreValuesSection from '@/components/sections/CoreValuesSection';
 import TheMirrorSection from '@/components/sections/TheMirrorSection';
 import HomeSolutionsPreview from '@/components/sections/HomeSolutionsPreview';
 import HomeFrameworkPreview from '@/components/sections/HomeFrameworkPreview';
@@ -18,8 +18,8 @@ export default function Home() {
       {/* 01. FLAGSHIP HERO WITH INTERACTIVE CONSOLE */}
       <HeroSection t={t} />
 
-      {/* 02. ENTERPRISE PROVEN BENCHMARKS & METRICS */}
-      <EnterpriseMetricsBar />
+      {/* 02. OUR CORE VALUES (AUTO-CYCLING ACTIVE CARDS) */}
+      <CoreValuesSection />
 
       {/* 03. THE CORE BOTTLENECKS (THE MIRROR) */}
       <TheMirrorSection t={t} />
