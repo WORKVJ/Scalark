@@ -8,13 +8,16 @@ import {
   Send,
   RotateCcw,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  ArrowUp
 } from 'lucide-react';
 
 export default function ScalarkChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   const [messages, setMessages] = useState([
     {
       id: 'welcome',
@@ -29,13 +32,45 @@ export default function ScalarkChatbot() {
     }
   ]);
 
-  const messagesEndRef = useRef(null);
+  const chatScrollRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Auto-scroll to bottom of chat
+  // Scroll monitoring inside chat container
+  const handleChatScroll = () => {
+    if (chatScrollRef.current) {
+      setShowScrollTop(chatScrollRef.current.scrollTop > 80);
+    }
+  };
+
+  const scrollToTop = () => {
+    if (chatScrollRef.current) {
+      chatScrollRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollToBottom = (behavior = 'smooth') => {
+    if (chatScrollRef.current) {
+      chatScrollRef.current.scrollTo({
+        top: chatScrollRef.current.scrollHeight,
+        behavior
+      });
+    }
+  };
+
+  // Auto-scroll on new message ONLY if near bottom or initial messages
   useEffect(() => {
-    if (isOpen) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isOpen && chatScrollRef.current) {
+      const isNearBottom =
+        chatScrollRef.current.scrollHeight -
+        chatScrollRef.current.scrollTop -
+        chatScrollRef.current.clientHeight < 180;
+
+      if (isNearBottom || messages.length <= 2) {
+        scrollToBottom('smooth');
+      }
     }
   }, [messages, isTyping, isOpen]);
 
@@ -223,8 +258,10 @@ export default function ScalarkChatbot() {
 
       {/* 2. SIMPLE, PROFESSIONAL CHAT WINDOW */}
       {isOpen && (
-        <div className="fixed z-50 inset-x-3 bottom-20 sm:inset-auto sm:bottom-22 sm:right-6 w-auto sm:w-[380px] h-[500px] max-h-[80vh] bg-[#0B0E14] border border-white/15 rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.85)] backdrop-blur-2xl flex flex-col overflow-hidden text-white animate-in fade-in duration-200">
-          
+        <div
+          data-lenis-prevent
+          className="fixed z-50 inset-x-3 bottom-20 sm:inset-auto sm:bottom-22 sm:right-6 w-auto sm:w-[380px] h-[500px] max-h-[80vh] bg-[#0B0E14] border border-white/15 rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.85)] backdrop-blur-2xl flex flex-col overflow-hidden text-white animate-in fade-in duration-200"
+        >
           {/* HEADER */}
           <div className="flex items-center justify-between px-4 py-3 bg-[#111622] border-b border-white/10 shrink-0">
             <div className="flex items-center gap-2.5">
@@ -247,10 +284,24 @@ export default function ScalarkChatbot() {
             </div>
 
             <div className="flex items-center gap-1">
+              {/* SCROLL TO TOP BUTTON IN HEADER */}
+              {showScrollTop && (
+                <button
+                  type="button"
+                  onClick={scrollToTop}
+                  className="px-2 py-1 rounded-full bg-white/10 hover:bg-white/20 text-zinc-300 hover:text-white text-[10px] font-mono flex items-center gap-1 transition-all active:scale-95 cursor-pointer mr-1"
+                  title="Scroll to Top"
+                >
+                  <span>Top</span>
+                  <ArrowUp className="w-2.5 h-2.5" />
+                </button>
+              )}
+
               {/* CLEAR CHAT */}
               <button
+                type="button"
                 onClick={resetChat}
-                className="w-7 h-7 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center transition-colors"
+                className="w-7 h-7 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                 title="Reset Chat"
                 aria-label="Reset Chat"
               >
@@ -259,8 +310,9 @@ export default function ScalarkChatbot() {
 
               {/* CLOSE BUTTON */}
               <button
+                type="button"
                 onClick={() => setIsOpen(false)}
-                className="w-7 h-7 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center transition-colors"
+                className="w-7 h-7 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Close Chat"
               >
                 <X className="w-4 h-4" />
@@ -268,8 +320,14 @@ export default function ScalarkChatbot() {
             </div>
           </div>
 
-          {/* MESSAGE STREAM */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 no-scrollbar">
+          {/* MESSAGE STREAM (NATIVE TOUCH & MOUSE SCROLLING WITH LENIS PREVENT) */}
+          <div
+            data-lenis-prevent
+            ref={chatScrollRef}
+            onScroll={handleChatScroll}
+            className="flex-1 overflow-y-auto p-4 space-y-3 relative"
+            style={{ overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}
+          >
             {messages.map((msg, idx) => {
               const isBot = msg.sender === 'bot';
               return (
@@ -293,6 +351,7 @@ export default function ScalarkChatbot() {
                       {msg.quickReplies.map((qr, qIdx) => (
                         <button
                           key={qIdx}
+                          type="button"
                           onClick={() => handleQuickReply(qr)}
                           className="px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 text-zinc-300 hover:text-white text-[11px] transition-all active:scale-95 cursor-pointer flex items-center gap-1"
                         >
@@ -315,7 +374,17 @@ export default function ScalarkChatbot() {
               </div>
             )}
 
-            <div ref={messagesEndRef} />
+            {/* FLOATING TOP BUTTON INSIDE MESSAGE STREAM */}
+            {showScrollTop && (
+              <button
+                type="button"
+                onClick={scrollToTop}
+                className="sticky bottom-2 ml-auto z-10 px-2.5 py-1 rounded-full bg-[#181F2E] border border-white/20 text-white shadow-lg text-[11px] font-medium flex items-center gap-1 transition-all active:scale-95 cursor-pointer hover:bg-white hover:text-black w-fit"
+              >
+                <ArrowUp className="w-3 h-3" />
+                <span>Top</span>
+              </button>
+            )}
           </div>
 
           {/* INPUT FORM */}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Globe, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -13,6 +13,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
   const setLang = propSetLang || ctxSetLang;
 
   const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,9 +27,30 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const selectLanguage = (code) => {
     setLang(code);
     setLangDropdownOpen(false);
+  };
+
+  const handleNavigate = (href) => {
+    setMobileMenuOpen(false);
+    if (pathname === href) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      router.push(href);
+    }
   };
 
   const navLinks = [
@@ -48,9 +70,9 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out flex justify-center px-2.5 sm:px-6 pointer-events-none ${
-      scrolled ? 'pt-2 sm:pt-3' : 'pt-3 sm:pt-5'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out flex justify-center px-2.5 sm:px-6 ${
+      mobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'
+    } ${scrolled ? 'pt-2 sm:pt-3' : 'pt-3 sm:pt-5'}`}>
       <div className={`flex justify-between items-center w-full max-w-6xl transition-all duration-300 pointer-events-auto px-3 sm:px-6 py-2 sm:py-2.5 rounded-full ${
         scrolled 
           ? 'bg-[#0B0E14]/95 backdrop-blur-xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.65)]' 
@@ -153,13 +175,16 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
 
       {/* MOBILE MENU DRAWER */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-[#07090E]/98 backdrop-blur-2xl z-50 md:hidden flex flex-col p-6 pt-5 space-y-6 pointer-events-auto overflow-y-auto">
+        <div
+          data-lenis-prevent
+          className="fixed inset-0 bg-[#07090E]/98 backdrop-blur-2xl z-50 md:hidden flex flex-col p-6 pt-5 space-y-6 pointer-events-auto overflow-y-auto"
+        >
           {/* DRAWER HEADER WITH LOGO & CLOSE BUTTON */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-3"
+            <button
+              type="button"
+              onClick={() => handleNavigate('/')}
+              className="flex items-center gap-3 cursor-pointer text-left"
             >
               <div className="relative w-9 h-9 flex items-center justify-center">
                 <Image
@@ -173,10 +198,10 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
               <span className="text-lg font-extrabold tracking-tight text-white uppercase">
                 SCALARK
               </span>
-            </Link>
+            </button>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center"
+              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer active:scale-95"
               aria-label="Close menu"
             >
               <X className="w-4 h-4" />
@@ -186,17 +211,17 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
           {/* NAVIGATION LINKS */}
           <div className="space-y-1 text-base font-semibold">
             {navLinks.map((item) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`w-full py-3 border-b border-white/10 flex items-center justify-between transition-colors ${
+                type="button"
+                onClick={() => handleNavigate(item.href)}
+                className={`w-full py-3.5 border-b border-white/10 flex items-center justify-between transition-colors text-left cursor-pointer active:opacity-70 ${
                   pathname === item.href ? 'text-white font-bold' : 'text-zinc-400 hover:text-white'
                 }`}
               >
                 <span>{item.label}</span>
                 <ArrowRight className="w-4 h-4 text-zinc-500" />
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -209,8 +234,9 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
               {languages.map((l) => (
                 <button
                   key={l.code}
+                  type="button"
                   onClick={() => selectLanguage(l.code)}
-                  className={`py-2 px-2 text-center rounded-xl text-xs font-mono font-bold transition-colors ${
+                  className={`py-2 px-2 text-center rounded-xl text-xs font-mono font-bold transition-colors cursor-pointer active:scale-95 ${
                     currentLang === l.code
                       ? 'bg-white text-black shadow-md'
                       : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'
@@ -224,14 +250,14 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
 
           {/* MOBILE CTA BUTTON */}
           <div className="pt-2">
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 bg-white text-black font-bold text-xs rounded-full shadow-lg flex items-center justify-center gap-2 active:scale-95"
+            <button
+              type="button"
+              onClick={() => handleNavigate('/contact')}
+              className="w-full py-3.5 bg-white text-black font-bold text-xs rounded-full shadow-lg flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
             >
               <span>Book a Call</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
           </div>
         </div>
       )}
