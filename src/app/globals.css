@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
+  --font-jakarta: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-space: 'Space Grotesk', monospace, sans-serif;
+  --font-caveat: 'Caveat', cursive, sans-serif;
   --lime: #B4F437;
   --lime-hover: #9EE61C;
   --lime-glow: rgba(180, 244, 55, 0.35);

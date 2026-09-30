@@ -1,26 +1,5 @@
-import { Plus_Jakarta_Sans, Space_Grotesk, Caveat } from 'next/font/google';
 import './globals.css';
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space',
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
-
-const caveat = Caveat({
-  subsets: ['latin'],
-  variable: '--font-caveat',
-  weight: ['400', '600', '700'],
-  display: 'swap',
-});
+import AppLayout from '@/components/common/AppLayout';
 
 export const metadata = {
   title: 'SCALARK | Business Systems Architecture & Growth Platform',
@@ -37,11 +16,9 @@ export const metadata = {
   ]
 };
 
-import AppLayout from '@/components/common/AppLayout';
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`scroll-smooth ${plusJakarta.variable} ${spaceGrotesk.variable} ${caveat.variable}`}>
+    <html lang="en" className="scroll-smooth">
       <body className="bg-[#061233] text-white min-h-screen antialiased selection:bg-[#0E37A4] selection:text-white">
         <AppLayout>
           {children}
