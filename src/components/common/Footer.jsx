@@ -221,7 +221,6 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:space-x-6 text-[11px] sm:text-xs">
             <span className="hover:text-black cursor-pointer">Privacy Policy</span>
             <span className="hover:text-black cursor-pointer">Terms of Engagement</span>
-            <span className="hover:text-black cursor-pointer">NDA Protection</span>
           </div>
           <button
             onClick={scrollToTop}
