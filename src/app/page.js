@@ -1,7 +1,7 @@
 'use client';
 
 import HeroSection from '@/components/sections/HeroSection';
-import KineticTicker from '@/components/common/KineticTicker';
+import EnterpriseMetricsBar from '@/components/sections/EnterpriseMetricsBar';
 import TheMirrorSection from '@/components/sections/TheMirrorSection';
 import HomeSolutionsPreview from '@/components/sections/HomeSolutionsPreview';
 import HomeFrameworkPreview from '@/components/sections/HomeFrameworkPreview';
@@ -18,19 +18,8 @@ export default function Home() {
       {/* 01. FLAGSHIP HERO WITH INTERACTIVE CONSOLE */}
       <HeroSection t={t} />
 
-      {/* 02. TELEMETRY MARQUEE */}
-      <KineticTicker
-        items={[
-          'SYSTEM ARCHITECTURE ACTIVE',
-          '99.4% AUTONOMY BENCHMARK',
-          'DUBAI 🇦🇪 // LONDON 🇬🇧 // SINGAPORE 🇸🇬',
-          'ZERO-FRICTION SALES ENGINES',
-          'ENTERPRISE SOP GOVERNANCE',
-          'OWNER TIME RECOVERED 65%',
-          'REAL-TIME UNIT ECONOMICS',
-          'PREDICTABILITY RATE 98%'
-        ]}
-      />
+      {/* 02. ENTERPRISE PROVEN BENCHMARKS & METRICS */}
+      <EnterpriseMetricsBar />
 
       {/* 03. THE CORE BOTTLENECKS (THE MIRROR) */}
       <TheMirrorSection t={t} />
