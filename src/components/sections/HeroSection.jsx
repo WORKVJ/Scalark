@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { ArrowRight, Check, CheckCircle2, ChevronRight, Activity, Layers, TrendingUp, ShieldCheck, BarChart3, Clock, Sparkles } from 'lucide-react';
 
 export default function HeroSection({ t }) {
@@ -100,7 +101,7 @@ export default function HeroSection({ t }) {
         </div>
 
         {/* EDITORIAL HEADLINE (EXACTLY FROM SCALARK.PDF PAGE 2) */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.08] max-w-4xl mx-auto mb-6 text-white font-sans">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12] sm:leading-[1.08] max-w-4xl mx-auto mb-5 sm:mb-6 text-white font-sans px-2">
           Your business doesn't need more effort.{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-300 to-zinc-500">
             It needs a better system.
@@ -108,29 +109,29 @@ export default function HeroSection({ t }) {
         </h1>
 
         {/* SUBTITLE (EXACTLY FROM SCALARK.PDF PAGE 2) */}
-        <p className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed mb-8">
+        <p className="text-xs sm:text-base md:text-lg text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed mb-6 sm:mb-8 px-2">
           SCALARK helps entrepreneurs, startups, SMEs and MSMEs identify what's holding their business back, fix the underlying systems and build a stronger organisation designed for sustainable growth.
         </p>
 
         {/* DUAL ACTION BUTTONS (STRIPE / LINEAR HIGH-CONTRAST STYLE) */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-          {/* PRIMARY BUTTON (SCALARK.PDF PAGE 3) */}
-          <button
-            onClick={() => scrollTo('contact-diagnosis')}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-black hover:bg-zinc-200 font-bold text-xs sm:text-sm rounded-full transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.18)] hover:scale-105 active:scale-95"
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none mx-auto sm:w-auto">
+          {/* PRIMARY BUTTON */}
+          <Link
+            href="/contact"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-white text-black hover:bg-zinc-200 font-bold text-xs sm:text-sm rounded-full transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.18)] active:scale-95"
           >
             <span>Find What's Holding My Business Back</span>
             <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-          </button>
+          </Link>
 
-          {/* SECONDARY BUTTON (SCALARK.PDF PAGE 3) */}
-          <button
-            onClick={() => scrollTo('solutions')}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white border border-white/[0.08] font-medium text-xs sm:text-sm rounded-full backdrop-blur-xl transition-all duration-200 hover:scale-105 active:scale-95"
+          {/* SECONDARY BUTTON */}
+          <Link
+            href="/solutions"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white border border-white/[0.08] font-medium text-xs sm:text-sm rounded-full backdrop-blur-xl transition-all duration-200 active:scale-95"
           >
             <span>Explore How SCALARK Helps</span>
             <ArrowRight className="w-3.5 h-3.5 text-zinc-500" />
-          </button>
+          </Link>
         </div>
 
         {/* 6 CORE ARCHITECTURAL DOMAINS (SCALARK.PDF PAGE 3) */}
@@ -264,8 +265,8 @@ export default function HeroSection({ t }) {
           </div>
 
           {/* CONSOLE FOOTER: VERIFIED INSTITUTIONAL BENCHMARKS */}
-          <div className="mt-6 pt-5 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
-            <div className="flex items-center gap-6">
+          <div className="mt-6 pt-5 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] sm:text-xs">
               <div>
                 <span className="text-white font-bold">250+</span> Audits Completed
               </div>
@@ -277,13 +278,13 @@ export default function HeroSection({ t }) {
               </div>
             </div>
 
-            <button
-              onClick={() => scrollTo('contact-diagnosis')}
-              className="inline-flex items-center gap-1.5 text-white hover:text-zinc-200 font-sans font-semibold text-xs transition-colors"
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1.5 text-white hover:text-zinc-200 font-sans font-semibold text-xs transition-colors self-start sm:self-auto"
             >
               <span>Request Diagnostic Audit</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </Link>
           </div>
 
         </div>

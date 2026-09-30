@@ -13,17 +13,15 @@ import {
   CheckCircle2, 
   ArrowUpRight, 
   Sparkles,
-  TrendingUp,
-  Building2,
-  Clock,
-  Instagram
+  Flame
 } from 'lucide-react';
 
 export const FOUNDER_REELS = [
   {
     id: 'reel-1',
     image: '/assets/reels/founder_reel_1.jpg',
-    speaker: 'Elena Vance & Ops Team',
+    speaker: 'ELENA VANCE',
+    fullName: 'Elena Vance & Ops Team',
     role: 'Director of Operational Systems',
     company: 'Vanguard Clinical Labs',
     industry: 'Healthcare & Clinical Networks',
@@ -34,7 +32,6 @@ export const FOUNDER_REELS = [
     duration: '0:54',
     metric: '+38% Net Margin',
     tag: 'HEALTHCARE NETWORK',
-    accentColor: '#38BDF8',
     challenge: 'Expanding across 12 diagnostic locations led to severe sample tracking errors, 45-day billing backlogs, and constant frontline escalations.',
     rootCause: 'Siloed laboratory management software with zero inter-branch communication protocols and delayed executive telemetry.',
     approach: 'Standardized specimen transfer checklists, unified billing SLAs, and created an automated executive dashboard showing daily unit economics per hub.',
@@ -43,7 +40,8 @@ export const FOUNDER_REELS = [
   {
     id: 'reel-2',
     image: '/assets/reels/founder_reel_2.jpg',
-    speaker: 'Vikram Malhotra',
+    speaker: 'VIKRAM MALHOTRA',
+    fullName: 'Vikram Malhotra',
     role: 'Founder & Group Managing Director',
     company: 'Malhotra Enterprise Holdings',
     industry: 'Conglomerate & Private Equity',
@@ -54,7 +52,6 @@ export const FOUNDER_REELS = [
     duration: '1:12',
     metric: '65% Time Recovered',
     tag: 'SCALE & VALUATION',
-    accentColor: '#A78BFA',
     challenge: 'Group founder was putting in 16-hour workdays personally signing off on routine operational decisions, creating a massive executive bottleneck.',
     rootCause: 'Lack of formalized department accountability scorecards and absence of delegated financial authority thresholds.',
     approach: 'Engineered 48 institutional SOPs, installed executive tier-2 governance cadences, and linked department KPIs directly to quarterly performance scorecards.',
@@ -63,7 +60,8 @@ export const FOUNDER_REELS = [
   {
     id: 'reel-3',
     image: '/assets/reels/founder_reel_3.jpg',
-    speaker: 'Arun & Sandeep',
+    speaker: 'ARUN & SANDEEP',
+    fullName: 'Arun & Sandeep',
     role: 'Co-Founders',
     company: 'Kinetix Logistics Platforms',
     industry: 'Supply Chain & Logistics Tech',
@@ -74,7 +72,6 @@ export const FOUNDER_REELS = [
     duration: '0:35',
     metric: '45-Day Cash Recovery',
     tag: 'TECH STARTUP',
-    accentColor: '#34D399',
     challenge: 'Rapid team expansion led to a monthly cash-burn crisis; the co-founders faced a 3-month runway deadline without unit economics clarity.',
     rootCause: 'Operational leakages across unintegrated software platforms and customer acquisition costs outstripping lifetime cash collection.',
     approach: 'Conducted an emergency 14-day operational and financial audit, cut 9 redundant subscriptions, and refocused the sales team on high-margin enterprise accounts.',
@@ -82,8 +79,29 @@ export const FOUNDER_REELS = [
   },
   {
     id: 'reel-4',
+    image: '/assets/reels/founder_reel_5.jpg',
+    speaker: 'DAVID HENDERSON',
+    fullName: 'David Henderson',
+    role: 'Chief Executive Officer',
+    company: 'Apex Industrial Precision Tooling',
+    industry: 'Industrial Tooling & Manufacturing',
+    stage: 'Multi-Location Manufacturing',
+    caption: '“I was solving every factory crisis myself. Now our documented SOPs run with 99.4% predictability across every shift.”',
+    quoteHighlight: 'I was solving every factory crisis myself',
+    subQuote: 'Now our documented SOPs run with 99.4% predictability.',
+    duration: '0:58',
+    metric: '99.4% Autonomy Rate',
+    tag: 'INDUSTRIAL SME',
+    challenge: 'High rework rates and scrap waste during overnight shifts; shop-floor supervisors waited for the CEO to personally approve setup changes.',
+    rootCause: 'Zero standardized work instructions for tooling calibrations, causing tribal knowledge dependencies.',
+    approach: 'Deployed digital visual inspection checkpoints at each machine cell, trained shift leads on rapid escalation protocols, and implemented daily scrap audits.',
+    outcome: 'Scrap defect rate decreased by 84%, production throughput surged 32%, and the manufacturing unit ran completely self-sufficiently.'
+  },
+  {
+    id: 'reel-5',
     image: '/assets/reels/founder_reel_4.jpg',
-    speaker: 'Girish & Mohan',
+    speaker: 'GIRISH & MOHAN',
+    fullName: 'Girish & Mohan',
     role: 'Managing Partners',
     company: 'Metro Retail & Distribution Group',
     industry: 'Omnichannel FMCG & Retail',
@@ -94,51 +112,88 @@ export const FOUNDER_REELS = [
     duration: '0:49',
     metric: '98% Staff Adoption',
     tag: 'SUPPLY CHAIN',
-    accentColor: '#FBBF24',
     challenge: 'Prior attempts to install expensive enterprise systems failed because warehouse staff bypassed digital forms and defaulted to chaotic manual notes.',
     rootCause: 'Management mandated complex technology before documenting ground workflow steps or training supervisory tier leads.',
     approach: 'Co-designed simplified mobile SOP checklists with warehouse team leaders, backed by weekly milestone reviews and performance incentives.',
-    outcome: 'Achieved 98% digital compliance within 30 days; warehouse dispatch accuracy reached 99.8% across all 6 regional distribution hubs.'
+    outcome: 'Same-day dispatch accuracy rose to 99.1%, inventory shrinkage plummeted to zero, and warehouse team morale reached all-time highs.'
   },
   {
-    id: 'reel-5',
-    image: '/assets/reels/founder_reel_5.jpg',
-    speaker: 'David Henderson',
-    role: 'Managing Director & Chairman',
-    company: 'Apex Industrial Precision',
-    industry: 'Precision Engineering & MSME',
-    stage: 'MSME (140 Employees)',
-    caption: '“I was solving every single factory dispute myself. Now our documented SOPs run with 99.4% predictability without me.”',
-    quoteHighlight: 'I was solving every factory crisis myself',
-    subQuote: 'Now our documented SOPs run with 99.4% predictability.',
-    duration: '0:58',
-    metric: '99.4% Autonomy Rate',
-    tag: 'INDUSTRIAL SME',
-    accentColor: '#F472B6',
-    challenge: 'Owner was personally arbitrating floor squabbles, manually checking tolerances, and holding up shipments whenever traveling out of town.',
-    rootCause: 'Tribal knowledge was locked inside senior supervisors’ heads without written quality control gating or clear handover checklists.',
-    approach: 'Implemented 28 machine-side visual SOPs, established daily 15-minute standups, and appointed autonomous shift quality captains.',
-    outcome: 'Zero factory stoppages during owner absences, rework rate plummeted to 0.6%, and client delivery predictability achieved 99.4%.'
+    id: 'reel-6',
+    image: '/assets/hero-architect.jpg',
+    speaker: 'SARAH STERLING',
+    fullName: 'Sarah Sterling',
+    role: 'Managing Principal',
+    company: 'Sterling Advisory & Governance',
+    industry: 'Institutional Advisory',
+    stage: 'High-End Consulting Group',
+    caption: '“SCALARK systematized our client onboarding and delivery architecture, allowing us to triple client intake without hiring partner tiers.”',
+    quoteHighlight: 'tripled client intake without hiring partner tiers',
+    subQuote: 'while institutionalizing our advisory frameworks.',
+    duration: '1:05',
+    metric: '3.2x Capacity Expansion',
+    tag: 'ADVISORY & SERVICES',
+    challenge: 'Partners were overloaded with project delivery handoffs and administrative reporting, limiting senior partner business development.',
+    rootCause: 'Unstructured delivery templates and inconsistent peer-review cadences across client accounts.',
+    approach: 'Engineered an institutional delivery playbook, installed automated status telemetry, and delegated recurring reporting to operations analysts.',
+    outcome: 'Partner billable capacity doubled, client delivery NPS reached 94, and firm revenues grew 3.2x in 12 months.'
+  },
+  {
+    id: 'reel-7',
+    image: '/assets/squad/squad_hamas.jpg',
+    speaker: 'MARCUS CHEN',
+    fullName: 'Marcus Chen',
+    role: 'Head of Global Operations',
+    company: 'Apex Logistics & Maritime Gateway',
+    industry: 'Maritime & Freight Logistics',
+    stage: 'Global Terminal Operations',
+    caption: '“Container transit coordination went from constant firefighting to clockwork precision across 4 international ports.”',
+    quoteHighlight: 'from constant firefighting to clockwork precision',
+    subQuote: 'across 4 international terminal ports.',
+    duration: '0:48',
+    metric: '72% Bottleneck Elimination',
+    tag: 'PORT INFRASTRUCTURE',
+    challenge: 'Vessel turnaround delays and customs clearance misalignments caused penalty fees exceeding $200k quarterly.',
+    rootCause: 'Manual spreadsheet handoffs between harbor masters, customs brokers, and inland trucking fleets.',
+    approach: 'Built unified terminal dispatch protocols and instituted automated pre-arrival customs verification pipelines.',
+    outcome: 'Terminal clearance cycle dropped by 72%, zero demurrage penalties incurred over 3 quarters, saving $850k in operational leakage.'
   }
 ];
 
+// Staggered height and wave offset configuration matching the reference image
+const STAGGER_CONFIG = [
+  { height: 'h-[330px] sm:h-[360px]', offset: 'translate-y-8 sm:translate-y-10' },
+  { height: 'h-[390px] sm:h-[430px]', offset: '-translate-y-3 sm:-translate-y-5' },
+  { height: 'h-[350px] sm:h-[380px]', offset: 'translate-y-6 sm:translate-y-8' },
+  { height: 'h-[420px] sm:h-[460px]', offset: 'translate-y-0 sm:translate-y-0' }, // Center hero
+  { height: 'h-[340px] sm:h-[370px]', offset: 'translate-y-8 sm:translate-y-12' },
+  { height: 'h-[390px] sm:h-[430px]', offset: '-translate-y-2 sm:-translate-y-4' },
+  { height: 'h-[330px] sm:h-[360px]', offset: 'translate-y-6 sm:translate-y-8' }
+];
+
 export default function FounderReelsCarousel() {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [activeIdx, setActiveIdx] = useState(3);
+  const [isAutoMoving, setIsAutoMoving] = useState(true);
+  const [isUserHovering, setIsUserHovering] = useState(false);
   const [selectedReel, setSelectedReel] = useState(null);
-  const [activeCategory, setActiveCategory] = useState('ALL');
   const [isMuted, setIsMuted] = useState(false);
   const [playbackProgress, setPlaybackProgress] = useState(35);
   const scrollRef = useRef(null);
 
-  // Filter reels if category selected, otherwise show all
-  const filteredReels = activeCategory === 'ALL' 
-    ? FOUNDER_REELS 
-    : FOUNDER_REELS.filter(r => r.tag.includes(activeCategory) || r.stage.includes(activeCategory));
+  // Seamless infinite loop: duplicate array
+  const displayReels = [...FOUNDER_REELS, ...FOUNDER_REELS];
 
-  // Loop display array
-  const displayReels = [...filteredReels, ...filteredReels, ...filteredReels];
+  const activeReel = FOUNDER_REELS[activeIdx % FOUNDER_REELS.length] || FOUNDER_REELS[0];
 
-  // Simulated playback progress in modal
+  // Auto-rotate spotlight when auto-moving and not hovered
+  useEffect(() => {
+    if (!isAutoMoving || isUserHovering || selectedReel) return;
+    const interval = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % FOUNDER_REELS.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isAutoMoving, isUserHovering, selectedReel]);
+
+  // Video progress bar simulation in modal
   useEffect(() => {
     if (!selectedReel) return;
     const interval = setInterval(() => {
@@ -148,8 +203,13 @@ export default function FounderReelsCarousel() {
   }, [selectedReel]);
 
   const handleManualScroll = (direction) => {
+    if (direction === 'left') {
+      setActiveIdx((prev) => (prev > 0 ? prev - 1 : FOUNDER_REELS.length - 1));
+    } else {
+      setActiveIdx((prev) => (prev < FOUNDER_REELS.length - 1 ? prev + 1 : 0));
+    }
     if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -340 : 340;
+      const scrollAmount = direction === 'left' ? -280 : 280;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -157,47 +217,49 @@ export default function FounderReelsCarousel() {
   return (
     <div className="w-full relative select-none">
       
-      {/* SECTION SUBHEADER WITH CONTROLS */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 px-2">
-        <div className="flex items-center gap-3">
-          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-          <span className="font-mono text-xs uppercase tracking-widest text-zinc-400 font-bold">
-            Live Intervention Recordings • 5 Audited Case Studies
-          </span>
+      {/* NAVIGATION & AUTO-MOVE CONTROLS */}
+      <div className="flex flex-col sm:flex-row items-end sm:items-center justify-between gap-4 mb-6 px-4">
+        
+        {/* HINT BADGE */}
+        <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200/80 text-xs font-mono text-zinc-600">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+          <span>Interactive Staggered Stream • Hover to Inspect</span>
         </div>
 
-        {/* CONTROLS: PLAY/PAUSE + PREV/NEXT ARROWS */}
-        <div className="flex items-center gap-2 self-end sm:self-auto">
+        {/* BUTTON CONTROLS */}
+        <div className="flex items-center gap-2">
+          {/* AUTO-MOVE TOGGLE BUTTON */}
           <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-xs font-mono font-medium text-zinc-300 hover:text-white transition-all"
-            title={isPlaying ? 'Pause auto-scroll' : 'Resume auto-scroll'}
+            onClick={() => setIsAutoMoving(!isAutoMoving)}
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/90 text-xs font-mono font-bold text-zinc-800 transition-all shadow-sm"
+            title={isAutoMoving ? 'Pause auto-moving' : 'Resume auto-moving'}
           >
-            {isPlaying ? (
+            {isAutoMoving ? (
               <>
-                <Pause className="w-3.5 h-3.5 text-zinc-400" />
-                <span>Pause Reel</span>
+                <Pause className="w-3.5 h-3.5 text-zinc-600" />
+                <span>Pause Motion</span>
               </>
             ) : (
               <>
-                <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-                <span>Autoplay</span>
+                <Play className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600" />
+                <span>Auto-Move</span>
               </>
             )}
           </button>
 
+          {/* MANUAL PREV / NEXT */}
           <div className="flex items-center gap-1">
             <button
               onClick={() => handleManualScroll('left')}
-              className="p-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-zinc-400 hover:text-white transition-all"
-              aria-label="Scroll left"
+              className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 hover:text-black transition-all shadow-sm"
+              aria-label="Previous story"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => handleManualScroll('right')}
-              className="p-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-zinc-400 hover:text-white transition-all"
-              aria-label="Scroll right"
+              className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 hover:text-black transition-all shadow-sm"
+              aria-label="Next story"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -205,128 +267,124 @@ export default function FounderReelsCarousel() {
         </div>
       </div>
 
-      {/* CONTINUOUS AUTOSCROLLING REEL TRACK */}
+      {/* CONTINUOUS AUTO-MOVING STAGGERED WAVE TRACK */}
       <div 
         ref={scrollRef}
-        className="w-full overflow-x-auto no-scrollbar relative py-4"
+        onMouseEnter={() => setIsUserHovering(true)}
+        onMouseLeave={() => setIsUserHovering(false)}
+        className="w-full overflow-hidden no-scrollbar py-8 px-4 relative"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        {/* Soft edge gradient fades for cinematic vignette */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-black via-black/80 to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-black via-black/80 to-transparent z-20 pointer-events-none" />
+        {/* Soft white gradient edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
 
-        <div
-          className={`flex items-center gap-6 sm:gap-8 whitespace-nowrap will-change-transform ${
-            isPlaying ? 'animate-reel-scroll' : ''
+        {/* INFINITE MARQUEE ROW */}
+        <div 
+          className={`flex items-center gap-4 sm:gap-6 min-w-max will-change-transform ${
+            isAutoMoving ? 'animate-reel-scroll' : ''
           } hover:[animation-play-state:paused]`}
           style={{ width: 'max-content' }}
         >
-          {displayReels.map((reel, index) => (
-            <div
-              key={`${reel.id}-${index}`}
-              onClick={() => setSelectedReel(reel)}
-              className="group relative w-[215px] sm:w-[260px] md:w-[285px] h-[390px] sm:h-[460px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer border border-white/[0.12] hover:border-white/40 shadow-2xl transition-all duration-300 transform hover:-translate-y-2.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)] shrink-0 bg-zinc-950"
-            >
-              {/* REEL BACKGROUND IMAGE */}
-              <div className="absolute inset-0">
+          {displayReels.map((reel, idx) => {
+            const originalIdx = idx % FOUNDER_REELS.length;
+            const config = STAGGER_CONFIG[originalIdx % STAGGER_CONFIG.length];
+            const isCurrent = activeIdx === originalIdx;
+
+            return (
+              <div
+                key={`${reel.id}-${idx}`}
+                onClick={() => {
+                  setActiveIdx(originalIdx);
+                  setSelectedReel(reel);
+                }}
+                onMouseEnter={() => setActiveIdx(originalIdx)}
+                className={`relative w-[180px] sm:w-[220px] md:w-[240px] ${config.height} ${config.offset} rounded-2xl sm:rounded-[26px] overflow-hidden cursor-pointer transition-all duration-500 shrink-0 group ${
+                  isCurrent 
+                    ? 'ring-2 ring-zinc-950/20 shadow-[0_25px_60px_rgba(0,0,0,0.18)] scale-105 z-20' 
+                    : 'shadow-[0_12px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.14)] hover:scale-[1.02] z-10'
+                }`}
+              >
+                {/* PORTRAIT IMAGE IN HIGH-CONTRAST MONOCHROME / GRAYSCALE */}
                 <Image
                   src={reel.image}
                   alt={reel.speaker}
                   fill
-                  sizes="(max-width: 640px) 215px, (max-width: 768px) 260px, 285px"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-95 contrast-105"
-                  priority={index < 5}
+                  sizes="(max-width: 640px) 180px, 240px"
+                  className={`object-cover object-center transition-all duration-700 ${
+                    isCurrent 
+                      ? 'grayscale-0 contrast-105 scale-105' 
+                      : 'grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105'
+                  }`}
+                  priority={idx < 5}
                 />
-              </div>
 
-              {/* CINEMATIC GRADIENT OVERLAYS */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-85 transition-opacity" />
-              <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/80 to-transparent" />
+                {/* SUBTLE GRADIENT VIGNETTE */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
-              {/* TOP HEADER: BADGE + EQUALIZER */}
-              <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md border border-white/20 text-white shadow-lg">
-                  {reel.tag}
-                </span>
-
-                <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
-                  {/* ANIMATED SOUNDWAVE BARS */}
-                  <div className="flex items-center gap-0.5 h-3">
-                    <span className="w-0.5 h-2 bg-emerald-400 rounded-full animate-pulse" style={{ animationDuration: '0.6s' }} />
-                    <span className="w-0.5 h-3 bg-emerald-400 rounded-full animate-pulse" style={{ animationDuration: '0.9s' }} />
-                    <span className="w-0.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" style={{ animationDuration: '0.4s' }} />
-                    <span className="w-0.5 h-2.5 bg-emerald-400 rounded-full animate-pulse" style={{ animationDuration: '0.7s' }} />
-                  </div>
-                  <span className="text-[10px] font-mono text-zinc-300 font-bold">{reel.duration}</span>
-                </div>
-              </div>
-
-              {/* CENTER PLAY BUTTON HOVER PROMPT */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                <div className="w-13 h-13 rounded-full bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-2xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
-                  <Play className="w-6 h-6 fill-white translate-x-0.5 text-white" />
-                </div>
-              </div>
-
-              {/* BOTTOM CONTENT: SUBTITLES & FOUNDER DETAILS */}
-              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end">
-                
-                {/* SUBTITLES CAPTIONS (MATCHING USER REFERENCE) */}
-                <div className="mb-3 whitespace-normal">
-                  <p className="text-[12px] sm:text-[13px] font-semibold text-white/95 leading-snug drop-shadow-md">
-                    <span className="text-yellow-300 font-bold">{reel.quoteHighlight} </span>
-                    <span className="text-zinc-200">{reel.subQuote}</span>
-                  </p>
-                </div>
-
-                {/* SPEAKER & ROLE */}
-                <div className="pt-2.5 border-t border-white/15 flex items-center justify-between">
-                  <div className="overflow-hidden">
-                    <div className="text-xs sm:text-sm font-bold text-white tracking-tight truncate">
-                      {reel.speaker}
-                    </div>
-                    <div className="text-[11px] text-zinc-300 font-medium truncate">
-                      {reel.company}
-                    </div>
-                  </div>
-
-                  {/* AUDITED RESULT BADGE */}
-                  <div className="shrink-0 px-2 py-1 rounded-md bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[10px] font-mono font-bold">
-                    {reel.metric}
+                {/* PLAY BUTTON HOVER PROMPT */}
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <div className={`w-11 h-11 rounded-full bg-white/85 backdrop-blur-md flex items-center justify-center text-zinc-900 shadow-xl transition-all duration-300 ${
+                    isCurrent 
+                      ? 'opacity-100 scale-100' 
+                      : 'opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100'
+                  }`}>
+                    <Play className="w-4 h-4 fill-zinc-900 translate-x-0.5" />
                   </div>
                 </div>
-              </div>
 
-              {/* SUBTLE BRAND WATERMARK */}
-              <div className="absolute top-12 right-4 opacity-40 text-[9px] font-mono font-bold tracking-widest text-zinc-400 uppercase pointer-events-none">
-                @SCALARK.TALKS
+                {/* BOTTOM COMPACT DURATION CHIP */}
+                <div className="absolute bottom-3 inset-x-3 z-10 text-center">
+                  <span className="inline-block px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono font-bold uppercase tracking-wider text-white">
+                    {reel.duration}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
-      {/* FOOTER HINT */}
-      <div className="mt-4 flex items-center justify-center gap-2 text-xs font-mono text-zinc-500">
-        <span>Hover to pause</span>
-        <span>•</span>
-        <span>Click any reel to inspect the full case diagnosis</span>
+      {/* FOUNDER NAME & DETAILS UNDERNEATH (MATCHING REFERENCE "ROBERT ALEX" STYLE) */}
+      <div className="mt-8 sm:mt-12 text-center max-w-xl mx-auto px-4">
+        <h3 className="text-xl sm:text-3xl font-black uppercase tracking-wider text-zinc-950 font-sans transition-all duration-300">
+          {activeReel.speaker}
+        </h3>
+        
+        <p className="text-xs sm:text-sm text-zinc-500 font-medium mt-1">
+          {activeReel.role} • <strong className="text-zinc-800">{activeReel.company}</strong>
+        </p>
+
+        {/* AUDITED BREAKTHROUGH PILL */}
+        <div className="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/90 text-xs font-mono font-bold text-zinc-800 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="text-[#7C3AED]">{activeReel.tag}</span>
+          <span className="text-zinc-300">•</span>
+          <span>{activeReel.metric}</span>
+        </div>
+
+        <p className="mt-3 text-xs sm:text-sm text-zinc-600 italic max-w-md mx-auto leading-relaxed">
+          {activeReel.caption}
+        </p>
       </div>
 
-      {/* INTERACTIVE REEL DETAIL MODAL */}
+      {/* INTERACTIVE VIDEO / AUDIT MODAL */}
       {selectedReel && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fadeIn">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl animate-fadeIn"
+          onClick={() => setSelectedReel(null)}
+        >
           <div 
-            className="relative w-full max-w-4xl bg-[#0B0D13] border border-white/20 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
+            className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] border border-zinc-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* CLOSE BUTTON */}
             <button
               onClick={() => setSelectedReel(null)}
-              className="absolute top-4 right-4 z-30 p-2 rounded-full bg-black/60 hover:bg-white/20 text-white transition-colors border border-white/10"
+              className="absolute top-4 right-4 z-30 p-2.5 rounded-full bg-zinc-900/70 hover:bg-zinc-900 text-white transition-colors shadow-lg"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
             {/* LEFT COLUMN: SIMULATED VERTICAL VIDEO PLAYER */}
@@ -373,63 +431,63 @@ export default function FounderReelsCarousel() {
             </div>
 
             {/* RIGHT COLUMN: DETAILED CASE AUDIT BREAKDOWN */}
-            <div className="flex-1 p-5 sm:p-8 overflow-y-auto max-h-[60vh] md:max-h-[560px] flex flex-col justify-between">
+            <div className="flex-1 p-6 sm:p-8 overflow-y-auto max-h-[60vh] md:max-h-[560px] flex flex-col justify-between bg-white text-zinc-900">
               <div>
                 {/* HEADER INFO */}
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase bg-white/10 text-white border border-white/15">
+                  <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase bg-zinc-100 text-zinc-800 border border-zinc-200">
                     {selectedReel.stage}
                   </span>
-                  <span className="text-xs font-mono text-zinc-400">
+                  <span className="text-xs font-mono text-zinc-500">
                     {selectedReel.industry}
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-1">
+                <h3 className="text-2xl sm:text-3xl font-black text-zinc-950 tracking-tight mb-1">
                   {selectedReel.speaker}
                 </h3>
-                <div className="text-sm font-semibold text-emerald-400 mb-6">
+                <div className="text-sm font-semibold text-[#7C3AED] mb-6">
                   {selectedReel.role} • {selectedReel.company}
                 </div>
 
                 {/* 3-TIER ARCHITECTURAL BREAKDOWN */}
                 <div className="space-y-4 mb-8">
-                  <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400 mb-1">
+                  <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/80">
+                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-rose-600 mb-1">
                       01 • The Operational Bottleneck
                     </div>
-                    <p className="text-sm text-zinc-300 leading-relaxed">
+                    <p className="text-sm text-zinc-700 leading-relaxed">
                       {selectedReel.challenge}
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 mb-1">
+                  <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/80">
+                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 mb-1">
                       02 • Root Cause Diagnosis
                     </div>
-                    <p className="text-sm text-zinc-300 leading-relaxed">
+                    <p className="text-sm text-zinc-700 leading-relaxed">
                       {selectedReel.rootCause}
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-blue-400 mb-1">
+                  <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/80">
+                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 mb-1">
                       03 • SCALARK Systems Intervention
                     </div>
-                    <p className="text-sm text-zinc-300 leading-relaxed">
+                    <p className="text-sm text-zinc-700 leading-relaxed">
                       {selectedReel.approach}
                     </p>
                   </div>
                 </div>
 
                 {/* AUDITED OUTCOME HIGHLIGHT */}
-                <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
+                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">
                       Audited Business Outcome
                     </div>
-                    <div className="text-sm font-bold text-white mt-0.5">
+                    <div className="text-sm font-bold text-zinc-900 mt-0.5">
                       {selectedReel.outcome}
                     </div>
                   </div>
@@ -437,16 +495,16 @@ export default function FounderReelsCarousel() {
               </div>
 
               {/* ACTION FOOTER */}
-              <div className="pt-6 border-t border-white/10 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs font-mono text-zinc-400">
+              <div className="pt-6 border-t border-zinc-200 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-xs font-mono text-zinc-500">
                   Ready to uncover the bottlenecks in your business?
                 </div>
                 <a
-                  href="#contact-diagnosis"
+                  href="/contact"
                   onClick={() => setSelectedReel(null)}
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-black font-black text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 shadow-xl"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-zinc-950 text-white font-bold text-xs uppercase tracking-wider hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 shadow-xl"
                 >
-                  <span>Diagnose My Business Like This</span>
+                  <span>Book Architecture Diagnostic</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>

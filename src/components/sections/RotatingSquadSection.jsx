@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Compass, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const SQUAD_MEMBERS = [
@@ -231,7 +232,7 @@ export default function RotatingSquadSection() {
     <section
       ref={containerRef}
       id="squad"
-      className="py-24 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/[0.08]"
+      className="py-14 sm:py-32 bg-black text-white relative overflow-hidden border-t border-white/[0.08]"
       onMouseDown={handlePointerDown}
       onMouseMove={handlePointerMove}
       onMouseUp={handlePointerUp}
@@ -253,33 +254,33 @@ export default function RotatingSquadSection() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
 
           {/* LEFT COLUMN: DESGRO-STYLE BOLD TYPOGRAPHY */}
-          <div className="lg:col-span-5 space-y-6 select-none">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6 select-none">
 
             {/* ACCENT BADGE */}
             <div className="flex items-center gap-2">
               <span className="w-6 h-[2px] bg-red-500 inline-block" />
-              <span className="font-mono text-xs uppercase tracking-widest text-zinc-400 font-bold">
+              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-zinc-400 font-bold">
                 THE ARCHITECTS BEHIND THE SYSTEM
               </span>
             </div>
 
             {/* DISPLAY HEADLINE MATCHING REFERENCE DESIGN */}
-            <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-[0.88] text-white">
+            <h2 className="text-3xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[0.92] sm:leading-[0.88] text-white">
               SCALARK<br />
               <span className="text-red-500">SYSTEMS</span><br />
               SQUAD
             </h2>
 
             {/* ROLE PILLARS STRIP */}
-            <p className="text-xs sm:text-sm font-mono tracking-wider uppercase text-zinc-400 font-semibold leading-relaxed pt-2">
+            <p className="text-[10px] sm:text-xs font-mono tracking-wider uppercase text-zinc-400 font-semibold leading-relaxed pt-1 sm:pt-2">
               SYSTEMS ARCHITECTS • PROCESS ENGINEERS • REVENUE STRATEGISTS • FINANCIAL AUDITORS • GOVERNANCE LEADS
             </p>
 
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
+            <p className="text-zinc-400 text-xs sm:text-base leading-relaxed font-normal">
               We don't give academic theory. Our cross-functional squad embeds directly into your operations to map workflows, install digital accountability, and free founder bandwidth.
             </p>
 
@@ -328,7 +329,7 @@ export default function RotatingSquadSection() {
 
           {/* RIGHT COLUMN: 3D CYLINDRICAL ROTATING STAGE */}
           <div
-            className="lg:col-span-7 h-[440px] sm:h-[520px] md:h-[580px] relative flex items-center justify-center select-none lg:pl-6 cursor-grab active:cursor-grabbing overflow-hidden sm:overflow-visible"
+            className="lg:col-span-7 h-[360px] sm:h-[500px] md:h-[580px] relative flex items-center justify-center select-none lg:pl-6 cursor-grab active:cursor-grabbing overflow-hidden sm:overflow-visible"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             style={{
@@ -512,13 +513,13 @@ export default function RotatingSquadSection() {
                   Audited Benchmark: {activeMember.metric}
                 </span>
               </div>
-              <a
-                href="#contact-diagnosis"
+              <Link
+                href="/contact"
                 onClick={() => setActiveMember(null)}
-                className="px-6 py-2.5 rounded-full bg-white text-black text-xs font-mono font-bold uppercase tracking-wider hover:bg-zinc-200 transition-colors text-center shadow-md"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white text-black text-xs font-mono font-bold uppercase tracking-wider hover:bg-zinc-200 transition-colors text-center shadow-md active:scale-95"
               >
                 Consult With Squad →
-              </a>
+              </Link>
             </div>
           </div>
         </div>

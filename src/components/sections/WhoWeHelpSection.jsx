@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { ArrowRight, Building, Compass, Flame, Rocket, TrendingUp, Users } from 'lucide-react';
 import { soundFx } from '@/utils/sound';
 
@@ -55,69 +56,63 @@ export default function WhoWeHelpSection({ t }) {
     }
   ];
 
-  const scrollToContact = () => {
-    soundFx.playClick();
-    const el = document.getElementById('contact-diagnosis');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section id="who-we-help" className="py-28 md:py-36 px-6 bg-black border-t border-white/10">
+    <section id="who-we-help" className="py-14 sm:py-28 px-4 sm:px-6 bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         {/* HEADER (NATYA STYLE) */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-zinc-500 mb-4 block font-mono">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-zinc-500 mb-3 sm:mb-4 block font-mono">
             SECTION 10 — WHO WE HELP
           </span>
-          <h3 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white mb-6">
+          <h3 className="text-2xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white mb-4 sm:mb-6">
             Different Businesses.
             <br />
             <span className="text-zinc-500">Different Problems.</span>
           </h3>
-          <p className="text-base sm:text-xl text-zinc-400 font-normal leading-relaxed">
+          <p className="text-xs sm:text-lg text-zinc-400 font-normal leading-relaxed">
             Every business stage requires a distinct architectural approach. We tailor our interventions to the reality of your current size and ambition.
           </p>
         </div>
 
         {/* 6 AUDIENCE CARDS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {audiences.map((aud, idx) => {
             const Icon = aud.icon;
             return (
               <div
                 key={idx}
-                className="p-8 rounded-[2rem] bg-gradient-to-br from-[#151515] to-[#0a0a0a] border border-white/10 shadow-2xl flex flex-col justify-between hover:border-white/40 transition-all duration-500 hover:-translate-y-1"
+                className="p-5 sm:p-8 rounded-2xl sm:rounded-[2rem] bg-gradient-to-br from-[#151515] to-[#0a0a0a] border border-white/10 shadow-2xl flex flex-col justify-between hover:border-white/40 transition-all duration-300 sm:hover:-translate-y-1"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-white" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 px-3 py-1 rounded-full bg-black/50 border border-white/10">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/50 border border-white/10">
                       {aud.tag}
                     </span>
                   </div>
 
-                  <h4 className="text-2xl font-bold text-white mb-2">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-2">
                     {aud.title}
                   </h4>
 
-                  <p className="text-xs font-semibold text-white mb-4">
+                  <p className="text-xs font-semibold text-zinc-200 mb-3 sm:mb-4">
                     {aud.lead}
                   </p>
 
-                  <p className="text-sm text-zinc-400 leading-relaxed font-normal mb-6">
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal mb-5 sm:mb-6">
                     {aud.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-white/5">
-                  <button
-                    onClick={scrollToContact}
-                    className="text-xs font-semibold text-white hover:text-white flex items-center gap-1.5 transition-colors"
+                <div className="pt-4 sm:pt-6 border-t border-white/5">
+                  <Link
+                    href="/contact"
+                    className="text-xs font-semibold text-white hover:text-zinc-300 flex items-center gap-1.5 transition-colors"
                   >
                     <span>{aud.cta}</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             );

@@ -1,32 +1,25 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Globe, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
-export default function Header({ currentLang, setLang, t, openModal }) {
+export default function Header({ currentLang: propLang, setLang: propSetLang }) {
+  const { currentLang: ctxLang, setLang: ctxSetLang } = useLanguage();
+  const currentLang = propLang || ctxLang;
+  const setLang = propSetLang || ctxSetLang;
+
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      const sections = ['hero', 'the-mirror', 'solutions', 'framework', 'case-studies', 'contact-diagnosis'];
-      const scrollPos = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -38,13 +31,14 @@ export default function Header({ currentLang, setLang, t, openModal }) {
     setLangDropdownOpen(false);
   };
 
-  const scrollTo = (id) => {
-    setMobileMenuOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/who-we-help', label: 'Who We Help' },
+    { href: '/solutions', label: 'What We Solve' },
+    { href: '/how-we-work', label: 'How We Work' },
+    { href: '/case-studies', label: 'Case Studies' },
+    { href: '/about', label: 'About' }
+  ];
 
   const languages = [
     { code: 'EN', label: 'English' },
@@ -54,79 +48,53 @@ export default function Header({ currentLang, setLang, t, openModal }) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out flex justify-center pt-4 sm:pt-6 px-4 pointer-events-none">
-      <div
-        className="flex justify-between items-center w-full max-w-6xl transition-all duration-300 pointer-events-auto px-4 sm:px-6 py-2.5"
-      >
-        {/* BRAND LOGO: ULTRA-CLEAN STRIPE/LINEAR STYLE */}
-        <div
-          onClick={() => scrollTo('hero')}
-          className="flex items-center gap-2 cursor-pointer group select-none"
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out flex justify-center px-2.5 sm:px-6 pointer-events-none ${
+      scrolled ? 'pt-2 sm:pt-3' : 'pt-3 sm:pt-5'
+    }`}>
+      <div className={`flex justify-between items-center w-full max-w-6xl transition-all duration-300 pointer-events-auto px-3 sm:px-6 py-2 sm:py-2.5 rounded-full ${
+        scrolled 
+          ? 'bg-[#0B0E14]/95 backdrop-blur-xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.65)]' 
+          : 'bg-[#0B0E14]/75 backdrop-blur-md border border-white/10 shadow-lg'
+      }`}>
+        
+        {/* BRAND LOGO */}
+        <Link
+          href="/"
+          className="flex items-center gap-2 sm:gap-3 cursor-pointer group select-none shrink-0"
         >
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-white via-zinc-200 to-zinc-400 flex items-center justify-center text-black font-extrabold text-sm tracking-tighter shadow-sm group-hover:scale-105 transition-transform">
-            S
+          <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+            <Image
+              src="/logo_white_transparent.png"
+              alt="SCALARK"
+              width={40}
+              height={40}
+              className="w-7 h-7 sm:w-9 sm:h-9 object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.25)]"
+              priority
+            />
           </div>
-          <span className="text-lg font-bold tracking-tight text-white font-sans uppercase">
+          <span className="text-base sm:text-xl font-extrabold tracking-tight text-white font-sans uppercase">
             SCALARK
           </span>
-        </div>
+        </Link>
 
-        {/* CENTER FLOATING PILL NAVBAR - EXACTLY FROM SCALARK.PDF */}
+        {/* CENTER FLOATING PILL NAVBAR */}
         <nav className="hidden md:flex items-center space-x-1 bg-[#10131A]/80 backdrop-blur-xl border border-white/[0.08] rounded-full px-3 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-          <button
-            onClick={() => scrollTo('hero')}
-            className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all rounded-full ${
-              activeSection === 'hero'
-                ? 'bg-white/10 text-white font-semibold'
-                : 'text-zinc-400 hover:text-white'
-            }`}
-          >
-            Home
-          </button>
-          <button
-            onClick={() => openModal('who-we-help')}
-            className="px-3.5 py-1.5 text-xs font-medium tracking-wide text-zinc-400 hover:text-white transition-all rounded-full flex items-center gap-1"
-          >
-            <span>Who We Help</span>
-            <ChevronDown className="w-3 h-3 opacity-60" />
-          </button>
-          <button
-            onClick={() => scrollTo('solutions')}
-            className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all rounded-full flex items-center gap-1 ${
-              activeSection === 'solutions'
-                ? 'bg-white/10 text-white font-semibold'
-                : 'text-zinc-400 hover:text-white'
-            }`}
-          >
-            <span>What We Solve</span>
-            <ChevronDown className="w-3 h-3 opacity-60" />
-          </button>
-          <button
-            onClick={() => scrollTo('framework')}
-            className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all rounded-full ${
-              activeSection === 'framework'
-                ? 'bg-white/10 text-white font-semibold'
-                : 'text-zinc-400 hover:text-white'
-            }`}
-          >
-            How We Work
-          </button>
-          <button
-            onClick={() => scrollTo('case-studies')}
-            className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all rounded-full ${
-              activeSection === 'case-studies'
-                ? 'bg-white/10 text-white font-semibold'
-                : 'text-zinc-400 hover:text-white'
-            }`}
-          >
-            Case Studies
-          </button>
-          <button
-            onClick={() => openModal('about')}
-            className="px-3.5 py-1.5 text-xs font-medium tracking-wide text-zinc-400 hover:text-white transition-all rounded-full"
-          >
-            About
-          </button>
+          {navLinks.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all rounded-full ${
+                  isActive
+                    ? 'bg-white/10 text-white font-semibold shadow-inner'
+                    : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* RIGHT CONTROLS: LANGUAGE + HIGH-CONTRAST ENTERPRISE CTA */}
@@ -163,14 +131,14 @@ export default function Header({ currentLang, setLang, t, openModal }) {
             )}
           </div>
 
-          {/* HIGH-CONTRAST ENTERPRISE CTA (STRIPE / LINEAR FINISH) */}
-          <button
-            onClick={() => scrollTo('contact-diagnosis')}
+          {/* HIGH-CONTRAST ENTERPRISE CTA */}
+          <Link
+            href="/contact"
             className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 bg-white text-black hover:bg-zinc-200 text-[11px] sm:text-xs font-bold rounded-full transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-95 whitespace-nowrap"
           >
-            <span>Diagnose My Business</span>
+            <span>Book a Call</span>
             <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
-          </button>
+          </Link>
 
           {/* MOBILE MENU TOGGLE */}
           <button
@@ -188,14 +156,24 @@ export default function Header({ currentLang, setLang, t, openModal }) {
         <div className="fixed inset-0 bg-[#07090E]/98 backdrop-blur-2xl z-50 md:hidden flex flex-col p-6 pt-5 space-y-6 pointer-events-auto overflow-y-auto">
           {/* DRAWER HEADER WITH LOGO & CLOSE BUTTON */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-white text-black flex items-center justify-center font-extrabold text-sm">
-                S
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-3"
+            >
+              <div className="relative w-9 h-9 flex items-center justify-center">
+                <Image
+                  src="/logo_white_transparent.png"
+                  alt="SCALARK"
+                  width={36}
+                  height={36}
+                  className="w-8 h-8 object-contain"
+                />
               </div>
-              <span className="text-base font-bold tracking-tight text-white uppercase">
+              <span className="text-lg font-extrabold tracking-tight text-white uppercase">
                 SCALARK
               </span>
-            </div>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(false)}
               className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center"
@@ -207,54 +185,19 @@ export default function Header({ currentLang, setLang, t, openModal }) {
 
           {/* NAVIGATION LINKS */}
           <div className="space-y-1 text-base font-semibold">
-            <button
-              onClick={() => scrollTo('hero')}
-              className="w-full text-left text-zinc-200 hover:text-white py-3 border-b border-white/10 flex items-center justify-between"
-            >
-              <span>Home</span>
-              <ArrowRight className="w-4 h-4 text-zinc-400" />
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openModal('who-we-help');
-              }}
-              className="w-full text-left text-zinc-200 hover:text-white py-3 border-b border-white/10 flex items-center justify-between"
-            >
-              <span>Who We Help</span>
-              <ArrowRight className="w-4 h-4 text-zinc-400" />
-            </button>
-            <button
-              onClick={() => scrollTo('solutions')}
-              className="w-full text-left text-zinc-200 hover:text-white py-3 border-b border-white/10 flex items-center justify-between"
-            >
-              <span>What We Solve</span>
-              <ArrowRight className="w-4 h-4 text-zinc-400" />
-            </button>
-            <button
-              onClick={() => scrollTo('framework')}
-              className="w-full text-left text-zinc-200 hover:text-white py-3 border-b border-white/10 flex items-center justify-between"
-            >
-              <span>How We Work</span>
-              <ArrowRight className="w-4 h-4 text-zinc-400" />
-            </button>
-            <button
-              onClick={() => scrollTo('case-studies')}
-              className="w-full text-left text-zinc-200 hover:text-white py-3 border-b border-white/10 flex items-center justify-between"
-            >
-              <span>Case Studies</span>
-              <ArrowRight className="w-4 h-4 text-zinc-400" />
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openModal('about');
-              }}
-              className="w-full text-left text-zinc-200 hover:text-white py-3 border-b border-white/10 flex items-center justify-between"
-            >
-              <span>About SCALARK</span>
-              <ArrowRight className="w-4 h-4 text-zinc-400" />
-            </button>
+            {navLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`w-full py-3 border-b border-white/10 flex items-center justify-between transition-colors ${
+                  pathname === item.href ? 'text-white font-bold' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                <span>{item.label}</span>
+                <ArrowRight className="w-4 h-4 text-zinc-500" />
+              </Link>
+            ))}
           </div>
 
           {/* MOBILE LANGUAGE SELECTOR */}
@@ -281,13 +224,14 @@ export default function Header({ currentLang, setLang, t, openModal }) {
 
           {/* MOBILE CTA BUTTON */}
           <div className="pt-2">
-            <button
-              onClick={() => scrollTo('contact-diagnosis')}
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full py-3.5 bg-white text-black font-bold text-xs rounded-full shadow-lg flex items-center justify-center gap-2 active:scale-95"
             >
-              <span>Diagnose My Business</span>
+              <span>Book a Call</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
       )}

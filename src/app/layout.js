@@ -37,11 +37,15 @@ export const metadata = {
   ]
 };
 
+import AppLayout from '@/components/common/AppLayout';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`scroll-smooth ${plusJakarta.variable} ${spaceGrotesk.variable} ${caveat.variable}`}>
       <body className="bg-black text-white min-h-screen antialiased selection:bg-[#FFFFFF] selection:text-black">
-        {children}
+        <AppLayout>
+          {children}
+        </AppLayout>
       </body>
     </html>
   );

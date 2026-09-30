@@ -82,6 +82,7 @@ h1, h2, h3, .font-display {
 /* Minimalist Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -91,6 +92,18 @@ h1, h2, h3, .font-display {
 ::-webkit-scrollbar-thumb {
   background: #FFFFFF;
   border-radius: 9999px;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
 
 /* Selection Highlight in GrowMedLink Lime */
