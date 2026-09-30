@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,6 +9,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll({ children }) {
+  const pathname = usePathname();
+  const lenisRef = useRef(null);
+
   useEffect(() => {
     // Initialize Lenis smooth scroll
     const lenis = new Lenis({
@@ -21,6 +25,11 @@ export default function SmoothScroll({ children }) {
       infinite: false
     });
 
+    lenisRef.current = lenis;
+    if (typeof window !== 'undefined') {
+      window.__lenis = lenis;
+    }
+
     lenis.on('scroll', ScrollTrigger.update);
 
     const updateGsap = (time) => {
@@ -33,8 +42,28 @@ export default function SmoothScroll({ children }) {
     return () => {
       gsap.ticker.remove(updateGsap);
       lenis.destroy();
+      lenisRef.current = null;
+      if (typeof window !== 'undefined') {
+        window.__lenis = null;
+      }
     };
   }, []);
+
+  // When route changes, reset scroll to top immediately and unlock body
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+        lenisRef.current.start();
+      }
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 }
