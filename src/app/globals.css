@@ -136,55 +136,7 @@ h1, h2, h3, .font-display {
   box-shadow: 0 25px 60px -15px rgba(255, 255, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-/* Desgro 3D Continuous Star / Asterisk Tumble Keyframes */
-@keyframes spin3D {
-  0% {
-    transform: rotateY(0deg) rotateX(15deg) rotateZ(0deg);
-  }
-  50% {
-    transform: rotateY(180deg) rotateX(-15deg) rotateZ(180deg);
-  }
-  100% {
-    transform: rotateY(360deg) rotateX(15deg) rotateZ(360deg);
-  }
-}
 
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(1deg);
-  }
-}
-
-@keyframes floatReverse {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(10px) rotate(-1deg);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.65;
-    transform: scale(1.08);
-  }
-}
-
-.animate-spin-3d {
-  animation: spin3D 12s linear infinite;
-}
-
-.animate-spin-3d-fast {
-  animation: spin3D 8s linear infinite;
-}
 
 .animate-float-slow {
   animation: floatSlow 6s ease-in-out infinite;

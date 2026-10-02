@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2, GitBranch, Layers, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, GitBranch, Layers } from 'lucide-react';
 import { soundFx } from '@/utils/sound';
 
 import Link from 'next/link';

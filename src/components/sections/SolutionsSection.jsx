@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight, Check, ChevronRight, Layers, BarChart3, Activity, Users, X, Sparkles, TrendingUp, MonitorCheck } from 'lucide-react';
+import { ArrowUpRight, Check, ChevronRight, Layers, BarChart3, Activity, Users, X, TrendingUp, MonitorCheck } from 'lucide-react';
 import { SOLUTIONS_DATA } from '@/data/contentData';
 import ScrollReveal from '@/components/common/ScrollReveal';
 
@@ -366,7 +366,7 @@ export default function SolutionsSection({ t }) {
 
                 <div className="p-4 rounded-2xl bg-[#061233] border border-[#0084FF]/30 space-y-2">
                   <div className="text-xs font-bold text-white uppercase font-tech flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0084FF]" />
                     Target Operational Deliverable
                   </div>
                   <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">

@@ -1,6 +1,6 @@
 'use client';
 
-import { Clock, ShieldCheck, TrendingUp, Globe, CheckCircle2, Sparkles, Building2 } from 'lucide-react';
+import { Clock, ShieldCheck, TrendingUp, Globe, CheckCircle2, Building2 } from 'lucide-react';
 
 export default function EnterpriseMetricsBar() {
   const metrics = [
@@ -81,7 +81,7 @@ export default function EnterpriseMetricsBar() {
 
           <div className="flex items-center gap-3 text-[11px] font-mono text-zinc-400">
             <span className="flex items-center gap-1.5 text-zinc-300">
-              <Sparkles className="w-3.5 h-3.5 text-[#0084FF]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0084FF]" />
               Measurable Operational Results
             </span>
           </div>

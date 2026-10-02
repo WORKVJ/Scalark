@@ -4,7 +4,7 @@ import { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { DIAGNOSTIC_QUESTIONS } from '@/data/contentData';
 import { soundFx } from '@/utils/sound';
-import { ArrowRight, CheckCircle2, RotateCcw, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, RotateCcw } from 'lucide-react';
 
 export default function DiagnosticEngineSection({ t }) {
   const [selectedChallenge, setSelectedChallenge] = useState('Sales');

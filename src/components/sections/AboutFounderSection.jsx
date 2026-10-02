@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, CheckCircle2, Globe2, Quote, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe2, Quote } from 'lucide-react';
 import { soundFx } from '@/utils/sound';
 
 import Link from 'next/link';
@@ -13,7 +13,7 @@ export default function AboutFounderSection({ t }) {
         {/* LEFT COLUMN: THE TITLE & BADGE */}
         <div className="lg:col-span-5 space-y-4 sm:space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#081B4E] rounded-full text-xs font-medium tracking-widest text-blue-200 border border-[#0084FF]/30 font-mono">
-            <Sparkles className="w-3.5 h-3.5 text-blue-300" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0084FF]" />
             <span>GLOBAL ARCHITECTURE</span>
           </div>
 

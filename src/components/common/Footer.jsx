@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Mail, MessageSquare, ArrowUp } from 'lucide-react';
-import FloatingAsterisk3D from '@/components/common/FloatingAsterisk3D';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer({ currentLang: propLang, setLang: propSetLang }) {
@@ -31,9 +30,6 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
             <span className="text-[11px] sm:text-xs font-tech font-black uppercase tracking-widest text-white bg-[#0084FF] px-3.5 py-1 rounded-full inline-block shadow-sm">
               GET IN TOUCH
             </span>
-            <div className="w-7 h-7 sm:w-8 sm:h-8 hidden sm:block">
-              <FloatingAsterisk3D size={32} color="#0084FF" speed="fast" />
-            </div>
           </div>
 
           <h2 className="text-3xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[1.0] text-black font-sans">

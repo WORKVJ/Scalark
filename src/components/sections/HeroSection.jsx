@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Check, CheckCircle2, ChevronRight, Activity, Layers, TrendingUp, ShieldCheck, BarChart3, Clock, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, CheckCircle2, ChevronRight, Activity, Layers, TrendingUp, ShieldCheck, BarChart3, Clock } from 'lucide-react';
 
 export default function HeroSection({ t }) {
   // Active workflow stage in the interactive Systems Console

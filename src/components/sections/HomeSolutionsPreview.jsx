@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Layers, BarChart3, DollarSign, Users, CheckCircle2, ChevronRight, Sparkles, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Layers, BarChart3, DollarSign, Users, CheckCircle2, ChevronRight, ArrowUpRight } from 'lucide-react';
 
 export default function HomeSolutionsPreview() {
   const [activePillar, setActivePillar] = useState(0);
@@ -228,7 +228,7 @@ export default function HomeSolutionsPreview() {
                     <div className="space-y-4 pt-1 animate-fade-in">
                       {/* Metric Callout Banner */}
                       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-500/15 border border-blue-400/30">
-                        <Sparkles className="w-3.5 h-3.5 text-blue-300 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
                         <span className="text-xs font-mono font-bold text-blue-200">
                           {p.headlineMetric}
                         </span>

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Quote, Globe, Shield, Sparkles } from 'lucide-react';
+import { ArrowRight, Quote, Globe, Shield } from 'lucide-react';
 
 export default function HomeAboutPreview() {
   return (

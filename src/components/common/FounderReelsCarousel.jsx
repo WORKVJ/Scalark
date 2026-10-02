@@ -12,7 +12,6 @@ import {
   VolumeX, 
   CheckCircle2, 
   ArrowUpRight, 
-  Sparkles,
   Flame
 } from 'lucide-react';
 

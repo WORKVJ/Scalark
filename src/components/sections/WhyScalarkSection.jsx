@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, Sparkles } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { soundFx } from '@/utils/sound';
 
 export default function WhyScalarkSection({ t }) {

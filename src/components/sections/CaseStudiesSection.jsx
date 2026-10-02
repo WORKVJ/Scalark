@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { CASE_STUDIES } from '@/data/contentData';
-import { Quote, ArrowUpRight, CheckCircle2, Star, Sparkles, Film, FileText } from 'lucide-react';
+import { Quote, ArrowUpRight, CheckCircle2, Star, Film, FileText } from 'lucide-react';
 import ScrollReveal from '@/components/common/ScrollReveal';
 import FounderReelsCarousel from '@/components/common/FounderReelsCarousel';
 
@@ -24,7 +24,7 @@ export default function CaseStudiesSection({ t }) {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-[#0084FF]/20 text-[10px] sm:text-xs font-mono font-bold text-[#0084FF] mb-3 sm:mb-4 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-[#0084FF]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0084FF]" />
                 <span>VERIFIED CLIENT OUTCOMES & INTERVIEWS</span>
               </div>
 

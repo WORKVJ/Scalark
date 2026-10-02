@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Compass, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Compass, CheckCircle2 } from 'lucide-react';
 
 export const SQUAD_MEMBERS = [
   {
