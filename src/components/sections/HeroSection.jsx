@@ -82,43 +82,43 @@ export default function HeroSection({ t }) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-28 pb-20 overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#081845] via-[#091D56] to-[#061233] text-white selection:bg-[#0084FF] selection:text-white"
+      className="relative min-h-screen pt-28 pb-20 overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#DCEBFE] via-[#EDF5FF] to-[#F8FAFC] text-slate-900 selection:bg-[#0084FF] selection:text-white"
     >
-      {/* 1. STRIPE / LINEAR STYLE AMBIENT SPOTLIGHT & MESH GRID */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-b from-[#0084FF]/35 via-[#38BDF8]/15 to-transparent blur-[130px] pointer-events-none rounded-full" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+      {/* 1. STRIPE / LINEAR STYLE AMBIENT SPOTLIGHT & BLUEPRINT MESH GRID */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-b from-[#0084FF]/25 via-[#38BDF8]/15 to-transparent blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,132,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,132,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
       {/* 2. HERO HEADLINE & VALUE PROPOSITION */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 w-full text-center flex flex-col items-center pt-2 sm:pt-4">
         
         {/* PILL BADGE: CORE BRAND PROMISE (SCALARK.PDF PAGE 1) */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-white/20 transition-colors backdrop-blur-md mb-6 shadow-sm group cursor-pointer">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs font-medium text-zinc-300 tracking-wide font-sans">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/85 border border-blue-200/80 hover:border-[#0084FF]/50 transition-colors backdrop-blur-md mb-6 shadow-xs group cursor-pointer">
+          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="text-xs font-semibold text-[#0369A1] tracking-wide font-sans">
             Find the Problem. Fix the System. Scale the Business.
           </span>
-          <ChevronRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+          <ChevronRight className="w-3.5 h-3.5 text-[#0084FF] group-hover:translate-x-0.5 transition-transform" />
         </div>
 
         {/* EDITORIAL HEADLINE (EXACTLY FROM SCALARK.PDF PAGE 2) */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12] sm:leading-[1.08] max-w-4xl mx-auto mb-5 sm:mb-6 text-white font-sans px-2">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12] sm:leading-[1.08] max-w-4xl mx-auto mb-5 sm:mb-6 text-[#081B4E] font-sans px-2">
           Your business doesn't need more effort.{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-300 to-zinc-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0062E3] via-[#0284C7] to-[#0A3C9E]">
             It needs a better system.
           </span>
         </h1>
 
         {/* SUBTITLE (EXACTLY FROM SCALARK.PDF PAGE 2) */}
-        <p className="text-xs sm:text-base md:text-lg text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed mb-6 sm:mb-8 px-2">
+        <p className="text-xs sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed mb-6 sm:mb-8 px-2">
           SCALARK helps entrepreneurs, startups, SMEs and MSMEs identify what's holding their business back, fix the underlying systems and build a stronger organisation designed for sustainable growth.
         </p>
 
-        {/* DUAL ACTION BUTTONS (STRIPE / LINEAR HIGH-CONTRAST STYLE) */}
+        {/* DUAL ACTION BUTTONS (HIGH-CONTRAST ENTERPRISE STYLE) */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none mx-auto sm:w-auto">
           {/* PRIMARY BUTTON */}
           <Link
             href="/contact"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-white text-black hover:bg-zinc-200 font-bold text-xs sm:text-sm rounded-full transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.18)] active:scale-95"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-[#0084FF] hover:bg-[#0070E0] text-white font-extrabold text-xs sm:text-sm rounded-full transition-all duration-200 shadow-[0_12px_30px_rgba(0,132,255,0.35)] hover:scale-[1.02] active:scale-95"
           >
             <span>Find What's Holding My Business Back</span>
             <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -127,52 +127,52 @@ export default function HeroSection({ t }) {
           {/* SECONDARY BUTTON */}
           <Link
             href="/solutions"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white border border-white/[0.08] font-medium text-xs sm:text-sm rounded-full backdrop-blur-xl transition-all duration-200 active:scale-95"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-white hover:bg-slate-50 text-[#081B4E] hover:text-[#0084FF] border border-blue-200/80 hover:border-[#0084FF]/50 font-bold text-xs sm:text-sm rounded-full backdrop-blur-xl transition-all duration-200 shadow-xs active:scale-95"
           >
             <span>Explore How SCALARK Helps</span>
-            <ArrowRight className="w-3.5 h-3.5 text-zinc-500" />
+            <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
           </Link>
         </div>
 
         {/* 6 CORE ARCHITECTURAL DOMAINS (SCALARK.PDF PAGE 3) */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-mono text-zinc-500 uppercase tracking-wider">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
           <span>Business Growth</span>
-          <span className="text-zinc-700">•</span>
+          <span className="text-blue-300">•</span>
           <span>Operations</span>
-          <span className="text-zinc-700">•</span>
+          <span className="text-blue-300">•</span>
           <span>Finance</span>
-          <span className="text-zinc-700">•</span>
+          <span className="text-blue-300">•</span>
           <span>Sales</span>
-          <span className="text-zinc-700">•</span>
+          <span className="text-blue-300">•</span>
           <span>Technology</span>
-          <span className="text-zinc-700">•</span>
+          <span className="text-blue-300">•</span>
           <span>Performance</span>
         </div>
       </div>
 
       {/* 3. INTERACTIVE ENTERPRISE SYSTEMS CONSOLE (LINEAR / STRIPE STYLE) */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 w-full mt-12 md:mt-16">
-        <div className="rounded-2xl bg-[#081B4E]/85 backdrop-blur-2xl border border-[#0084FF]/35 p-5 sm:p-7 shadow-[0_30px_90px_rgba(4,14,46,0.85)] relative overflow-hidden">
+        <div className="rounded-3xl bg-white/95 backdrop-blur-2xl border border-blue-100 shadow-[0_25px_70px_rgba(0,80,200,0.08)] p-5 sm:p-7 relative overflow-hidden">
           
           {/* Subtle top inner border highlight */}
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0084FF]/50 to-transparent" />
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0084FF]/40 to-transparent" />
 
           {/* CONSOLE TOP BAR */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/[0.08] mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-100 mb-6">
             <div className="flex items-center gap-3">
               <div className="flex items-center space-x-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
               </div>
-              <span className="text-xs font-mono uppercase tracking-widest text-zinc-300 font-medium">
+              <span className="text-xs font-mono uppercase tracking-widest text-slate-700 font-bold">
                 SCALARK Systems Architecture Console
               </span>
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[11px] font-mono text-zinc-300 uppercase tracking-wider">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[11px] font-mono text-[#0284C7] font-semibold uppercase tracking-wider">
                 Status: {currentStage.status}
               </span>
             </div>
@@ -186,14 +186,14 @@ export default function HeroSection({ t }) {
                 <button
                   key={stage.id}
                   onClick={() => setActiveStage(stage.id)}
-                  className={`px-3 py-2.5 rounded-xl text-left transition-all duration-200 border shrink-0 min-w-[96px] sm:min-w-0 flex-1 sm:flex-initial ${
+                  className={`px-3 py-2.5 rounded-xl text-left transition-all duration-200 border shrink-0 min-w-[96px] sm:min-w-0 flex-1 sm:flex-initial cursor-pointer ${
                     isActive
-                      ? 'bg-[#0084FF] border-[#0084FF] text-white shadow-md'
-                      : 'bg-white/[0.03] border-white/[0.06] text-zinc-300 hover:text-white hover:bg-white/[0.08]'
+                      ? 'bg-[#0084FF] border-[#0084FF] text-white shadow-md shadow-blue-500/25'
+                      : 'bg-blue-50/60 border-blue-100 text-slate-600 hover:text-slate-900 hover:bg-blue-100/60'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-mono font-semibold opacity-70">
+                    <span className="text-[10px] font-mono font-semibold opacity-80">
                       {stage.num}
                     </span>
                     {isActive && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
@@ -210,13 +210,13 @@ export default function HeroSection({ t }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             {/* LEFT: STAGE DOCTRINE & SCOPE */}
             <div className="lg:col-span-6 space-y-3">
-              <div className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+              <div className="text-xs font-mono uppercase tracking-wider text-[#0284C7] font-bold">
                 Stage {currentStage.num} • {currentStage.tagline}
               </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#081B4E] tracking-tight">
                 {currentStage.tagline}
               </h3>
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 {currentStage.desc}
               </p>
 
@@ -225,7 +225,7 @@ export default function HeroSection({ t }) {
                 {currentStage.domains.map((dom, i) => (
                   <span
                     key={i}
-                    className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.06] text-[11px] font-mono text-zinc-300"
+                    className="px-2.5 py-1 rounded-md bg-blue-50 border border-blue-100 text-[11px] font-mono text-[#0284C7] font-semibold"
                   >
                     {dom}
                   </span>
@@ -235,29 +235,29 @@ export default function HeroSection({ t }) {
 
             {/* RIGHT: 3 LIVE TELEMETRY CARDS */}
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] flex flex-col justify-between">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-2">
+              <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100/80 flex flex-col justify-between shadow-xs">
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold mb-2">
                   {currentStage.metric1.label}
                 </span>
-                <span className="text-lg font-bold text-white tracking-tight">
+                <span className="text-lg font-black text-[#081B4E] tracking-tight font-tech">
                   {currentStage.metric1.value}
                 </span>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] flex flex-col justify-between">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-2">
+              <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100/80 flex flex-col justify-between shadow-xs">
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold mb-2">
                   {currentStage.metric2.label}
                 </span>
-                <span className="text-lg font-bold text-white tracking-tight">
+                <span className="text-lg font-black text-[#081B4E] tracking-tight font-tech">
                   {currentStage.metric2.value}
                 </span>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] flex flex-col justify-between">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-2">
+              <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100/80 flex flex-col justify-between shadow-xs">
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold mb-2">
                   {currentStage.metric3.label}
                 </span>
-                <span className="text-lg font-bold text-white tracking-tight">
+                <span className="text-lg font-black text-[#081B4E] tracking-tight font-tech">
                   {currentStage.metric3.value}
                 </span>
               </div>
@@ -265,25 +265,25 @@ export default function HeroSection({ t }) {
           </div>
 
           {/* CONSOLE FOOTER: VERIFIED INSTITUTIONAL BENCHMARKS */}
-          <div className="mt-6 pt-5 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+          <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-slate-600">
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] sm:text-xs">
               <div>
-                <span className="text-white font-bold">250+</span> Audits Completed
+                <span className="text-[#081B4E] font-bold">250+</span> Audits Completed
               </div>
               <div>
-                <span className="text-white font-bold">65%</span> Owner Time Recovered
+                <span className="text-[#081B4E] font-bold">65%</span> Owner Time Recovered
               </div>
               <div>
-                <span className="text-white font-bold">4.62x</span> Target Multiple
+                <span className="text-[#081B4E] font-bold">4.62x</span> Target Multiple
               </div>
             </div>
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1.5 text-white hover:text-zinc-200 font-sans font-semibold text-xs transition-colors self-start sm:self-auto"
+              className="inline-flex items-center gap-1.5 text-[#0084FF] hover:text-[#0060DF] font-sans font-bold text-xs transition-colors self-start sm:self-auto"
             >
               <span>Request Diagnostic Audit</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </Link>
           </div>
 
@@ -292,24 +292,24 @@ export default function HeroSection({ t }) {
 
       {/* 4. BUSINESS STAGES ACCREDITATION BAR (SCALARK.PDF SECTION 03) */}
       <div className="relative z-10 w-full pt-14 text-center">
-        <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-4 font-mono">
+        <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 font-mono">
           ENGINEERED FOR FOUNDERS & LEADERSHIP AT EVERY STAGE
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono text-zinc-400">
-          <span className="px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06]">
+        <div className="max-w-5xl mx-auto px-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono text-slate-700">
+          <span className="px-3.5 py-1.5 rounded-full bg-white/90 border border-blue-200/70 shadow-xs font-semibold">
             STARTUPS
           </span>
-          <span className="px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06]">
+          <span className="px-3.5 py-1.5 rounded-full bg-white/90 border border-blue-200/70 shadow-xs font-semibold">
             NEW ENTREPRENEURS
           </span>
-          <span className="px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06]">
+          <span className="px-3.5 py-1.5 rounded-full bg-white/90 border border-blue-200/70 shadow-xs font-semibold">
             GROWING BUSINESSES
           </span>
-          <span className="px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06]">
+          <span className="px-3.5 py-1.5 rounded-full bg-white/90 border border-blue-200/70 shadow-xs font-semibold">
             SMES & MSMES
           </span>
-          <span className="px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06]">
+          <span className="px-3.5 py-1.5 rounded-full bg-white/90 border border-blue-200/70 shadow-xs font-semibold">
             BUSINESSES IN CRISIS
           </span>
         </div>
