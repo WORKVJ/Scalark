@@ -114,25 +114,22 @@ export default function TheMirrorSection({ t }) {
         </div>
       </ScrollReveal>
 
-      {/* 2 & 3. CONCAVE BENTO GRID (EXACTLY MATCHING REFERENCE IMAGE) */}
+      {/* 2 & 3. CONCAVE BENTO GRID (EXACTLY MATCHING REFERENCE DESIGN) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_1fr] gap-4 sm:gap-5 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_1fr] gap-5 items-end">
           
           {/* CENTER HEADER (DESKTOP: ROW 1, COLS 2-3 | MOBILE/MD: TOP FULL WIDTH) */}
           <div className="col-span-1 md:col-span-2 lg:col-start-2 lg:col-span-2 lg:row-start-1 lg:self-end lg:pb-8 text-center mb-8 lg:mb-0">
             <ScrollReveal direction="up" distance={25} delay={50}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-mono font-bold text-[#0084FF] mb-3">
-                <span>THE OPERATIONAL MIRROR</span>
-              </div>
-              <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-black leading-[1.15] font-sans">
-                Business Bottlenecks,{' '}
-                <span className="relative inline-block px-3 sm:px-4 py-0.5 rounded-full bg-blue-100/90 text-[#0084FF] font-black">
-                  Made Obvious
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-black leading-[1.15] font-sans">
+                Why manual hustle{' '}
+                <span className="relative inline-block px-3.5 sm:px-4 py-0.5 rounded-full bg-blue-100/90 text-[#0084FF] font-black">
+                  isn't enough
                 </span>
               </h2>
               <div className="mt-3 flex flex-col items-center">
-                <p className="text-xs sm:text-base text-zinc-600 max-w-md mx-auto font-medium leading-relaxed">
-                  Operational friction is not accidental. It is systematic. Here is how underlying constraints hold back ambitious companies.
+                <p className="text-sm sm:text-base text-zinc-600 max-w-md mx-auto font-medium leading-relaxed">
+                  Founders struggle with real-world operational complexity
                 </p>
                 {/* DELICATE WAVY SQUIGGLE ACCENT UNDERLINE */}
                 <svg className="w-20 h-3 text-[#0084FF] mt-2.5" viewBox="0 0 80 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -145,59 +142,39 @@ export default function TheMirrorSection({ t }) {
           {/* CARD 01: TALL DARK CARD (DESKTOP: COL 1, ROWS 1-2) */}
           <div className="col-span-1 lg:col-start-1 lg:row-start-1 lg:row-span-2 flex flex-col h-full">
             <ScrollReveal direction="up" distance={35} delay={100} className="h-full flex flex-col">
-              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-[#071330] text-white p-6 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl border border-white/10 group min-h-[480px]">
+              <div className="h-full min-h-[460px] lg:h-[490px] relative rounded-[32px] bg-[#0E1015] text-white p-7 sm:p-8 flex flex-col justify-between overflow-hidden shadow-2xl border border-white/10 group text-center">
                 
-                {/* 3D DARK FLUID RIPPLE TEXTURE SVG */}
-                <div className="absolute inset-0 pointer-events-none opacity-25">
-                  <svg className="w-full h-full object-cover" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M-50,200 C100,280 250,150 450,280 C350,420 150,380 -50,550 Z" fill="url(#darkWave)" />
-                    <path d="M-100,100 C150,120 200,320 500,220 C420,380 280,480 -80,480 Z" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
-                    <path d="M-80,150 C170,170 220,370 520,270" stroke="rgba(0,132,255,0.2)" strokeWidth="2" />
-                    <path d="M-60,200 C190,220 240,420 540,320" stroke="rgba(56,189,248,0.15)" strokeWidth="2" />
-                    <defs>
-                      <linearGradient id="darkWave" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#0084FF" stopOpacity="0.25" />
-                        <stop offset="100%" stopColor="#061233" stopOpacity="0.8" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
+                {/* NUMBER BADGE (1) */}
+                <div className="relative z-10 w-11 h-11 rounded-full bg-white text-[#0E1015] font-black text-sm flex items-center justify-center shadow-lg mx-auto">
+                  1
                 </div>
 
-                <div className="relative z-10">
-                  {/* NUMBER BADGE (1) */}
-                  <div className="w-9 h-9 rounded-full bg-white text-[#071330] font-black text-sm flex items-center justify-center shadow-lg mb-4">
-                    1
-                  </div>
-
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-300 bg-white/10 border border-white/15 px-2.5 py-1 rounded-full inline-block mb-3">
-                    01 • Owner Bottleneck
-                  </span>
-
-                  <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-3 font-sans">
-                    “Everything comes back to me.”
+                <div className="relative z-10 my-auto px-2">
+                  <h3 className="text-2xl sm:text-[28px] font-black text-white tracking-tight leading-snug font-sans">
+                    Everything stalls when it comes back to the founder
                   </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
-                    Employees need approval for every minor task. You are constantly fighting operational fires while the business stalls the moment you step away.
+                  <p className="text-xs sm:text-sm text-zinc-400 mt-4 leading-relaxed font-normal max-w-xs mx-auto">
+                    Absence of delegated authority matrices turns the owner into the single point of failure.
                   </p>
                 </div>
 
-                <div className="relative z-10 pt-5 mt-5 border-t border-white/10 space-y-3">
-                  <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10">
-                    <div className="flex items-center justify-between text-[10px] font-tech font-bold uppercase tracking-wider mb-1.5">
-                      <span className="text-zinc-400">Operational Drag</span>
-                      <span className="text-[#38BDF8] font-black flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#0084FF] animate-ping" />
-                        94% Owner Lock
-                      </span>
-                    </div>
-                    <div className="h-1.5 w-full bg-black/40 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-[#0084FF] to-[#38BDF8] rounded-full w-[94%]" />
-                    </div>
-                  </div>
-                  <div className="text-[11px] font-medium text-zinc-400 leading-tight">
-                    <span className="text-sky-300 font-bold">Likely Root Cause:</span> Absence of delegated authority matrices & SOPs.
-                  </div>
+                <div className="relative z-10 text-[11px] font-mono text-zinc-500 font-semibold tracking-wider uppercase">
+                  Owner Bottleneck
+                </div>
+
+                {/* 3D DARK FLUID RIPPLE TEXTURE */}
+                <div className="absolute inset-x-0 bottom-0 h-44 pointer-events-none opacity-30">
+                  <svg className="w-full h-full object-cover" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M-40,120 C60,50 160,170 260,90 C360,10 420,140 460,100 L460,200 L-40,200 Z" fill="url(#darkWaveGrad2)" />
+                    <path d="M-20,140 C80,80 180,180 280,110 C380,40 430,160 460,130" stroke="rgba(255,255,255,0.15)" strokeWidth="2.5" />
+                    <path d="M-30,160 C70,100 170,190 270,130 C370,70 420,180 460,150" stroke="rgba(0,132,255,0.3)" strokeWidth="2" />
+                    <defs>
+                      <linearGradient id="darkWaveGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#0084FF" stopOpacity="0.4" />
+                        <stop offset="100%" stopColor="#050C1E" stopOpacity="0.9" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
                 </div>
 
               </div>
@@ -207,31 +184,26 @@ export default function TheMirrorSection({ t }) {
           {/* CARD 02: SHORT LIGHT CARD (DESKTOP: COL 2, ROW 2) */}
           <div className="col-span-1 lg:col-start-2 lg:row-start-2 flex flex-col h-full">
             <ScrollReveal direction="up" distance={35} delay={160} className="h-full flex flex-col">
-              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-white text-black p-6 sm:p-7 flex flex-col justify-between shadow-xl border border-zinc-200/90 hover:border-[#0084FF]/40 transition-all min-h-[290px]">
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    {/* NUMBER BADGE (2) */}
-                    <div className="w-8 h-8 rounded-full bg-black text-white font-black text-xs flex items-center justify-center shadow-md">
-                      2
-                    </div>
-                    <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-600 bg-zinc-100 px-2.5 py-1 rounded-full border border-zinc-200">
-                      02 • Revenue Drag
-                    </span>
-                  </div>
+              <div className="h-full min-h-[280px] lg:h-[285px] relative rounded-[32px] bg-white text-black p-7 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-zinc-200/80 hover:border-[#0084FF]/40 transition-all text-center">
+                
+                {/* NUMBER BADGE (2) */}
+                <div className="w-10 h-10 rounded-full bg-black text-white font-black text-sm flex items-center justify-center shadow-md mx-auto">
+                  2
+                </div>
 
-                  <h3 className="text-lg sm:text-xl font-black text-black tracking-tight leading-snug mb-2 font-sans">
-                    “Our sales team is busy, but where is the revenue?”
+                <div className="my-auto px-2">
+                  <h3 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-snug font-sans">
+                    Sales activity is busy, but where is the revenue?
                   </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
-                    Leads arrive and quotations go out, but conversion rates remain unpredictable and disconnected from sales effort.
+                  <p className="text-xs sm:text-sm text-zinc-500 mt-2.5 leading-relaxed font-normal">
+                    Pipeline leaks and unpredictable conversion rates disconnected from daily effort.
                   </p>
                 </div>
 
-                <div className="pt-4 mt-3 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-zinc-500 font-semibold">82% Pipeline Drag</span>
-                  <span className="text-[#0084FF] font-bold">Missing Funnel Governance</span>
+                <div className="text-[11px] font-mono text-zinc-400 font-semibold tracking-wider uppercase">
+                  Revenue Drag
                 </div>
+
               </div>
             </ScrollReveal>
           </div>
@@ -241,47 +213,37 @@ export default function TheMirrorSection({ t }) {
             <ScrollReveal direction="up" distance={35} delay={220} className="h-full flex flex-col">
               <div 
                 onClick={scrollToDiagnostic}
-                className="h-full relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-[#0284C7] via-[#0369A1] to-[#0A39A2] text-white p-6 sm:p-7 flex flex-col justify-between shadow-xl overflow-hidden group min-h-[290px] hover:shadow-2xl transition-all cursor-pointer"
+                className="h-full min-h-[280px] lg:h-[285px] relative rounded-[32px] overflow-hidden shadow-xl group cursor-pointer border border-[#38BDF8]/30 transition-all hover:shadow-2xl"
               >
                 
-                {/* 3D FLUID WAVE RIBBON BACKGROUND SVG */}
-                <div className="absolute inset-0 pointer-events-none opacity-40">
-                  <svg className="w-full h-full object-cover" viewBox="0 0 350 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M-20,120 C80,40 180,180 370,80 C310,210 160,230 -20,240 Z" fill="url(#waveRibbon)" />
-                    <path d="M0,100 C100,20 200,160 380,60" stroke="rgba(255,255,255,0.4)" strokeWidth="3" />
-                    <path d="M-10,130 C90,50 190,190 370,90" stroke="rgba(56,189,248,0.6)" strokeWidth="2.5" />
-                    <path d="M-20,160 C80,80 180,220 360,120" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
+                {/* 3D FULL-BLEED FLUID WAVE RIBBONS */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0284C7] via-[#0369A1] to-[#082B7A]">
+                  <svg className="w-full h-full object-cover opacity-85" viewBox="0 0 350 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M-30,160 C50,60 160,220 260,100 C340,-20 380,120 400,80 L400,280 L-30,280 Z" fill="url(#waveRibbonGrad2)" />
+                    <path d="M-30,120 C60,30 170,180 270,80 C340,-10 390,90 400,60" stroke="rgba(255,255,255,0.45)" strokeWidth="3.5" />
+                    <path d="M-20,150 C70,60 180,200 280,110 C350,20 390,120 400,90" stroke="rgba(56,189,248,0.7)" strokeWidth="3" />
+                    <path d="M-30,180 C50,90 160,230 260,140 C340,50 390,150 400,120" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
+                    <path d="M-20,210 C70,120 180,250 280,170 C350,90 390,180 400,150" stroke="rgba(147,197,253,0.5)" strokeWidth="2.5" />
                     <defs>
-                      <linearGradient id="waveRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#38BDF8" />
-                        <stop offset="100%" stopColor="#082B7A" />
+                      <linearGradient id="waveRibbonGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.85" />
+                        <stop offset="50%" stopColor="#0284C7" stopOpacity="0.9" />
+                        <stop offset="100%" stopColor="#082B7A" stopOpacity="0.95" />
                       </linearGradient>
                     </defs>
                   </svg>
                 </div>
 
-                <div className="relative z-10 flex items-start justify-between gap-3">
-                  {/* NUMBER BADGE (3) */}
-                  <div className="w-8 h-8 rounded-full bg-white text-[#0284C7] font-black text-xs flex items-center justify-center shadow-lg">
-                    3
+                {/* CENTER FROSTED GLASS ACTION BUTTON MATCHING REFERENCE IMAGE */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full text-center p-6">
+                  <div className="w-16 h-16 rounded-full bg-white/25 backdrop-blur-md border border-white/50 flex items-center justify-center text-white shadow-[0_10px_30px_rgba(0,0,0,0.25)] group-hover:scale-110 group-hover:bg-white group-hover:text-[#0284C7] transition-all duration-300">
+                    <ArrowUpRight className="w-7 h-7 stroke-[2.5]" />
                   </div>
-
-                  {/* CIRCULAR GLASS ARROW BUTTON MATCHING REFERENCE IMAGE */}
-                  <div className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-110 group-hover:bg-white group-hover:text-[#0284C7] transition-all">
-                    <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
+                  <div className="mt-4">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white bg-black/30 backdrop-blur-sm px-3.5 py-1 rounded-full border border-white/25 shadow-sm">
+                      Explore Systems
+                    </span>
                   </div>
-                </div>
-
-                <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-200 bg-white/15 px-2.5 py-0.5 rounded-full inline-block mb-1.5 backdrop-blur-sm">
-                    03 • Role Ambiguity
-                  </span>
-                  <h3 className="text-base sm:text-lg font-black text-white tracking-tight leading-snug mb-1 font-sans">
-                    “We have employees, but no system.”
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-blue-100/85 leading-relaxed font-normal">
-                    Priorities remain blurry with zero accountability cadence or structured KPI milestones.
-                  </p>
                 </div>
 
               </div>
@@ -291,59 +253,35 @@ export default function TheMirrorSection({ t }) {
           {/* CARD 04: TALL VIBRANT ACCENT CARD (DESKTOP: COL 4, ROWS 1-2) */}
           <div className="col-span-1 lg:col-start-4 lg:row-start-1 lg:row-span-2 flex flex-col h-full">
             <ScrollReveal direction="up" distance={35} delay={280} className="h-full flex flex-col">
-              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-b from-[#0084FF] via-[#0070E0] to-[#0845B5] text-white p-6 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl border border-[#38BDF8]/40 group min-h-[480px]">
+              <div className="h-full min-h-[460px] lg:h-[490px] relative rounded-[32px] bg-gradient-to-b from-[#0084FF] via-[#0070E0] to-[#0845B5] text-white p-7 sm:p-8 flex flex-col justify-between overflow-hidden shadow-2xl border border-[#38BDF8]/40 group text-center">
                 
-                {/* SUBTLE GLOW OVERLAY */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+                {/* NUMBER BADGE (3 or 4) */}
+                <div className="relative z-10 w-11 h-11 rounded-full bg-white text-[#0084FF] font-black text-sm flex items-center justify-center shadow-lg mx-auto">
+                  3
+                </div>
 
-                <div className="relative z-10">
-                  {/* NUMBER BADGE (4) */}
-                  <div className="w-9 h-9 rounded-full bg-white text-[#0084FF] font-black text-sm flex items-center justify-center shadow-lg mb-4">
-                    4
-                  </div>
-
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-white/20 border border-white/30 px-2.5 py-1 rounded-full inline-block mb-3 backdrop-blur-sm">
-                    04 • Financial Blindspots
-                  </span>
-
-                  <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-3 font-sans">
-                    “I don't really know where my money is going.”
+                <div className="relative z-10 my-auto px-2">
+                  <h3 className="text-2xl sm:text-[28px] font-black text-white tracking-tight leading-snug font-sans">
+                    Founders need{' '}
+                    <span className="inline-block px-3 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-base sm:text-lg shadow-sm mx-1 my-1">
+                      governed systems
+                    </span>{' '}
+                    to eliminate{' '}
+                    <span className="inline-block px-3 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-base sm:text-lg shadow-sm mx-1 my-1">
+                      daily fires
+                    </span>
                   </h3>
-
-                  {/* EDITORIAL TEXT WITH SIGNATURE INLINE WHITE PILL BADGES MATCHING REFERENCE IMAGE */}
-                  <p className="text-xs sm:text-sm text-blue-50 leading-relaxed font-normal mb-3">
-                    Revenue looks respectable, but{' '}
-                    <span className="inline-block px-2 sm:px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-[11px] sm:text-xs mx-0.5 shadow-sm">
-                      cash flow leaks
-                    </span>{' '}
-                    and delayed reporting create{' '}
-                    <span className="inline-block px-2 sm:px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-[11px] sm:text-xs mx-0.5 shadow-sm">
-                      financial blindspots
-                    </span>{' '}
-                    without real-time{' '}
-                    <span className="inline-block px-2 sm:px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-[11px] sm:text-xs mx-0.5 shadow-sm">
-                      unit economics
-                    </span>.
+                  <p className="text-xs sm:text-sm text-blue-100 mt-4 leading-relaxed font-normal max-w-xs mx-auto">
+                    Without real-time management accounting and accountability cadence, revenue masks deep margin leaks.
                   </p>
                 </div>
 
-                <div className="relative z-10 pt-5 mt-5 border-t border-white/20 space-y-3">
-                  <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm">
-                    <div className="flex items-center justify-between text-[10px] font-tech font-bold uppercase tracking-wider mb-1.5">
-                      <span className="text-blue-100">Capital Blindspot</span>
-                      <span className="text-white font-black flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                        89% Risk Index
-                      </span>
-                    </div>
-                    <div className="h-1.5 w-full bg-black/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-white rounded-full w-[89%]" />
-                    </div>
-                  </div>
-                  <div className="text-[11px] font-medium text-blue-100 leading-tight">
-                    <span className="text-white font-bold">Likely Root Cause:</span> Missing management accounting & unit margin control.
-                  </div>
+                <div className="relative z-10 text-[11px] font-mono text-blue-200 font-semibold tracking-wider uppercase">
+                  Predictable Execution
                 </div>
+
+                {/* SUBTLE GLOW OVERLAY */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
               </div>
             </ScrollReveal>
