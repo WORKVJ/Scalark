@@ -17,6 +17,7 @@ export default function HowWeWorkPage() {
         title="The Proprietary 5-Phase Systems Architecture Framework"
         subtitle="A battle-tested methodology engineered to transition businesses from founder firefighting to institutional self-operating governance."
         breadcrumb={[{ label: 'How We Work' }]}
+        image="/how-we-work-hero.jpg"
       />
 
       {/* CORE 5-PHASE INTERACTIVE FRAMEWORK */}
