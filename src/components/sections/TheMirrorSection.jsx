@@ -114,36 +114,38 @@ export default function TheMirrorSection({ t }) {
         </div>
       </ScrollReveal>
 
-      {/* 2. SECTION HEADER (MATCHING REFERENCE IMAGE 2 STYLE) */}
-      <ScrollReveal direction="up" distance={30} delay={100} className="max-w-4xl mx-auto px-6 text-center mb-12 sm:mb-16">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-mono font-bold text-[#0084FF] mb-4">
-          <span>THE OPERATIONAL MIRROR</span>
-        </div>
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-tight font-sans">
-          Business Bottlenecks,{' '}
-          <span className="relative inline-block px-3.5 sm:px-5 py-0.5 rounded-full bg-blue-100/90 text-[#0084FF] font-black">
-            Made Obvious
-          </span>
-        </h2>
-        <div className="mt-4 flex flex-col items-center">
-          <p className="text-sm sm:text-lg text-zinc-600 max-w-xl mx-auto font-medium leading-relaxed">
-            Operational friction is not accidental. It is systematic. Here is how underlying constraints hold back ambitious companies.
-          </p>
-          {/* DELICATE WAVY SQUIGGLE ACCENT UNDERLINE (MATCHING REFERENCE IMAGE 2) */}
-          <svg className="w-20 h-3 text-[#0084FF] mt-2.5" viewBox="0 0 80 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 6 Q 12 1, 22 6 T 42 6 T 62 6 T 78 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-          </svg>
-        </div>
-      </ScrollReveal>
-
-      {/* 3. ASYMMETRIC BENTO GRID (EXACTLY MATCHING REFERENCE IMAGE 2) */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+      {/* 2 & 3. CONCAVE BENTO GRID (EXACTLY MATCHING REFERENCE IMAGE) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_1fr] gap-4 sm:gap-5 items-stretch">
           
-          {/* COLUMN 1: TALL DARK CARD (CARD 01 - MATCHING LEFT CARD OF IMAGE 2) */}
-          <div className="lg:col-span-4 flex flex-col">
-            <ScrollReveal direction="up" distance={35} delay={100} className="h-full">
-              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-[#071330] text-white p-6 sm:p-8 flex flex-col justify-between overflow-hidden shadow-2xl border border-white/10 group min-h-[460px] md:min-h-[520px]">
+          {/* CENTER HEADER (DESKTOP: ROW 1, COLS 2-3 | MOBILE/MD: TOP FULL WIDTH) */}
+          <div className="col-span-1 md:col-span-2 lg:col-start-2 lg:col-span-2 lg:row-start-1 lg:self-end lg:pb-8 text-center mb-8 lg:mb-0">
+            <ScrollReveal direction="up" distance={25} delay={50}>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-mono font-bold text-[#0084FF] mb-3">
+                <span>THE OPERATIONAL MIRROR</span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-black leading-[1.15] font-sans">
+                Business Bottlenecks,{' '}
+                <span className="relative inline-block px-3 sm:px-4 py-0.5 rounded-full bg-blue-100/90 text-[#0084FF] font-black">
+                  Made Obvious
+                </span>
+              </h2>
+              <div className="mt-3 flex flex-col items-center">
+                <p className="text-xs sm:text-base text-zinc-600 max-w-md mx-auto font-medium leading-relaxed">
+                  Operational friction is not accidental. It is systematic. Here is how underlying constraints hold back ambitious companies.
+                </p>
+                {/* DELICATE WAVY SQUIGGLE ACCENT UNDERLINE */}
+                <svg className="w-20 h-3 text-[#0084FF] mt-2.5" viewBox="0 0 80 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 6 Q 12 1, 22 6 T 42 6 T 62 6 T 78 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* CARD 01: TALL DARK CARD (DESKTOP: COL 1, ROWS 1-2) */}
+          <div className="col-span-1 lg:col-start-1 lg:row-start-1 lg:row-span-2 flex flex-col h-full">
+            <ScrollReveal direction="up" distance={35} delay={100} className="h-full flex flex-col">
+              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-[#071330] text-white p-6 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl border border-white/10 group min-h-[480px]">
                 
                 {/* 3D DARK FLUID RIPPLE TEXTURE SVG */}
                 <div className="absolute inset-0 pointer-events-none opacity-25">
@@ -163,7 +165,7 @@ export default function TheMirrorSection({ t }) {
 
                 <div className="relative z-10">
                   {/* NUMBER BADGE (1) */}
-                  <div className="w-9 h-9 rounded-full bg-white text-[#071330] font-black text-sm flex items-center justify-center shadow-lg mb-5">
+                  <div className="w-9 h-9 rounded-full bg-white text-[#071330] font-black text-sm flex items-center justify-center shadow-lg mb-4">
                     1
                   </div>
 
@@ -171,7 +173,7 @@ export default function TheMirrorSection({ t }) {
                     01 • Owner Bottleneck
                   </span>
 
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-snug mb-3 font-sans">
+                  <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-3 font-sans">
                     “Everything comes back to me.”
                   </h3>
 
@@ -180,7 +182,7 @@ export default function TheMirrorSection({ t }) {
                   </p>
                 </div>
 
-                <div className="relative z-10 pt-6 mt-6 border-t border-white/10 space-y-3">
+                <div className="relative z-10 pt-5 mt-5 border-t border-white/10 space-y-3">
                   <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10">
                     <div className="flex items-center justify-between text-[10px] font-tech font-bold uppercase tracking-wider mb-1.5">
                       <span className="text-zinc-400">Operational Drag</span>
@@ -202,12 +204,10 @@ export default function TheMirrorSection({ t }) {
             </ScrollReveal>
           </div>
 
-          {/* COLUMN 2: TWO STACKED MIDDLE CARDS (MATCHING MIDDLE SECTION OF IMAGE 2) */}
-          <div className="lg:col-span-4 flex flex-col gap-5 sm:gap-6">
-            
-            {/* MIDDLE UPPER CARD: CARD 02 (LIGHT CARD MATCHING MIDDLE-TOP OF IMAGE 2) */}
-            <ScrollReveal direction="up" distance={35} delay={160} className="flex-1">
-              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-white text-black p-6 sm:p-7 flex flex-col justify-between shadow-xl border border-zinc-200/90 hover:border-[#0084FF]/40 transition-all min-h-[245px]">
+          {/* CARD 02: SHORT LIGHT CARD (DESKTOP: COL 2, ROW 2) */}
+          <div className="col-span-1 lg:col-start-2 lg:row-start-2 flex flex-col h-full">
+            <ScrollReveal direction="up" distance={35} delay={160} className="h-full flex flex-col">
+              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-white text-black p-6 sm:p-7 flex flex-col justify-between shadow-xl border border-zinc-200/90 hover:border-[#0084FF]/40 transition-all min-h-[290px]">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4">
                     {/* NUMBER BADGE (2) */}
@@ -234,10 +234,15 @@ export default function TheMirrorSection({ t }) {
                 </div>
               </div>
             </ScrollReveal>
+          </div>
 
-            {/* MIDDLE LOWER CARD: CARD 03 (3D FLUID WAVE GRAPHIC CARD WITH ↗ BUTTON MATCHING IMAGE 2) */}
-            <ScrollReveal direction="up" distance={35} delay={220} className="flex-1">
-              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-[#0284C7] via-[#0369A1] to-[#0A39A2] text-white p-6 sm:p-7 flex flex-col justify-between shadow-xl overflow-hidden group min-h-[245px] hover:shadow-2xl transition-all">
+          {/* CARD 03: SHORT 3D FLUID WAVE GRAPHIC CARD (DESKTOP: COL 3, ROW 2) */}
+          <div className="col-span-1 lg:col-start-3 lg:row-start-2 flex flex-col h-full">
+            <ScrollReveal direction="up" distance={35} delay={220} className="h-full flex flex-col">
+              <div 
+                onClick={scrollToDiagnostic}
+                className="h-full relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-[#0284C7] via-[#0369A1] to-[#0A39A2] text-white p-6 sm:p-7 flex flex-col justify-between shadow-xl overflow-hidden group min-h-[290px] hover:shadow-2xl transition-all cursor-pointer"
+              >
                 
                 {/* 3D FLUID WAVE RIBBON BACKGROUND SVG */}
                 <div className="absolute inset-0 pointer-events-none opacity-40">
@@ -261,13 +266,13 @@ export default function TheMirrorSection({ t }) {
                     3
                   </div>
 
-                  {/* CIRCULAR GLASS ARROW BUTTON MATCHING IMAGE 2 */}
-                  <div className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-110 group-hover:bg-white group-hover:text-[#0284C7] transition-all cursor-pointer">
+                  {/* CIRCULAR GLASS ARROW BUTTON MATCHING REFERENCE IMAGE */}
+                  <div className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-110 group-hover:bg-white group-hover:text-[#0284C7] transition-all">
                     <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
                   </div>
                 </div>
 
-                <div className="relative z-10 mt-auto pt-3">
+                <div className="relative z-10 mt-auto pt-4">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-200 bg-white/15 px-2.5 py-0.5 rounded-full inline-block mb-1.5 backdrop-blur-sm">
                     03 • Role Ambiguity
                   </span>
@@ -281,20 +286,19 @@ export default function TheMirrorSection({ t }) {
 
               </div>
             </ScrollReveal>
-
           </div>
 
-          {/* COLUMN 3: TALL VIBRANT ACCENT CARD (CARD 04 - MATCHING RIGHT CARD OF IMAGE 2) */}
-          <div className="lg:col-span-4 flex flex-col">
-            <ScrollReveal direction="up" distance={35} delay={280} className="h-full">
-              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-b from-[#0084FF] via-[#0070E0] to-[#0845B5] text-white p-6 sm:p-8 flex flex-col justify-between overflow-hidden shadow-2xl border border-[#38BDF8]/40 group min-h-[460px] md:min-h-[520px]">
+          {/* CARD 04: TALL VIBRANT ACCENT CARD (DESKTOP: COL 4, ROWS 1-2) */}
+          <div className="col-span-1 lg:col-start-4 lg:row-start-1 lg:row-span-2 flex flex-col h-full">
+            <ScrollReveal direction="up" distance={35} delay={280} className="h-full flex flex-col">
+              <div className="h-full relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-b from-[#0084FF] via-[#0070E0] to-[#0845B5] text-white p-6 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl border border-[#38BDF8]/40 group min-h-[480px]">
                 
                 {/* SUBTLE GLOW OVERLAY */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="relative z-10">
                   {/* NUMBER BADGE (4) */}
-                  <div className="w-9 h-9 rounded-full bg-white text-[#0084FF] font-black text-sm flex items-center justify-center shadow-lg mb-5">
+                  <div className="w-9 h-9 rounded-full bg-white text-[#0084FF] font-black text-sm flex items-center justify-center shadow-lg mb-4">
                     4
                   </div>
 
@@ -302,28 +306,28 @@ export default function TheMirrorSection({ t }) {
                     04 • Financial Blindspots
                   </span>
 
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-snug mb-4 font-sans">
+                  <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-3 font-sans">
                     “I don't really know where my money is going.”
                   </h3>
 
-                  {/* EDITORIAL TEXT WITH SIGNATURE INLINE WHITE PILL BADGES MATCHING IMAGE 2 */}
-                  <p className="text-xs sm:text-sm text-blue-50 leading-relaxed font-normal mb-4">
+                  {/* EDITORIAL TEXT WITH SIGNATURE INLINE WHITE PILL BADGES MATCHING REFERENCE IMAGE */}
+                  <p className="text-xs sm:text-sm text-blue-50 leading-relaxed font-normal mb-3">
                     Revenue looks respectable, but{' '}
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-xs mx-0.5 shadow-sm">
+                    <span className="inline-block px-2 sm:px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-[11px] sm:text-xs mx-0.5 shadow-sm">
                       cash flow leaks
                     </span>{' '}
                     and delayed reporting create{' '}
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-xs mx-0.5 shadow-sm">
+                    <span className="inline-block px-2 sm:px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-[11px] sm:text-xs mx-0.5 shadow-sm">
                       financial blindspots
                     </span>{' '}
                     without real-time{' '}
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-xs mx-0.5 shadow-sm">
+                    <span className="inline-block px-2 sm:px-2.5 py-0.5 rounded-full bg-white text-[#081B4E] font-bold text-[11px] sm:text-xs mx-0.5 shadow-sm">
                       unit economics
                     </span>.
                   </p>
                 </div>
 
-                <div className="relative z-10 pt-6 mt-6 border-t border-white/20 space-y-3">
+                <div className="relative z-10 pt-5 mt-5 border-t border-white/20 space-y-3">
                   <div className="p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm">
                     <div className="flex items-center justify-between text-[10px] font-tech font-bold uppercase tracking-wider mb-1.5">
                       <span className="text-blue-100">Capital Blindspot</span>
