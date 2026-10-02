@@ -15,13 +15,11 @@ export default function PageHeader({ badge, title, subtitle, breadcrumb = [], im
             alt={title}
             fill
             priority
-            className="object-cover object-[75%_25%] md:object-[right_center]"
+            className="object-cover object-[center_right] sm:object-right"
           />
-          {/* CINEMATIC MULTI-LAYER DARK NAVY GRADIENT OVERLAYS FOR MAXIMUM TEXT READABILITY */}
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#061233] via-[#061233]/92 md:via-[#061233]/75 to-[#061233]/20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#061233]/80 via-transparent to-[#061233]" />
-          {/* SUBTLE BRAND BLUE GLOW ACCENT */}
-          <div className="absolute top-1/4 left-1/4 w-[400px] h-[300px] bg-[#0084FF]/20 rounded-full blur-[100px] pointer-events-none" />
+          {/* CINEMATIC BALANCED GRADIENTS: DARK ON LEFT FOR TEXT, LUMINOUS AND CLEAR ON RIGHT FOR PORTRAIT */}
+          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#061233] via-[#061233]/85 md:via-[#061233]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061233]/60 via-transparent to-[#061233]" />
         </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
