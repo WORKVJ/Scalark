@@ -110,8 +110,8 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
       }`}>
         <div className={`flex justify-between items-center w-full max-w-6xl transition-all duration-300 pointer-events-auto px-3 sm:px-6 py-2 sm:py-2.5 rounded-full ${
           scrolled 
-            ? 'bg-[#081B4E]/95 backdrop-blur-xl border border-[#0E37A4]/40 shadow-[0_12px_40px_rgba(4,14,46,0.7)]' 
-            : 'bg-[#081B4E]/80 backdrop-blur-md border border-[#0E37A4]/25 shadow-lg'
+            ? 'bg-[#081B4E]/95 backdrop-blur-xl border border-[#0084FF]/40 shadow-[0_12px_40px_rgba(4,14,46,0.7)]' 
+            : 'bg-[#081B4E]/80 backdrop-blur-md border border-[#0084FF]/25 shadow-lg'
         }`}>
           
           {/* BRAND LOGO */}
@@ -140,7 +140,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
           </Link>
 
           {/* CENTER FLOATING PILL NAVBAR (DESKTOP) */}
-          <nav className="hidden md:flex items-center space-x-1 bg-[#061438]/85 backdrop-blur-xl border border-[#0E37A4]/30 rounded-full px-3 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+          <nav className="hidden md:flex items-center space-x-1 bg-[#061438]/85 backdrop-blur-xl border border-[#0084FF]/30 rounded-full px-3 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
             {navLinks.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -154,7 +154,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
                   }}
                   className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all rounded-full ${
                     isActive
-                      ? 'bg-[#0E37A4] text-white font-semibold shadow-sm'
+                      ? 'bg-[#0084FF] text-white font-semibold shadow-sm'
                       : 'text-zinc-300 hover:text-white hover:bg-white/[0.06]'
                   }`}
                 >
@@ -171,7 +171,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
               <button
                 type="button"
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                className="px-2.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-[#0E37A4]/30 text-xs text-zinc-300 hover:text-white flex items-center space-x-1.5 transition-colors cursor-pointer"
+                className="px-2.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-[#0084FF]/30 text-xs text-zinc-300 hover:text-white flex items-center space-x-1.5 transition-colors cursor-pointer"
                 aria-label="Select Language"
               >
                 <Globe className="w-3 h-3 text-zinc-300" />
@@ -180,7 +180,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
               </button>
 
               {langDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-32 rounded-xl bg-[#081B4E] border border-[#0E37A4]/40 p-1.5 shadow-2xl backdrop-blur-2xl z-50">
+                <div className="absolute right-0 mt-2 w-32 rounded-xl bg-[#081B4E] border border-[#0084FF]/40 p-1.5 shadow-2xl backdrop-blur-2xl z-50">
                   {languages.map((l) => (
                     <button
                       key={l.code}
@@ -188,7 +188,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
                       onClick={() => selectLanguage(l.code)}
                       className={`w-full text-left px-3 py-1.5 rounded-lg text-xs flex items-center justify-between transition-colors cursor-pointer ${
                         currentLang === l.code
-                          ? 'bg-[#0E37A4] text-white font-bold'
+                          ? 'bg-[#0084FF] text-white font-bold'
                           : 'text-zinc-300 hover:text-white hover:bg-white/5'
                       }`}
                     >
@@ -213,7 +213,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(prev => !prev)}
-              className="md:hidden w-10 h-10 rounded-full bg-[#081B4E] border border-[#0E37A4]/40 flex items-center justify-center text-white shrink-0 active:scale-95 cursor-pointer touch-manipulation shadow-md"
+              className="md:hidden w-10 h-10 rounded-full bg-[#081B4E] border border-[#0084FF]/40 flex items-center justify-center text-white shrink-0 active:scale-95 cursor-pointer touch-manipulation shadow-md"
               aria-label="Toggle Navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

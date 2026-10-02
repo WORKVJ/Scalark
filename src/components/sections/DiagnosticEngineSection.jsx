@@ -67,7 +67,7 @@ export default function DiagnosticEngineSection({ t }) {
   };
 
   return (
-    <section id="diagnosis-tool" className="py-28 md:py-36 px-6 bg-[#061233] border-t border-[#0E37A4]/20 relative">
+    <section id="diagnosis-tool" className="py-28 md:py-36 px-6 bg-[#061233] border-t border-[#0084FF]/20 relative">
       <div className="max-w-5xl mx-auto">
         {/* HEADER (NATYA STYLE) */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -83,7 +83,7 @@ export default function DiagnosticEngineSection({ t }) {
         </div>
 
         {/* CONTAINER CARD (NATYA CONTAINER) */}
-        <div className="bg-gradient-to-br from-[#091E58] to-[#061233] rounded-[2.5rem] border border-[#0E37A4]/40 p-8 sm:p-12 shadow-2xl space-y-10">
+        <div className="bg-gradient-to-br from-[#091E58] to-[#061233] rounded-[2.5rem] border border-[#0084FF]/40 p-8 sm:p-12 shadow-2xl space-y-10">
           {/* 1. CHALLENGE CATEGORY PILLS (NATYA CAPSULE BUTTON STYLE) */}
           <div>
             <label className="text-xs font-mono uppercase tracking-widest text-blue-200/70 mb-4 block">
@@ -96,8 +96,8 @@ export default function DiagnosticEngineSection({ t }) {
                   onClick={() => handleChallengeChange(cat)}
                   className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                     selectedChallenge === cat
-                      ? 'bg-[#0E37A4] text-white shadow-lg shadow-[#0E37A4]/40 scale-[1.02] border border-[#0E37A4]'
-                      : 'bg-[#081B4E]/60 text-blue-200/80 border border-[#0E37A4]/30 hover:text-white hover:border-[#0E37A4]'
+                      ? 'bg-[#0084FF] text-white shadow-lg shadow-[#0084FF]/40 scale-[1.02] border border-[#0084FF]'
+                      : 'bg-[#081B4E]/60 text-blue-200/80 border border-[#0084FF]/30 hover:text-white hover:border-[#0084FF]'
                   }`}
                 >
                   {cat}
@@ -107,7 +107,7 @@ export default function DiagnosticEngineSection({ t }) {
           </div>
 
           {/* 2. QUESTION & OPTIONS */}
-          <div className="space-y-4 pt-6 border-t border-[#0E37A4]/30">
+          <div className="space-y-4 pt-6 border-t border-[#0084FF]/30">
             <div className="flex items-center justify-between">
               <label className="text-xs font-mono uppercase tracking-widest text-white font-bold">
                 Step 2: Which sounds most like your situation?
@@ -136,14 +136,14 @@ export default function DiagnosticEngineSection({ t }) {
                     onClick={() => handleOptionSelect(idx)}
                     className={`text-left p-5 rounded-2xl border transition-all duration-300 flex items-start space-x-3.5 ${
                       isSelected
-                        ? 'bg-[#0E37A4]/25 border-[#0E37A4] text-white shadow-xl scale-[1.01]'
-                        : 'bg-[#081B4E]/50 border-[#0E37A4]/25 text-blue-100 hover:bg-[#081B4E] hover:border-[#0E37A4]/50'
+                        ? 'bg-[#0084FF]/25 border-[#0084FF] text-white shadow-xl scale-[1.01]'
+                        : 'bg-[#081B4E]/50 border-[#0084FF]/25 text-blue-100 hover:bg-[#081B4E] hover:border-[#0084FF]/50'
                     }`}
                   >
                     <div
                       className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                         isSelected
-                          ? 'border-[#0E37A4] bg-[#0E37A4] text-white'
+                          ? 'border-[#0084FF] bg-[#0084FF] text-white'
                           : 'border-blue-300/40'
                       }`}
                     >
@@ -158,10 +158,10 @@ export default function DiagnosticEngineSection({ t }) {
 
           {/* 3. DIAGNOSTIC RESULT & ONE-CLICK INTEL CALLOUT */}
           {showResult && selectedOptionIdx !== null && (
-            <div className="pt-6 border-t border-[#0E37A4]/30 animate-in fade-in zoom-in-95 duration-300">
-              <div className="p-6 md:p-8 rounded-[2rem] bg-[#081B4E]/90 border border-[#0E37A4]/40 space-y-4 shadow-2xl">
+            <div className="pt-6 border-t border-[#0084FF]/30 animate-in fade-in zoom-in-95 duration-300">
+              <div className="p-6 md:p-8 rounded-[2rem] bg-[#081B4E]/90 border border-[#0084FF]/40 space-y-4 shadow-2xl">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-white font-bold px-3 py-1 rounded-full bg-[#0E37A4] border border-[#0E37A4]">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-white font-bold px-3 py-1 rounded-full bg-[#0084FF] border border-[#0084FF]">
                     SCALARK DIAGNOSIS
                   </span>
                   <span className="text-xs font-mono text-blue-200/70">{selectedChallenge} System</span>
@@ -181,7 +181,7 @@ export default function DiagnosticEngineSection({ t }) {
                   </p>
                   <button
                     onClick={handleRequestDiagnosis}
-                    className="px-6 py-3.5 bg-[#0E37A4] text-white font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-[#0A2A7E] transition-all shadow-xl hover:scale-105 shrink-0 text-center"
+                    className="px-6 py-3.5 bg-[#0084FF] text-white font-semibold text-xs uppercase tracking-wider rounded-full hover:bg-[#0070E0] transition-all shadow-xl hover:scale-105 shrink-0 text-center"
                   >
                     Request Business Diagnosis →
                   </button>

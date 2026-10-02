@@ -14,8 +14,8 @@ export default function CoreValuesSection() {
     {
       id: 'systems',
       title: 'Systems\nOver\nHeroes',
-      bgClass: 'bg-[#0B4F9C]',
-      shadowClass: 'shadow-[0_20px_45px_rgba(11,79,156,0.35)]',
+      bgClass: 'bg-[#0284C7]',
+      shadowClass: 'shadow-[0_20px_45px_rgba(2,132,199,0.35)]',
       description:
         'Every process, operational SOP, and management dashboard is structured to replace founder firefighting with sustainable institutional governance.'
     },

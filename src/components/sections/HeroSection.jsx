@@ -82,10 +82,10 @@ export default function HeroSection({ t }) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-28 pb-20 overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#081845] via-[#091D56] to-[#061233] text-white selection:bg-[#0E37A4] selection:text-white"
+      className="relative min-h-screen pt-28 pb-20 overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#081845] via-[#091D56] to-[#061233] text-white selection:bg-[#0084FF] selection:text-white"
     >
       {/* 1. STRIPE / LINEAR STYLE AMBIENT SPOTLIGHT & MESH GRID */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-b from-[#0E37A4]/35 via-[#1D56E8]/15 to-transparent blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-b from-[#0084FF]/35 via-[#38BDF8]/15 to-transparent blur-[130px] pointer-events-none rounded-full" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
       {/* 2. HERO HEADLINE & VALUE PROPOSITION */}
@@ -152,10 +152,10 @@ export default function HeroSection({ t }) {
 
       {/* 3. INTERACTIVE ENTERPRISE SYSTEMS CONSOLE (LINEAR / STRIPE STYLE) */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 w-full mt-12 md:mt-16">
-        <div className="rounded-2xl bg-[#081B4E]/85 backdrop-blur-2xl border border-[#0E37A4]/35 p-5 sm:p-7 shadow-[0_30px_90px_rgba(4,14,46,0.85)] relative overflow-hidden">
+        <div className="rounded-2xl bg-[#081B4E]/85 backdrop-blur-2xl border border-[#0084FF]/35 p-5 sm:p-7 shadow-[0_30px_90px_rgba(4,14,46,0.85)] relative overflow-hidden">
           
           {/* Subtle top inner border highlight */}
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0E37A4]/50 to-transparent" />
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0084FF]/50 to-transparent" />
 
           {/* CONSOLE TOP BAR */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/[0.08] mb-6">
@@ -188,7 +188,7 @@ export default function HeroSection({ t }) {
                   onClick={() => setActiveStage(stage.id)}
                   className={`px-3 py-2.5 rounded-xl text-left transition-all duration-200 border shrink-0 min-w-[96px] sm:min-w-0 flex-1 sm:flex-initial ${
                     isActive
-                      ? 'bg-[#0E37A4] border-[#0E37A4] text-white shadow-md'
+                      ? 'bg-[#0084FF] border-[#0084FF] text-white shadow-md'
                       : 'bg-white/[0.03] border-white/[0.06] text-zinc-300 hover:text-white hover:bg-white/[0.08]'
                   }`}
                 >

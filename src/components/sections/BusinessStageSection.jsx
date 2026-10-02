@@ -44,8 +44,8 @@ export default function BusinessStageSection({ t }) {
                 onMouseEnter={() => soundFx.playHover()}
                 className={`px-3.5 sm:px-6 py-2 sm:py-3 rounded-full text-[11px] sm:text-sm font-semibold uppercase tracking-wider transition-all duration-300 ${
                   isActive
-                    ? 'bg-[#0E37A4] text-white shadow-xl scale-105 border border-[#0E37A4]'
-                    : 'bg-[#091E58]/80 text-zinc-300 hover:text-white hover:bg-[#0E37A4]/50 border border-white/10'
+                    ? 'bg-[#0084FF] text-white shadow-xl scale-105 border border-[#0084FF]'
+                    : 'bg-[#091E58]/80 text-zinc-300 hover:text-white hover:bg-[#0084FF]/50 border border-white/10'
                 }`}
               >
                 <span>{stage.title}</span>
@@ -55,7 +55,7 @@ export default function BusinessStageSection({ t }) {
         </div>
 
         {/* ACTIVE STAGE SPOTLIGHT CARD (NATYA CARD CONTAINER) */}
-        <div className="rounded-2xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#091E58] to-[#061233] border border-[#0E37A4]/40 p-5 sm:p-14 shadow-2xl relative overflow-hidden">
+        <div className="rounded-2xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#091E58] to-[#061233] border border-[#0084FF]/40 p-5 sm:p-14 shadow-2xl relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
             <div className="lg:col-span-8 space-y-4 sm:space-y-6">
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
@@ -88,7 +88,7 @@ export default function BusinessStageSection({ t }) {
             </div>
 
             {/* RIGHT COLUMN: CORE METRICS */}
-            <div className="lg:col-span-4 p-5 sm:p-8 rounded-xl sm:rounded-[2rem] bg-[#061233]/70 border border-[#0E37A4]/30 space-y-3 sm:space-y-4">
+            <div className="lg:col-span-4 p-5 sm:p-8 rounded-xl sm:rounded-[2rem] bg-[#061233]/70 border border-[#0084FF]/30 space-y-3 sm:space-y-4">
               <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold block mb-2 sm:mb-4">
                 KEY FOCUS AREAS
               </span>

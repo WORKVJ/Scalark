@@ -8,9 +8,9 @@
   --lime: #B4F437;
   --lime-hover: #9EE61C;
   --lime-glow: rgba(180, 244, 55, 0.35);
-  --cobalt: #0E37A4;
-  --cobalt-bright: #1D56E8;
-  --teal-dark: #0A2268;
+  --cobalt: #0084FF;
+  --cobalt-bright: #38BDF8;
+  --teal-dark: #0284C7;
   --canvas-dark: #061233;
   --canvas-light: #F5F5F7;
   --canvas-grey: #ECECEE;
@@ -94,7 +94,7 @@ h1, h2, h3, .font-display {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0E37A4;
+  background: #0084FF;
   border-radius: 9999px;
 }
 
@@ -110,9 +110,9 @@ h1, h2, h3, .font-display {
   scrollbar-width: none !important;
 }
 
-/* Selection Highlight in Royal Blue */
+/* Selection Highlight in Electric Sky Blue */
 ::selection {
-  background-color: #0E37A4;
+  background-color: #0084FF;
   color: #FFFFFF;
 }
 
@@ -342,7 +342,7 @@ h1, h2, h3, .font-display {
     90deg,
     #ffffff 0%,
     #ffffff 35%,
-    #0E37A4 50%,
+    #38BDF8 50%,
     #ffffff 65%,
     #ffffff 100%
   );
@@ -397,11 +397,11 @@ h1, h2, h3, .font-display {
 /* Magnetic Button Pulse Glow */
 @keyframes buttonPulse {
   0%, 100% {
-    box-shadow: 0 10px 30px rgba(14, 55, 164, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 132, 255, 0.4);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 15px 45px rgba(14, 55, 164, 0.65), 0 0 25px rgba(14, 55, 164, 0.35);
+    box-shadow: 0 15px 45px rgba(0, 132, 255, 0.65), 0 0 25px rgba(56, 189, 248, 0.45);
     transform: scale(1.02);
   }
 }

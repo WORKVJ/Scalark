@@ -121,13 +121,13 @@ export default function HomeSolutionsPreview() {
   return (
     <section id="home-solutions-preview" className="py-14 sm:py-24 px-4 sm:px-6 bg-[#061233] border-t border-white/10 relative overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-r from-[#0E37A4]/25 via-blue-600/15 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-r from-[#0084FF]/25 via-blue-600/15 to-transparent blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-[#0E37A4]/40 text-xs font-mono uppercase tracking-widest text-blue-300 font-bold mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-[#0084FF]/40 text-xs font-mono uppercase tracking-widest text-blue-300 font-bold mb-4">
               <span>SECTION 03 — STRATEGIC PILLARS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
@@ -167,8 +167,8 @@ export default function HomeSolutionsPreview() {
                 }}
                 className={`relative rounded-3xl overflow-hidden p-6 sm:p-8 cursor-pointer select-none flex flex-col justify-between border bg-[#081B4E] transition-all duration-300 group ${
                   isActive
-                    ? `border-[#0E37A4] shadow-[0_20px_50px_rgba(14,55,164,0.35)] ring-2 ring-blue-500/30`
-                    : 'border-[#0E37A4]/25 hover:border-[#0E37A4]/60 opacity-85 hover:opacity-100'
+                    ? `border-[#0084FF] shadow-[0_20px_50px_rgba(0,132,255,0.35)] ring-2 ring-blue-500/30`
+                    : 'border-[#0084FF]/25 hover:border-[#0084FF]/60 opacity-85 hover:opacity-100'
                 }`}
               >
                 {/* Background Image for Active Pillar */}
@@ -202,8 +202,8 @@ export default function HomeSolutionsPreview() {
                   <div
                     className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all duration-300 ${
                       isActive
-                        ? 'bg-[#0E37A4] text-white shadow-[0_0_20px_rgba(14,55,164,0.6)] scale-110'
-                        : 'bg-white/5 border border-[#0E37A4]/30 text-zinc-400 group-hover:text-white'
+                        ? 'bg-[#0084FF] text-white shadow-[0_0_20px_rgba(0,132,255,0.6)] scale-110'
+                        : 'bg-white/5 border border-[#0084FF]/30 text-zinc-400 group-hover:text-white'
                     }`}
                   >
                     <Icon className="w-5 h-5 stroke-[2.2]" />
@@ -289,14 +289,14 @@ export default function HomeSolutionsPreview() {
                 onClick={() => handleSelect(idx)}
                 className={`rounded-2xl bg-[#081B4E] border p-5 transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? 'border-[#0E37A4] shadow-xl ring-2 ring-blue-500/20'
-                    : 'border-[#0E37A4]/25 opacity-90'
+                    ? 'border-[#0084FF] shadow-xl ring-2 ring-blue-500/20'
+                    : 'border-[#0084FF]/25 opacity-90'
                 }`}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${
-                      isActive ? 'bg-[#0E37A4] text-white' : 'bg-white/5 text-zinc-400'
+                      isActive ? 'bg-[#0084FF] text-white' : 'bg-white/5 text-zinc-400'
                     }`}>
                       <Icon className="w-4 h-4" />
                     </div>
@@ -356,7 +356,7 @@ export default function HomeSolutionsPreview() {
               aria-label={`Select Pillar ${idx + 1}`}
               className={`h-2 rounded-full transition-all duration-300 ${
                 activePillar === idx
-                  ? 'w-8 bg-[#0E37A4]'
+                  ? 'w-8 bg-[#0084FF]'
                   : 'w-2 bg-white/20 hover:bg-white/40'
               }`}
             />

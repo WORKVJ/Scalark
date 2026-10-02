@@ -241,10 +241,10 @@ export default function ScalarkChatbot() {
       <div className="fixed bottom-5 sm:bottom-6 right-4 sm:right-6 z-50 pointer-events-auto">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-200 shadow-[0_8px_30px_rgba(14,55,164,0.5)] active:scale-95 cursor-pointer ${
+          className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-200 shadow-[0_8px_30px_rgba(0,132,255,0.5)] active:scale-95 cursor-pointer ${
             isOpen
-              ? 'bg-[#081B4E] text-white border border-[#0E37A4]/50 hover:bg-[#0B2568]'
-              : 'bg-[#0E37A4] text-white hover:bg-[#1546C9]'
+              ? 'bg-[#081B4E] text-white border border-[#0084FF]/50 hover:bg-[#0B2568]'
+              : 'bg-[#0084FF] text-white hover:bg-[#1546C9]'
           }`}
           aria-label="Toggle Chat"
         >
@@ -260,7 +260,7 @@ export default function ScalarkChatbot() {
       {isOpen && (
         <div
           data-lenis-prevent
-          className="fixed z-50 inset-x-3 bottom-20 sm:inset-auto sm:bottom-22 sm:right-6 w-auto sm:w-[380px] h-[500px] max-h-[80vh] bg-[#061233] border border-[#0E37A4]/40 rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(4,14,46,0.9)] backdrop-blur-2xl flex flex-col overflow-hidden text-white animate-in fade-in duration-200"
+          className="fixed z-50 inset-x-3 bottom-20 sm:inset-auto sm:bottom-22 sm:right-6 w-auto sm:w-[380px] h-[500px] max-h-[80vh] bg-[#061233] border border-[#0084FF]/40 rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(4,14,46,0.9)] backdrop-blur-2xl flex flex-col overflow-hidden text-white animate-in fade-in duration-200"
         >
           {/* HEADER */}
           <div className="flex items-center justify-between px-4 py-3 bg-[#081B4E] border-b border-white/10 shrink-0">
@@ -379,7 +379,7 @@ export default function ScalarkChatbot() {
               <button
                 type="button"
                 onClick={scrollToTop}
-                className="sticky bottom-2 ml-auto z-10 px-2.5 py-1 rounded-full bg-[#081B4E] border border-[#0E37A4]/50 text-white shadow-lg text-[11px] font-medium flex items-center gap-1 transition-all active:scale-95 cursor-pointer hover:bg-[#0E37A4] w-fit"
+                className="sticky bottom-2 ml-auto z-10 px-2.5 py-1 rounded-full bg-[#081B4E] border border-[#0084FF]/50 text-white shadow-lg text-[11px] font-medium flex items-center gap-1 transition-all active:scale-95 cursor-pointer hover:bg-[#0084FF] w-fit"
               >
                 <ArrowUp className="w-3 h-3" />
                 <span>Top</span>
@@ -402,14 +402,14 @@ export default function ScalarkChatbot() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Type your inquiry..."
-                className="flex-1 bg-[#061233] border border-white/15 focus:border-[#0E37A4] rounded-xl px-3.5 py-2.5 text-base sm:text-xs text-white placeholder:text-zinc-400 focus:outline-none transition-colors"
+                className="flex-1 bg-[#061233] border border-white/15 focus:border-[#0084FF] rounded-xl px-3.5 py-2.5 text-base sm:text-xs text-white placeholder:text-zinc-400 focus:outline-none transition-colors"
               />
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isTyping}
                 className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all shrink-0 ${
                   inputValue.trim() && !isTyping
-                    ? 'bg-[#0E37A4] text-white hover:bg-[#1546C9] active:scale-95 shadow-md cursor-pointer'
+                    ? 'bg-[#0084FF] text-white hover:bg-[#1546C9] active:scale-95 shadow-md cursor-pointer'
                     : 'bg-white/10 text-zinc-500 cursor-not-allowed'
                 }`}
                 aria-label="Send"

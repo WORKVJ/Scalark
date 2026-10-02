@@ -63,14 +63,14 @@ export default function SolutionsSection({ t }) {
       verticalTitle: 'FINANCE',
       title: 'Finance & Unit Economics',
       icon: Activity,
-      gradient: 'from-[#0E37A4] via-[#091E58] to-[#061233]',
+      gradient: 'from-[#0084FF] via-[#091E58] to-[#061233]',
       image: '/assets/phone-dashboard.jpg',
-      accent: '#0E37A4',
+      accent: '#0084FF',
       badge: 'Margin Control',
-      badgeColor: 'text-blue-300 bg-[#0E37A4]/25 border-[#0E37A4]/40',
-      activeBorder: 'border-[#0E37A4] shadow-[0_25px_60px_rgba(14,55,164,0.35)]',
-      iconActive: 'bg-[#0E37A4]/35 text-blue-200 border-[#0E37A4]/50 shadow-[0_0_15px_rgba(14,55,164,0.4)]',
-      ctaBg: 'bg-[#0E37A4] hover:bg-[#0A2A7E] shadow-[0_0_20px_rgba(14,55,164,0.5)]',
+      badgeColor: 'text-blue-300 bg-[#0084FF]/25 border-[#0084FF]/40',
+      activeBorder: 'border-[#0084FF] shadow-[0_25px_60px_rgba(0,132,255,0.35)]',
+      iconActive: 'bg-[#0084FF]/35 text-blue-200 border-[#0084FF]/50 shadow-[0_0_15px_rgba(0,132,255,0.4)]',
+      ctaBg: 'bg-[#0084FF] hover:bg-[#0070E0] shadow-[0_0_20px_rgba(0,132,255,0.5)]',
       description: 'Replace delayed bookkeeping with executive-level management accounting, unit economics, and real-time cash flow foresight.',
       keyCapabilities: [
         'Cash-Flow Forecasting Models',
@@ -124,7 +124,7 @@ export default function SolutionsSection({ t }) {
   return (
     <section id="solutions" className="py-14 sm:py-32 px-4 sm:px-6 bg-[#061233] text-white relative overflow-hidden">
       {/* AMBIENT BACKGROUND GLOW */}
-      <div className="absolute top-1/2 -right-40 w-[600px] h-[600px] bg-[#0E37A4]/20 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 -right-40 w-[600px] h-[600px] bg-[#0084FF]/20 rounded-full blur-[180px] pointer-events-none" />
       <div className="absolute top-1/3 -left-40 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10 space-y-10 sm:space-y-16">
@@ -139,7 +139,7 @@ export default function SolutionsSection({ t }) {
           </div>
 
           <h2 className="text-2xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight font-sans">
-            OUR ARCHITECTURAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-blue-300">SOLUTIONS</span><span className="text-[#0E37A4]">.</span>
+            OUR ARCHITECTURAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-blue-300">SOLUTIONS</span><span className="text-[#0084FF]">.</span>
           </h2>
           
           <p className="mt-4 text-base sm:text-lg text-blue-100/80 font-normal max-w-2xl mx-auto">
@@ -159,7 +159,7 @@ export default function SolutionsSection({ t }) {
                 className={`relative rounded-3xl overflow-hidden p-8 border transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between group ${
                   isExpanded
                     ? `flex-[3.8] bg-gradient-to-br ${pillar.gradient} ${pillar.activeBorder}`
-                    : 'flex-[1] bg-[#081B4E] border-[#0E37A4]/25 hover:border-[#0E37A4]/60'
+                    : 'flex-[1] bg-[#081B4E] border-[#0084FF]/25 hover:border-[#0084FF]/60'
                 }`}
               >
                 {/* BACKGROUND IMAGE FOR EXPANDED PILLAR */}
@@ -179,7 +179,7 @@ export default function SolutionsSection({ t }) {
                   <span className={`font-tech text-xs font-black uppercase px-3 py-1 rounded-full border ${
                     isExpanded
                       ? pillar.badgeColor
-                      : 'text-blue-200 bg-[#061233]/60 border-[#0E37A4]/30'
+                      : 'text-blue-200 bg-[#061233]/60 border-[#0084FF]/30'
                   }`}>
                     PILLAR {pillar.num}
                   </span>
@@ -265,7 +265,7 @@ export default function SolutionsSection({ t }) {
                 className="h-full"
               >
                 <div
-                  className="h-full rounded-2xl sm:rounded-3xl border border-[#0E37A4]/30 hover:border-[#0E37A4] transition-all duration-300 overflow-hidden shadow-2xl flex flex-col justify-between group bg-[#081B4E]"
+                  className="h-full rounded-2xl sm:rounded-3xl border border-[#0084FF]/30 hover:border-[#0084FF] transition-all duration-300 overflow-hidden shadow-2xl flex flex-col justify-between group bg-[#081B4E]"
                 >
                   {/* TOP HALF: GRADIENT BANNER WITH BACKGROUND IMAGE */}
                   <div className={`p-5 sm:p-7 bg-gradient-to-br ${pillar.gradient} relative overflow-hidden min-h-[190px] sm:min-h-[220px] flex flex-col justify-between`}>
@@ -343,7 +343,7 @@ export default function SolutionsSection({ t }) {
         {/* MODAL FOR DETAILED SYSTEM SPECIFICATIONS */}
         {activeModalSolution && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061233]/90 backdrop-blur-md animate-in fade-in duration-200">
-            <div className="bg-[#081B4E] border border-[#0E37A4]/50 rounded-2xl sm:rounded-3xl max-w-xl w-full max-h-[85vh] overflow-y-auto no-scrollbar p-5 sm:p-8 shadow-[0_25px_80px_rgba(0,0,0,0.9)] relative animate-in zoom-in-95 duration-200 text-white">
+            <div className="bg-[#081B4E] border border-[#0084FF]/50 rounded-2xl sm:rounded-3xl max-w-xl w-full max-h-[85vh] overflow-y-auto no-scrollbar p-5 sm:p-8 shadow-[0_25px_80px_rgba(0,0,0,0.9)] relative animate-in zoom-in-95 duration-200 text-white">
               <button
                 onClick={() => setActiveModalSolution(null)}
                 className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
@@ -353,7 +353,7 @@ export default function SolutionsSection({ t }) {
 
               <div className="space-y-4 sm:space-y-6">
                 <div>
-                  <span className="text-[10px] font-tech font-black text-blue-300 uppercase tracking-widest bg-[#0E37A4]/25 px-3 py-1 rounded-full border border-[#0E37A4]/40 inline-block mb-2">
+                  <span className="text-[10px] font-tech font-black text-blue-300 uppercase tracking-widest bg-[#0084FF]/25 px-3 py-1 rounded-full border border-[#0084FF]/40 inline-block mb-2">
                     System Architecture Specification
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white font-sans">
@@ -364,7 +364,7 @@ export default function SolutionsSection({ t }) {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#061233] border border-[#0E37A4]/30 space-y-2">
+                <div className="p-4 rounded-2xl bg-[#061233] border border-[#0084FF]/30 space-y-2">
                   <div className="text-xs font-bold text-white uppercase font-tech flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                     Target Operational Deliverable
@@ -392,7 +392,7 @@ export default function SolutionsSection({ t }) {
                   </button>
                   <button
                     onClick={() => handleCtaClick(activeModalSolution.name)}
-                    className="px-6 py-2.5 rounded-full bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-black text-xs font-tech uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(14,55,164,0.4)]"
+                    className="px-6 py-2.5 rounded-full bg-[#0084FF] hover:bg-[#0070E0] text-white font-black text-xs font-tech uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,132,255,0.4)]"
                   >
                     Implement This System →
                   </button>

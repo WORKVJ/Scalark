@@ -84,14 +84,14 @@ export default function TheMirrorSection({ t }) {
           </div>
 
           {/* ELEVATED 3D OVERLAPPING CENTER CARD */}
-          <div className="relative md:-my-18 z-20 w-full md:w-auto min-w-0 md:min-w-[320px] rounded-2xl sm:rounded-3xl bg-[#081B4E] text-white p-5 sm:p-8 shadow-[0_30px_70px_rgba(4,14,46,0.6)] border-2 border-[#0E37A4]/50 text-center transform hover:scale-105 transition-all duration-300 card-sheen">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#0E37A4]/20 border-2 border-[#0E37A4] text-[#0E37A4] flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-[0_0_20px_rgba(14,55,164,0.4)]">
+          <div className="relative md:-my-18 z-20 w-full md:w-auto min-w-0 md:min-w-[320px] rounded-2xl sm:rounded-3xl bg-[#081B4E] text-white p-5 sm:p-8 shadow-[0_30px_70px_rgba(4,14,46,0.6)] border-2 border-[#0084FF]/50 text-center transform hover:scale-105 transition-all duration-300 card-sheen">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#0084FF]/20 border-2 border-[#0084FF] text-[#0084FF] flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-[0_0_20px_rgba(0,132,255,0.4)]">
               <Award className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
             </div>
             <div className="text-3xl sm:text-5xl font-black text-white tracking-tight font-tech mb-1">
               <AnimatedCounter end={98} suffix="%" />
             </div>
-            <div className="text-xs font-black uppercase tracking-widest text-[#0E37A4] mb-2 font-tech">
+            <div className="text-xs font-black uppercase tracking-widest text-[#0084FF] mb-2 font-tech">
               Predictability Rate
             </div>
             <p className="text-xs text-zinc-300 leading-relaxed font-medium">
@@ -116,11 +116,11 @@ export default function TheMirrorSection({ t }) {
 
       {/* 2. SUNBURST SECTION TITLE */}
       <ScrollReveal direction="up" distance={30} delay={100} className="max-w-4xl mx-auto px-6 text-center mb-16">
-        <div className="inline-flex items-center gap-2 font-handwritten text-2xl text-[#0E37A4] font-bold mb-2 -rotate-1">
+        <div className="inline-flex items-center gap-2 font-handwritten text-2xl text-[#0084FF] font-bold mb-2 -rotate-1">
           <span>— Diagnosing the friction</span>
         </div>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-tight font-sans">
-          Business Bottlenecks, <span className="text-[#0E37A4]">Made Obvious.</span>
+          Business Bottlenecks, <span className="text-[#0084FF]">Made Obvious.</span>
         </h2>
         <p className="mt-4 text-base sm:text-lg text-zinc-600 max-w-2xl mx-auto font-medium">
           Operational friction is not accidental. It is systematic. Here is how underlying bottlenecks manifest inside ambitious companies.
@@ -145,17 +145,17 @@ export default function TheMirrorSection({ t }) {
                   onMouseEnter={() => setActiveCard(idx)}
                   className={`h-full relative rounded-2xl sm:rounded-3xl p-5 sm:p-10 transition-all duration-300 flex flex-col justify-between shadow-xl cursor-pointer ${
                     isHovered
-                      ? 'bg-[#081B4E] text-white border-2 border-[#0E37A4] sm:-translate-y-2 shadow-[0_25px_60px_rgba(4,14,46,0.35)]'
+                      ? 'bg-[#081B4E] text-white border-2 border-[#0084FF] sm:-translate-y-2 shadow-[0_25px_60px_rgba(4,14,46,0.35)]'
                       : 'bg-white text-black border border-zinc-200 hover:border-zinc-400'
                   }`}
                 >
                 <div>
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-4 sm:mb-6">
                     <div className="flex items-center gap-2">
-                      <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center font-bold ${isHovered ? 'bg-[#0E37A4] text-white' : 'bg-zinc-100 text-black'}`}>
+                      <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center font-bold ${isHovered ? 'bg-[#0084FF] text-white' : 'bg-zinc-100 text-black'}`}>
                         <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
                       </div>
-                      <span className={`font-tech text-[10px] sm:text-xs font-black uppercase tracking-widest px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full ${isHovered ? 'bg-[#0E37A4] text-white' : 'bg-zinc-100 text-black'}`}>
+                      <span className={`font-tech text-[10px] sm:text-xs font-black uppercase tracking-widest px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full ${isHovered ? 'bg-[#0084FF] text-white' : 'bg-zinc-100 text-black'}`}>
                         {card.num} • {card.symptom}
                       </span>
                     </div>
@@ -179,14 +179,14 @@ export default function TheMirrorSection({ t }) {
                   }`}>
                     <div className="flex items-center justify-between text-[10px] font-tech font-bold uppercase tracking-wider mb-1.5">
                       <span className={isHovered ? 'text-zinc-400' : 'text-zinc-500'}>Operational Drag</span>
-                      <span className={`flex items-center gap-1.5 font-black ${isHovered ? 'text-[#0E37A4]' : 'text-zinc-700'}`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${isHovered ? 'bg-[#0E37A4] animate-ping' : 'bg-zinc-400'}`} />
+                      <span className={`flex items-center gap-1.5 font-black ${isHovered ? 'text-[#0084FF]' : 'text-zinc-700'}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${isHovered ? 'bg-[#0084FF] animate-ping' : 'bg-zinc-400'}`} />
                         {card.frictionLevel}
                       </span>
                     </div>
                     <div className="h-1.5 w-full bg-zinc-700/30 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-blue-300 via-[#0E37A4] to-[#1D56E8] rounded-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(14,55,164,0.5)]"
+                        className="h-full bg-gradient-to-r from-blue-300 via-[#0084FF] to-[#38BDF8] rounded-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(0,132,255,0.5)]"
                         style={{ width: isHovered ? card.frictionPercent : '35%' }}
                       />
                     </div>
@@ -194,7 +194,7 @@ export default function TheMirrorSection({ t }) {
                 </div>
 
                 <div className={`pt-4 sm:pt-5 border-t ${isHovered ? 'border-white/10' : 'border-zinc-200'} space-y-1 text-xs`}>
-                  <div className="flex items-center gap-1.5 font-black uppercase tracking-wider text-[#0E37A4] font-tech">
+                  <div className="flex items-center gap-1.5 font-black uppercase tracking-wider text-[#0084FF] font-tech">
                     <ShieldAlert className="w-3.5 h-3.5" />
                     <span>Likely Root Cause:</span>
                   </div>
@@ -209,7 +209,7 @@ export default function TheMirrorSection({ t }) {
         </div>
 
         {/* BOTTOM ACTION PROMPT */}
-        <div className="mt-10 sm:mt-14 rounded-2xl sm:rounded-3xl bg-[#081B4E] text-white p-5 sm:p-10 text-center max-w-4xl mx-auto shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#0E37A4]/40">
+        <div className="mt-10 sm:mt-14 rounded-2xl sm:rounded-3xl bg-[#081B4E] text-white p-5 sm:p-10 text-center max-w-4xl mx-auto shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#0084FF]/40">
           <div className="text-center sm:text-left space-y-1">
             <h4 className="text-lg sm:text-2xl font-black text-white font-sans">
               Recognize your business in any of these?
@@ -228,7 +228,7 @@ export default function TheMirrorSection({ t }) {
             </Link>
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-black uppercase text-xs tracking-wider rounded-full transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+              className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 bg-[#0084FF] hover:bg-[#0070E0] text-white font-black uppercase text-xs tracking-wider rounded-full transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
             >
               <span>Book a Call</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />

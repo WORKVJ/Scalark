@@ -31,7 +31,7 @@ export default function BackgroundCanvas() {
     const colors = new Float32Array(particleCount * 3);
     const velocities = [];
 
-    // Royal Cobalt (#0E37A4) & Crisp White (#FFFFFF)
+    // Royal Cobalt (#0084FF) & Crisp White (#FFFFFF)
     const colorWhite = new THREE.Color(0xffffff);
     const colorCobalt = new THREE.Color(0x0e37a4);
     const colorZinc = new THREE.Color(0x71717a);
@@ -210,8 +210,8 @@ export default function BackgroundCanvas() {
       <div ref={containerRef} className="absolute inset-0 opacity-75" />
 
       {/* Ambient Royal Cobalt & White Glow Accents */}
-      <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#0E37A4]/25 via-[#1D56E8]/10 to-transparent rounded-full blur-[170px]" />
-      <div className="absolute top-[40%] -right-40 w-[600px] h-[600px] bg-[#0E37A4]/15 rounded-full blur-[200px]" />
+      <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#0084FF]/25 via-[#38BDF8]/10 to-transparent rounded-full blur-[170px]" />
+      <div className="absolute top-[40%] -right-40 w-[600px] h-[600px] bg-[#0084FF]/15 rounded-full blur-[200px]" />
     </div>
   );
 }

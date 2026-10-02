@@ -25,7 +25,7 @@ export default function EnterpriseMetricsBar() {
       description: 'Institutional SOP workflows that execute reliably without owner dependency.',
       subtext: 'Zero single-point bottlenecks',
       icon: ShieldCheck,
-      highlightColor: 'from-[#0E37A4]/30 to-blue-600/15',
+      highlightColor: 'from-[#0084FF]/30 to-blue-600/15',
       badgeColor: 'text-cyan-300 border-cyan-500/30 bg-cyan-500/10'
     },
     {
@@ -37,7 +37,7 @@ export default function EnterpriseMetricsBar() {
       description: 'Institutionalised businesses command premium EBITDA valuation exits.',
       subtext: 'Exit & investment multiple',
       icon: TrendingUp,
-      highlightColor: 'from-indigo-500/20 to-[#0E37A4]/15',
+      highlightColor: 'from-indigo-500/20 to-[#0084FF]/15',
       badgeColor: 'text-indigo-300 border-indigo-500/30 bg-indigo-500/10'
     },
     {
@@ -55,16 +55,16 @@ export default function EnterpriseMetricsBar() {
   ];
 
   return (
-    <section className="enterprise-metrics-bar relative z-20 w-full py-10 sm:py-14 bg-[#061233] border-y border-[#0E37A4]/30 overflow-hidden">
+    <section className="enterprise-metrics-bar relative z-20 w-full py-10 sm:py-14 bg-[#061233] border-y border-[#0084FF]/30 overflow-hidden">
       {/* Ambient decorative lighting */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-[#0E37A4]/20 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-[#0084FF]/20 rounded-full blur-[100px]" />
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 bg-blue-600/15 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Top telemetry control header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8 pb-4 border-b border-[#0E37A4]/20">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8 pb-4 border-b border-[#0084FF]/20">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -81,7 +81,7 @@ export default function EnterpriseMetricsBar() {
 
           <div className="flex items-center gap-3 text-[11px] font-mono text-zinc-400">
             <span className="flex items-center gap-1.5 text-zinc-300">
-              <Sparkles className="w-3.5 h-3.5 text-[#0E37A4]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#0084FF]" />
               Measurable Operational Results
             </span>
           </div>
@@ -94,7 +94,7 @@ export default function EnterpriseMetricsBar() {
             return (
               <div
                 key={m.id}
-                className="group relative rounded-2xl bg-gradient-to-b from-[#081B4E]/90 to-[#061233]/95 border border-[#0E37A4]/35 hover:border-[#0E37A4] p-5 sm:p-6 transition-all duration-300 hover:shadow-[0_12px_36px_rgba(14,55,164,0.35)] hover:-translate-y-1 flex flex-col justify-between overflow-hidden"
+                className="group relative rounded-2xl bg-gradient-to-b from-[#081B4E]/90 to-[#061233]/95 border border-[#0084FF]/35 hover:border-[#0084FF] p-5 sm:p-6 transition-all duration-300 hover:shadow-[0_12px_36px_rgba(0,132,255,0.35)] hover:-translate-y-1 flex flex-col justify-between overflow-hidden"
               >
                 {/* Subtle top indicator bar */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${m.highlightColor} opacity-75 group-hover:opacity-100 transition-opacity`} />
@@ -105,7 +105,7 @@ export default function EnterpriseMetricsBar() {
                     <span className={`text-[10px] font-tech font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${m.badgeColor}`}>
                       {m.badge}
                     </span>
-                    <div className="w-8 h-8 rounded-lg bg-[#0E37A4]/25 border border-[#0E37A4]/50 flex items-center justify-center text-blue-200 group-hover:text-white group-hover:bg-[#0E37A4] transition-all">
+                    <div className="w-8 h-8 rounded-lg bg-[#0084FF]/25 border border-[#0084FF]/50 flex items-center justify-center text-blue-200 group-hover:text-white group-hover:bg-[#0084FF] transition-all">
                       <Icon className="w-4 h-4" />
                     </div>
                   </div>

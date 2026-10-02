@@ -27,7 +27,7 @@ export default function AboutPage() {
 
       {/* GLOBAL FOOTPRINT & PRESENCE */}
       <section className="py-14 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto w-full">
-        <div className="rounded-2xl sm:rounded-3xl bg-[#081B4E] border border-[#0E37A4]/30 p-5 sm:p-14 text-center">
+        <div className="rounded-2xl sm:rounded-3xl bg-[#081B4E] border border-[#0084FF]/30 p-5 sm:p-14 text-center">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-blue-300 block mb-2 sm:mb-3">
             CROSS-BORDER ADVISORY
           </span>
@@ -42,7 +42,7 @@ export default function AboutPage() {
             {['DUBAI 🇦🇪', 'LONDON 🇬🇧', 'SINGAPORE 🇸🇬', 'RIYADH 🇸🇦', 'MUMBAI 🇮🇳'].map((city, idx) => (
               <div
                 key={idx}
-                className="py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-[#061233]/80 border border-[#0E37A4]/30 text-[11px] sm:text-xs font-mono font-bold text-blue-100 tracking-wide"
+                className="py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-[#061233]/80 border border-[#0084FF]/30 text-[11px] sm:text-xs font-mono font-bold text-blue-100 tracking-wide"
               >
                 {city}
               </div>
@@ -52,7 +52,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-[#081B4E] border-t border-[#0E37A4]/30 text-center">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-[#081B4E] border-t border-[#0084FF]/30 text-center">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <span className="text-[11px] sm:text-xs font-tech font-bold uppercase tracking-widest text-blue-300 mb-3">
             DIRECT ENGAGEMENT
@@ -65,7 +65,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/contact"
-            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 bg-[#0084FF] hover:bg-[#0070E0] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2"
           >
             <span>Book a Consultation Call</span>
             <ArrowRight className="w-4 h-4 stroke-[2.5]" />

@@ -81,14 +81,14 @@ export default function WhoWeHelpSection({ t }) {
             return (
               <div
                 key={idx}
-                className="p-5 sm:p-8 rounded-2xl sm:rounded-[2rem] bg-gradient-to-br from-[#091E58] to-[#061233] border border-[#0E37A4]/35 shadow-2xl flex flex-col justify-between hover:border-[#0E37A4] transition-all duration-300 sm:hover:-translate-y-1"
+                className="p-5 sm:p-8 rounded-2xl sm:rounded-[2rem] bg-gradient-to-br from-[#091E58] to-[#061233] border border-[#0084FF]/35 shadow-2xl flex flex-col justify-between hover:border-[#0084FF] transition-all duration-300 sm:hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-full bg-white/5 border border-[#0E37A4]/30 flex items-center justify-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-full bg-white/5 border border-[#0084FF]/30 flex items-center justify-center">
                       <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-blue-200 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#061233]/70 border border-[#0E37A4]/30">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-blue-200 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#061233]/70 border border-[#0084FF]/30">
                       {aud.tag}
                     </span>
                   </div>

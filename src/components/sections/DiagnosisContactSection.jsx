@@ -71,7 +71,7 @@ export default function DiagnosisContactSection({ t }) {
         particleCount: 90,
         spread: 80,
         origin: { y: 0.6 },
-        colors: ['#0E37A4', '#1D56E8', '#ffffff']
+        colors: ['#0084FF', '#38BDF8', '#ffffff']
       });
     }, 700);
   };
@@ -82,16 +82,16 @@ export default function DiagnosisContactSection({ t }) {
         
         {/* GROWMEDLINK SIGNATURE SPLIT-PILL CTA CARD */}
         <ScrollReveal direction="up" distance={45} duration={850}>
-          <div className="rounded-2xl sm:rounded-[40px] md:rounded-[60px] overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.5)] border-2 sm:border-4 border-[#0E37A4]/50 grid grid-cols-1 lg:grid-cols-12 card-sheen">
+          <div className="rounded-2xl sm:rounded-[40px] md:rounded-[60px] overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.5)] border-2 sm:border-4 border-[#0084FF]/50 grid grid-cols-1 lg:grid-cols-12 card-sheen">
           
           {/* LEFT HALF: ROYAL BLUE BANNER */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-[#0E37A4] to-[#081B4E] p-5 sm:p-10 md:p-14 text-white flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden">
+          <div className="lg:col-span-5 bg-gradient-to-br from-[#0084FF] to-[#081B4E] p-5 sm:p-10 md:p-14 text-white flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden">
             
             {/* Subtle dot overlay */}
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
             <div className="space-y-3 sm:space-y-4 relative z-10">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white flex items-center justify-center text-[#0E37A4] shadow-xl">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white flex items-center justify-center text-[#0084FF] shadow-xl">
                 <ChevronsRight className="w-6 h-6 sm:w-7 sm:h-7 stroke-[3]" />
               </div>
 
@@ -128,7 +128,7 @@ export default function DiagnosisContactSection({ t }) {
           <div className="lg:col-span-7 bg-[#081B4E] p-5 sm:p-10 md:p-14 text-white">
             {submitted ? (
               <div className="text-center py-10 sm:py-12 space-y-4">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#0E37A4]/30 border-2 border-[#0E37A4] text-white flex items-center justify-center mx-auto shadow-[0_0_25px_rgba(14,55,164,0.5)]">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#0084FF]/30 border-2 border-[#0084FF] text-white flex items-center justify-center mx-auto shadow-[0_0_25px_rgba(0,132,255,0.5)]">
                   <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8 stroke-[3]" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black text-white">
@@ -158,7 +158,7 @@ export default function DiagnosisContactSection({ t }) {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. John Doe"
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0E37A4] focus:ring-2 focus:ring-[#0E37A4]/30 transition-all text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0084FF]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>
 
@@ -173,7 +173,7 @@ export default function DiagnosisContactSection({ t }) {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="e.g. Acme Corp"
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0E37A4] focus:ring-2 focus:ring-[#0E37A4]/30 transition-all text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0084FF]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export default function DiagnosisContactSection({ t }) {
                       value={formData.country}
                       onChange={handleChange}
                       placeholder="e.g. UAE, UK, Singapore, India..."
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0E37A4] focus:ring-2 focus:ring-[#0E37A4]/30 transition-all text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0084FF]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>
 
@@ -202,7 +202,7 @@ export default function DiagnosisContactSection({ t }) {
                       name="businessType"
                       value={formData.businessType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white focus:outline-none focus:border-[#0E37A4] transition-colors text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0084FF]/30 text-white focus:outline-none focus:border-[#0084FF] transition-colors text-base sm:text-sm font-medium"
                     >
                       <option value="Startup">Early-Stage Startup</option>
                       <option value="Growing Business">Rapid Growth Business</option>
@@ -220,7 +220,7 @@ export default function DiagnosisContactSection({ t }) {
                     name="challenge"
                     value={formData.challenge}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white focus:outline-none focus:border-[#0E37A4] transition-colors text-base sm:text-sm font-medium"
+                    className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0084FF]/30 text-white focus:outline-none focus:border-[#0084FF] transition-colors text-base sm:text-sm font-medium"
                   >
                     <option value="Operations">Operations & Owner Bottlenecks (SOPs)</option>
                     <option value="Sales">Sales Pipeline & Unpredictable Revenue</option>
@@ -243,8 +243,8 @@ export default function DiagnosisContactSection({ t }) {
                           onClick={() => setFormData({ ...formData, contactMethod: method })}
                           className={`py-2.5 rounded-xl text-xs font-black border transition-all ${
                             formData.contactMethod === method
-                              ? 'bg-[#0E37A4] text-white border-[#0E37A4] shadow-md'
-                              : 'bg-[#061233]/70 text-blue-200 border-[#0E37A4]/30 hover:text-white'
+                              ? 'bg-[#0084FF] text-white border-[#0084FF] shadow-md'
+                              : 'bg-[#061233]/70 text-blue-200 border-[#0084FF]/30 hover:text-white'
                           }`}
                         >
                           {method}
@@ -268,7 +268,7 @@ export default function DiagnosisContactSection({ t }) {
                           ? 'founder@company.com'
                           : '+971 50 ... / +91 ...'
                       }
-                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0E37A4]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0E37A4] focus:ring-2 focus:ring-[#0E37A4]/30 transition-all text-base sm:text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0084FF]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>
                 </div>
@@ -277,7 +277,7 @@ export default function DiagnosisContactSection({ t }) {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3.5 sm:py-4 bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-black uppercase text-xs tracking-wider rounded-full transition-all duration-200 shadow-[0_10px_30px_rgba(14,55,164,0.45)] active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full py-3.5 sm:py-4 bg-[#0084FF] hover:bg-[#0070E0] text-white font-black uppercase text-xs tracking-wider rounded-full transition-all duration-200 shadow-[0_10px_30px_rgba(0,132,255,0.45)] active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50"
                   >
                     <span>{submitting ? 'Transmitting Request...' : 'Book Operational Diagnosis'}</span>
                     <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />

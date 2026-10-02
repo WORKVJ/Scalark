@@ -23,7 +23,7 @@ export default function CaseStudiesPage() {
 
       {/* VERIFIED BENCHMARKS METRICS GRID */}
       <section className="py-12 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto w-full">
-        <div className="rounded-2xl sm:rounded-3xl bg-[#081B4E] border border-[#0E37A4]/30 p-5 sm:p-12">
+        <div className="rounded-2xl sm:rounded-3xl bg-[#081B4E] border border-[#0084FF]/30 p-5 sm:p-12">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-blue-300 block mb-2">
               PORTFOLIO BENCHMARKS
@@ -34,7 +34,7 @@ export default function CaseStudiesPage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-center">
-            <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0E37A4]/30">
+            <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0084FF]/30">
               <div className="text-2xl sm:text-4xl font-black text-white font-mono mb-1">
                 65%
               </div>
@@ -42,7 +42,7 @@ export default function CaseStudiesPage() {
                 Founder Time Recovered
               </div>
             </div>
-            <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0E37A4]/30">
+            <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0084FF]/30">
               <div className="text-2xl sm:text-4xl font-black text-emerald-400 font-mono mb-1">
                 +42%
               </div>
@@ -50,7 +50,7 @@ export default function CaseStudiesPage() {
                 Revenue Predictability
               </div>
             </div>
-            <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0E37A4]/30">
+            <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0084FF]/30">
               <div className="text-2xl sm:text-4xl font-black text-cyan-400 font-mono mb-1">
                 99.4%
               </div>
@@ -58,7 +58,7 @@ export default function CaseStudiesPage() {
                 SOP Compliance Rate
               </div>
             </div>
-            <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0E37A4]/30">
+            <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0084FF]/30">
               <div className="text-2xl sm:text-4xl font-black text-blue-300 font-mono mb-1">
                 3.8x
               </div>
@@ -71,7 +71,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-[#081B4E] border-t border-[#0E37A4]/30 text-center">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-[#081B4E] border-t border-[#0084FF]/30 text-center">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <span className="text-[11px] sm:text-xs font-tech font-bold uppercase tracking-widest text-blue-300 mb-3">
             YOUR TRANSFORMATION
@@ -84,7 +84,7 @@ export default function CaseStudiesPage() {
           </p>
           <Link
             href="/contact"
-            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 bg-[#0084FF] hover:bg-[#0070E0] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2"
           >
             <span>Book a Consultation Call</span>
             <ArrowRight className="w-4 h-4 stroke-[2.5]" />

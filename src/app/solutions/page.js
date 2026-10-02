@@ -40,14 +40,14 @@ export default function SolutionsPage() {
           {SOLUTIONS_DATA.map((solution) => (
             <div
               key={solution.id}
-              className="rounded-2xl sm:rounded-3xl bg-[#081B4E] border border-[#0E37A4]/30 p-5 sm:p-7 flex flex-col justify-between hover:border-[#0E37A4] transition-all duration-300 group hover:shadow-[0_15px_40px_rgba(14,55,164,0.3)]"
+              className="rounded-2xl sm:rounded-3xl bg-[#081B4E] border border-[#0084FF]/30 p-5 sm:p-7 flex flex-col justify-between hover:border-[#0084FF] transition-all duration-300 group hover:shadow-[0_15px_40px_rgba(0,132,255,0.3)]"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-mono text-blue-200/60 font-bold">
                     DOMAIN {solution.num}
                   </span>
-                  <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#0E37A4]/25 border border-[#0E37A4]/40 text-blue-200 uppercase tracking-wider font-semibold">
+                  <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#0084FF]/25 border border-[#0084FF]/40 text-blue-200 uppercase tracking-wider font-semibold">
                     {solution.tag}
                   </span>
                 </div>
@@ -62,7 +62,7 @@ export default function SolutionsPage() {
                 <div className="space-y-2 mb-6 sm:mb-8">
                   {solution.items.slice(0, 5).map((item, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-blue-100/90">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0E37A4] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0084FF] shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -71,7 +71,7 @@ export default function SolutionsPage() {
 
               <Link
                 href="/contact"
-                className="w-full py-3 rounded-full bg-[#0E37A4]/20 hover:bg-[#0E37A4] text-white border border-[#0E37A4]/40 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all duration-200 active:scale-95"
+                className="w-full py-3 rounded-full bg-[#0084FF]/20 hover:bg-[#0084FF] text-white border border-[#0084FF]/40 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all duration-200 active:scale-95"
               >
                 <span>Consult on This Domain</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -82,7 +82,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* BOTTOM CTA BANNER */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-[#081B4E] border-t border-[#0E37A4]/30 text-center">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-[#081B4E] border-t border-[#0084FF]/30 text-center">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <span className="text-[11px] sm:text-xs font-tech font-bold uppercase tracking-widest text-blue-300 mb-3">
             TAILORED DEPLOYMENT
@@ -95,7 +95,7 @@ export default function SolutionsPage() {
           </p>
           <Link
             href="/contact"
-            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 bg-[#0084FF] hover:bg-[#0070E0] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2"
           >
             <span>Book a Consultation Call</span>
             <ArrowRight className="w-4 h-4 stroke-[2.5]" />

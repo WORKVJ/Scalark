@@ -31,7 +31,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body className="bg-[#061233] text-white min-h-screen antialiased selection:bg-[#0E37A4] selection:text-white">
+      <body className="bg-[#061233] text-white min-h-screen antialiased selection:bg-[#0084FF] selection:text-white">
         <AppLayout>
           {children}
         </AppLayout>

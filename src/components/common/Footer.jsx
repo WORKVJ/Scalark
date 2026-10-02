@@ -28,11 +28,11 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
         {/* GIANT OUTLINED CALLOUT HEADLINE */}
         <div className="mb-12 sm:mb-20 pb-8 sm:pb-12 border-b-2 border-black/10 relative">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-[11px] sm:text-xs font-tech font-black uppercase tracking-widest text-white bg-[#0E37A4] px-3.5 py-1 rounded-full inline-block shadow-sm">
+            <span className="text-[11px] sm:text-xs font-tech font-black uppercase tracking-widest text-white bg-[#0084FF] px-3.5 py-1 rounded-full inline-block shadow-sm">
               GET IN TOUCH
             </span>
             <div className="w-7 h-7 sm:w-8 sm:h-8 hidden sm:block">
-              <FloatingAsterisk3D size={32} color="#0E37A4" speed="fast" />
+              <FloatingAsterisk3D size={32} color="#0084FF" speed="fast" />
             </div>
           </div>
 
@@ -40,7 +40,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
             <span className="text-stroke-black">LET'S</span> BUILD
             <br />
             <span className="text-black">SYSTEMS TOGETHER</span>
-            <span className="text-[#0E37A4]">.</span>
+            <span className="text-[#0084FF]">.</span>
           </h2>
 
           <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -50,7 +50,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
 
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#0E37A4] hover:bg-[#0A2A7E] text-white font-black uppercase text-xs tracking-wider rounded-full transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#0084FF] hover:bg-[#0070E0] text-white font-black uppercase text-xs tracking-wider rounded-full transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2"
             >
               <span>Book a Consultation Call</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
@@ -67,7 +67,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
               href="/"
               className="flex items-center gap-3.5 cursor-pointer group select-none"
             >
-              <div className="w-12 h-12 rounded-2xl bg-[#0E37A4] flex items-center justify-center p-2.5 shadow-md group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-2xl bg-[#0084FF] flex items-center justify-center p-2.5 shadow-md group-hover:scale-105 transition-transform">
                 <Image
                   src="/logo_white_transparent.png"
                   alt="SCALARK Logo"
@@ -97,25 +97,25 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-zinc-200 hover:border-[#FFFFFF] transition-all shadow-sm group"
                 >
-                  <div className="w-9 h-9 rounded-full bg-[#0E37A4]/15 text-[#0E37A4] flex items-center justify-center font-bold">
-                    <MessageSquare className="w-4 h-4 text-[#0E37A4]" />
+                  <div className="w-9 h-9 rounded-full bg-[#0084FF]/15 text-[#0084FF] flex items-center justify-center font-bold">
+                    <MessageSquare className="w-4 h-4 text-[#0084FF]" />
                   </div>
                   <div>
                     <div className="text-[10px] uppercase font-tech text-zinc-400 font-bold">WhatsApp Advisory Desk</div>
-                    <div className="text-xs font-bold text-black group-hover:text-[#0E37A4] transition-colors font-sans">Start Instant Chat</div>
+                    <div className="text-xs font-bold text-black group-hover:text-[#0084FF] transition-colors font-sans">Start Instant Chat</div>
                   </div>
                 </a>
 
                 <a
                   href="mailto:connect@scalark.com"
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-zinc-200 hover:border-[#0E37A4] transition-all shadow-sm group"
+                  className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-zinc-200 hover:border-[#0084FF] transition-all shadow-sm group"
                 >
-                  <div className="w-9 h-9 rounded-full bg-blue-50 text-[#0E37A4] flex items-center justify-center font-bold">
+                  <div className="w-9 h-9 rounded-full bg-blue-50 text-[#0084FF] flex items-center justify-center font-bold">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-[10px] uppercase font-tech text-zinc-400 font-bold">Confidential Inquiries</div>
-                    <div className="text-xs font-bold text-black group-hover:text-[#0E37A4] transition-colors font-sans">connect@scalark.com</div>
+                    <div className="text-xs font-bold text-black group-hover:text-[#0084FF] transition-colors font-sans">connect@scalark.com</div>
                   </div>
                 </a>
               </div>
@@ -123,7 +123,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
           </div>
 
           {/* CENTER DARK CARD: NAVIGATION (4 COLS) */}
-          <div className="md:col-span-4 bg-[#081B4E] text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl card-sheen border border-[#0E37A4]/40">
+          <div className="md:col-span-4 bg-[#081B4E] text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl card-sheen border border-[#0084FF]/40">
             <div className="space-y-3">
               <div className="flex items-center gap-2 mb-2">
                 <Image
@@ -181,7 +181,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
           </div>
 
           {/* RIGHT VIBRANT ROYAL BLUE CARD: GLOBAL PRESENCE (4 COLS) */}
-          <div className="md:col-span-4 bg-[#0E37A4] text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl card-sheen">
+          <div className="md:col-span-4 bg-[#0084FF] text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl card-sheen">
             <div className="space-y-2">
               <span className="text-[10px] font-tech uppercase tracking-widest text-white/80 font-bold block">
                 GLOBAL REACH
@@ -207,7 +207,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
         {/* BOTTOM LEGAL ROW & BACK TO TOP */}
         <div className="pt-6 border-t border-zinc-300 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-500 font-medium text-center sm:text-left">
           <div className="flex items-center gap-2 justify-center sm:justify-start">
-            <div className="w-6 h-6 rounded-md bg-[#0E37A4] flex items-center justify-center p-1 shrink-0">
+            <div className="w-6 h-6 rounded-md bg-[#0084FF] flex items-center justify-center p-1 shrink-0">
               <Image
                 src="/logo_white_transparent.png"
                 alt="Logo"
@@ -224,7 +224,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
           </div>
           <button
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-full bg-[#0E37A4] text-white flex items-center justify-center hover:bg-[#154AE0] transition-all shadow-md cursor-pointer shrink-0"
+            className="w-10 h-10 rounded-full bg-[#0084FF] text-white flex items-center justify-center hover:bg-[#154AE0] transition-all shadow-md cursor-pointer shrink-0"
             title="Scroll to Top"
           >
             <ArrowUp className="w-4 h-4 stroke-[2.5]" />

@@ -31,7 +31,7 @@ export default function KineticTicker({ items = [], speed = 'normal', reverse = 
         {[...displayItems, ...displayItems, ...displayItems].map((item, idx) => (
           <div key={idx} className="flex items-center gap-8 text-xs font-tech font-bold uppercase tracking-widest text-zinc-300 hover:text-white transition-colors cursor-default">
             <span>{item}</span>
-            <span className="w-2 h-2 rounded-full bg-[#0E37A4] shadow-[0_0_10px_#0E37A4] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#0084FF] shadow-[0_0_10px_#0084FF] animate-pulse" />
           </div>
         ))}
       </div>
