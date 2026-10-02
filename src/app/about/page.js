@@ -1,15 +1,11 @@
 'use client';
 
 import PageHeader from '@/components/common/PageHeader';
-import AboutFounderSection from '@/components/sections/AboutFounderSection';
 import RotatingSquadSection from '@/components/sections/RotatingSquadSection';
 import Link from 'next/link';
-import { ArrowRight, Globe, Shield, Award, Users } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
+import { ArrowRight } from 'lucide-react';
 
 export default function AboutPage() {
-  const { t } = useLanguage();
-
   return (
     <div className="flex flex-col">
       <PageHeader
@@ -19,9 +15,6 @@ export default function AboutPage() {
         breadcrumb={[{ label: 'About' }]}
         image="/about-hero.jpg"
       />
-
-      {/* FOUNDER & MANIFESTO STORY */}
-      <AboutFounderSection t={t} />
 
       {/* ARCHITECTS SQUAD CAROUSEL */}
       <RotatingSquadSection />
