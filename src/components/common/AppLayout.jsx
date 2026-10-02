@@ -2,7 +2,6 @@
 
 import { LanguageProvider } from '@/context/LanguageContext';
 import SmoothScroll from '@/components/common/SmoothScroll';
-import ScrollProgressBar from '@/components/common/ScrollProgressBar';
 import BackgroundCanvas from '@/components/canvas/BackgroundCanvas';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
@@ -15,9 +14,6 @@ export default function AppLayout({ children }) {
     <LanguageProvider>
       <SmoothScroll>
         <div className="relative bg-[#061233] text-white min-h-screen font-sans selection:bg-[#0084FF] selection:text-white overflow-x-hidden flex flex-col justify-between">
-          {/* HARDWARE-ACCELERATED SCROLL PROGRESS BAR */}
-          <ScrollProgressBar />
-
           {/* AMBIENT CANVAS */}
           <BackgroundCanvas />
 
