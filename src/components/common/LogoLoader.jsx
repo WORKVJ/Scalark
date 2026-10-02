@@ -6,33 +6,21 @@ import Image from 'next/image';
 export default function LogoLoader() {
   const [mounted, setMounted] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Smooth progress counter from 0 to 100%
-    const startTime = Date.now();
-    const duration = 1300; // 1.3 seconds for progress fill
+    // Elegant brief brand presentation
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+    }, 1100);
 
-    const interval = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      const pct = Math.min(Math.round((elapsed / duration) * 100), 100);
-      setProgress(pct);
+    const cleanup = setTimeout(() => {
+      setMounted(false);
+    }, 1750);
 
-      if (pct >= 100) {
-        clearInterval(interval);
-        // Begin fade out after progress hits 100%
-        setTimeout(() => {
-          setFadeOut(true);
-        }, 150);
-
-        // Remove from DOM after fade out completes
-        setTimeout(() => {
-          setMounted(false);
-        }, 850);
-      }
-    }, 25);
-
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(cleanup);
+    };
   }, []);
 
   if (!mounted) return null;
@@ -46,46 +34,27 @@ export default function LogoLoader() {
       aria-hidden={fadeOut}
     >
       {/* AMBIENT RADIAL GLOW IN BACKGROUND */}
-      <div className="absolute w-[400px] h-[400px] bg-gradient-to-b from-[#0084FF]/25 via-[#38BDF8]/15 to-transparent rounded-full blur-[100px] pointer-events-none animate-pulse" />
+      <div className="absolute w-[450px] h-[450px] bg-gradient-to-b from-[#0084FF]/25 via-[#38BDF8]/15 to-transparent rounded-full blur-[110px] pointer-events-none animate-pulse" />
 
-      {/* CENTER LOGO & CONTENT */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4">
-        {/* LOGO EMBLEM WITH GLOW */}
-        <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-5 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-2xl bg-[#0084FF]/20 blur-xl animate-pulse" />
+      {/* CENTER LOGO & WORDMARK ONLY */}
+      <div className="relative z-10 flex flex-col items-center text-center px-4 animate-fade-in">
+        {/* LOGO EMBLEM */}
+        <div className="relative w-24 h-24 sm:w-28 sm:h-28 mb-4 flex items-center justify-center">
+          <div className="absolute inset-0 rounded-2xl bg-[#0084FF]/25 blur-xl animate-pulse" />
           <Image
             src="/logo_white_transparent.png"
             alt="SCALARK"
-            width={96}
-            height={96}
-            className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_25px_rgba(0,132,255,0.6)] animate-fade-in"
+            width={112}
+            height={112}
+            className="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_4px_30px_rgba(0,132,255,0.7)]"
             priority
           />
         </div>
 
-        {/* BRAND WORDMARK */}
-        <h1 className="text-2xl sm:text-3xl font-black tracking-[0.28em] text-white uppercase font-sans mb-1 pl-1">
+        {/* SCALARK BRAND WORDMARK ONLY */}
+        <h1 className="text-3xl sm:text-4xl font-black tracking-[0.32em] text-white uppercase font-sans pl-1 drop-shadow-[0_2px_15px_rgba(0,132,255,0.4)]">
           SCALARK
         </h1>
-
-        {/* CORE MOTTO */}
-        <p className="text-[11px] sm:text-xs font-mono tracking-widest text-sky-200/75 uppercase mb-6">
-          Find the Problem • Fix the System • Scale
-        </p>
-
-        {/* HIGH-TECH MINIMAL PROGRESS BAR */}
-        <div className="w-44 sm:w-52 h-[3px] bg-white/10 rounded-full overflow-hidden relative shadow-inner">
-          <div
-            className="h-full bg-gradient-to-r from-[#0084FF] via-[#38BDF8] to-white rounded-full transition-all duration-75 ease-out shadow-[0_0_12px_rgba(0,132,255,0.9)]"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-
-        {/* SUBTLE TELEMETRY INDICATOR */}
-        <div className="mt-3 flex items-center gap-2 text-[10px] font-mono text-blue-200/50 uppercase tracking-widest">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span>System Initialization • {progress}%</span>
-        </div>
       </div>
     </div>
   );
