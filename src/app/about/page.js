@@ -13,7 +13,7 @@ export default function AboutPage() {
         title="Engineering Institutional Clarity for Scaling Enterprises"
         subtitle="SCALARK replaces founder bottlenecks with institutional operational architecture designed for sustainable, predictable expansion."
         breadcrumb={[{ label: 'About' }]}
-        image="/about-hero.jpg"
+        image="/assets/heroes/hero-about.jpg"
       />
 
       {/* ARCHITECTS SQUAD CAROUSEL */}
