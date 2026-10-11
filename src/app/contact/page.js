@@ -15,7 +15,7 @@ export default function ContactPage() {
         title="Book a Consultation Call"
         subtitle="Connect directly with our principal systems architects. Discuss your operational bottlenecks, team cadence, or revenue architecture in strict confidence."
         breadcrumb={[{ label: 'Contact' }]}
-        image="/assets/heroes/hero-contact.jpg"
+        image="/assets/heroes/hero-contact-v2.jpg"
       />
 
       {/* CORE CONTACT & INTAKE FORM */}

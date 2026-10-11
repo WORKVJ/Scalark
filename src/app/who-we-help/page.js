@@ -17,7 +17,7 @@ export default function WhoWeHelpPage() {
         title="Tailored Operational Systems for Every Growth Stage"
         subtitle="Whether you're laying your first foundation or untangling a complex legacy enterprise, SCALARK replaces founder bottlenecks with institutional systems."
         breadcrumb={[{ label: 'Who We Help' }]}
-        image="/assets/heroes/hero-who-we-help.jpg"
+        image="/assets/heroes/hero-who-we-help-v2.jpg"
       />
 
       {/* CORE AUDIENCE GRID */}

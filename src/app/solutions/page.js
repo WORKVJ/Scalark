@@ -17,7 +17,7 @@ export default function SolutionsPage() {
         title="Institutional Systems Across 4 Enterprise Pillars"
         subtitle="SCALARK replaces ad-hoc firefighting with synchronized operational architecture across Operations, Revenue, Finance, and Human Capital."
         breadcrumb={[{ label: 'What We Solve' }]}
-        image="/assets/heroes/hero-solutions.jpg"
+        image="/assets/heroes/hero-solutions-v2.jpg"
       />
 
       {/* 4 INTERACTIVE DUAL-TONE PILLARS */}

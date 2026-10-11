@@ -16,7 +16,7 @@ export default function CaseStudiesPage() {
         title="Institutional Outcomes & Client Case Studies"
         subtitle="Explore verified operational turnarounds across logistics, healthcare, consumer brands, and industrial manufacturing."
         breadcrumb={[{ label: 'Case Studies' }]}
-        image="/assets/heroes/hero-case-studies.jpg"
+        image="/assets/heroes/hero-case-studies-v2.jpg"
       />
 
       {/* CORE CASE STUDIES & FOUNDER REELS */}
