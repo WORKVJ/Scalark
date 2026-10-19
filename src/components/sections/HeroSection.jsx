@@ -290,28 +290,44 @@ export default function HeroSection({ t }) {
         </div>
       </div>
 
-      {/* 4. BUSINESS STAGES ACCREDITATION BAR (SCALARK.PDF SECTION 03) */}
-      <div className="relative z-10 w-full pt-14 text-center">
-        <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-blue-100/80 mb-4 font-mono">
-          ENGINEERED FOR FOUNDERS & LEADERSHIP AT EVERY STAGE
-        </div>
+      {/* 4. BUSINESS STAGES ACCREDITATION BAR (SCALARK.PDF SECTION 03) - HIGHLIGHTED */}
+      <div className="relative z-10 w-full pt-10 sm:pt-14 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* HIGHLIGHTED FLOATING GLASS CONTAINER */}
+          <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-r from-white/[0.12] via-white/[0.18] to-white/[0.12] backdrop-blur-xl border-2 border-white/30 shadow-[0_12px_45px_rgba(0,0,0,0.45)] py-5 sm:py-6 px-4 sm:px-6 lg:px-8 text-center overflow-hidden group">
+            {/* AMBIENT GLOW & ACCENT LIGHT RAYS */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[2px] bg-gradient-to-r from-transparent via-[#38BDF8] to-transparent shadow-[0_0_14px_#38BDF8]" />
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-96 h-24 bg-[#38BDF8]/25 rounded-full blur-2xl pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto px-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono text-white">
-          <span className="px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 shadow-sm font-semibold backdrop-blur-md hover:bg-white/25 transition-colors">
-            STARTUPS
-          </span>
-          <span className="px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 shadow-sm font-semibold backdrop-blur-md hover:bg-white/25 transition-colors">
-            NEW ENTREPRENEURS
-          </span>
-          <span className="px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 shadow-sm font-semibold backdrop-blur-md hover:bg-white/25 transition-colors">
-            GROWING BUSINESSES
-          </span>
-          <span className="px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 shadow-sm font-semibold backdrop-blur-md hover:bg-white/25 transition-colors">
-            SMES & MSMES
-          </span>
-          <span className="px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 shadow-sm font-semibold backdrop-blur-md hover:bg-white/25 transition-colors">
-            BUSINESSES IN CRISIS
-          </span>
+            {/* EYEBROW BADGE WITH PULSE INDICATOR */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#061848]/70 border border-[#38BDF8]/40 mb-4 sm:mb-5 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34D399]" />
+              <span className="text-[11px] sm:text-xs font-mono font-extrabold uppercase tracking-widest text-sky-200">
+                ENGINEERED FOR FOUNDERS & LEADERSHIP AT EVERY STAGE
+              </span>
+            </div>
+
+            {/* HIGHLIGHTED STAGE PILLS */}
+            <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-2 sm:gap-2.5 lg:gap-3">
+              {[
+                { label: 'STARTUPS', desc: 'Pre-Seed to Series A' },
+                { label: 'NEW ENTREPRENEURS', desc: 'First-Time Founders' },
+                { label: 'GROWING BUSINESSES', desc: 'Scaling Operations' },
+                { label: 'SMES & MSMES', desc: 'Established Units' },
+                { label: 'BUSINESSES IN CRISIS', desc: 'Rapid Turnaround' },
+              ].map((stage) => (
+                <button
+                  key={stage.label}
+                  type="button"
+                  onClick={() => scrollTo('business-stage')}
+                  className="group/pill px-3.5 sm:px-4 lg:px-4.5 py-2 sm:py-2.5 rounded-full bg-white text-[#061848] hover:bg-sky-50 border-2 border-white hover:border-sky-300 shadow-[0_4px_14px_rgba(0,0,0,0.18)] hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] font-mono font-bold text-[11px] sm:text-xs lg:text-[13px] tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0084FF] group-hover/pill:scale-125 transition-transform shrink-0" />
+                  <span>{stage.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
