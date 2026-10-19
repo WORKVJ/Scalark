@@ -71,7 +71,7 @@ export default function CoreValuesSection() {
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-sans font-bold tracking-tight uppercase">
             <span className="text-[#1F1F21]">OUR </span>
-            <span className="text-[#70A52E]">CORE VALUES</span>
+            <span className="text-[#70A52E]">SERVICES</span>
           </h2>
         </div>
 

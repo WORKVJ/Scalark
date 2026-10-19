@@ -18,7 +18,7 @@ export default function Home() {
       {/* 01. FLAGSHIP HERO WITH INTERACTIVE CONSOLE */}
       <HeroSection t={t} />
 
-      {/* 02. OUR CORE VALUES (AUTO-CYCLING ACTIVE CARDS) */}
+      {/* 02. OUR SERVICES (AUTO-CYCLING ACTIVE CARDS) */}
       <CoreValuesSection />
 
       {/* 03. THE CORE BOTTLENECKS (THE MIRROR) */}
