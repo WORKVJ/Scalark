@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { 
   Play, 
   Pause, 
@@ -12,17 +11,16 @@ import {
   VolumeX, 
   CheckCircle2, 
   ArrowUpRight, 
-  Flame
+  Quote
 } from 'lucide-react';
 
 export const FOUNDER_REELS = [
   {
     id: 'reel-1',
-    image: '/assets/reels/founder_reel_1.jpg',
-    speaker: 'ELENA VANCE',
-    fullName: 'Elena Vance & Ops Team',
-    role: 'Director of Operational Systems',
-    company: 'Vanguard Clinical Labs',
+    speaker: 'DR. ANANYA SEN',
+    fullName: 'Dr. Ananya Sen',
+    role: 'Director of Clinical Operations',
+    company: 'Vanguard Healthcare Networks',
     industry: 'Healthcare & Clinical Networks',
     stage: 'Mid-Market Enterprise (12 Hubs)',
     caption: '“SCALARK replaced fragmented manual logs with automated workflow pipelines, cutting specimen turnaround by 68%.”',
@@ -31,6 +29,7 @@ export const FOUNDER_REELS = [
     duration: '0:54',
     metric: '+38% Net Margin',
     tag: 'HEALTHCARE NETWORK',
+    accent: '#0084FF',
     challenge: 'Expanding across 12 diagnostic locations led to severe sample tracking errors, 45-day billing backlogs, and constant frontline escalations.',
     rootCause: 'Siloed laboratory management software with zero inter-branch communication protocols and delayed executive telemetry.',
     approach: 'Standardized specimen transfer checklists, unified billing SLAs, and created an automated executive dashboard showing daily unit economics per hub.',
@@ -38,7 +37,6 @@ export const FOUNDER_REELS = [
   },
   {
     id: 'reel-2',
-    image: '/assets/reels/founder_reel_2.jpg',
     speaker: 'VIKRAM MALHOTRA',
     fullName: 'Vikram Malhotra',
     role: 'Founder & Group Managing Director',
@@ -51,6 +49,7 @@ export const FOUNDER_REELS = [
     duration: '1:12',
     metric: '65% Time Recovered',
     tag: 'SCALE & VALUATION',
+    accent: '#70A52E',
     challenge: 'Group founder was putting in 16-hour workdays personally signing off on routine operational decisions, creating a massive executive bottleneck.',
     rootCause: 'Lack of formalized department accountability scorecards and absence of delegated financial authority thresholds.',
     approach: 'Engineered 48 institutional SOPs, installed executive tier-2 governance cadences, and linked department KPIs directly to quarterly performance scorecards.',
@@ -58,9 +57,8 @@ export const FOUNDER_REELS = [
   },
   {
     id: 'reel-3',
-    image: '/assets/reels/founder_reel_3.jpg',
-    speaker: 'ARUN & SANDEEP',
-    fullName: 'Arun & Sandeep',
+    speaker: 'ROHAN & KUNAL',
+    fullName: 'Rohan Deshmukh & Kunal Verma',
     role: 'Co-Founders',
     company: 'Kinetix Logistics Platforms',
     industry: 'Supply Chain & Logistics Tech',
@@ -71,6 +69,7 @@ export const FOUNDER_REELS = [
     duration: '0:35',
     metric: '45-Day Cash Recovery',
     tag: 'TECH STARTUP',
+    accent: '#8B5CF6',
     challenge: 'Rapid team expansion led to a monthly cash-burn crisis; the co-founders faced a 3-month runway deadline without unit economics clarity.',
     rootCause: 'Operational leakages across unintegrated software platforms and customer acquisition costs outstripping lifetime cash collection.',
     approach: 'Conducted an emergency 14-day operational and financial audit, cut 9 redundant subscriptions, and refocused the sales team on high-margin enterprise accounts.',
@@ -78,11 +77,10 @@ export const FOUNDER_REELS = [
   },
   {
     id: 'reel-4',
-    image: '/assets/reels/founder_reel_5.jpg',
-    speaker: 'DAVID HENDERSON',
-    fullName: 'David Henderson',
+    speaker: 'RAJESH SHARMA',
+    fullName: 'Rajesh Sharma',
     role: 'Chief Executive Officer',
-    company: 'Apex Industrial Precision Tooling',
+    company: 'Precision Industrial Tooling',
     industry: 'Industrial Tooling & Manufacturing',
     stage: 'Multi-Location Manufacturing',
     caption: '“I was solving every factory crisis myself. Now our documented SOPs run with 99.4% predictability across every shift.”',
@@ -91,6 +89,7 @@ export const FOUNDER_REELS = [
     duration: '0:58',
     metric: '99.4% Autonomy Rate',
     tag: 'INDUSTRIAL SME',
+    accent: '#F59E0B',
     challenge: 'High rework rates and scrap waste during overnight shifts; shop-floor supervisors waited for the CEO to personally approve setup changes.',
     rootCause: 'Zero standardized work instructions for tooling calibrations, causing tribal knowledge dependencies.',
     approach: 'Deployed digital visual inspection checkpoints at each machine cell, trained shift leads on rapid escalation protocols, and implemented daily scrap audits.',
@@ -98,11 +97,10 @@ export const FOUNDER_REELS = [
   },
   {
     id: 'reel-5',
-    image: '/assets/reels/founder_reel_4.jpg',
     speaker: 'GIRISH & MOHAN',
-    fullName: 'Girish & Mohan',
+    fullName: 'Girish Nambiar & Mohan Iyer',
     role: 'Managing Partners',
-    company: 'Metro Retail & Distribution Group',
+    company: 'Metro FMCG & Distribution Group',
     industry: 'Omnichannel FMCG & Retail',
     stage: 'Expansion Stage (6 Hubs)',
     caption: '“When you build real SOPs and accountability matrices, frontline teams take full ownership of their dispatch numbers.”',
@@ -111,6 +109,7 @@ export const FOUNDER_REELS = [
     duration: '0:49',
     metric: '98% Staff Adoption',
     tag: 'SUPPLY CHAIN',
+    accent: '#06B6D4',
     challenge: 'Prior attempts to install expensive enterprise systems failed because warehouse staff bypassed digital forms and defaulted to chaotic manual notes.',
     rootCause: 'Management mandated complex technology before documenting ground workflow steps or training supervisory tier leads.',
     approach: 'Co-designed simplified mobile SOP checklists with warehouse team leaders, backed by weekly milestone reviews and performance incentives.',
@@ -118,11 +117,10 @@ export const FOUNDER_REELS = [
   },
   {
     id: 'reel-6',
-    image: '/assets/hero-architect.jpg',
-    speaker: 'SARAH STERLING',
-    fullName: 'Sarah Sterling',
+    speaker: 'PRIYA SUNDARAM',
+    fullName: 'Priya Sundaram',
     role: 'Managing Principal',
-    company: 'Sterling Advisory & Governance',
+    company: 'Sundaram Advisory & Governance',
     industry: 'Institutional Advisory',
     stage: 'High-End Consulting Group',
     caption: '“SCALARK systematized our client onboarding and delivery architecture, allowing us to triple client intake without hiring partner tiers.”',
@@ -131,6 +129,7 @@ export const FOUNDER_REELS = [
     duration: '1:05',
     metric: '3.2x Capacity Expansion',
     tag: 'ADVISORY & SERVICES',
+    accent: '#EC4899',
     challenge: 'Partners were overloaded with project delivery handoffs and administrative reporting, limiting senior partner business development.',
     rootCause: 'Unstructured delivery templates and inconsistent peer-review cadences across client accounts.',
     approach: 'Engineered an institutional delivery playbook, installed automated status telemetry, and delegated recurring reporting to operations analysts.',
@@ -138,11 +137,10 @@ export const FOUNDER_REELS = [
   },
   {
     id: 'reel-7',
-    image: '/assets/squad/squad_hamas.jpg',
-    speaker: 'MARCUS CHEN',
-    fullName: 'Marcus Chen',
+    speaker: 'ARJUN MEHTA',
+    fullName: 'Arjun Mehta',
     role: 'Head of Global Operations',
-    company: 'Apex Logistics & Maritime Gateway',
+    company: 'Maritime Gateway Logistics',
     industry: 'Maritime & Freight Logistics',
     stage: 'Global Terminal Operations',
     caption: '“Container transit coordination went from constant firefighting to clockwork precision across 4 international ports.”',
@@ -151,6 +149,7 @@ export const FOUNDER_REELS = [
     duration: '0:48',
     metric: '72% Bottleneck Elimination',
     tag: 'PORT INFRASTRUCTURE',
+    accent: '#3B82F6',
     challenge: 'Vessel turnaround delays and customs clearance misalignments caused penalty fees exceeding $200k quarterly.',
     rootCause: 'Manual spreadsheet handoffs between harbor masters, customs brokers, and inland trucking fleets.',
     approach: 'Built unified terminal dispatch protocols and instituted automated pre-arrival customs verification pipelines.',
@@ -158,15 +157,15 @@ export const FOUNDER_REELS = [
   }
 ];
 
-// Staggered height and wave offset configuration matching the reference image
+// Staggered height and wave offset configuration
 const STAGGER_CONFIG = [
-  { height: 'h-[330px] sm:h-[360px]', offset: 'translate-y-8 sm:translate-y-10' },
-  { height: 'h-[390px] sm:h-[430px]', offset: '-translate-y-3 sm:-translate-y-5' },
-  { height: 'h-[350px] sm:h-[380px]', offset: 'translate-y-6 sm:translate-y-8' },
-  { height: 'h-[420px] sm:h-[460px]', offset: 'translate-y-0 sm:translate-y-0' }, // Center hero
-  { height: 'h-[340px] sm:h-[370px]', offset: 'translate-y-8 sm:translate-y-12' },
-  { height: 'h-[390px] sm:h-[430px]', offset: '-translate-y-2 sm:-translate-y-4' },
-  { height: 'h-[330px] sm:h-[360px]', offset: 'translate-y-6 sm:translate-y-8' }
+  { height: 'h-[360px] sm:h-[390px]', offset: 'translate-y-5 sm:translate-y-7' },
+  { height: 'h-[390px] sm:h-[425px]', offset: '-translate-y-2 sm:-translate-y-3' },
+  { height: 'h-[370px] sm:h-[405px]', offset: 'translate-y-4 sm:translate-y-5' },
+  { height: 'h-[405px] sm:h-[440px]', offset: 'translate-y-0 sm:translate-y-0' }, // Center hero
+  { height: 'h-[360px] sm:h-[390px]', offset: 'translate-y-5 sm:translate-y-7' },
+  { height: 'h-[390px] sm:h-[425px]', offset: '-translate-y-2 sm:-translate-y-3' },
+  { height: 'h-[370px] sm:h-[405px]', offset: 'translate-y-4 sm:translate-y-5' }
 ];
 
 export default function FounderReelsCarousel() {
@@ -192,7 +191,7 @@ export default function FounderReelsCarousel() {
     return () => clearInterval(interval);
   }, [isAutoMoving, isUserHovering, selectedReel]);
 
-  // Video progress bar simulation in modal
+  // Audio progress bar simulation in modal
   useEffect(() => {
     if (!selectedReel) return;
     const interval = setInterval(() => {
@@ -208,7 +207,7 @@ export default function FounderReelsCarousel() {
       setActiveIdx((prev) => (prev < FOUNDER_REELS.length - 1 ? prev + 1 : 0));
     }
     if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -280 : 280;
+      const scrollAmount = direction === 'left' ? -320 : 320;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -220,9 +219,9 @@ export default function FounderReelsCarousel() {
       <div className="flex flex-col sm:flex-row items-end sm:items-center justify-between gap-4 mb-6 px-4">
         
         {/* HINT BADGE */}
-        <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200/80 text-xs font-mono text-zinc-600">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-          <span>Interactive Staggered Stream • Hover to Inspect</span>
+        <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80 text-xs font-mono text-zinc-600 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-[#70A52E] animate-ping" />
+          <span>Verified Founder Quotes • Hover to Inspect</span>
         </div>
 
         {/* BUTTON CONTROLS */}
@@ -240,7 +239,7 @@ export default function FounderReelsCarousel() {
               </>
             ) : (
               <>
-                <Play className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600" />
+                <Play className="w-3.5 h-3.5 text-[#70A52E] fill-[#70A52E]" />
                 <span>Auto-Move</span>
               </>
             )}
@@ -251,14 +250,14 @@ export default function FounderReelsCarousel() {
             <button
               onClick={() => handleManualScroll('left')}
               className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 hover:text-black transition-all shadow-sm"
-              aria-label="Previous story"
+              aria-label="Previous quote"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => handleManualScroll('right')}
               className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 hover:text-black transition-all shadow-sm"
-              aria-label="Next story"
+              aria-label="Next quote"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -278,7 +277,7 @@ export default function FounderReelsCarousel() {
         <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
 
-        {/* INFINITE MARQUEE ROW */}
+        {/* INFINITE MARQUEE ROW OF TYPOGRAPHIC QUOTE CARDS (NO PHOTOS) */}
         <div 
           className={`flex items-center gap-4 sm:gap-6 min-w-max will-change-transform ${
             isAutoMoving ? 'animate-reel-scroll' : ''
@@ -298,45 +297,63 @@ export default function FounderReelsCarousel() {
                   setSelectedReel(reel);
                 }}
                 onMouseEnter={() => setActiveIdx(originalIdx)}
-                className={`relative w-[180px] sm:w-[220px] md:w-[240px] ${config.height} ${config.offset} rounded-2xl sm:rounded-[26px] overflow-hidden cursor-pointer transition-all duration-500 shrink-0 group ${
+                className={`relative w-[270px] sm:w-[310px] md:w-[335px] ${config.height} ${config.offset} rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 shrink-0 group flex flex-col justify-between p-6 sm:p-7 select-none border ${
                   isCurrent 
-                    ? 'ring-2 ring-zinc-950/20 shadow-[0_25px_60px_rgba(0,0,0,0.18)] scale-105 z-20' 
-                    : 'shadow-[0_12px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.14)] hover:scale-[1.02] z-10'
+                    ? 'border-[#70A52E] bg-gradient-to-b from-[#151D14] via-[#0E150D] to-[#070B06] ring-2 ring-[#70A52E]/60 shadow-[0_25px_60px_rgba(112,165,46,0.22)] scale-105 z-20' 
+                    : 'border-zinc-800/80 bg-gradient-to-b from-[#141923] via-[#0E121B] to-[#07090E] shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:border-zinc-700 hover:scale-[1.02] z-10'
                 }`}
               >
-                {/* PORTRAIT IMAGE IN HIGH-CONTRAST MONOCHROME / GRAYSCALE */}
-                <Image
-                  src={reel.image}
-                  alt={reel.speaker}
-                  fill
-                  sizes="(max-width: 640px) 180px, 240px"
-                  className={`object-cover object-center transition-all duration-700 ${
-                    isCurrent 
-                      ? 'grayscale-0 contrast-105 scale-105' 
-                      : 'grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105'
+                {/* SUBTLE CORNER AMBIENT GLOW */}
+                <div 
+                  className={`absolute -top-16 -right-16 w-36 h-36 rounded-full blur-2xl pointer-events-none transition-opacity duration-500 ${
+                    isCurrent ? 'opacity-30 bg-[#70A52E]' : 'opacity-10 bg-blue-500 group-hover:opacity-20'
                   }`}
-                  priority={idx < 5}
                 />
 
-                {/* SUBTLE GRADIENT VIGNETTE */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                {/* CARD TOP ROW: TAG & DURATION */}
+                <div className="flex items-center justify-between gap-2 relative z-10">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-white/10 text-emerald-400 border border-emerald-500/20 backdrop-blur-md">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    {reel.tag}
+                  </span>
+                  <span className="text-[10px] font-mono font-bold text-zinc-400 bg-white/5 px-2 py-0.5 rounded-full border border-white/5">
+                    {reel.duration}
+                  </span>
+                </div>
 
-                {/* PLAY BUTTON HOVER PROMPT */}
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className={`w-11 h-11 rounded-full bg-white/85 backdrop-blur-md flex items-center justify-center text-zinc-900 shadow-xl transition-all duration-300 ${
-                    isCurrent 
-                      ? 'opacity-100 scale-100' 
-                      : 'opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100'
-                  }`}>
-                    <Play className="w-4 h-4 fill-zinc-900 translate-x-0.5" />
+                {/* CARD MIDDLE: LARGE EXECUTIVE QUOTE */}
+                <div className="my-auto py-2 relative z-10">
+                  <div className="text-[#70A52E] font-serif text-3xl sm:text-4xl leading-none select-none opacity-90 mb-2">
+                    “
+                  </div>
+                  <p className="text-sm sm:text-[15px] font-sans font-medium text-zinc-100 leading-snug tracking-tight">
+                    {reel.caption.replace(/^[“"]|[”"]$/g, '')}
+                  </p>
+                  
+                  {/* METRIC BADGE */}
+                  <div className="inline-flex items-center gap-1.5 mt-3.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-[11px] font-mono font-bold text-emerald-300">
+                    <CheckCircle2 className="w-3 h-3 text-[#70A52E]" />
+                    <span>{reel.metric}</span>
                   </div>
                 </div>
 
-                {/* BOTTOM COMPACT DURATION CHIP */}
-                <div className="absolute bottom-3 inset-x-3 z-10 text-center">
-                  <span className="inline-block px-2.5 py-1 rounded-full bg-[#061233]/70 backdrop-blur-md text-[10px] font-mono font-bold uppercase tracking-wider text-white border border-[#0084FF]/30">
-                    {reel.duration}
-                  </span>
+                {/* CARD FOOTER: NAME & ROLE / COMPANY (MATCHING USER REQUEST) */}
+                <div className="pt-3.5 border-t border-white/10 mt-auto relative z-10">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-sm sm:text-base font-sans font-black uppercase tracking-wider text-white">
+                      {reel.speaker}
+                    </h4>
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all ${
+                      isCurrent 
+                        ? 'bg-[#70A52E] text-white' 
+                        : 'bg-white/10 text-zinc-400 group-hover:bg-white/20 group-hover:text-white'
+                    }`}>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                  <p className="text-[11px] sm:text-xs text-zinc-400 font-sans mt-0.5 line-clamp-1">
+                    {reel.role} • <strong className="text-zinc-200 font-semibold">{reel.company}</strong>
+                  </p>
                 </div>
               </div>
             );
@@ -344,7 +361,7 @@ export default function FounderReelsCarousel() {
         </div>
       </div>
 
-      {/* FOUNDER NAME & DETAILS UNDERNEATH (MATCHING REFERENCE "ROBERT ALEX" STYLE) */}
+      {/* FOUNDER NAME & DETAILS UNDERNEATH SPOTLIGHT */}
       <div className="mt-8 sm:mt-12 text-center max-w-xl mx-auto px-4">
         <h3 className="text-xl sm:text-3xl font-black uppercase tracking-wider text-zinc-950 font-sans transition-all duration-300">
           {activeReel.speaker}
@@ -356,7 +373,7 @@ export default function FounderReelsCarousel() {
 
         {/* AUDITED BREAKTHROUGH PILL */}
         <div className="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/90 text-xs font-mono font-bold text-zinc-800 shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#70A52E] animate-pulse" />
           <span className="text-[#0084FF]">{activeReel.tag}</span>
           <span className="text-zinc-300">•</span>
           <span>{activeReel.metric}</span>
@@ -367,7 +384,7 @@ export default function FounderReelsCarousel() {
         </p>
       </div>
 
-      {/* INTERACTIVE VIDEO / AUDIT MODAL */}
+      {/* INTERACTIVE CASE AUDIT MODAL (NO PHOTOS) */}
       {selectedReel && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061233]/85 backdrop-blur-xl animate-fadeIn"
@@ -386,46 +403,71 @@ export default function FounderReelsCarousel() {
               <X className="w-4 h-4" />
             </button>
 
-            {/* LEFT COLUMN: SIMULATED VERTICAL VIDEO PLAYER */}
-            <div className="w-full md:w-[360px] shrink-0 bg-[#061233] relative flex items-center justify-center overflow-hidden h-[240px] sm:h-[300px] md:min-h-[560px]">
-              <Image
-                src={selectedReel.image}
-                alt={selectedReel.speaker}
-                fill
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#061233] via-[#061233]/20 to-[#061233]/40" />
+            {/* LEFT COLUMN: ARCHITECTURAL STATEMENT & TELEMETRY (NO PHOTOS) */}
+            <div className="w-full md:w-[360px] shrink-0 bg-gradient-to-b from-[#0F172A] via-[#0A0F1D] to-[#060912] text-white p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden border-b md:border-b-0 md:border-r border-zinc-800">
+              
+              {/* TOP HEADER */}
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="w-2 h-2 rounded-full bg-[#70A52E] animate-ping" />
+                  <span className="text-[11px] font-mono font-bold tracking-widest text-[#70A52E] uppercase">
+                    SCALARK AUDIT ARCHIVE
+                  </span>
+                </div>
 
-              {/* SIMULATED VIDEO PROGRESS BAR */}
-              <div className="absolute bottom-0 inset-x-0 h-1.5 bg-white/20">
-                <div 
-                  className="h-full bg-emerald-400 transition-all duration-300 relative"
-                  style={{ width: `${playbackProgress}%` }}
-                >
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-md" />
+                <div className="text-5xl font-serif text-[#70A52E] leading-none mb-3 opacity-90">
+                  “
+                </div>
+
+                <blockquote className="text-sm sm:text-base font-sans font-medium text-white leading-relaxed mb-6">
+                  {selectedReel.caption.replace(/^[“"]|[”"]$/g, '')}
+                </blockquote>
+
+                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider mb-1">
+                    Audited Outcome
+                  </div>
+                  <div className="text-base font-mono font-bold text-emerald-400">
+                    {selectedReel.metric}
+                  </div>
                 </div>
               </div>
 
-              {/* REEL OVERLAY INFO */}
-              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-[#061233]/70 backdrop-blur-md px-3 py-1 rounded-full border border-[#0084FF]/30">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-                <span className="text-xs font-mono font-bold text-white uppercase">SCALARK RECORDINGS</span>
-              </div>
+              {/* FOOTER - SPEAKER DETAILS & AUDIO SIMULATION */}
+              <div className="pt-6 border-t border-white/10 mt-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 className="text-sm font-sans font-black uppercase text-white tracking-wide">
+                      {selectedReel.speaker}
+                    </h4>
+                    <p className="text-xs text-zinc-400 mt-0.5">
+                      {selectedReel.role}
+                    </p>
+                    <p className="text-xs font-semibold text-emerald-400">
+                      {selectedReel.company}
+                    </p>
+                  </div>
 
-              {/* AUDIO / MUTE TOGGLE */}
-              <button
-                onClick={() => setIsMuted(!isMuted)}
-                className="absolute bottom-4 right-4 z-10 p-2.5 rounded-full bg-[#061233]/70 backdrop-blur-md text-white border border-[#0084FF]/30 hover:bg-[#0084FF]"
-                title={isMuted ? 'Unmute' : 'Mute'}
-              >
-                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
-              </button>
+                  <button
+                    onClick={() => setIsMuted(!isMuted)}
+                    className="p-2.5 rounded-full bg-white/10 hover:bg-[#70A52E] text-white transition-colors border border-white/10"
+                    title={isMuted ? 'Unmute audio' : 'Mute audio'}
+                  >
+                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
+                  </button>
+                </div>
 
-              {/* LIVE CAPTION CALLOUT */}
-              <div className="absolute bottom-12 inset-x-4 p-4 rounded-xl bg-[#061233]/80 backdrop-blur-md border border-[#0084FF]/30 text-center">
-                <p className="text-xs font-semibold text-white">
-                  "{selectedReel.caption}"
-                </p>
+                {/* AUDIO PROGRESS BAR */}
+                <div className="w-full h-1.5 bg-white/15 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-[#70A52E] to-emerald-400 transition-all duration-300"
+                    style={{ width: `${playbackProgress}%` }}
+                  />
+                </div>
+                <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 mt-1.5">
+                  <span>Audited Statement</span>
+                  <span>{selectedReel.duration}</span>
+                </div>
               </div>
             </div>
 
