@@ -312,6 +312,7 @@ Because investment is calibrated to your company's revenue stage and operational
     response: `You can connect directly with our Systems Architecture team through several priority channels:
 
 • **Direct Architecture Consultation:** Book a 30-minute diagnostic session with a senior systems partner.
+• **Direct Email:** connect@scalarkinc.com
 • **Confidential Mutual NDA:** Available before any proprietary business documentation or financials are reviewed.
 • **Instant WhatsApp Channel:** Connect directly with our regional desk for quick queries.
 • **Offices:** Riyadh (Saudi Arabia), Dubai Silicon Oasis (UAE), and Nariman Point Mumbai (India).`,

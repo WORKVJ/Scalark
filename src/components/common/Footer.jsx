@@ -103,7 +103,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
                 </a>
 
                 <a
-                  href="mailto:connect@scalark.com"
+                  href="mailto:connect@scalarkinc.com"
                   className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-zinc-200 hover:border-[#0084FF] transition-all shadow-sm group"
                 >
                   <div className="w-9 h-9 rounded-full bg-blue-50 text-[#0084FF] flex items-center justify-center font-bold">
@@ -111,7 +111,7 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
                   </div>
                   <div>
                     <div className="text-[10px] uppercase font-tech text-zinc-400 font-bold">Confidential Inquiries</div>
-                    <div className="text-xs font-bold text-black group-hover:text-[#0084FF] transition-colors font-sans">connect@scalark.com</div>
+                    <div className="text-xs font-bold text-black group-hover:text-[#0084FF] transition-colors font-sans">connect@scalarkinc.com</div>
                   </div>
                 </a>
               </div>
