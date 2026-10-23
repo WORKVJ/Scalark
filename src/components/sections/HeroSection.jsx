@@ -35,7 +35,7 @@ export default function HeroSection({ t }) {
       desc: "Once the problem is diagnosed, we architect the institutional structure: role responsibilities, SOP frameworks, KPI hierarchies and financial reporting dashboards.",
       metric1: { label: 'Workflow Architecture', value: 'Documented SOPs' },
       metric2: { label: 'Accountability Framework', value: 'Role Clarity 100%' },
-      metric3: { label: 'Target Valuation Multiple', value: '3.8x to 4.6x' },
+      metric3: { label: 'Valuation & Revenue Multiple', value: '2.8x Generated' },
       status: 'Architecture Blueprint Approved',
       domains: ['SOP Mapping', 'Department Structures', 'KPI Definition', 'Technology Planning']
     },
@@ -69,7 +69,7 @@ export default function HeroSection({ t }) {
       title: 'Scale',
       tagline: 'Build for Enduring Growth',
       desc: "Once the foundation operates without founder heroics, the organisation is positioned for sustainable multi-market expansion, acquisitions, and maximum valuation.",
-      metric1: { label: 'Enterprise Valuation', value: '4.62x Multiple' },
+      metric1: { label: 'Valuation & Revenue Multiple', value: '2.8x Generated' },
       metric2: { label: 'Autonomous Capacity', value: 'Self-Operating' },
       metric3: { label: 'Regional Expansion', value: 'Multi-Market Ready' },
       status: 'Institutional Scale Achieved',
@@ -268,13 +268,13 @@ export default function HeroSection({ t }) {
           <div className="mt-6 pt-5 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-blue-100">
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] sm:text-xs">
               <div>
-                <span className="text-white font-bold">250+</span> Audits Completed
+                <span className="text-white font-bold">60+</span> Companies Supported
               </div>
               <div>
                 <span className="text-white font-bold">65%</span> Owner Time Recovered
               </div>
               <div>
-                <span className="text-white font-bold">4.62x</span> Target Multiple
+                <span className="text-white font-bold">2.8x</span> Valuation & Revenue Generated
               </div>
             </div>
 

@@ -73,10 +73,10 @@ export default function TheMirrorSection({ t }) {
           {/* LEFT STAT */}
           <div className="text-center md:text-left space-y-1 relative z-10">
             <div className="text-3xl sm:text-5xl font-black text-black tracking-tight font-tech">
-              <AnimatedCounter end={100} suffix="+" />
+              <AnimatedCounter end={60} suffix="+" />
             </div>
             <div className="text-xs sm:text-sm font-black uppercase tracking-wider text-black font-sans">
-              Systems Engineered
+              Companies Supported
             </div>
             <p className="text-xs text-black/80 max-w-[200px] font-medium mx-auto md:mx-0">
               Replacing intuitive guesswork across Saudi Arabia, UAE & India

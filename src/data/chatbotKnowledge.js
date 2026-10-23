@@ -11,7 +11,7 @@ export const SCALARK_SYSTEMS_OVERVIEW = {
   tagline: "Find the Problem. Fix the System. Scale the Business.",
   coreAudience: "Entrepreneurs, Startups, Scaling SMEs, MSMEs, and Cross-Border Enterprise Founders",
   globalPresence: ["Saudi Arabia (Riyadh)", "UAE (Dubai & Abu Dhabi)", "India (Mumbai & Bengaluru)"],
-  primaryMetric: "3.8x - 4.6x Enterprise Valuation Multiple Uplift",
+  primaryMetric: "2.8x Enterprise Valuation & Revenue Multiple Generated",
   predictabilityRate: "98.4% System Operationalization without downtime",
   ownerTimeRecovery: "Up to 65% Founder Capacity Recovered from daily firefighting"
 };
@@ -194,7 +194,7 @@ Instead of generic business coaching or superficial motivational advice, SCALARK
 5. **Technology & Automation**
 6. **Performance & Governance Cadence**
 
-Operating across Saudi Arabia, UAE, and India, our battle-tested blueprints have engineered over **100+ systems transformations** with a **98.4% predictability rate**.`,
+Operating across Saudi Arabia, UAE, and India, our battle-tested blueprints have engineered over **60+ companies supported** with a **98.4% predictability rate**.`,
     quickReplies: ["Tell me about the 5 Phases", "Run 2-Minute Diagnostic", "Book Strategy Call"]
   },
   {
@@ -206,7 +206,7 @@ Operating across Saudi Arabia, UAE, and India, our battle-tested blueprints have
 • **Phase 02: Design (Weeks 3-4)** — *Build the Right Solution*. Codifying SOPs, RACI accountability matrices, real-time KPI scorecards, and data pipelines.
 • **Phase 03: Implement (Weeks 5-8)** — *Turn the Plan Into Action*. Embedding automated runbooks into daily work, training internal champions, and eliminating founder bottlenecks.
 • **Phase 04: Measure (Weeks 9-10)** — *Make Performance Visible*. Installing daily/weekly rhythm reviews and variance monitoring dashboards.
-• **Phase 05: Scale (Weeks 11+)** — *Build for Enduring Growth*. Preparing for multi-city expansion, institutional funding, or private equity multiple maximization (3.8x - 4.6x EBITDA).`,
+• **Phase 05: Scale (Weeks 11+)** — *Build for Enduring Growth*. Preparing for multi-city expansion, institutional funding, or private equity multiple maximization (2.8x Valuation & Revenue Multiple Generated).`,
     quickReplies: ["How do we begin Phase 01?", "What does Phase 01 cost?", "Run Diagnostic Quiz"]
   },
   {
@@ -320,10 +320,10 @@ Because investment is calibrated to your company's revenue stage and operational
   },
   {
     triggers: ["valuation", "multiple", "exit", "private equity", "m&a", "investors", "ebitda"],
-    title: "Institutional Valuation Multiple Expansion",
+    title: "Valuation & Revenue Multiple Generated",
     response: `Private equity firms, venture funds, and strategic buyers discount founder-dependent businesses by **40% to 60%** because key-person risk destroys post-acquisition certainty.
 
-**What Drives Multiple Expansion from 3.8x to 4.6x+:**
+**What Drives Valuation & Revenue Multiple to 2.8x+:**
 1. **Documented Autonomy:** A business that runs seamlessly when the founder is in Patagonia for 3 weeks commands top-tier multiples.
 2. **Predictable Unit Economics:** Clean, verifiable cohorts showing steady LTV:CAC ratios > 3.5:1.
 3. **Non-Fragile Software Architecture:** Clean data hygiene without custom tape-and-glue spaghetti code.

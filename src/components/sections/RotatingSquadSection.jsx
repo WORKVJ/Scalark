@@ -52,7 +52,7 @@ export const SQUAD_MEMBERS = [
     accentColor: '#60A5FA',
     image: '/assets/squad/squad_thanzeer.jpg',
     domain: 'FOUNDATION',
-    metric: '4.62x Valuation Multiple'
+    metric: '2.8x Valuation & Revenue'
   },
   {
     id: 'squad-5',

@@ -61,10 +61,10 @@ export default function CaseStudiesPage() {
             </div>
             <div className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#081B4E] border border-[#0084FF]/30">
               <div className="text-2xl sm:text-4xl font-black text-blue-300 font-mono mb-1">
-                3.8x
+                2.8x
               </div>
               <div className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-blue-200/70">
-                Average Enterprise ROI
+                Valuation & Revenue Generated
               </div>
             </div>
           </div>

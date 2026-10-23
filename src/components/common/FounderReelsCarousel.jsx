@@ -43,9 +43,9 @@ export const FOUNDER_REELS = [
     company: 'Malhotra Enterprise Holdings',
     industry: 'Conglomerate & Private Equity',
     stage: 'Institutional Scale (₹85 Cr ARR)',
-    caption: '“I was trapped in daily escalations. SCALARK installed owner independence and expanded our valuation multiple to 4.62x.”',
+    caption: '“I was trapped in daily escalations. SCALARK installed owner independence and expanded our valuation multiple to 2.8x.”',
     quoteHighlight: 'installed institutional governance & owner freedom',
-    subQuote: 'expanding our enterprise valuation multiple to 4.62x.',
+    subQuote: 'expanding our enterprise valuation multiple to 2.8x.',
     duration: '1:12',
     metric: '65% Time Recovered',
     tag: 'SCALE & VALUATION',
@@ -53,7 +53,7 @@ export const FOUNDER_REELS = [
     challenge: 'Group founder was putting in 16-hour workdays personally signing off on routine operational decisions, creating a massive executive bottleneck.',
     rootCause: 'Lack of formalized department accountability scorecards and absence of delegated financial authority thresholds.',
     approach: 'Engineered 48 institutional SOPs, installed executive tier-2 governance cadences, and linked department KPIs directly to quarterly performance scorecards.',
-    outcome: 'Founder intervention dropped by 65%, strategic M&A velocity doubled, and external institutional audit benchmarked business at 4.62x valuation multiple.'
+    outcome: 'Founder intervention dropped by 65%, strategic M&A velocity doubled, and external institutional audit benchmarked business at 2.8x valuation and revenue multiple.'
   },
   {
     id: 'reel-3',

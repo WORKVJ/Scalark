@@ -11,7 +11,7 @@ export default function EnterpriseMetricsBar() {
       statHighlight: 'Freed',
       title: 'Founder Time Recovered',
       description: 'Shifting leaders from daily firefighting into strategic capital growth.',
-      subtext: 'Audited across 120+ systems',
+      subtext: 'Audited across 60+ companies',
       icon: Clock,
       highlightColor: 'from-blue-500/20 to-indigo-500/10',
       badgeColor: 'text-blue-300 border-blue-500/30 bg-blue-500/10'
@@ -31,11 +31,11 @@ export default function EnterpriseMetricsBar() {
     {
       id: 'valuation-multiple',
       badge: 'CAPITAL READINESS',
-      statDisplay: '3.8x – 4.6x',
-      statHighlight: 'Target',
-      title: 'Valuation Multiple Expansion',
-      description: 'Institutionalised businesses command premium EBITDA valuation exits.',
-      subtext: 'Exit & investment multiple',
+      statDisplay: '2.8x',
+      statHighlight: 'Multiple',
+      title: 'Valuation & Revenue Generated',
+      description: 'Institutionalised businesses command premium EBITDA valuation exits and accelerated revenue.',
+      subtext: '2.8x valuation & revenue multiple generated',
       icon: TrendingUp,
       highlightColor: 'from-indigo-500/20 to-[#0084FF]/15',
       badgeColor: 'text-indigo-300 border-indigo-500/30 bg-indigo-500/10'
