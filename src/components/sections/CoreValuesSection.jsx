@@ -33,7 +33,7 @@ export default function CoreValuesSection() {
       bgClass: 'bg-[#1F1F21]',
       shadowClass: 'shadow-[0_20px_45px_rgba(31,31,33,0.35)]',
       description:
-        'We build solid operational systems connecting enterprise growth across regional commercial hubs in Dubai, London, and Singapore.'
+        'We build solid operational systems connecting enterprise growth across regional commercial hubs in Saudi Arabia, UAE, and India.'
     }
   ];
 

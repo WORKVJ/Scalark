@@ -47,27 +47,23 @@ export default function HomeAboutPreview() {
                   GLOBAL REACH
                 </span>
                 <span className="text-sm font-bold text-white">
-                  5 Key Commercial Regions
+                  3 Key Commercial Markets
                 </span>
               </div>
             </div>
 
-            <div className="space-y-2 text-xs font-mono text-zinc-300">
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <span>Middle East</span>
-                <span className="text-white font-bold">Dubai & Riyadh</span>
+            <div className="space-y-2.5 text-xs font-mono text-zinc-300">
+              <div className="flex items-center justify-between py-1.5 border-b border-white/5">
+                <span>Saudi Arabia 🇸🇦</span>
+                <span className="text-white font-bold">Riyadh & Regional Hubs</span>
               </div>
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <span>Europe</span>
-                <span className="text-white font-bold">London, UK</span>
+              <div className="flex items-center justify-between py-1.5 border-b border-white/5">
+                <span>United Arab Emirates 🇦🇪</span>
+                <span className="text-white font-bold">Dubai & Abu Dhabi</span>
               </div>
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <span>Southeast Asia</span>
-                <span className="text-white font-bold">Singapore</span>
-              </div>
-              <div className="flex items-center justify-between py-1">
-                <span>South Asia</span>
-                <span className="text-white font-bold">Mumbai, India</span>
+              <div className="flex items-center justify-between py-1.5">
+                <span>India 🇮🇳</span>
+                <span className="text-white font-bold">Mumbai & Bengaluru</span>
               </div>
             </div>
           </div>

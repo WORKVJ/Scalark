@@ -79,7 +79,7 @@ export default function TheMirrorSection({ t }) {
               Systems Engineered
             </div>
             <p className="text-xs text-black/80 max-w-[200px] font-medium mx-auto md:mx-0">
-              Replacing intuitive guesswork across UAE, UK, Singapore & India
+              Replacing intuitive guesswork across Saudi Arabia, UAE & India
             </p>
           </div>
 

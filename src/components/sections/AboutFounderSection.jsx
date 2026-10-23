@@ -23,7 +23,7 @@ export default function AboutFounderSection({ t }) {
           </h2>
 
           <p className="text-blue-200/70 text-xs sm:text-base font-mono leading-relaxed">
-            Global Operations: Dubai • London • Singapore • Mumbai • Riyadh
+            Global Operations: Saudi Arabia 🇸🇦 • UAE 🇦🇪 • India 🇮🇳
           </p>
         </div>
 

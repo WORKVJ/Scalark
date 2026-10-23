@@ -46,8 +46,8 @@ export default function EnterpriseMetricsBar() {
       statDisplay: '3 Hubs',
       statHighlight: 'Active',
       title: 'Cross-Border Advisory Desks',
-      description: 'Unified management systems deployed across UAE, UK, and Singapore markets.',
-      subtext: 'Dubai 🇦🇪 · London 🇬🇧 · Singapore 🇸🇬',
+      description: 'Unified management systems deployed across Saudi Arabia, UAE, and India markets.',
+      subtext: 'Saudi Arabia 🇸🇦 · UAE 🇦🇪 · India 🇮🇳',
       icon: Globe,
       highlightColor: 'from-blue-600/20 to-sky-500/10',
       badgeColor: 'text-sky-300 border-sky-500/30 bg-sky-500/10'

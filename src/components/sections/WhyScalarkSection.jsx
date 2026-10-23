@@ -40,15 +40,11 @@ export default function WhyScalarkSection({ t }) {
           Engineered for Global Enterprise Operations
         </h4>
         <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 md:gap-24 text-lg sm:text-xl md:text-2xl font-bold tracking-wider text-zinc-400/90 font-mono">
-          <span className="hover:text-white transition-colors cursor-pointer">DUBAI</span>
+          <span className="hover:text-white transition-colors cursor-pointer">SAUDI ARABIA</span>
           <span className="text-zinc-700 font-light">/</span>
-          <span className="hover:text-white transition-colors cursor-pointer">LONDON</span>
+          <span className="hover:text-white transition-colors cursor-pointer">UAE</span>
           <span className="text-zinc-700 font-light">/</span>
-          <span className="hover:text-white transition-colors cursor-pointer">SINGAPORE</span>
-          <span className="text-zinc-700 font-light">/</span>
-          <span className="hover:text-white transition-colors cursor-pointer">MUMBAI</span>
-          <span className="text-zinc-700 font-light">/</span>
-          <span className="hover:text-white transition-colors cursor-pointer">RIYADH</span>
+          <span className="hover:text-white transition-colors cursor-pointer">INDIA</span>
         </div>
       </div>
 

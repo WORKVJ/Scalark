@@ -183,14 +183,12 @@ export default function Footer({ currentLang: propLang, setLang: propSetLang }) 
                 GLOBAL REACH
               </span>
               <h4 className="text-xl font-black text-white tracking-tight leading-snug font-sans">
-                Advising Enterprises Across 5 Key Regions
+                Advising Enterprises Across Saudi Arabia, UAE & India
               </h4>
-              <div className="flex flex-wrap gap-1.5 pt-2 text-[11px] font-black font-tech">
-                <span className="bg-white/20 text-white px-2.5 py-1 rounded-full">DUBAI</span>
-                <span className="bg-white/20 text-white px-2.5 py-1 rounded-full">LONDON</span>
-                <span className="bg-white/20 text-white px-2.5 py-1 rounded-full">SINGAPORE</span>
-                <span className="bg-white/20 text-white px-2.5 py-1 rounded-full">RIYADH</span>
-                <span className="bg-white/20 text-white px-2.5 py-1 rounded-full">MUMBAI</span>
+              <div className="flex flex-wrap gap-2 pt-2 text-[11px] font-black font-tech">
+                <span className="bg-white/20 text-white px-3 py-1 rounded-full">SAUDI ARABIA 🇸🇦</span>
+                <span className="bg-white/20 text-white px-3 py-1 rounded-full">UAE 🇦🇪</span>
+                <span className="bg-white/20 text-white px-3 py-1 rounded-full">INDIA 🇮🇳</span>
               </div>
             </div>
 

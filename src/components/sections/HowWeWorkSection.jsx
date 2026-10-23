@@ -11,10 +11,9 @@ export default function HowWeWorkSection({ t }) {
   const activeStep = HOW_WE_WORK_STEPS[activeStepIdx];
 
   const hubs = [
-    { city: 'DUBAI', region: 'UAE HQ Advisory', flag: '🇦🇪', status: 'Live Ops' },
-    { city: 'LONDON', region: 'UK & Europe Desk', flag: '🇬🇧', status: 'Active' },
-    { city: 'SINGAPORE', region: 'APAC Operations', flag: '🇸🇬', status: 'Active' },
-    { city: 'RIYADH', region: 'KSA Expansion', flag: '🇸🇦', status: 'Live Ops' }
+    { city: 'SAUDI ARABIA', region: 'KSA Enterprise Advisory', flag: '🇸🇦', status: 'Live Ops' },
+    { city: 'UAE', region: 'Dubai HQ Advisory', flag: '🇦🇪', status: 'Live Ops' },
+    { city: 'INDIA', region: 'National Enterprise Hub', flag: '🇮🇳', status: 'Active' }
   ];
 
   return (
@@ -131,11 +130,11 @@ export default function HowWeWorkSection({ t }) {
                 Advising Across Major Commerce Hubs.
               </h3>
               <p className="text-xs sm:text-sm text-blue-100/70 leading-relaxed font-normal">
-                Serving fast-growing businesses, founders, and enterprises across the Middle East, UK, Europe, and Asia.
+                Serving fast-growing businesses, founders, and enterprises across Saudi Arabia, UAE, and India.
               </p>
             </div>
 
-            <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               {hubs.map((hub, i) => (
                 <div key={i} className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-[#061233]/80 border border-[#0084FF]/30 text-center space-y-1 hover:border-[#0084FF] hover:bg-[#061233] transition-all group">
                   <div className="text-lg sm:text-2xl font-black text-white tracking-tight group-hover:text-blue-300 transition-colors">{hub.city}</div>

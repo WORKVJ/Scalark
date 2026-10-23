@@ -189,7 +189,7 @@ export default function DiagnosisContactSection({ t }) {
                       name="country"
                       value={formData.country}
                       onChange={handleChange}
-                      placeholder="e.g. UAE, UK, Singapore, India..."
+                      placeholder="e.g. Saudi Arabia, UAE, India..."
                       className="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-[#061233]/70 border border-[#0084FF]/30 text-white placeholder-blue-200/40 focus:outline-none focus:border-[#0084FF] focus:ring-2 focus:ring-[#0084FF]/30 transition-all text-base sm:text-sm font-medium"
                     />
                   </div>

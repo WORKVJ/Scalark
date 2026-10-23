@@ -6,7 +6,7 @@ export default function KineticTicker({ items = [], speed = 'normal', reverse = 
   const defaultItems = [
     'SYSTEM DIAGNOSTICS ACTIVE',
     '99.4% AUTONOMY BENCHMARK',
-    'DUBAI 🇦🇪 // LONDON 🇬🇧 // SINGAPORE 🇸🇬',
+    'SAUDI ARABIA 🇸🇦 // UAE 🇦🇪 // INDIA 🇮🇳',
     'ZERO-FRICTION SALES PIPELINE',
     'ENTERPRISE SOP GOVERNANCE',
     'OWNER TIME FREED 65%',

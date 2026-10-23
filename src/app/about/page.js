@@ -29,16 +29,16 @@ export default function AboutPage() {
             Global Enterprise Reach
           </h3>
           <p className="text-blue-100/70 text-xs sm:text-base max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-            Our systems architecture team deploys across key international commercial hubs, advising founders and management boards across the Middle East, UK, and Asia-Pacific.
+            Our systems architecture team deploys across key international commercial hubs, advising founders and management boards across Saudi Arabia, UAE, and India.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3 max-w-3xl mx-auto">
-            {['DUBAI 🇦🇪', 'LONDON 🇬🇧', 'SINGAPORE 🇸🇬', 'RIYADH 🇸🇦', 'MUMBAI 🇮🇳'].map((city, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
+            {['SAUDI ARABIA 🇸🇦', 'UAE 🇦🇪', 'INDIA 🇮🇳'].map((country, idx) => (
               <div
                 key={idx}
-                className="py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-[#061233]/80 border border-[#0084FF]/30 text-[11px] sm:text-xs font-mono font-bold text-blue-100 tracking-wide"
+                className="py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-[#061233]/80 border border-[#0084FF]/30 text-[11px] sm:text-xs font-mono font-bold text-blue-100 tracking-wide text-center"
               >
-                {city}
+                {country}
               </div>
             ))}
           </div>

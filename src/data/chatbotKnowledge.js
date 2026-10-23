@@ -10,7 +10,7 @@ export const SCALARK_SYSTEMS_OVERVIEW = {
   philosophy: "Your business doesn't need more effort. It needs a better system.",
   tagline: "Find the Problem. Fix the System. Scale the Business.",
   coreAudience: "Entrepreneurs, Startups, Scaling SMEs, MSMEs, and Cross-Border Enterprise Founders",
-  globalPresence: ["Dubai (UAE)", "London (UK)", "Singapore", "Mumbai & Bengaluru (India)"],
+  globalPresence: ["Saudi Arabia (Riyadh)", "UAE (Dubai & Abu Dhabi)", "India (Mumbai & Bengaluru)"],
   primaryMetric: "3.8x - 4.6x Enterprise Valuation Multiple Uplift",
   predictabilityRate: "98.4% System Operationalization without downtime",
   ownerTimeRecovery: "Up to 65% Founder Capacity Recovered from daily firefighting"
@@ -194,7 +194,7 @@ Instead of generic business coaching or superficial motivational advice, SCALARK
 5. **Technology & Automation**
 6. **Performance & Governance Cadence**
 
-Headquartered across Dubai, London, Singapore, and India, our battle-tested blueprints have engineered over **100+ systems transformations** with a **98.4% predictability rate**.`,
+Operating across Saudi Arabia, UAE, and India, our battle-tested blueprints have engineered over **100+ systems transformations** with a **98.4% predictability rate**.`,
     quickReplies: ["Tell me about the 5 Phases", "Run 2-Minute Diagnostic", "Book Strategy Call"]
   },
   {
@@ -313,8 +313,8 @@ Because investment is calibrated to your company's revenue stage and operational
 
 • **Direct Architecture Consultation:** Book a 30-minute diagnostic session with a senior systems partner.
 • **Confidential Mutual NDA:** Available before any proprietary business documentation or financials are reviewed.
-• **Instant WhatsApp Channel:** Connect directly with our Dubai & London desk for quick queries.
-• **Offices:** Dubai Silicon Oasis (UAE), Canary Wharf (London), Marina Bay Financial (Singapore), and Nariman Point (Mumbai).`,
+• **Instant WhatsApp Channel:** Connect directly with our regional desk for quick queries.
+• **Offices:** Riyadh (Saudi Arabia), Dubai Silicon Oasis (UAE), and Nariman Point Mumbai (India).`,
     quickReplies: ["Go to Contact Page", "Chat on WhatsApp", "Submit Contact Info Here"]
   },
   {
