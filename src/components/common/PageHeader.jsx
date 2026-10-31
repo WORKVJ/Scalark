@@ -3,8 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function PageHeader({ badge, title, subtitle, breadcrumb = [], image }) {
+  const { t, isRtl } = useLanguage();
+
   if (image) {
     return (
       <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-8 border-b border-[#0084FF]/20 bg-[#061233] text-white overflow-hidden min-h-[460px] sm:min-h-[520px] flex items-center">
@@ -18,22 +21,22 @@ export default function PageHeader({ badge, title, subtitle, breadcrumb = [], im
             className="object-cover object-[center_right] sm:object-right"
           />
           {/* DEEP BLUE GRADIENT OVERLAY SO TEXT IS BOLD AND LEGIBLE WHILE PORTRAIT GLOWS ON RIGHT */}
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#061233] via-[#061233]/92 md:via-[#061233]/70 to-[#061233]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r rtl:md:bg-gradient-to-l from-[#061233] via-[#061233]/92 md:via-[#061233]/70 to-[#061233]/25" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#061233]/75 via-transparent to-[#061233]" />
           {/* AMBIENT BRAND BLUE GLOW ACCENT */}
-          <div className="absolute top-1/4 left-1/4 w-[450px] h-[300px] bg-[#0084FF]/25 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-1/4 left-1/4 rtl:left-auto rtl:right-1/4 w-[450px] h-[300px] bg-[#0084FF]/25 rounded-full blur-[100px] pointer-events-none" />
         </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
-          <div className="max-w-2xl text-left">
+          <div className="max-w-2xl text-start">
             {/* BREADCRUMBS */}
             <div className="flex items-center gap-1.5 text-xs font-mono text-blue-200/70 mb-4 sm:mb-6 uppercase tracking-wider">
               <Link href="/" className="hover:text-white transition-colors font-medium">
-                Home
+                {t.nav.home}
               </Link>
               {breadcrumb.map((crumb, idx) => (
                 <div key={idx} className="flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-blue-300/50" />
+                  <ChevronRight className="w-3 h-3 text-blue-300/50 rtl:rotate-180" />
                   {crumb.href ? (
                     <Link href={crumb.href} className="hover:text-white transition-colors font-medium">
                       {crumb.label}
@@ -80,11 +83,11 @@ export default function PageHeader({ badge, title, subtitle, breadcrumb = [], im
         {/* BREADCRUMBS */}
         <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 mb-4 sm:mb-6 uppercase tracking-wider">
           <Link href="/" className="hover:text-white transition-colors font-medium">
-            Home
+            {t.nav.home}
           </Link>
           {breadcrumb.map((crumb, idx) => (
             <div key={idx} className="flex items-center gap-1.5">
-              <ChevronRight className="w-3 h-3 text-zinc-500" />
+              <ChevronRight className="w-3 h-3 text-zinc-500 rtl:rotate-180" />
               {crumb.href ? (
                 <Link href={crumb.href} className="hover:text-white transition-colors font-medium">
                   {crumb.label}

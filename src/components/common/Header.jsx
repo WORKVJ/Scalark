@@ -8,7 +8,7 @@ import { Globe, ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Header({ currentLang: propLang, setLang: propSetLang }) {
-  const { currentLang: ctxLang, setLang: ctxSetLang } = useLanguage();
+  const { currentLang: ctxLang, setLang: ctxSetLang, t, isRtl } = useLanguage();
   const currentLang = propLang || ctxLang;
   const setLang = propSetLang || ctxSetLang;
 
@@ -87,19 +87,17 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
   };
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/who-we-help', label: 'Who We Help' },
-    { href: '/solutions', label: 'What We Solve' },
-    { href: '/how-we-work', label: 'How We Work' },
-    { href: '/case-studies', label: 'Case Studies' },
-    { href: '/about', label: 'About' }
+    { href: '/', label: t.nav.home },
+    { href: '/who-we-help', label: t.nav.whoWeHelp },
+    { href: '/solutions', label: t.nav.whatWeSolve },
+    { href: '/how-we-work', label: t.nav.howWeWork },
+    { href: '/case-studies', label: t.nav.caseStudies },
+    { href: '/about', label: t.nav.about }
   ];
 
   const languages = [
     { code: 'EN', label: 'English' },
-    { code: 'AR', label: 'العربية' },
-    { code: 'HI', label: 'हिन्दी' },
-    { code: 'ML', label: 'മലയാളം' }
+    { code: 'AR', label: 'العربية' }
   ];
 
   return (
@@ -140,7 +138,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
           </Link>
 
           {/* CENTER FLOATING PILL NAVBAR (DESKTOP) */}
-          <nav className="hidden md:flex items-center space-x-1 bg-[#061438]/85 backdrop-blur-xl border border-[#0084FF]/30 rounded-full px-3 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+          <nav className="hidden md:flex items-center space-x-1 rtl:space-x-reverse bg-[#061438]/85 backdrop-blur-xl border border-[#0084FF]/30 rounded-full px-3 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
             {navLinks.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -171,7 +169,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
               <button
                 type="button"
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                className="px-2.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-[#0084FF]/30 text-xs text-zinc-300 hover:text-white flex items-center space-x-1.5 transition-colors cursor-pointer"
+                className="px-2.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-[#0084FF]/30 text-xs text-zinc-300 hover:text-white flex items-center space-x-1.5 rtl:space-x-reverse transition-colors cursor-pointer"
                 aria-label="Select Language"
               >
                 <Globe className="w-3 h-3 text-zinc-300" />
@@ -180,13 +178,13 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
               </button>
 
               {langDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-32 rounded-xl bg-[#081B4E] border border-[#0084FF]/40 p-1.5 shadow-2xl backdrop-blur-2xl z-50">
+                <div className="absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-36 rounded-xl bg-[#081B4E] border border-[#0084FF]/40 p-1.5 shadow-2xl backdrop-blur-2xl z-50">
                   {languages.map((l) => (
                     <button
                       key={l.code}
                       type="button"
                       onClick={() => selectLanguage(l.code)}
-                      className={`w-full text-left px-3 py-1.5 rounded-lg text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                      className={`w-full text-start px-3 py-1.5 rounded-lg text-xs flex items-center justify-between transition-colors cursor-pointer ${
                         currentLang === l.code
                           ? 'bg-[#0084FF] text-white font-bold'
                           : 'text-zinc-300 hover:text-white hover:bg-white/5'
@@ -205,8 +203,8 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
               href="/contact"
               className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 bg-white text-black hover:bg-zinc-200 text-[11px] sm:text-xs font-bold rounded-full transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-95 whitespace-nowrap"
             >
-              <span>Book a Call</span>
-              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+              <span>{t.nav.bookCall}</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5] rtl:rotate-180" />
             </Link>
 
             {/* MOBILE MENU TOGGLE */}
@@ -241,7 +239,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
                   closeMobileMenu();
                 }
               }}
-              className="flex items-center gap-3 cursor-pointer text-left touch-manipulation select-none"
+              className="flex items-center gap-3 cursor-pointer text-start touch-manipulation select-none"
             >
               <div className="relative w-9 h-9 flex items-center justify-center">
                 <Image
@@ -281,35 +279,36 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
                       closeMobileMenu();
                     }
                   }}
-                  className={`w-full py-3.5 px-3 rounded-xl border-b border-white/5 flex items-center justify-between transition-colors text-left touch-manipulation active:bg-white/10 ${
+                  className={`w-full py-3.5 px-3 rounded-xl border-b border-white/5 flex items-center justify-between transition-colors text-start touch-manipulation active:bg-white/10 ${
                     isActive ? 'text-white font-bold bg-white/[0.08]' : 'text-zinc-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   <span className="text-base tracking-wide">{item.label}</span>
-                  <ArrowRight className={`w-4 h-4 transition-transform ${isActive ? 'text-white translate-x-1' : 'text-zinc-500'}`} />
+                  <ArrowRight className={`w-4 h-4 transition-transform rtl:rotate-180 ${isActive ? 'text-white translate-x-1 rtl:-translate-x-1' : 'text-zinc-500'}`} />
                 </Link>
               );
             })}
           </div>
 
-          {/* MOBILE LANGUAGE SELECTOR */}
+          {/* MOBILE LANGUAGE SELECTOR (ONLY EN AND AR) */}
           <div className="space-y-2 pt-2 shrink-0">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-bold">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-bold block text-start">
               Language / اللغة
             </span>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {languages.map((l) => (
                 <button
                   key={l.code}
                   type="button"
                   onClick={() => selectLanguage(l.code)}
-                  className={`py-2.5 px-2 text-center rounded-xl text-xs font-mono font-bold transition-colors cursor-pointer active:scale-95 touch-manipulation ${
+                  className={`py-3 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 touch-manipulation flex items-center justify-center gap-2 ${
                     currentLang === l.code
-                      ? 'bg-white text-black shadow-md'
-                      : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'
+                      ? 'bg-white text-black shadow-md font-extrabold'
+                      : 'bg-white/5 text-zinc-300 hover:text-white border border-white/10'
                   }`}
                 >
-                  {l.code}
+                  <span>{l.label}</span>
+                  <span className="font-mono text-[10px] opacity-60 font-semibold">({l.code})</span>
                 </button>
               ))}
             </div>
@@ -322,8 +321,8 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
               onClick={closeMobileMenu}
               className="w-full py-4 bg-white text-black font-extrabold text-sm rounded-full shadow-xl flex items-center justify-center gap-2 active:scale-95 cursor-pointer touch-manipulation"
             >
-              <span>Book a Call</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              <span>{t.nav.bookCall}</span>
+              <ArrowRight className="w-4 h-4 stroke-[2.5] rtl:rotate-180" />
             </Link>
           </div>
         </div>

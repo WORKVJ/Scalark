@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Layers, BarChart3, DollarSign, Users, CheckCircle2, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Layers, BarChart3, DollarSign, Users, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function HomeSolutionsPreview() {
+  const { t, isRtl } = useLanguage();
   const [activePillar, setActivePillar] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -13,92 +15,42 @@ export default function HomeSolutionsPreview() {
   const DURATION = 4500; // 4.5s auto-cycle per pillar
   const INTERVAL_STEP = 50;
 
-  const pillars = [
+  const pillarIcons = [Layers, BarChart3, DollarSign, Users];
+  const pillarImages = [
+    '/assets/system-card.jpg',
+    '/assets/phone-dashboard.jpg',
+    '/assets/kinetic-mesh.jpg',
+    '/assets/hero-boardroom.jpg'
+  ];
+  const pillarStyles = [
     {
-      id: 'operations',
-      num: '01',
-      shortTitle: 'Operations',
-      title: 'Operations & Process',
-      subtitle: 'Owner Independence',
-      headlineMetric: '65% Less Firefighting',
-      desc: 'Standardized workflows and delegation matrices so your business functions with institutional discipline when you are not in the room.',
-      icon: Layers,
-      image: '/assets/system-card.jpg',
-      color: 'border-emerald-500/40 hover:border-emerald-500',
-      activeRing: '#10B981',
       badgeColor: 'text-emerald-300 border-emerald-500/30 bg-emerald-500/15',
-      highlights: [
-        'Standard Operating Procedures (SOPs)',
-        'Delegation & Authority Architecture',
-        'Process Bottleneck Elimination',
-        'Management Control Cadence'
-      ]
+      accentColor: '#10B981'
     },
     {
-      id: 'revenue',
-      num: '02',
-      shortTitle: 'Revenue',
-      title: 'Sales & Revenue Systems',
-      subtitle: 'Predictable Conversion',
-      headlineMetric: '3.2x Pipeline Predictability',
-      desc: 'Convert erratic sales activity into a governed, measurable revenue engine with clear pipeline accountability and qualification rigor.',
-      icon: BarChart3,
-      image: '/assets/phone-dashboard.jpg',
-      color: 'border-cyan-500/40 hover:border-cyan-500',
-      activeRing: '#06B6D4',
       badgeColor: 'text-cyan-300 border-cyan-500/30 bg-cyan-500/15',
-      highlights: [
-        'Sales Pipeline Architecture',
-        'Lead Qualification & Follow-up SOPs',
-        'Conversion Governance & Review Cadence',
-        'Sales Team KPI Accountability'
-      ]
+      accentColor: '#06B6D4'
     },
     {
-      id: 'finance',
-      num: '03',
-      shortTitle: 'Finance',
-      title: 'Finance & Unit Economics',
-      subtitle: 'Real-Time Visibility',
-      headlineMetric: '100% Cash Runway Clarity',
-      desc: 'Eliminate financial blindspots with real-time management accounts, margin protection protocols, and forward cash runway dashboards.',
-      icon: DollarSign,
-      image: '/assets/kinetic-mesh.jpg',
-      color: 'border-blue-500/40 hover:border-blue-500',
-      activeRing: '#3B82F6',
       badgeColor: 'text-blue-300 border-blue-500/30 bg-blue-500/15',
-      highlights: [
-        'Unit Economics & Margin Optimization',
-        'Real-Time Cash-Flow Visibility',
-        'Cost-Control & Expense Thresholds',
-        'Management Reporting Cadence'
-      ]
+      accentColor: '#3B82F6'
     },
     {
-      id: 'organization',
-      num: '04',
-      shortTitle: 'People',
-      title: 'Organization & People',
-      subtitle: 'Cadence & Autonomy',
-      headlineMetric: 'Zero Single-Point Bottlenecks',
-      desc: 'Build crystal-clear role definitions, measurable ownership KPIs, and weekly management review rhythms that drive unassisted execution.',
-      icon: Users,
-      image: '/assets/hero-boardroom.jpg',
-      color: 'border-indigo-500/40 hover:border-indigo-500',
-      activeRing: '#818CF8',
       badgeColor: 'text-indigo-300 border-indigo-500/30 bg-indigo-500/15',
-      highlights: [
-        'Role Definitions & Responsibility Matrix',
-        'Departmental KPI Target Governance',
-        'Weekly Performance Review Cadence',
-        'Succession & Autonomous Scaling'
-      ]
+      accentColor: '#818CF8'
     }
   ];
 
+  const pillars = (t.homeSolutions?.pillars || []).map((p, idx) => ({
+    ...p,
+    icon: pillarIcons[idx % pillarIcons.length],
+    image: pillarImages[idx % pillarImages.length],
+    ...pillarStyles[idx % pillarStyles.length]
+  }));
+
   // Auto-cycle through pillars
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || pillars.length === 0) return;
 
     const timer = setInterval(() => {
       setProgress((prev) => {
@@ -126,15 +78,15 @@ export default function HomeSolutionsPreview() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
-          <div>
+          <div className="text-start">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-[#0084FF]/40 text-xs font-mono uppercase tracking-widest text-blue-300 font-bold mb-4">
-              <span>SECTION 03 — STRATEGIC PILLARS</span>
+              <span>{t.homeSolutions?.badge}</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              4 Pillars of Business Architecture
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight font-sans">
+              {t.homeSolutions?.title}
             </h2>
             <p className="mt-3 text-zinc-300 text-xs sm:text-base max-w-xl leading-relaxed">
-              SCALARK addresses the 4 core domains that dictate whether a business stalls in founder firefighting or scales into an institutional platform.
+              {t.homeSolutions?.subtitle}
             </p>
           </div>
 
@@ -142,8 +94,8 @@ export default function HomeSolutionsPreview() {
             href="/solutions"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-black font-bold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-all duration-200 shadow-md shrink-0 active:scale-95 group"
           >
-            <span>Explore All 4 Solutions</span>
-            <ArrowRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
+            <span>{t.homeSolutions?.btnCatalogue}</span>
+            <ArrowRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform rtl:rotate-180" />
           </Link>
         </div>
 
@@ -165,7 +117,7 @@ export default function HomeSolutionsPreview() {
                   flex: isActive ? '3.4 1 0%' : '1 1 0%',
                   transition: 'flex 0.65s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.65s ease, border-color 0.65s ease'
                 }}
-                className={`relative rounded-3xl overflow-hidden p-6 sm:p-8 cursor-pointer select-none flex flex-col justify-between border bg-[#081B4E] transition-all duration-300 group ${
+                className={`relative rounded-3xl overflow-hidden p-6 sm:p-8 cursor-pointer select-none flex flex-col justify-between border bg-[#081B4E] transition-all duration-300 group text-start ${
                   isActive
                     ? `border-[#0084FF] shadow-[0_20px_50px_rgba(0,132,255,0.35)] ring-2 ring-blue-500/30`
                     : 'border-[#0084FF]/25 hover:border-[#0084FF]/60 opacity-85 hover:opacity-100'
@@ -190,7 +142,7 @@ export default function HomeSolutionsPreview() {
                 <div className="relative z-10 flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <span className="font-tech text-xs font-black uppercase tracking-wider text-zinc-400">
-                      PILLAR {p.num}
+                      {isRtl ? `الركيزة ${p.num}` : `PILLAR ${p.num}`}
                     </span>
                     {isActive && (
                       <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${p.badgeColor} animate-fade-in`}>
@@ -212,7 +164,6 @@ export default function HomeSolutionsPreview() {
 
                 {/* Pillar Content Body */}
                 <div className="relative z-10 my-auto">
-                  {/* Title */}
                   <h3
                     className={`font-sans font-black text-white tracking-tight transition-all duration-300 ${
                       isActive
@@ -220,13 +171,11 @@ export default function HomeSolutionsPreview() {
                         : 'text-xl leading-tight opacity-90'
                     }`}
                   >
-                    {isActive ? p.title : p.title}
+                    {p.title}
                   </h3>
 
-                  {/* Active Pillar Expanded Details */}
                   {isActive ? (
                     <div className="space-y-4 pt-1 animate-fade-in">
-                      {/* Metric Callout Banner */}
                       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-500/15 border border-blue-400/30">
                         <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
                         <span className="text-xs font-mono font-bold text-blue-200">
@@ -238,9 +187,8 @@ export default function HomeSolutionsPreview() {
                         {p.desc}
                       </p>
 
-                      {/* Capabilities Checklist */}
                       <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-white/10">
-                        {p.highlights.map((h, i) => (
+                        {p.highlights?.map((h, i) => (
                           <div key={i} className="flex items-center gap-2 text-xs text-zinc-200">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                             <span className="truncate">{h}</span>
@@ -258,7 +206,7 @@ export default function HomeSolutionsPreview() {
                 {/* Pillar Footer CTA */}
                 <div className="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-zinc-300">
                   <span className="font-mono text-[11px] text-zinc-400">
-                    {isActive ? 'SCALARK ARCHITECTURE' : 'CLICK TO EXPAND'}
+                    {isActive ? (isRtl ? 'بنية سكالارك' : 'SCALARK ARCHITECTURE') : (isRtl ? 'انقر للتوسيع' : 'CLICK TO EXPAND')}
                   </span>
 
                   <Link
@@ -268,8 +216,8 @@ export default function HomeSolutionsPreview() {
                       isActive ? 'text-white hover:text-blue-300' : 'text-zinc-400 hover:text-white'
                     }`}
                   >
-                    <span>Learn More</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                    <span>{isRtl ? 'معرفة المزيد' : 'Learn More'}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] rtl:rotate-90" />
                   </Link>
                 </div>
               </div>
@@ -277,7 +225,7 @@ export default function HomeSolutionsPreview() {
           })}
         </div>
 
-        {/* Mobile Accordion View (Screen < lg) */}
+        {/* Mobile Accordion View */}
         <div className="flex lg:hidden flex-col gap-4">
           {pillars.map((p, idx) => {
             const isActive = activePillar === idx;
@@ -287,7 +235,7 @@ export default function HomeSolutionsPreview() {
               <div
                 key={p.id}
                 onClick={() => handleSelect(idx)}
-                className={`rounded-2xl bg-[#081B4E] border p-5 transition-all duration-300 cursor-pointer ${
+                className={`rounded-2xl bg-[#081B4E] border p-5 transition-all duration-300 cursor-pointer text-start ${
                   isActive
                     ? 'border-[#0084FF] shadow-xl ring-2 ring-blue-500/20'
                     : 'border-[#0084FF]/25 opacity-90'
@@ -302,9 +250,9 @@ export default function HomeSolutionsPreview() {
                     </div>
                     <div>
                       <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider block">
-                        PILLAR {p.num}
+                        {isRtl ? `الركيزة ${p.num}` : `PILLAR ${p.num}`}
                       </span>
-                      <h4 className="text-base font-bold text-white">
+                      <h4 className="text-base font-bold text-white font-sans">
                         {p.title}
                       </h4>
                     </div>
@@ -322,7 +270,7 @@ export default function HomeSolutionsPreview() {
                     </p>
 
                     <div className="space-y-2 pt-2 border-t border-white/5">
-                      {p.highlights.map((h, i) => (
+                      {p.highlights?.map((h, i) => (
                         <div key={i} className="flex items-center gap-2 text-xs text-zinc-200">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                           <span>{h}</span>
@@ -336,8 +284,8 @@ export default function HomeSolutionsPreview() {
                         onClick={(e) => e.stopPropagation()}
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 hover:text-white"
                       >
-                        <span>Explore Full Solution Details</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <span>{isRtl ? 'عرض تفاصيل الحل بالكامل' : 'Explore Full Solution Details'}</span>
+                        <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                       </Link>
                     </div>
                   </div>

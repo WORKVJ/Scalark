@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Compass, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const SQUAD_MEMBERS = [
   {
@@ -80,12 +81,90 @@ export const SQUAD_MEMBERS = [
   }
 ];
 
+export const SQUAD_MEMBERS_AR = [
+  {
+    id: 'squad-1',
+    name: 'شيرين شرف',
+    role: 'رئيسة هندسة الإجراءات',
+    specialty: 'توثيق الإجراءات القياسية (SOPs)، وإيقاع العمليات والقضاء على الاختناقات',
+    bgGradient: 'from-[#FF5A1F] via-[#E04006] to-[#B82B00]',
+    solidColor: '#FF5A1F',
+    accentColor: '#FF7A45',
+    image: '/assets/squad/squad_shirin.jpg',
+    domain: 'العمليات',
+    metric: 'استعادة 65% من الوقت'
+  },
+  {
+    id: 'squad-2',
+    name: 'رضوان ك. م.',
+    role: 'مهندس محرك الإيرادات',
+    specialty: 'هندسة مسارات المبيعات، ومسارات B2B وإيقاع التحويل التجاري',
+    bgGradient: 'from-[#2563EB] via-[#1D4ED8] to-[#1E3A8A]',
+    solidColor: '#2563EB',
+    accentColor: '#60A5FA',
+    image: '/assets/squad/squad_riswan.jpg',
+    domain: 'الإيرادات',
+    metric: 'مضاعفة خط المبيعات 3.4x'
+  },
+  {
+    id: 'squad-3',
+    name: 'حماس ف. أ.',
+    role: 'مدير الأنظمة المالية',
+    specialty: 'اقتصاديات الوحدة، وإنقاذ التدفق النقدي، وحوكمة هوامش الربحية',
+    bgGradient: 'from-[#F59E0B] via-[#D97706] to-[#92400E]',
+    solidColor: '#F59E0B',
+    accentColor: '#FBBF24',
+    image: '/assets/squad/squad_hamas.jpg',
+    domain: 'المالية',
+    metric: 'وضوح السيولة 100%'
+  },
+  {
+    id: 'squad-4',
+    name: 'تنزير ب.',
+    role: 'كبير مهندسي النظم',
+    specialty: 'الحوكمة المؤسسية، والتدقيق الشامل (120 نقطة)، واستقلالية العمل عن المؤسس',
+    bgGradient: 'from-[#0084FF] via-[#091E58] to-[#061233]',
+    solidColor: '#0084FF',
+    accentColor: '#60A5FA',
+    image: '/assets/squad/squad_thanzeer.jpg',
+    domain: 'الأساس المؤسسي',
+    metric: 'مضاعفة التقييم 2.8x'
+  },
+  {
+    id: 'squad-5',
+    name: 'عبد العلي',
+    role: 'رئيس الاستراتيجية التجارية',
+    specialty: 'التوسع المؤسسي، وشبكات التوزيع ونماذج الشراكات الاستراتيجية',
+    bgGradient: 'from-[#9333EA] via-[#7E22CE] to-[#581C87]',
+    solidColor: '#9333EA',
+    accentColor: '#C084FC',
+    image: '/assets/squad/squad_abdul.jpg',
+    domain: 'المبيعات',
+    metric: '+38% هامش صافي'
+  },
+  {
+    id: 'squad-6',
+    name: 'نيهال فيرما',
+    role: 'مسؤولة إيقاع المنظمة',
+    specialty: 'مصفوفات مساءلة مؤشرات الأداء (KPIs)، وأدلة القيادة التنفيذية، وإجراءات التوظيف',
+    bgGradient: 'from-[#EC4899] via-[#DB2777] to-[#9D174D]',
+    solidColor: '#EC4899',
+    accentColor: '#F472B6',
+    image: '/assets/squad/squad_nehal.jpg',
+    domain: 'الحوكمة',
+    metric: 'استقلالية تشغيلية 98%'
+  }
+];
+
 export default function RotatingSquadSection() {
+  const { currentLang, t, isRtl } = useLanguage();
+  const squadInfo = t.squadSection;
+  const members = currentLang === 'AR' ? SQUAD_MEMBERS_AR : SQUAD_MEMBERS;
+
   const [activeMember, setActiveMember] = useState(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Physics refs for silky-smooth 60fps animation without React re-render overhead
   const containerRef = useRef(null);
   const stageRef = useRef(null);
   const currentRotationRef = useRef(0);
@@ -98,74 +177,63 @@ export default function RotatingSquadSection() {
   const animFrameRef = useRef(null);
   const lastScrollYRef = useRef(0);
 
-  const cardCount = SQUAD_MEMBERS.length;
-  const angleStep = 360 / cardCount;
-  
-  // Responsive radius of the 3D cylinder
-  const [radius, setRadius] = useState(350);
+  const totalMembers = members.length;
+  const angleStep = 360 / totalMembers;
+
+  const [radius, setRadius] = useState(380);
 
   useEffect(() => {
-    const handleResize = () => {
+    const updateRadius = () => {
       const w = window.innerWidth;
       if (w < 480) {
-        setRadius(185);
+        setRadius(190);
       } else if (w < 768) {
-        setRadius(230);
+        setRadius(270);
       } else if (w < 1024) {
-        setRadius(290);
+        setRadius(340);
       } else {
-        setRadius(350);
+        setRadius(380);
       }
     };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    updateRadius();
+    window.addEventListener('resize', updateRadius);
+    return () => window.removeEventListener('resize', updateRadius);
   }, []);
 
-  // 1. HIGH-PERFORMANCE PHYSICS ANIMATION LOOP
   useEffect(() => {
-    lastTimeRef.current = performance.now();
+    let lastStamp = performance.now();
 
-    const updatePhysics = (time) => {
-      const delta = Math.min((time - lastTimeRef.current) / 1000, 0.1);
-      lastTimeRef.current = time;
+    const loop = (stamp) => {
+      const delta = Math.min((stamp - lastStamp) / 1000, 0.1);
+      lastStamp = stamp;
 
-      if (!isDraggingRef.current) {
-        // Continuous smooth idle rotation when not dragging or hovering
-        if (!isHovered) {
-          targetRotationRef.current += 14 * delta; // 14 degrees per second
-        }
-
-        // Apply friction/inertia to velocity
-        if (Math.abs(velocityRef.current) > 0.05) {
-          targetRotationRef.current += velocityRef.current;
-          velocityRef.current *= 0.92; // smooth decay
-        }
+      if (!isDraggingRef.current && !isHovered) {
+        targetRotationRef.current += 10 * delta;
       }
 
-      // Smooth Spring Interpolation (Lerp)
+      if (!isDraggingRef.current && Math.abs(velocityRef.current) > 0.05) {
+        targetRotationRef.current += velocityRef.current;
+        velocityRef.current *= Math.pow(0.92, delta * 60);
+      }
+
       const diff = targetRotationRef.current - currentRotationRef.current;
-      currentRotationRef.current += diff * 0.09;
+      currentRotationRef.current += diff * Math.min(delta * 8, 1);
 
-      // Apply 3D transform directly to the stage DOM element (Pure GPU, 0 React lag)
       if (stageRef.current) {
-        // Inclined turntable matching reference image angle
-        stageRef.current.style.transform = `rotateX(-14deg) rotateY(${-currentRotationRef.current}deg)`;
+        stageRef.current.style.transform = `rotateY(${currentRotationRef.current}deg)`;
       }
 
-      // Calculate which card is currently closest to the front
-      const normalizedRot = ((-currentRotationRef.current % 360) + 360) % 360;
-      const nearestIdx = Math.round(normalizedRot / angleStep) % cardCount;
-      setActiveIdx(nearestIdx);
+      const normalized = ((-currentRotationRef.current % 360) + 360) % 360;
+      const index = Math.round(normalized / angleStep) % totalMembers;
+      setActiveIdx(index);
 
-      animFrameRef.current = requestAnimationFrame(updatePhysics);
+      animFrameRef.current = requestAnimationFrame(loop);
     };
 
-    animFrameRef.current = requestAnimationFrame(updatePhysics);
+    animFrameRef.current = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animFrameRef.current);
-  }, [angleStep, cardCount, isHovered]);
+  }, [totalMembers, angleStep, isHovered]);
 
-  // 2. SCROLL-LINKED MOMENTUM ACCELERATION
   useEffect(() => {
     lastScrollYRef.current = window.scrollY;
 
@@ -175,57 +243,55 @@ export default function RotatingSquadSection() {
       const inView = rect.top < window.innerHeight && rect.bottom > 0;
 
       if (inView) {
-        const currentScrollY = window.scrollY;
-        const scrollDelta = currentScrollY - lastScrollYRef.current;
-        lastScrollYRef.current = currentScrollY;
-
-        // Smooth momentum impulse on scroll
-        targetRotationRef.current += scrollDelta * 0.18;
-      } else {
-        lastScrollYRef.current = window.scrollY;
+        const deltaY = window.scrollY - lastScrollYRef.current;
+        targetRotationRef.current += deltaY * 0.15;
       }
+      lastScrollYRef.current = window.scrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 3. FLUID MOUSE & TOUCH DRAG CONTROLS WITH MOMENTUM THROW
-  const handlePointerDown = (e) => {
+  const handlePointerDown = useCallback((e) => {
     isDraggingRef.current = true;
-    const clientX = e.clientX || (e.touches && e.touches[0]?.clientX) || 0;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     startXRef.current = clientX;
     lastXRef.current = clientX;
+    lastTimeRef.current = performance.now();
     velocityRef.current = 0;
-  };
+  }, []);
 
-  const handlePointerMove = (e) => {
+  const handlePointerMove = useCallback((e) => {
     if (!isDraggingRef.current) return;
-    const clientX = e.clientX || (e.touches && e.touches[0]?.clientX) || 0;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const now = performance.now();
+    const dt = Math.max((now - lastTimeRef.current) / 1000, 0.001);
     const deltaX = clientX - lastXRef.current;
+
+    const speedFactor = window.innerWidth < 640 ? 0.45 : 0.28;
+    targetRotationRef.current += (isRtl ? -deltaX : deltaX) * speedFactor;
+
+    velocityRef.current = ((isRtl ? -deltaX : deltaX) * speedFactor * 0.016) / dt;
     lastXRef.current = clientX;
+    lastTimeRef.current = now;
+  }, [isRtl]);
 
-    // Track velocity for flick/momentum throw
-    velocityRef.current = -deltaX * 0.35;
-    targetRotationRef.current += -deltaX * 0.42;
-  };
-
-  const handlePointerUp = () => {
+  const handlePointerUp = useCallback(() => {
     isDraggingRef.current = false;
-  };
+  }, []);
 
-  // 4. MANUAL BUTTON NAVIGATION WITH SMOOTH SNAPPING
   const rotateToStep = (direction) => {
     const currentNorm = targetRotationRef.current;
     if (direction === 'next') {
-      targetRotationRef.current = Math.round(currentNorm / angleStep) * angleStep + angleStep;
+      targetRotationRef.current = Math.round(currentNorm / angleStep) * angleStep + (isRtl ? -angleStep : angleStep);
     } else {
-      targetRotationRef.current = Math.round(currentNorm / angleStep) * angleStep - angleStep;
+      targetRotationRef.current = Math.round(currentNorm / angleStep) * angleStep - (isRtl ? -angleStep : angleStep);
     }
   };
 
   const snapToMember = (index) => {
-    targetRotationRef.current = index * angleStep;
+    targetRotationRef.current = (isRtl ? -index : index) * angleStep;
   };
 
   return (
@@ -257,40 +323,40 @@ export default function RotatingSquadSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
 
-          {/* LEFT COLUMN: DESGRO-STYLE BOLD TYPOGRAPHY */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-6 select-none">
+          {/* LEFT COLUMN */}
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6 select-none text-start">
 
             {/* ACCENT BADGE */}
             <div className="flex items-center gap-2">
               <span className="w-6 h-[2px] bg-red-500 inline-block" />
               <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-zinc-400 font-bold">
-                THE ARCHITECTS BEHIND THE SYSTEM
+                {squadInfo.badge}
               </span>
             </div>
 
-            {/* DISPLAY HEADLINE MATCHING REFERENCE DESIGN */}
+            {/* DISPLAY HEADLINE */}
             <h2 className="text-3xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[0.92] sm:leading-[0.88] text-white">
-              SCALARK<br />
-              <span className="text-red-500">SYSTEMS</span><br />
-              SQUAD
+              {squadInfo.headlineTitle}<br />
+              <span className="text-red-500">{squadInfo.headlineAccent}</span><br />
+              {squadInfo.headlineSub}
             </h2>
 
             {/* ROLE PILLARS STRIP */}
             <p className="text-[10px] sm:text-xs font-mono tracking-wider uppercase text-zinc-400 font-semibold leading-relaxed pt-1 sm:pt-2">
-              SYSTEMS ARCHITECTS • PROCESS ENGINEERS • REVENUE STRATEGISTS • FINANCIAL AUDITORS • GOVERNANCE LEADS
+              {squadInfo.rolePillars}
             </p>
 
             <p className="text-zinc-400 text-xs sm:text-base leading-relaxed font-normal">
-              We don't give academic theory. Our cross-functional squad embeds directly into your operations to map workflows, install digital accountability, and free founder bandwidth.
+              {squadInfo.desc}
             </p>
 
             {/* ACTIVE SQUAD PILL INDICATOR */}
             <div className="pt-2 flex flex-wrap gap-2">
-              {SQUAD_MEMBERS.map((member, idx) => (
+              {members.map((member, idx) => (
                 <button
                   key={member.id}
                   onClick={() => snapToMember(idx)}
-                  className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider transition-all duration-300 border ${
+                  className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
                     activeIdx === idx
                       ? 'bg-white text-black border-white shadow-lg scale-105'
                       : 'bg-white/[0.04] text-zinc-400 border-white/10 hover:border-white/30 hover:text-white'
@@ -305,23 +371,25 @@ export default function RotatingSquadSection() {
             <div className="pt-4 flex items-center gap-4">
               <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[11px] font-mono text-zinc-300">
                 <Compass className="w-3.5 h-3.5 text-red-500 animate-spin" style={{ animationDuration: '8s' }} />
-                <span>3D ROTATING CADENCE</span>
+                <span>{squadInfo.controlsBadge}</span>
               </div>
 
               <div className="flex items-center gap-2">
                 <button
+                  type="button"
                   onClick={() => rotateToStep('prev')}
                   className="p-3 rounded-full bg-white/[0.06] hover:bg-white/[0.15] border border-white/10 text-zinc-400 hover:text-white transition-all active:scale-90 cursor-pointer shadow-md"
-                  aria-label="Previous squad member"
+                  aria-label="Previous member"
                 >
-                  <ArrowLeft className="w-4 h-4" />
+                  <ArrowLeft className="w-4 h-4 rtl:rotate-180" />
                 </button>
                 <button
+                  type="button"
                   onClick={() => rotateToStep('next')}
                   className="p-3 rounded-full bg-white/[0.06] hover:bg-white/[0.15] border border-white/10 text-zinc-400 hover:text-white transition-all active:scale-90 cursor-pointer shadow-md"
-                  aria-label="Next squad member"
+                  aria-label="Next member"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </button>
               </div>
             </div>
@@ -337,7 +405,6 @@ export default function RotatingSquadSection() {
               perspectiveOrigin: '50% 50%'
             }}
           >
-            {/* 3D ROTATING CYLINDER CONTAINER (MUTATED DIRECTLY BY PHYSIC LOOP) */}
             <div
               ref={stageRef}
               className="relative w-full h-full flex items-center justify-center pointer-events-none"
@@ -346,7 +413,7 @@ export default function RotatingSquadSection() {
                 willChange: 'transform'
               }}
             >
-              {SQUAD_MEMBERS.map((member, index) => {
+              {members.map((member, index) => {
                 const cardAngle = index * angleStep;
 
                 return (
@@ -363,13 +430,11 @@ export default function RotatingSquadSection() {
                       willChange: 'transform'
                     }}
                   >
-                    {/* DOUBLE-SIDED CARD WRAPPER */}
                     <div 
                       className="relative w-full h-full rounded-2xl sm:rounded-3xl transition-transform duration-300 group-hover:scale-105"
                       style={{ transformStyle: 'preserve-3d' }}
                     >
-                      
-                      {/* FRONT FACE (VISIBLE WHEN FACING CAMERA) */}
+                      {/* FRONT FACE */}
                       <div
                         className={`absolute inset-0 rounded-2xl sm:rounded-3xl p-3 sm:p-4 flex flex-col justify-between border-2 border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden bg-gradient-to-b ${member.bgGradient}`}
                         style={{
@@ -377,10 +442,8 @@ export default function RotatingSquadSection() {
                           WebkitBackfaceVisibility: 'hidden'
                         }}
                       >
-                        {/* SUBTLE GLOSS HIGHLIGHT */}
                         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-white/30 to-transparent rounded-full pointer-events-none" />
 
-                        {/* TOP BADGES */}
                         <div className="flex items-center justify-between z-10 gap-1">
                           <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-[10px] font-mono font-black uppercase tracking-wider bg-[#061233]/70 backdrop-blur-md text-white border border-[#0084FF]/40 truncate">
                             {member.domain}
@@ -390,7 +453,6 @@ export default function RotatingSquadSection() {
                           </span>
                         </div>
 
-                        {/* ARCHITECT PORTRAIT PHOTO */}
                         <div className="relative flex-1 w-full my-1.5 overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 shadow-inner">
                           <Image
                             src={member.image}
@@ -402,8 +464,7 @@ export default function RotatingSquadSection() {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                         </div>
 
-                        {/* BOTTOM TITLE & ROLE BADGE */}
-                        <div className="bg-[#081B4E]/90 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-3 border border-[#0084FF]/35 z-10 shadow-lg">
+                        <div className="bg-[#081B4E]/90 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-3 border border-[#0084FF]/35 z-10 shadow-lg text-start">
                           <div className="text-[11px] sm:text-sm font-black text-white tracking-tight truncate uppercase">
                             {member.name}
                           </div>
@@ -413,7 +474,7 @@ export default function RotatingSquadSection() {
                         </div>
                       </div>
 
-                      {/* BACK FACE (CLEAN SOLID BRANDED BACK TO PREVENT MIRRORED REVERSED TEXT) */}
+                      {/* BACK FACE */}
                       <div
                         className="absolute inset-0 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col items-center justify-center border-2 border-white/10 shadow-2xl"
                         style={{
@@ -424,7 +485,6 @@ export default function RotatingSquadSection() {
                           backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.4) 100%)'
                         }}
                       >
-                        {/* SCALARK BRAND EMBLEM ON REAR */}
                         <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#061233]/70 border border-[#0084FF]/40 backdrop-blur-md flex items-center justify-center mb-2 sm:mb-3 shadow-inner">
                           <span className="text-lg sm:text-xl font-black text-white font-mono">S</span>
                         </div>
@@ -432,7 +492,7 @@ export default function RotatingSquadSection() {
                           SCALARK
                         </div>
                         <div className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-white/70 text-center mt-1">
-                          SYSTEMS ARCHITECTURE
+                          {isRtl ? 'هندسة نظم الأعمال' : 'SYSTEMS ARCHITECTURE'}
                         </div>
                       </div>
 
@@ -442,12 +502,11 @@ export default function RotatingSquadSection() {
               })}
             </div>
 
-            {/* USER INTERACTION PILL HINT AT BOTTOM OF 3D STAGE */}
             <div className="absolute bottom-2 sm:bottom-3 inset-x-0 flex justify-center pointer-events-none px-4">
               <div className="px-3.5 sm:px-4 py-1.5 rounded-full bg-[#081B4E]/90 backdrop-blur-md border border-[#0084FF]/30 text-[9.5px] sm:text-xs font-mono font-bold text-blue-100 tracking-wider shadow-2xl flex items-center gap-2 max-w-[95%] sm:max-w-none">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0" />
-                <span className="sm:hidden">SWIPE TO ROTATE • TAP TO INSPECT</span>
-                <span className="hidden sm:inline">DRAG TO ROTATE • SCROLL TO ACCELERATE • CLICK CARD TO INSPECT</span>
+                <span className="sm:hidden">{squadInfo.swipeHint}</span>
+                <span className="hidden sm:inline">{squadInfo.dragHint}</span>
               </div>
             </div>
           </div>
@@ -462,15 +521,15 @@ export default function RotatingSquadSection() {
           onClick={() => setActiveMember(null)}
         >
           <div
-            className="w-full max-w-lg rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-[#081B4E] border border-[#0084FF]/50 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative max-h-[90vh] overflow-y-auto"
+            className="w-full max-w-lg rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-[#081B4E] border border-[#0084FF]/50 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative max-h-[90vh] overflow-y-auto text-start"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* MODAL HEADER */}
             <div className="flex items-center justify-between mb-4">
               <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-white/10 text-white border border-white/15">
-                {activeMember.domain} ARCHITECT
+                {isRtl ? `${activeMember.domain} • مهندس نظم` : `${activeMember.domain} ARCHITECT`}
               </span>
               <button
+                type="button"
                 onClick={() => setActiveMember(null)}
                 className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-zinc-300 hover:text-white flex items-center justify-center text-sm font-mono transition-colors cursor-pointer"
               >
@@ -499,7 +558,7 @@ export default function RotatingSquadSection() {
 
             <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 mb-6 space-y-2">
               <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-                Operational Specialization
+                {isRtl ? 'التخصص التشغيلي' : 'Operational Specialization'}
               </div>
               <p className="text-sm text-zinc-200 font-normal leading-relaxed">
                 {activeMember.specialty}
@@ -510,7 +569,7 @@ export default function RotatingSquadSection() {
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 <span className="text-xs font-mono text-emerald-400 font-bold">
-                  Audited Benchmark: {activeMember.metric}
+                  {isRtl ? `المؤشر المحقق: ${activeMember.metric}` : `Audited Benchmark: ${activeMember.metric}`}
                 </span>
               </div>
               <Link
@@ -518,7 +577,7 @@ export default function RotatingSquadSection() {
                 onClick={() => setActiveMember(null)}
                 className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white text-black text-xs font-mono font-bold uppercase tracking-wider hover:bg-zinc-200 transition-colors text-center shadow-md active:scale-95"
               >
-                Consult With Squad →
+                {isRtl ? 'استشر فريق المهندسين ←' : 'Consult With Squad →'}
               </Link>
             </div>
           </div>

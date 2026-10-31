@@ -2,12 +2,18 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { CASE_STUDIES } from '@/data/contentData';
+import { getCaseStudies } from '@/data/contentData';
 import { Quote, ArrowUpRight, CheckCircle2, Star, Film, FileText } from 'lucide-react';
 import ScrollReveal from '@/components/common/ScrollReveal';
 import FounderReelsCarousel from '@/components/common/FounderReelsCarousel';
+import { useLanguage } from '@/context/LanguageContext';
 
-export default function CaseStudiesSection({ t }) {
+export default function CaseStudiesSection({ t: propT }) {
+  const { currentLang, t: ctxT, isRtl } = useLanguage();
+  const t = propT || ctxT;
+  const p = t.caseStudiesSection;
+  const caseStudies = getCaseStudies(currentLang);
+
   const [viewMode, setViewMode] = useState('reels'); // 'reels' | 'reports'
 
   return (
@@ -19,49 +25,51 @@ export default function CaseStudiesSection({ t }) {
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* SECTION HEADER: CLEAN TOP-LEFT EDITORIAL STYLE MATCHING REFERENCE IMAGE 2 */}
+        {/* SECTION HEADER */}
         <ScrollReveal direction="up" distance={30} className="mb-8 sm:mb-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl text-start">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-[#0084FF]/20 text-[10px] sm:text-xs font-mono font-bold text-[#0084FF] mb-3 sm:mb-4 shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0084FF]" />
-                <span>VERIFIED CLIENT OUTCOMES & INTERVIEWS</span>
+                <span>{p.badge}</span>
               </div>
 
               <h2 className="text-xl sm:text-3xl md:text-5xl font-black tracking-tight text-zinc-950 leading-tight">
-                Discover inspiring journeys of founders who eliminated operational chaos, recovered executive time, and scaled with SCALARK.
+                {p.title}
               </h2>
             </div>
 
-            {/* VIEW TOGGLE PILL: FOUNDER REELS VS WRITTEN REPORTS */}
+            {/* VIEW TOGGLE PILL */}
             <div className="inline-flex items-center p-1 rounded-full bg-zinc-100 border border-zinc-200/90 shrink-0 shadow-sm self-start sm:self-auto">
               <button
+                type="button"
                 onClick={() => setViewMode('reels')}
-                className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all whitespace-nowrap ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all whitespace-nowrap cursor-pointer ${
                   viewMode === 'reels'
                     ? 'bg-[#0084FF] text-white shadow-md'
                     : 'text-zinc-600 hover:text-zinc-950'
                 }`}
               >
                 <Film className="w-3.5 h-3.5" />
-                <span>Founder Stories</span>
+                <span>{p.btnReels}</span>
               </button>
               <button
+                type="button"
                 onClick={() => setViewMode('reports')}
-                className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all whitespace-nowrap ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all whitespace-nowrap cursor-pointer ${
                   viewMode === 'reports'
                     ? 'bg-[#0084FF] text-white shadow-md'
                     : 'text-zinc-600 hover:text-zinc-950'
                 }`}
               >
                 <FileText className="w-3.5 h-3.5" />
-                <span>Audit Reports</span>
+                <span>{p.btnReports}</span>
               </button>
             </div>
           </div>
         </ScrollReveal>
 
-        {/* VIEW 01: STAGGERED MONOCHROME REEL CAROUSEL (IMAGE 2 TYPE) */}
+        {/* VIEW 01: STAGGERED REEL CAROUSEL */}
         {viewMode === 'reels' && (
           <ScrollReveal direction="up" distance={20}>
             <FounderReelsCarousel />
@@ -71,7 +79,7 @@ export default function CaseStudiesSection({ t }) {
         {/* VIEW 02: 3 DISTINCTIVE DETAILED AUDIT CASE CARDS */}
         {viewMode === 'reports' && (
           <div className="grid md:grid-cols-3 gap-6 sm:gap-8 animate-fadeIn">
-            {CASE_STUDIES.map((cs, idx) => (
+            {caseStudies.map((cs, idx) => (
               <ScrollReveal
                 key={cs.id}
                 direction="up"
@@ -79,7 +87,7 @@ export default function CaseStudiesSection({ t }) {
                 delay={idx * 120}
                 className="h-full"
               >
-                <div className="h-full rounded-3xl bg-white border border-zinc-200 p-8 flex flex-col justify-between shadow-lg hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+                <div className="h-full rounded-3xl bg-white border border-zinc-200 p-8 flex flex-col justify-between shadow-lg hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group text-start">
                   <div>
                     <div className="flex items-center justify-between mb-6">
                       <span className="font-mono text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200">
@@ -105,11 +113,11 @@ export default function CaseStudiesSection({ t }) {
 
                     <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/80 space-y-2 text-xs mb-6">
                       <div>
-                        <span className="text-zinc-500 font-bold">Root Cause: </span>
+                        <span className="text-zinc-500 font-bold">{isRtl ? 'السبب الجذري: ' : 'Root Cause: '}</span>
                         <span className="text-zinc-900 font-medium">{cs.rootCause}</span>
                       </div>
                       <div className="pt-2 border-t border-zinc-200">
-                        <span className="text-[#0084FF] font-bold">Our Approach: </span>
+                        <span className="text-[#0084FF] font-bold">{isRtl ? 'نهجنا التشغيلي: ' : 'Our Approach: '}</span>
                         <span className="text-zinc-900 font-medium">{cs.approach}</span>
                       </div>
                     </div>
@@ -122,7 +130,9 @@ export default function CaseStudiesSection({ t }) {
                         <CheckCircle2 className="w-4 h-4 stroke-[3]" />
                       </div>
                       <div>
-                        <div className="text-[10px] uppercase tracking-wider font-mono text-zinc-400 font-bold">Audited Result</div>
+                        <div className="text-[10px] uppercase tracking-wider font-mono text-zinc-400 font-bold">
+                          {isRtl ? 'النتيجة المدققة' : 'Audited Result'}
+                        </div>
                         <div className="text-xs font-black text-zinc-950">
                           {cs.outcome}
                         </div>
@@ -130,7 +140,7 @@ export default function CaseStudiesSection({ t }) {
                     </div>
 
                     <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 group-hover:scale-110 group-hover:bg-[#0084FF] group-hover:text-white transition-all">
-                      <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                      <ArrowUpRight className="w-4 h-4 stroke-[2.5] rtl:rotate-90" />
                     </div>
                   </div>
                 </div>
@@ -145,8 +155,8 @@ export default function CaseStudiesSection({ t }) {
             href="/case-studies"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0084FF] hover:bg-[#0070E0] text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105"
           >
-            <span>Explore All Client Case Studies</span>
-            <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+            <span>{p.btnViewCaseStudies}</span>
+            <ArrowUpRight className="w-4 h-4 stroke-[2.5] rtl:rotate-90" />
           </Link>
         </div>
       </div>

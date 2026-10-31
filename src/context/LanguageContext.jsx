@@ -16,8 +16,10 @@ export function LanguageProvider({ children }) {
   useEffect(() => {
     try {
       const saved = localStorage.getItem('scalark_lang');
-      if (saved && TRANSLATIONS[saved]) {
+      if (saved === 'AR' || saved === 'EN') {
         setCurrentLangState(saved);
+      } else {
+        setCurrentLangState('EN');
       }
     } catch (e) {
       // ignore
@@ -25,9 +27,10 @@ export function LanguageProvider({ children }) {
   }, []);
 
   const setLang = (code) => {
-    setCurrentLangState(code);
+    const valid = code === 'AR' ? 'AR' : 'EN';
+    setCurrentLangState(valid);
     try {
-      localStorage.setItem('scalark_lang', code);
+      localStorage.setItem('scalark_lang', valid);
     } catch (e) {}
   };
 

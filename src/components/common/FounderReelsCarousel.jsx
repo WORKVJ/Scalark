@@ -13,6 +13,7 @@ import {
   ArrowUpRight, 
   Quote
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const FOUNDER_REELS = [
   {
@@ -157,18 +158,163 @@ export const FOUNDER_REELS = [
   }
 ];
 
-// Staggered height and wave offset configuration
+export const FOUNDER_REELS_AR = [
+  {
+    id: 'reel-1',
+    speaker: 'د. أنانيا سين',
+    fullName: 'د. أنانيا سين',
+    role: 'مديرة العمليات السريرية',
+    company: 'شبكات فانغارد الصحية',
+    industry: 'الرعاية الصحية والشبكات السريرية',
+    stage: 'مؤسسة متوسطة (12 مركزاً)',
+    caption: '«استبدلت سكالارك السجلات اليدوية المفككة بمسارات عمل مؤتمتة، مما خفض وقت تسليم العينات بنسبة 68%.»',
+    quoteHighlight: 'تحويل الفوضى التشغيلية إلى انضباط مؤسسي حقيقي',
+    subQuote: 'بمسارات عمل مؤتمتة وبلا أي تأخير في الفوترة.',
+    duration: '0:54',
+    metric: '+38% هامش صافي',
+    tag: 'شبكة رعاية صحية',
+    accent: '#0084FF',
+    challenge: 'أدى التوسع عبر 12 مركزاً تشخيصياً إلى أخطاء حادة في تتبع العينات، وتراكم الفواتير لمدة 45 يوماً، وتصعيدات يومية مستمرة.',
+    rootCause: 'برمجيات مختبرية معزولة بلا بروتوكولات اتصال بين الفروع وتأخر في وصول تقارير الأداء للإدارة.',
+    approach: 'توحيد قوائم فحص نقل العينات، وتوحيد معايير الفوترة، وبناء لوحة قيادة تنفيذية توضح اقتصاديات الوحدة يومياً لكل فرع.',
+    outcome: 'انخفض زمن معالجة العينات لأقل من 12 ساعة، وأصبح التدفق النقدي متوقعاً بالكامل، وارتفعت هوامش الشبكة بنسبة 38%.'
+  },
+  {
+    id: 'reel-2',
+    speaker: 'فيكرام مالهوترا',
+    fullName: 'فيكرام مالهوترا',
+    role: 'المؤسس والعضو المنتدب للمجموعة',
+    company: 'مجموعة مالهوترا القابضة',
+    industry: 'مجموعة شركات واستثمار مباشر',
+    stage: 'مستوى مؤسسي كبير',
+    caption: '«كنت أعمل 16 ساعة يومياً في حل الأزمات اليومية. وضعت سكالارك نظام استقلالية المؤسس ورفعت مضاعف تقييمنا إلى 2.8 ضعف.»',
+    quoteHighlight: 'إرساء الحوكمة المؤسسية وحرية المؤسس التنفيذية',
+    subQuote: 'مما ضاعف تقييمنا المؤسسي إلى 2.8 ضعف.',
+    duration: '1:12',
+    metric: 'استعادة 65% من وقت المؤسس',
+    tag: 'توسع وتقييم مالي',
+    accent: '#70A52E',
+    challenge: 'كان المؤسس يستهلك 16 ساعة عمل يومياً في التوقيع على القرارات التشغيلية الروتينية، مما شكل عنق زجاجة تنفيذي خانق.',
+    rootCause: 'غياب بطاقات المساءلة المعتمدة للإدارات وعدم وجود حدود واضحة لتفويض الصلاحيات المالية.',
+    approach: 'هندسة 48 إجراءً تشغيلياً قياسياً (SOP)، وإرساء إيقاع حوكمة تنفيذي للطبقة الثانية، وربط مؤشرات أداء الأقسام ببطاقات قياس ربع سنوية.',
+    outcome: 'انخفض التدخل المباشر للمؤسس بنسبة 65%، وتضاعفت سرعة صفقات الاستحواذ والاندماج، وصنّف التدقيق المؤسسي التقييم عند 2.8 ضعف.'
+  },
+  {
+    id: 'reel-3',
+    speaker: 'روهان وكونال',
+    fullName: 'روهان ديشموخ وكونال فيرما',
+    role: 'المؤسسون الشركاء',
+    company: 'منصات كينيتيكس اللوجستية',
+    industry: 'سلاسل الإمداد وتكنولوجيا النقل',
+    stage: 'شركة تقنية سريعة النمو',
+    caption: '«كان استنزاف السيولة الشهري ناتجاً عن هدر في العمليات. شخّصت سكالارك التسريبات واستعادت ربحيتنا النقدية في 45 يوماً.»',
+    quoteHighlight: 'كان حرق السيولة هدراً تشغيلياً لا إنفاق نمو',
+    subQuote: 'بينت سكالارك أن المشكلة كانت في تسريبات العمليات.',
+    duration: '0:35',
+    metric: 'تعافي نقدي في 45 يوماً',
+    tag: 'شركة تقنية ناشئة',
+    accent: '#8B5CF6',
+    challenge: 'أدى التوسع السريع للفريق إلى أزمة استنزاف للسيولة النقدية؛ وواجه الشركاء مهلة 3 أشهر قبل نفاد الكاش دون وضوح لاقتصاديات الوحدة.',
+    rootCause: 'تسريبات تشغيلية عبر منصات برمجية غير مدمجة وتكاليف استقطاب عملاء تفوق التحصيل النقدي المستدام.',
+    approach: 'إجراء تدقيق تشغيلي ومالي طارئ لمدة 14 يوماً، وإلغاء الاشتراكات غير الضرورية، وإعادة توجيه فريق المبيعات نحو كبرى الحسابات المؤسسية ذات الهوامش العالية.',
+    outcome: 'انخفض معدل حرق السيولة بنسبة 52%، وتم تحقيق الربحية التشغيلية في 45 يوماً، وتأمين جولة تمويل توسعي بأنظمة مؤسسية نقية.'
+  },
+  {
+    id: 'reel-4',
+    speaker: 'راجيش شارما',
+    fullName: 'راجيش شارما',
+    role: 'الرئيس التنفيذي',
+    company: 'بريسيجن للتصنيع الصناعي',
+    industry: 'المعدات الصناعية والتصنيع',
+    stage: 'تصنيع متعدد المصانع',
+    caption: '«كنت أحل كل أزمة في المصنع بنفسي. الآن تعمل إجراءاتنا القياسية بدقة 99.4% عبر جميع الورديات.»',
+    quoteHighlight: 'كنت أحل كل أزمة في المصنع بنفسي',
+    subQuote: 'الآن تعمل إجراءاتنا الموثقة باستقلالية ودقة 99.4%.',
+    duration: '0:58',
+    metric: '99.4% استقلالية ذاتية',
+    tag: 'تصنيع صناعي',
+    accent: '#F59E0B',
+    challenge: 'ارتفاع معدلات إعادة التشغيل وهدر الخردة أثناء الورديات الليلية؛ وكان مشرفو الورش ينتظرون الرئيس التنفيذي لاعتماد تعديلات الضبط شخصياً.',
+    rootCause: 'غياب تعليمات العمل الموحدة لمعايرة الأدوات، مما جعل العمل مرهوناً بالخبرات الفردية المتفرقة.',
+    approach: 'نشر نقاط فحص بصرية رقمية عند كل خلية إنتاج، وتدريب قادة الورديات على بروتوكولات التصعيد السريع، وتطبيق تدقيق يومي للهدر.',
+    outcome: 'انخفض معدل عيوب الخردة بنسبة 84%، وقفزت الطاقة الإنتاجية بنسبة 32%، وباتت وحدة التصنيع تعمل باستقلالية ذاتية كاملة.'
+  },
+  {
+    id: 'reel-5',
+    speaker: 'غيريش وموهان',
+    fullName: 'غيريش نامبيار وموهان آير',
+    role: 'الشركاء الإداريون',
+    company: 'مترو للأغذية والتوزيع',
+    industry: 'التجزئة وتوزيع السلع الاستهلاكية',
+    stage: 'مرحلة توسع (6 مراكز)',
+    caption: '«عندما تبني إجراءات تشغيلية حقيقية ومصفوفات مساءلة واضحة، يتحمل موظفو الخطوط الأمامية المسؤولية الكاملة عن أرقام الشحن والتسليم.»',
+    quoteHighlight: 'عندما تبني ثقافة ومؤشرات أداء حقيقية',
+    subQuote: 'الجميع يمتلك أرقامه ويحترم الإجراءات القياسية.',
+    duration: '0:49',
+    metric: '98% التزام وتطبيق الكوادر',
+    tag: 'سلاسل الإمداد',
+    accent: '#06B6D4',
+    challenge: 'فشلت المحاولات السابقة لتطبيق أنظمة تخطيط موارد معقدة لأن عمال المستودعات تجاوزوا النماذج الرقمية ولجأوا إلى الملاحظات اليدوية الفوضوية.',
+    rootCause: 'فرضت الإدارة برمجيات تقنية معقدة قبل توثيق خطوات العمل الميدانية أو تدريب المشرفين عليها.',
+    approach: 'تصميم قوائم فحص تفاعلية مبسطة عبر الهاتف بالتعاون مع قادة فرق المستودعات، مدعومة بمراجعات أسبوعية وحوافز أداء مجزية.',
+    outcome: 'ارتفعت دقة شحن الطلبات في نفس اليوم إلى 99.1%، وتراجع عجز المخزون إلى الصفر، وسجلت الروح المعنوية للفريق أعلى مستوياتها.'
+  },
+  {
+    id: 'reel-6',
+    speaker: 'بريا سوندارام',
+    fullName: 'بريا سوندارام',
+    role: 'المدير التنفيذي الأول',
+    company: 'سوندارام للاستشارات والحوكمة',
+    industry: 'الاستشارات المؤسسية',
+    stage: 'مجموعة استشارية رفيعة المستوى',
+    caption: '«قامت سكالارك بهندسة نظام تهيئة العملاء وتسليم المشاريع، مما مكننا من مضاعفة عملائنا 3 مرات دون الحاجة لتوظيف شركاء جدد.»',
+    quoteHighlight: 'مضاعفة استيعاب العملاء 3 مرات بلا شركاء إضافيين',
+    subQuote: 'مع حوكمة شاملة لكافة أطرنا الاستشارية.',
+    duration: '1:05',
+    metric: 'مضاعفة الطاقة الاستيعابية 3.2x',
+    tag: 'الاستشارات والخدمات',
+    accent: '#EC4899',
+    challenge: 'كان الشركاء مثقلين بأعباء تسليم المشاريع والتقارير الإدارية، مما حد من قدرتهم على تطوير الأعمال وتوسيع العلاقات.',
+    rootCause: 'قوالب تسليم غير منظمة ومراجعات غير منضبطة بين الفرق عبر حسابات العملاء.',
+    approach: 'بناء دليل إرشادي مؤسسي للتنفيذ، وتثبيت نظام مراقبة آلي للحالة، وتفويض التقارير الدورية إلى محللي العمليات.',
+    outcome: 'تضاعفت ساعات الشركاء القابلة للفوترة، وحصلت جودة التسليم على تقييم 94 NPS، وتوسعت إيرادات الشركة 3.2x خلال 12 شهراً.'
+  },
+  {
+    id: 'reel-7',
+    speaker: 'أرجون ميهتا',
+    fullName: 'أرجون ميهتا',
+    role: 'رئيس العمليات الدولية',
+    company: 'ماريتايم غيتواي اللوجستية',
+    industry: 'الشحن والخدمات البحرية',
+    stage: 'عمليات محطات موانئ دولية',
+    caption: '«تحول تنسيق حركة الحاويات من إطفاء حرائق يومي مستمر إلى دقة متناهية وساعة سويسرية عبر 4 موانئ دولية.»',
+    quoteHighlight: 'من إطفاء حرائق دائم إلى دقة متناهية تشبه الساعة',
+    subQuote: 'عبر 4 محطات موانئ دولية رئيسية.',
+    duration: '0:48',
+    metric: 'القضاء على 72% من الاختناقات',
+    tag: 'البنية التحتية للموانئ',
+    accent: '#3B82F6',
+    challenge: 'أدت تأخيرات دوران السفن واضطرابات التخليص الجمركي إلى غرامات تأخير ورسوم تجاوزت 200 ألف دولار فصلياً.',
+    rootCause: 'الاعتماد على جداول بيانات يدوية بين قادة الموانئ ومخلصي الجمارك وأساطيل الشاحنات الداخلية.',
+    approach: 'بناء بروتوكولات موحدة لعمليات المحطات وإنشاء مسار تدقيق جمركي آلي مسبق قبل وصول السفن.',
+    outcome: 'انخفض زمن دورة التخليص بنسبة 72%، وصفر غرامات تأخير على مدار 3 فصول، مع توفير 850 ألف دولار من التسريبات التشغيلية.'
+  }
+];
+
 const STAGGER_CONFIG = [
   { height: 'h-[360px] sm:h-[390px]', offset: 'translate-y-5 sm:translate-y-7' },
   { height: 'h-[390px] sm:h-[425px]', offset: '-translate-y-2 sm:-translate-y-3' },
   { height: 'h-[370px] sm:h-[405px]', offset: 'translate-y-4 sm:translate-y-5' },
-  { height: 'h-[405px] sm:h-[440px]', offset: 'translate-y-0 sm:translate-y-0' }, // Center hero
+  { height: 'h-[405px] sm:h-[440px]', offset: 'translate-y-0 sm:translate-y-0' },
   { height: 'h-[360px] sm:h-[390px]', offset: 'translate-y-5 sm:translate-y-7' },
   { height: 'h-[390px] sm:h-[425px]', offset: '-translate-y-2 sm:-translate-y-3' },
   { height: 'h-[370px] sm:h-[405px]', offset: 'translate-y-4 sm:translate-y-5' }
 ];
 
 export default function FounderReelsCarousel() {
+  const { currentLang, isRtl } = useLanguage();
+  const reelsList = currentLang === 'AR' ? FOUNDER_REELS_AR : FOUNDER_REELS;
+
   const [activeIdx, setActiveIdx] = useState(3);
   const [isAutoMoving, setIsAutoMoving] = useState(true);
   const [isUserHovering, setIsUserHovering] = useState(false);
@@ -177,21 +323,17 @@ export default function FounderReelsCarousel() {
   const [playbackProgress, setPlaybackProgress] = useState(35);
   const scrollRef = useRef(null);
 
-  // Seamless infinite loop: duplicate array
-  const displayReels = [...FOUNDER_REELS, ...FOUNDER_REELS];
+  const displayReels = [...reelsList, ...reelsList];
+  const activeReel = reelsList[activeIdx % reelsList.length] || reelsList[0];
 
-  const activeReel = FOUNDER_REELS[activeIdx % FOUNDER_REELS.length] || FOUNDER_REELS[0];
-
-  // Auto-rotate spotlight when auto-moving and not hovered
   useEffect(() => {
     if (!isAutoMoving || isUserHovering || selectedReel) return;
     const interval = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % FOUNDER_REELS.length);
+      setActiveIdx((prev) => (prev + 1) % reelsList.length);
     }, 4500);
     return () => clearInterval(interval);
-  }, [isAutoMoving, isUserHovering, selectedReel]);
+  }, [isAutoMoving, isUserHovering, selectedReel, reelsList.length]);
 
-  // Audio progress bar simulation in modal
   useEffect(() => {
     if (!selectedReel) return;
     const interval = setInterval(() => {
@@ -202,13 +344,13 @@ export default function FounderReelsCarousel() {
 
   const handleManualScroll = (direction) => {
     if (direction === 'left') {
-      setActiveIdx((prev) => (prev > 0 ? prev - 1 : FOUNDER_REELS.length - 1));
+      setActiveIdx((prev) => (prev > 0 ? prev - 1 : reelsList.length - 1));
     } else {
-      setActiveIdx((prev) => (prev < FOUNDER_REELS.length - 1 ? prev + 1 : 0));
+      setActiveIdx((prev) => (prev < reelsList.length - 1 ? prev + 1 : 0));
     }
     if (scrollRef.current) {
       const scrollAmount = direction === 'left' ? -320 : 320;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: isRtl ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -221,7 +363,9 @@ export default function FounderReelsCarousel() {
         {/* HINT BADGE */}
         <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80 text-xs font-mono text-zinc-600 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[#70A52E] animate-ping" />
-          <span>Verified Founder Quotes • Hover to Inspect</span>
+          <span>
+            {isRtl ? 'شهادات موثقة للمؤسسين • مرر للاطلاع' : 'Verified Founder Quotes • Hover to Inspect'}
+          </span>
         </div>
 
         {/* BUTTON CONTROLS */}
@@ -230,17 +374,17 @@ export default function FounderReelsCarousel() {
           <button
             onClick={() => setIsAutoMoving(!isAutoMoving)}
             className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/90 text-xs font-mono font-bold text-zinc-800 transition-all shadow-sm"
-            title={isAutoMoving ? 'Pause auto-moving' : 'Resume auto-moving'}
+            title={isAutoMoving ? (isRtl ? 'إيقاف الحركة التلقائية' : 'Pause auto-moving') : (isRtl ? 'تشغيل الحركة التلقائية' : 'Resume auto-moving')}
           >
             {isAutoMoving ? (
               <>
                 <Pause className="w-3.5 h-3.5 text-zinc-600" />
-                <span>Pause Motion</span>
+                <span>{isRtl ? 'إيقاف مؤقت' : 'Pause Motion'}</span>
               </>
             ) : (
               <>
                 <Play className="w-3.5 h-3.5 text-[#70A52E] fill-[#70A52E]" />
-                <span>Auto-Move</span>
+                <span>{isRtl ? 'تشغيل تلقائي' : 'Auto-Move'}</span>
               </>
             )}
           </button>
@@ -252,14 +396,14 @@ export default function FounderReelsCarousel() {
               className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 hover:text-black transition-all shadow-sm"
               aria-label="Previous quote"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
             </button>
             <button
               onClick={() => handleManualScroll('right')}
               className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 hover:text-black transition-all shadow-sm"
               aria-label="Next quote"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4 rtl:rotate-180" />
             </button>
           </div>
         </div>
@@ -273,44 +417,32 @@ export default function FounderReelsCarousel() {
         className="w-full overflow-hidden no-scrollbar py-8 px-4 relative"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        {/* Soft white gradient edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none rtl:rotate-180" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none rtl:rotate-180" />
 
-        {/* INFINITE MARQUEE ROW OF TYPOGRAPHIC QUOTE CARDS (NO PHOTOS) */}
-        <div 
-          className={`flex items-center gap-4 sm:gap-6 min-w-max will-change-transform ${
-            isAutoMoving ? 'animate-reel-scroll' : ''
-          } hover:[animation-play-state:paused]`}
-          style={{ width: 'max-content' }}
-        >
+        <div className={`flex items-center gap-4 sm:gap-6 w-max ${
+          isAutoMoving && !isUserHovering && !selectedReel ? 'animate-marquee-slow' : ''
+        }`}>
           {displayReels.map((reel, idx) => {
-            const originalIdx = idx % FOUNDER_REELS.length;
-            const config = STAGGER_CONFIG[originalIdx % STAGGER_CONFIG.length];
-            const isCurrent = activeIdx === originalIdx;
+            const config = STAGGER_CONFIG[idx % STAGGER_CONFIG.length];
+            const isCurrent = (idx % reelsList.length) === (activeIdx % reelsList.length);
 
             return (
               <div
                 key={`${reel.id}-${idx}`}
-                onClick={() => {
-                  setActiveIdx(originalIdx);
-                  setSelectedReel(reel);
-                }}
-                onMouseEnter={() => setActiveIdx(originalIdx)}
+                onClick={() => setSelectedReel(reel)}
                 className={`relative w-[270px] sm:w-[310px] md:w-[335px] ${config.height} ${config.offset} rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 shrink-0 group flex flex-col justify-between p-6 sm:p-7 select-none border ${
                   isCurrent 
                     ? 'border-[#70A52E] bg-gradient-to-b from-[#151D14] via-[#0E150D] to-[#070B06] ring-2 ring-[#70A52E]/60 shadow-[0_25px_60px_rgba(112,165,46,0.22)] scale-105 z-20' 
                     : 'border-zinc-800/80 bg-gradient-to-b from-[#141923] via-[#0E121B] to-[#07090E] shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:border-zinc-700 hover:scale-[1.02] z-10'
                 }`}
               >
-                {/* SUBTLE CORNER AMBIENT GLOW */}
                 <div 
-                  className={`absolute -top-16 -right-16 w-36 h-36 rounded-full blur-2xl pointer-events-none transition-opacity duration-500 ${
+                  className={`absolute -top-16 -right-16 rtl:-right-auto rtl:-left-16 w-36 h-36 rounded-full blur-2xl pointer-events-none transition-opacity duration-500 ${
                     isCurrent ? 'opacity-30 bg-[#70A52E]' : 'opacity-10 bg-blue-500 group-hover:opacity-20'
                   }`}
                 />
 
-                {/* CARD TOP ROW: TAG & DURATION */}
                 <div className="flex items-center justify-between gap-2 relative z-10">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-white/10 text-emerald-400 border border-emerald-500/20 backdrop-blur-md">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
@@ -321,24 +453,21 @@ export default function FounderReelsCarousel() {
                   </span>
                 </div>
 
-                {/* CARD MIDDLE: LARGE EXECUTIVE QUOTE */}
                 <div className="my-auto py-2 relative z-10">
                   <div className="text-[#70A52E] font-serif text-3xl sm:text-4xl leading-none select-none opacity-90 mb-2">
                     “
                   </div>
-                  <p className="text-sm sm:text-[15px] font-sans font-medium text-zinc-100 leading-snug tracking-tight">
-                    {reel.caption.replace(/^[“"]|[”"]$/g, '')}
+                  <p className="text-sm sm:text-[15px] font-sans font-medium text-zinc-100 leading-snug tracking-tight text-start">
+                    {reel.caption.replace(/^[“"«]|[”"»]$/g, '')}
                   </p>
                   
-                  {/* METRIC BADGE */}
                   <div className="inline-flex items-center gap-1.5 mt-3.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-[11px] font-mono font-bold text-emerald-300">
                     <CheckCircle2 className="w-3 h-3 text-[#70A52E]" />
                     <span>{reel.metric}</span>
                   </div>
                 </div>
 
-                {/* CARD FOOTER: NAME & ROLE / COMPANY (MATCHING USER REQUEST) */}
-                <div className="pt-3.5 border-t border-white/10 mt-auto relative z-10">
+                <div className="pt-3.5 border-t border-white/10 mt-auto relative z-10 text-start">
                   <div className="flex items-center justify-between">
                     <h4 className="text-sm sm:text-base font-sans font-black uppercase tracking-wider text-white">
                       {reel.speaker}
@@ -348,7 +477,7 @@ export default function FounderReelsCarousel() {
                         ? 'bg-[#70A52E] text-white' 
                         : 'bg-white/10 text-zinc-400 group-hover:bg-white/20 group-hover:text-white'
                     }`}>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <ArrowUpRight className="w-3.5 h-3.5 rtl:rotate-90" />
                     </div>
                   </div>
                   <p className="text-[11px] sm:text-xs text-zinc-400 font-sans mt-0.5 line-clamp-1">
@@ -371,7 +500,6 @@ export default function FounderReelsCarousel() {
           {activeReel.role} • <strong className="text-zinc-800">{activeReel.company}</strong>
         </p>
 
-        {/* AUDITED BREAKTHROUGH PILL */}
         <div className="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/90 text-xs font-mono font-bold text-zinc-800 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[#70A52E] animate-pulse" />
           <span className="text-[#0084FF]">{activeReel.tag}</span>
@@ -384,7 +512,7 @@ export default function FounderReelsCarousel() {
         </p>
       </div>
 
-      {/* INTERACTIVE CASE AUDIT MODAL (NO PHOTOS) */}
+      {/* INTERACTIVE CASE AUDIT MODAL */}
       {selectedReel && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061233]/85 backdrop-blur-xl animate-fadeIn"
@@ -394,24 +522,21 @@ export default function FounderReelsCarousel() {
             className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] border border-zinc-200"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* CLOSE BUTTON */}
             <button
               onClick={() => setSelectedReel(null)}
-              className="absolute top-4 right-4 z-30 p-2.5 rounded-full bg-zinc-900/70 hover:bg-zinc-900 text-white transition-colors shadow-lg"
+              className="absolute top-4 right-4 rtl:right-auto rtl:left-4 z-30 p-2.5 rounded-full bg-zinc-900/70 hover:bg-zinc-900 text-white transition-colors shadow-lg"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />
             </button>
 
-            {/* LEFT COLUMN: ARCHITECTURAL STATEMENT & TELEMETRY (NO PHOTOS) */}
-            <div className="w-full md:w-[360px] shrink-0 bg-gradient-to-b from-[#0F172A] via-[#0A0F1D] to-[#060912] text-white p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden border-b md:border-b-0 md:border-r border-zinc-800">
-              
-              {/* TOP HEADER */}
+            {/* LEFT COLUMN */}
+            <div className="w-full md:w-[360px] shrink-0 bg-gradient-to-b from-[#0F172A] via-[#0A0F1D] to-[#060912] text-white p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-zinc-800 text-start">
               <div>
                 <div className="flex items-center gap-2 mb-6">
                   <span className="w-2 h-2 rounded-full bg-[#70A52E] animate-ping" />
                   <span className="text-[11px] font-mono font-bold tracking-widest text-[#70A52E] uppercase">
-                    SCALARK AUDIT ARCHIVE
+                    {isRtl ? 'أرشيف تدقيق سكالارك' : 'SCALARK AUDIT ARCHIVE'}
                   </span>
                 </div>
 
@@ -420,12 +545,12 @@ export default function FounderReelsCarousel() {
                 </div>
 
                 <blockquote className="text-sm sm:text-base font-sans font-medium text-white leading-relaxed mb-6">
-                  {selectedReel.caption.replace(/^[“"]|[”"]$/g, '')}
+                  {selectedReel.caption.replace(/^[“"«]|[”"»]$/g, '')}
                 </blockquote>
 
                 <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
                   <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider mb-1">
-                    Audited Outcome
+                    {isRtl ? 'النتيجة المدققة' : 'Audited Outcome'}
                   </div>
                   <div className="text-base font-mono font-bold text-emerald-400">
                     {selectedReel.metric}
@@ -433,7 +558,6 @@ export default function FounderReelsCarousel() {
                 </div>
               </div>
 
-              {/* FOOTER - SPEAKER DETAILS & AUDIO SIMULATION */}
               <div className="pt-6 border-t border-white/10 mt-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
@@ -451,13 +575,12 @@ export default function FounderReelsCarousel() {
                   <button
                     onClick={() => setIsMuted(!isMuted)}
                     className="p-2.5 rounded-full bg-white/10 hover:bg-[#70A52E] text-white transition-colors border border-white/10"
-                    title={isMuted ? 'Unmute audio' : 'Mute audio'}
+                    title={isMuted ? 'Unmute' : 'Mute'}
                   >
                     {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
                   </button>
                 </div>
 
-                {/* AUDIO PROGRESS BAR */}
                 <div className="w-full h-1.5 bg-white/15 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-gradient-to-r from-[#70A52E] to-emerald-400 transition-all duration-300"
@@ -465,16 +588,15 @@ export default function FounderReelsCarousel() {
                   />
                 </div>
                 <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 mt-1.5">
-                  <span>Audited Statement</span>
+                  <span>{isRtl ? 'شهادة موثقة' : 'Audited Statement'}</span>
                   <span>{selectedReel.duration}</span>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT COLUMN: DETAILED CASE AUDIT BREAKDOWN */}
-            <div className="flex-1 p-6 sm:p-8 overflow-y-auto max-h-[60vh] md:max-h-[560px] flex flex-col justify-between bg-white text-zinc-900">
+            {/* RIGHT COLUMN */}
+            <div className="flex-1 p-6 sm:p-8 overflow-y-auto max-h-[60vh] md:max-h-[560px] flex flex-col justify-between bg-white text-zinc-900 text-start">
               <div>
-                {/* HEADER INFO */}
                 <div className="flex items-center gap-2 mb-3">
                   <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase bg-zinc-100 text-zinc-800 border border-zinc-200">
                     {selectedReel.stage}
@@ -495,7 +617,7 @@ export default function FounderReelsCarousel() {
                 <div className="space-y-4 mb-8">
                   <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/80">
                     <div className="text-xs font-mono font-bold uppercase tracking-wider text-rose-600 mb-1">
-                      01 • The Operational Bottleneck
+                      {isRtl ? '01 • العائق التشغيلي الرئيسي' : '01 • The Operational Bottleneck'}
                     </div>
                     <p className="text-sm text-zinc-700 leading-relaxed">
                       {selectedReel.challenge}
@@ -504,7 +626,7 @@ export default function FounderReelsCarousel() {
 
                   <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/80">
                     <div className="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 mb-1">
-                      02 • Root Cause Diagnosis
+                      {isRtl ? '02 • تشخيص الأسباب الجذرية' : '02 • Root Cause Diagnosis'}
                     </div>
                     <p className="text-sm text-zinc-700 leading-relaxed">
                       {selectedReel.rootCause}
@@ -513,7 +635,7 @@ export default function FounderReelsCarousel() {
 
                   <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/80">
                     <div className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 mb-1">
-                      03 • SCALARK Systems Intervention
+                      {isRtl ? '03 • تدخل نظم سكالارك' : '03 • SCALARK Systems Intervention'}
                     </div>
                     <p className="text-sm text-zinc-700 leading-relaxed">
                       {selectedReel.approach}
@@ -526,7 +648,7 @@ export default function FounderReelsCarousel() {
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
                     <div className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800">
-                      Audited Business Outcome
+                      {isRtl ? 'الأثر التشغيلي المحقق' : 'Audited Business Outcome'}
                     </div>
                     <div className="text-sm font-bold text-zinc-900 mt-0.5">
                       {selectedReel.outcome}
@@ -538,15 +660,15 @@ export default function FounderReelsCarousel() {
               {/* ACTION FOOTER */}
               <div className="pt-6 border-t border-zinc-200 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-xs font-mono text-zinc-500">
-                  Ready to uncover the bottlenecks in your business?
+                  {isRtl ? 'هل أنت مستعد لاكتشاف الاختناقات في عملك التجاري؟' : 'Ready to uncover the bottlenecks in your business?'}
                 </div>
                 <a
                   href="/contact"
                   onClick={() => setSelectedReel(null)}
                   className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#0084FF] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#0070E0] transition-all flex items-center justify-center gap-2 shadow-xl"
                 >
-                  <span>Book Architecture Diagnostic</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <span>{isRtl ? 'احجز تشخيص الأنظمة' : 'Book Architecture Diagnostic'}</span>
+                  <ArrowUpRight className="w-4 h-4 rtl:rotate-90" />
                 </a>
               </div>
             </div>

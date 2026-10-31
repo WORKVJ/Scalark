@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Cairo:wght@400;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -17,6 +17,7 @@
   --card-dark: #081B4E;
   --card-elevated: #0B246C;
   --script-red: #71717A;
+  --font-cairo: 'Cairo', system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
 }
 
 html {
@@ -25,6 +26,26 @@ html {
   background-color: #061233;
   color: #ffffff;
   overflow-x: hidden;
+}
+
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="rtl"] body,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] p,
+html[dir="rtl"] span,
+html[dir="rtl"] a,
+html[dir="rtl"] button,
+html[dir="rtl"] input,
+html[dir="rtl"] select,
+html[dir="rtl"] textarea {
+  font-family: var(--font-cairo), system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif !important;
+  letter-spacing: normal !important;
 }
 
 body {
