@@ -1,10 +1,31 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Compass, CheckCircle2 } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Compass,
+  CheckCircle2,
+  Layers,
+  BarChart3,
+  DollarSign,
+  Building2,
+  TrendingUp,
+  Users
+} from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+
+const getDomainIcon = (domain = '') => {
+  const d = domain.toUpperCase();
+  if (d.includes('OPERATION') || d.includes('عمليات')) return Layers;
+  if (d.includes('REVENUE') || d.includes('إيرادات')) return BarChart3;
+  if (d.includes('FINANCE') || d.includes('مالية')) return DollarSign;
+  if (d.includes('FOUNDATION') || d.includes('أساس')) return Building2;
+  if (d.includes('SALES') || d.includes('مبيعات')) return TrendingUp;
+  if (d.includes('GOVERNANCE') || d.includes('حوكمة')) return Users;
+  return Layers;
+};
 
 export const SQUAD_MEMBERS = [
   {
@@ -12,10 +33,10 @@ export const SQUAD_MEMBERS = [
     name: 'SHIRIN SHARAF',
     role: 'HEAD OF PROCESS ENGINEERING',
     specialty: 'SOP Mapping, Operational Cadence & Bottleneck Eradication',
+    deliverables: ['SOP Documentation & Workflows', 'Bottleneck Root-Cause Elimination', 'Autonomous Operations'],
     bgGradient: 'from-[#FF5A1F] via-[#E04006] to-[#B82B00]',
     solidColor: '#FF5A1F',
     accentColor: '#FF7A45',
-    image: '/assets/squad/squad_shirin.jpg',
     domain: 'OPERATIONS',
     metric: '65% Time Freed'
   },
@@ -24,10 +45,10 @@ export const SQUAD_MEMBERS = [
     name: 'RISWAN K.M.',
     role: 'REVENUE ENGINE ARCHITECT',
     specialty: 'Predictable Sales Pipelines, B2B Funnels & Conversion Cadence',
+    deliverables: ['B2B Sales Pipeline Architecture', 'Conversion Governance Cadence', 'Lead Qualification SOPs'],
     bgGradient: 'from-[#2563EB] via-[#1D4ED8] to-[#1E3A8A]',
     solidColor: '#2563EB',
     accentColor: '#60A5FA',
-    image: '/assets/squad/squad_riswan.jpg',
     domain: 'REVENUE',
     metric: '3.4x Pipeline'
   },
@@ -36,10 +57,10 @@ export const SQUAD_MEMBERS = [
     name: 'HAMAS V.A.',
     role: 'FINANCIAL SYSTEMS DIRECTOR',
     specialty: 'Unit Economics, Cash-Flow Triage & Profit Margin Governance',
+    deliverables: ['Unit Economics & Margins', 'Forward Cash Runway Clarity', 'Cost-Control & Spend Thresholds'],
     bgGradient: 'from-[#F59E0B] via-[#D97706] to-[#92400E]',
     solidColor: '#F59E0B',
     accentColor: '#FBBF24',
-    image: '/assets/squad/squad_hamas.jpg',
     domain: 'FINANCE',
     metric: '100% Cash Visibility'
   },
@@ -48,10 +69,10 @@ export const SQUAD_MEMBERS = [
     name: 'THANZEER P.',
     role: 'CHIEF SYSTEMS ARCHITECT',
     specialty: 'Enterprise Governance, 120-Point Audit & Business Autonomy',
+    deliverables: ['120-Point Diagnostic Audit', 'Founder-Free Autonomy Architecture', 'Enterprise Valuation Multiples'],
     bgGradient: 'from-[#0084FF] via-[#091E58] to-[#061233]',
     solidColor: '#0084FF',
     accentColor: '#60A5FA',
-    image: '/assets/squad/squad_thanzeer.jpg',
     domain: 'FOUNDATION',
     metric: '2.8x Valuation & Revenue'
   },
@@ -60,10 +81,10 @@ export const SQUAD_MEMBERS = [
     name: 'ABDUL ALI',
     role: 'COMMERCIAL STRATEGY HEAD',
     specialty: 'Institutional Scaling, Distribution Networks & Partnership Models',
+    deliverables: ['Cross-Border Expansion Systems', 'Distribution Channel Architecture', 'Net Margin & Pricing Governance'],
     bgGradient: 'from-[#9333EA] via-[#7E22CE] to-[#581C87]',
     solidColor: '#9333EA',
     accentColor: '#C084FC',
-    image: '/assets/squad/squad_abdul.jpg',
     domain: 'SALES',
     metric: '+38% Net Margin'
   },
@@ -72,10 +93,10 @@ export const SQUAD_MEMBERS = [
     name: 'NEHAL VERMA',
     role: 'ORGANIZATION CADENCE LEAD',
     specialty: 'KPI Accountability Matrices, Executive Playbooks & Hiring SOPs',
+    deliverables: ['Role Scorecards & KPI Reviews', 'Executive Leadership Playbooks', 'Talent Hiring & Onboarding SOPs'],
     bgGradient: 'from-[#EC4899] via-[#DB2777] to-[#9D174D]',
     solidColor: '#EC4899',
     accentColor: '#F472B6',
-    image: '/assets/squad/squad_nehal.jpg',
     domain: 'GOVERNANCE',
     metric: '98% Autonomy Rate'
   }
@@ -87,10 +108,10 @@ export const SQUAD_MEMBERS_AR = [
     name: 'شيرين شرف',
     role: 'رئيسة هندسة الإجراءات',
     specialty: 'توثيق الإجراءات القياسية (SOPs)، وإيقاع العمليات والقضاء على الاختناقات',
+    deliverables: ['توثيق إجراءات العمل القياسية (SOPs)', 'القضاء على جذور الاختناقات', 'حوكمة العمليات المستقلة'],
     bgGradient: 'from-[#FF5A1F] via-[#E04006] to-[#B82B00]',
     solidColor: '#FF5A1F',
     accentColor: '#FF7A45',
-    image: '/assets/squad/squad_shirin.jpg',
     domain: 'العمليات',
     metric: 'استعادة 65% من الوقت'
   },
@@ -99,10 +120,10 @@ export const SQUAD_MEMBERS_AR = [
     name: 'رضوان ك. م.',
     role: 'مهندس محرك الإيرادات',
     specialty: 'هندسة مسارات المبيعات، ومسارات B2B وإيقاع التحويل التجاري',
+    deliverables: ['هندسة مسارات مبيعات B2B', 'حوكمة إيقاع التحويل التجاري', 'إجراءات تأهيل العملاء'],
     bgGradient: 'from-[#2563EB] via-[#1D4ED8] to-[#1E3A8A]',
     solidColor: '#2563EB',
     accentColor: '#60A5FA',
-    image: '/assets/squad/squad_riswan.jpg',
     domain: 'الإيرادات',
     metric: 'مضاعفة خط المبيعات 3.4x'
   },
@@ -111,10 +132,10 @@ export const SQUAD_MEMBERS_AR = [
     name: 'حماس ف. أ.',
     role: 'مدير الأنظمة المالية',
     specialty: 'اقتصاديات الوحدة، وإنقاذ التدفق النقدي، وحوكمة هوامش الربحية',
+    deliverables: ['اقتصاديات الوحدة والهوامش', 'وضوح التدفق النقدي المستقبلي', 'حوكمة حدود وسقوف الإنفاق'],
     bgGradient: 'from-[#F59E0B] via-[#D97706] to-[#92400E]',
     solidColor: '#F59E0B',
     accentColor: '#FBBF24',
-    image: '/assets/squad/squad_hamas.jpg',
     domain: 'المالية',
     metric: 'وضوح السيولة 100%'
   },
@@ -123,10 +144,10 @@ export const SQUAD_MEMBERS_AR = [
     name: 'تنزير ب.',
     role: 'كبير مهندسي النظم',
     specialty: 'الحوكمة المؤسسية، والتدقيق الشامل (120 نقطة)، واستقلالية العمل عن المؤسس',
+    deliverables: ['تدقيق تشخيصي مؤسسي 120 نقطة', 'بنية استقلالية المؤسس', 'مضاعفة تقييم الشركة'],
     bgGradient: 'from-[#0084FF] via-[#091E58] to-[#061233]',
     solidColor: '#0084FF',
     accentColor: '#60A5FA',
-    image: '/assets/squad/squad_thanzeer.jpg',
     domain: 'الأساس المؤسسي',
     metric: 'مضاعفة التقييم 2.8x'
   },
@@ -135,10 +156,10 @@ export const SQUAD_MEMBERS_AR = [
     name: 'عبد العلي',
     role: 'رئيس الاستراتيجية التجارية',
     specialty: 'التوسع المؤسسي، وشبكات التوزيع ونماذج الشراكات الاستراتيجية',
+    deliverables: ['أنظمة التوسع الإقليمي', 'بنية قنوات التوزيع', 'حوكمة الهوامش الصافية والتسعير'],
     bgGradient: 'from-[#9333EA] via-[#7E22CE] to-[#581C87]',
     solidColor: '#9333EA',
     accentColor: '#C084FC',
-    image: '/assets/squad/squad_abdul.jpg',
     domain: 'المبيعات',
     metric: '+38% هامش صافي'
   },
@@ -147,10 +168,10 @@ export const SQUAD_MEMBERS_AR = [
     name: 'نيهال فيرما',
     role: 'مسؤولة إيقاع المنظمة',
     specialty: 'مصفوفات مساءلة مؤشرات الأداء (KPIs)، وأدلة القيادة التنفيذية، وإجراءات التوظيف',
+    deliverables: ['بطاقات قياس ومساءلة الأدوار', 'أدلة القيادة التنفيذية', 'إجراءات استقطاب وتأهيل المواهب'],
     bgGradient: 'from-[#EC4899] via-[#DB2777] to-[#9D174D]',
     solidColor: '#EC4899',
     accentColor: '#F472B6',
-    image: '/assets/squad/squad_nehal.jpg',
     domain: 'الحوكمة',
     metric: 'استقلالية تشغيلية 98%'
   }
@@ -200,143 +221,146 @@ export default function RotatingSquadSection() {
     return () => window.removeEventListener('resize', updateRadius);
   }, []);
 
+  const updateActiveIndex = useCallback((rotationDeg) => {
+    let normalized = ((-rotationDeg % 360) + 360) % 360;
+    const closestIdx = Math.round(normalized / angleStep) % totalMembers;
+    setActiveIdx(closestIdx);
+  }, [angleStep, totalMembers]);
+
+  // Main animation loop
   useEffect(() => {
-    let lastStamp = performance.now();
+    const loop = () => {
+      if (!isDraggingRef.current) {
+        if (!isHovered) {
+          targetRotationRef.current -= 0.12;
+        }
 
-    const loop = (stamp) => {
-      const delta = Math.min((stamp - lastStamp) / 1000, 0.1);
-      lastStamp = stamp;
-
-      if (!isDraggingRef.current && !isHovered) {
-        targetRotationRef.current += 10 * delta;
+        if (Math.abs(velocityRef.current) > 0.05) {
+          targetRotationRef.current += velocityRef.current;
+          velocityRef.current *= 0.94;
+        }
       }
 
-      if (!isDraggingRef.current && Math.abs(velocityRef.current) > 0.05) {
-        targetRotationRef.current += velocityRef.current;
-        velocityRef.current *= Math.pow(0.92, delta * 60);
-      }
-
-      const diff = targetRotationRef.current - currentRotationRef.current;
-      currentRotationRef.current += diff * Math.min(delta * 8, 1);
+      currentRotationRef.current += (targetRotationRef.current - currentRotationRef.current) * 0.12;
 
       if (stageRef.current) {
         stageRef.current.style.transform = `rotateY(${currentRotationRef.current}deg)`;
       }
 
-      const normalized = ((-currentRotationRef.current % 360) + 360) % 360;
-      const index = Math.round(normalized / angleStep) % totalMembers;
-      setActiveIdx(index);
-
+      updateActiveIndex(currentRotationRef.current);
       animFrameRef.current = requestAnimationFrame(loop);
     };
 
     animFrameRef.current = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(animFrameRef.current);
-  }, [totalMembers, angleStep, isHovered]);
+    return () => {
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+    };
+  }, [isHovered, updateActiveIndex]);
 
+  // Scroll acceleration
   useEffect(() => {
-    lastScrollYRef.current = window.scrollY;
-
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollYRef.current;
+      lastScrollYRef.current = currentScrollY;
 
-      if (inView) {
-        const deltaY = window.scrollY - lastScrollYRef.current;
-        targetRotationRef.current += deltaY * 0.15;
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          targetRotationRef.current -= delta * 0.15;
+        }
       }
-      lastScrollYRef.current = window.scrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handlePointerDown = useCallback((e) => {
+  // Pointer drag events
+  const onPointerDown = (e) => {
     isDraggingRef.current = true;
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    startXRef.current = clientX;
-    lastXRef.current = clientX;
+    startXRef.current = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+    lastXRef.current = startXRef.current;
     lastTimeRef.current = performance.now();
     velocityRef.current = 0;
-  }, []);
+  };
 
-  const handlePointerMove = useCallback((e) => {
+  const onPointerMove = (e) => {
     if (!isDraggingRef.current) return;
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const now = performance.now();
-    const dt = Math.max((now - lastTimeRef.current) / 1000, 0.001);
+    const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
     const deltaX = clientX - lastXRef.current;
+    const now = performance.now();
+    const dt = Math.max(1, now - lastTimeRef.current);
 
-    const speedFactor = window.innerWidth < 640 ? 0.45 : 0.28;
-    targetRotationRef.current += (isRtl ? -deltaX : deltaX) * speedFactor;
+    velocityRef.current = (deltaX / dt) * 14;
+    targetRotationRef.current += deltaX * 0.45;
 
-    velocityRef.current = ((isRtl ? -deltaX : deltaX) * speedFactor * 0.016) / dt;
     lastXRef.current = clientX;
     lastTimeRef.current = now;
-  }, [isRtl]);
+  };
 
-  const handlePointerUp = useCallback(() => {
+  const onPointerUp = () => {
     isDraggingRef.current = false;
-  }, []);
-
-  const rotateToStep = (direction) => {
-    const currentNorm = targetRotationRef.current;
-    if (direction === 'next') {
-      targetRotationRef.current = Math.round(currentNorm / angleStep) * angleStep + (isRtl ? -angleStep : angleStep);
-    } else {
-      targetRotationRef.current = Math.round(currentNorm / angleStep) * angleStep - (isRtl ? -angleStep : angleStep);
-    }
   };
 
   const snapToMember = (index) => {
-    targetRotationRef.current = (isRtl ? -index : index) * angleStep;
+    const currentAngle = targetRotationRef.current;
+    let targetAngle = -index * angleStep;
+
+    const diff = (targetAngle - currentAngle) % 360;
+    let shortestDiff = diff;
+    if (diff > 180) shortestDiff -= 360;
+    if (diff < -180) shortestDiff += 360;
+
+    targetRotationRef.current = currentAngle + shortestDiff;
+  };
+
+  const rotateToStep = (direction) => {
+    if (direction === 'next') {
+      targetRotationRef.current -= angleStep;
+    } else {
+      targetRotationRef.current += angleStep;
+    }
   };
 
   return (
     <section
       ref={containerRef}
-      id="squad"
-      className="py-14 sm:py-32 bg-[#061233] text-white relative overflow-hidden border-t border-[#0084FF]/25"
-      onMouseDown={handlePointerDown}
-      onMouseMove={handlePointerMove}
-      onMouseUp={handlePointerUp}
-      onMouseLeave={handlePointerUp}
-      onTouchStart={handlePointerDown}
-      onTouchMove={handlePointerMove}
-      onTouchEnd={handlePointerUp}
+      id="systems-architects"
+      className="relative py-14 sm:py-24 md:py-32 bg-[#061233] text-white overflow-hidden border-t border-[#0084FF]/25"
+      onMouseDown={onPointerDown}
+      onMouseMove={onPointerMove}
+      onMouseUp={onPointerUp}
+      onMouseLeave={onPointerUp}
+      onTouchStart={onPointerDown}
+      onTouchMove={onPointerMove}
+      onTouchEnd={onPointerUp}
     >
-      {/* AMBIENT GLOW BACKDROPS */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[550px] h-[550px] bg-red-600/10 rounded-full blur-[200px] pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[650px] h-[650px] bg-blue-600/10 rounded-full blur-[220px] pointer-events-none" />
+      {/* AMBIENT RADIAL LIGHTING */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#0084FF]/15 via-[#38BDF8]/10 to-transparent rounded-full blur-[160px] pointer-events-none" />
 
-      {/* SUBTLE 3D ROTATING GRID FLOOR */}
-      <div 
-        className="absolute bottom-0 inset-x-0 h-48 pointer-events-none opacity-20"
+      {/* SUBTLE ELLIPTICAL AMBIENT DISK */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[950px] h-[340px] rounded-full pointer-events-none opacity-20 border border-white/20"
         style={{
+          transform: 'translate(-50%, -50%) rotateX(75deg)',
           backgroundImage: 'radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, transparent 70%)',
           maskImage: 'linear-gradient(to top, black, transparent)'
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* LEFT COLUMN */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-6 select-none text-start">
-
-            {/* ACCENT BADGE */}
-            <div className="flex items-center gap-2">
-              <span className="w-6 h-[2px] bg-red-500 inline-block" />
-              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-zinc-400 font-bold">
-                {squadInfo.badge}
-              </span>
+          {/* LEFT COLUMN: ARCHITECTURAL MISSION BRIEF */}
+          <div className="lg:col-span-5 text-start space-y-4 sm:space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#081B4E] border border-[#0084FF]/40 text-blue-200 text-xs font-mono uppercase tracking-widest font-bold shadow-md">
+              <span className="w-2 h-2 rounded-full bg-[#0084FF]" />
+              {squadInfo.badge}
             </div>
 
-            {/* DISPLAY HEADLINE */}
-            <h2 className="text-3xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[0.92] sm:leading-[0.88] text-white">
-              {squadInfo.headlineTitle}<br />
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] font-sans">
+              {squadInfo.headlineMain} <br />
               <span className="text-red-500">{squadInfo.headlineAccent}</span><br />
               {squadInfo.headlineSub}
             </h2>
@@ -415,6 +439,7 @@ export default function RotatingSquadSection() {
             >
               {members.map((member, index) => {
                 const cardAngle = index * angleStep;
+                const DomainIcon = getDomainIcon(member.domain);
 
                 return (
                   <div
@@ -423,7 +448,7 @@ export default function RotatingSquadSection() {
                       e.stopPropagation();
                       setActiveMember(member);
                     }}
-                    className="absolute w-[155px] sm:w-[195px] md:w-[230px] h-[255px] sm:h-[315px] md:h-[360px] pointer-events-auto cursor-pointer group"
+                    className="absolute w-[160px] sm:w-[205px] md:w-[245px] h-[260px] sm:h-[325px] md:h-[375px] pointer-events-auto cursor-pointer group"
                     style={{
                       transformStyle: 'preserve-3d',
                       transform: `rotateY(${cardAngle}deg) translateZ(${radius}px) rotateX(-10deg)`,
@@ -434,7 +459,7 @@ export default function RotatingSquadSection() {
                       className="relative w-full h-full rounded-2xl sm:rounded-3xl transition-transform duration-300 group-hover:scale-105"
                       style={{ transformStyle: 'preserve-3d' }}
                     >
-                      {/* FRONT FACE */}
+                      {/* FRONT FACE (CONTENT ONLY - NO STOCK PHOTOS) */}
                       <div
                         className={`absolute inset-0 rounded-2xl sm:rounded-3xl p-3 sm:p-4 flex flex-col justify-between border-2 border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden bg-gradient-to-b ${member.bgGradient}`}
                         style={{
@@ -444,6 +469,7 @@ export default function RotatingSquadSection() {
                       >
                         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-white/30 to-transparent rounded-full pointer-events-none" />
 
+                        {/* CARD TOP ROW */}
                         <div className="flex items-center justify-between z-10 gap-1">
                           <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[8px] sm:text-[10px] font-mono font-black uppercase tracking-wider bg-[#061233]/70 backdrop-blur-md text-white border border-[#0084FF]/40 truncate">
                             {member.domain}
@@ -453,22 +479,41 @@ export default function RotatingSquadSection() {
                           </span>
                         </div>
 
-                        <div className="relative flex-1 w-full my-1.5 overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 shadow-inner">
-                          <Image
-                            src={member.image}
-                            alt={member.name}
-                            fill
-                            sizes="(max-width: 640px) 155px, (max-width: 768px) 195px, 230px"
-                            className="object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-95 contrast-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                        {/* MIDDLE AREA: ARCHITECTURE CONTENT (NO IMAGES) */}
+                        <div className="relative flex-1 w-full my-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#061233]/75 backdrop-blur-md border border-white/15 flex flex-col justify-between overflow-hidden shadow-inner text-start z-10">
+                          <div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-white/15 border border-white/20 flex items-center justify-center text-white shrink-0">
+                                <DomainIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                              </div>
+                              <span className="text-[8.5px] sm:text-[9.5px] font-mono uppercase tracking-wider text-white/80 font-bold truncate">
+                                {isRtl ? 'التخصص المؤسسي' : 'Architecture Focus'}
+                              </span>
+                            </div>
+
+                            <p className="text-[9.5px] sm:text-[11px] text-white/95 leading-relaxed font-sans line-clamp-3">
+                              {member.specialty}
+                            </p>
+                          </div>
+
+                          {member.deliverables && (
+                            <div className="space-y-1 sm:space-y-1.5 pt-2 border-t border-white/15">
+                              {member.deliverables.slice(0, 2).map((item, dIdx) => (
+                                <div key={dIdx} className="flex items-center gap-1.5 text-[8px] sm:text-[9.5px] text-white/90 font-medium truncate">
+                                  <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white/80 shrink-0" />
+                                  <span className="truncate">{item}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
 
-                        <div className="bg-[#081B4E]/90 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-3 border border-[#0084FF]/35 z-10 shadow-lg text-start">
-                          <div className="text-[11px] sm:text-sm font-black text-white tracking-tight truncate uppercase">
+                        {/* CARD BOTTOM ROW: IDENTITY & ROLE */}
+                        <div className="bg-[#081B4E]/90 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-2.5 border border-[#0084FF]/35 z-10 shadow-lg text-start">
+                          <div className="text-[11px] sm:text-xs font-black text-white tracking-tight truncate uppercase">
                             {member.name}
                           </div>
-                          <div className="text-[8.5px] sm:text-[10px] font-mono uppercase tracking-wider text-zinc-300 font-bold truncate">
+                          <div className="text-[8px] sm:text-[9.5px] font-mono uppercase tracking-wider text-zinc-300 font-bold truncate">
                             {member.role}
                           </div>
                         </div>
@@ -515,74 +560,89 @@ export default function RotatingSquadSection() {
       </div>
 
       {/* SQUAD MEMBER DETAIL MODAL */}
-      {activeMember && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061233]/90 backdrop-blur-xl animate-fadeIn"
-          onClick={() => setActiveMember(null)}
-        >
-          <div
-            className="w-full max-w-lg rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-[#081B4E] border border-[#0084FF]/50 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative max-h-[90vh] overflow-y-auto text-start"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-white/10 text-white border border-white/15">
-                {isRtl ? `${activeMember.domain} • مهندس نظم` : `${activeMember.domain} ARCHITECT`}
-              </span>
-              <button
-                type="button"
-                onClick={() => setActiveMember(null)}
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-zinc-300 hover:text-white flex items-center justify-center text-sm font-mono transition-colors cursor-pointer"
-              >
-                ✕
-              </button>
-            </div>
+      {activeMember && (() => {
+        const ActiveDomainIcon = getDomainIcon(activeMember.domain);
 
-            <div className="flex items-center gap-4 mb-4">
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${activeMember.bgGradient} p-1 flex items-center justify-center border border-white/20 shadow-md relative overflow-hidden flex-shrink-0`}>
-                <Image
-                  src={activeMember.image}
-                  alt={activeMember.name}
-                  fill
-                  className="object-cover object-center"
-                />
+        return (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061233]/90 backdrop-blur-xl animate-fadeIn"
+            onClick={() => setActiveMember(null)}
+          >
+            <div
+              className="w-full max-w-lg rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-[#081B4E] border border-[#0084FF]/50 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative max-h-[90vh] overflow-y-auto text-start"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-white/10 text-white border border-white/15">
+                  {isRtl ? `${activeMember.domain} • مهندس نظم` : `${activeMember.domain} ARCHITECT`}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setActiveMember(null)}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-zinc-300 hover:text-white flex items-center justify-center text-sm font-mono transition-colors cursor-pointer"
+                >
+                  ✕
+                </button>
               </div>
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-                  {activeMember.name}
-                </h3>
-                <p className="text-xs sm:text-sm font-mono text-red-400 font-bold">
-                  {activeMember.role}
+
+              <div className="flex items-center gap-4 mb-4">
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${activeMember.bgGradient} flex items-center justify-center border border-white/20 shadow-md flex-shrink-0 text-white`}>
+                  <ActiveDomainIcon className="w-7 h-7" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                    {activeMember.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-mono text-red-400 font-bold">
+                    {activeMember.role}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 mb-4 space-y-2">
+                <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+                  {isRtl ? 'التخصص التشغيلي' : 'Operational Specialization'}
+                </div>
+                <p className="text-sm text-zinc-200 font-normal leading-relaxed">
+                  {activeMember.specialty}
                 </p>
               </div>
-            </div>
 
-            <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 mb-6 space-y-2">
-              <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
-                {isRtl ? 'التخصص التشغيلي' : 'Operational Specialization'}
-              </div>
-              <p className="text-sm text-zinc-200 font-normal leading-relaxed">
-                {activeMember.specialty}
-              </p>
-            </div>
+              {activeMember.deliverables && (
+                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 mb-6 space-y-2.5">
+                  <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+                    {isRtl ? 'المخرجات والأنظمة المعتمدة' : 'Standard Systems & Deliverables'}
+                  </div>
+                  <div className="space-y-2">
+                    {activeMember.deliverables.map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-xs sm:text-[13px] text-white/90">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-white/10">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span className="text-xs font-mono text-emerald-400 font-bold">
-                  {isRtl ? `المؤشر المحقق: ${activeMember.metric}` : `Audited Benchmark: ${activeMember.metric}`}
-                </span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-white/10">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span className="text-xs font-mono text-emerald-400 font-bold">
+                    {isRtl ? `المؤشر المحقق: ${activeMember.metric}` : `Audited Benchmark: ${activeMember.metric}`}
+                  </span>
+                </div>
+                <Link
+                  href="/contact"
+                  onClick={() => setActiveMember(null)}
+                  className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white text-black text-xs font-mono font-bold uppercase tracking-wider hover:bg-zinc-200 transition-colors text-center shadow-md active:scale-95"
+                >
+                  {isRtl ? 'استشر فريق المهندسين ←' : 'Consult With Squad →'}
+                </Link>
               </div>
-              <Link
-                href="/contact"
-                onClick={() => setActiveMember(null)}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white text-black text-xs font-mono font-bold uppercase tracking-wider hover:bg-zinc-200 transition-colors text-center shadow-md active:scale-95"
-              >
-                {isRtl ? 'استشر فريق المهندسين ←' : 'Consult With Squad →'}
-              </Link>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </section>
   );
 }
