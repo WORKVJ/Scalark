@@ -4,15 +4,12 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  Layers,
   Globe2,
   TrendingUp,
   DollarSign,
   Building2,
   Mountain,
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle2
+  ArrowRight
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -39,7 +36,7 @@ export default function HeroSection({ t: propT }) {
       ? '/hero-skyline-cutout.png'
       : '/hero-alpine-cutout.png';
 
-  // 4 Core Enterprise Scaling Cards (Matching GrowMedLink Active Expanding Card Carousel)
+  // 4 Core Enterprise Scaling Cards (Compact, matching GrowMedLink active expanding card)
   const cards = [
     {
       id: 'ksa',
@@ -48,8 +45,8 @@ export default function HeroSection({ t: propT }) {
       metric: '98%',
       metricLabel: isRtl ? 'استقلالية تشغيلية' : 'SOP Adoption',
       desc: isRtl
-        ? 'توثيق إجراءات العمل ومصفوفات التفويض لتعمل الشركة باستقلالية تامة عن المالك.'
-        : 'Codify standard operating procedures and DoA delegation matrices to replace founder bottlenecks.',
+        ? 'توثيق إجراءات العمل ومصفوفات التفويض لتعمل الشركة باستقلالية تامة.'
+        : 'Codify standard operating procedures & DoA matrices for autonomous operational scale.',
       icon: Building2,
       link: '/services/sops',
       avatars: [
@@ -66,8 +63,8 @@ export default function HeroSection({ t: propT }) {
       metric: '3.4x',
       metricLabel: isRtl ? 'سرعة مسار الصفقات' : 'Pipeline Velocity',
       desc: isRtl
-        ? 'حوكمة مسار المبيعات B2B وتأهيل العملاء المحتملين للتنبؤ الدقيق بالإيرادات.'
-        : 'Predictable B2B sales pipeline governance and high-velocity deal conversion checkpoints.',
+        ? 'حوكمة مسار المبيعات B2B وتأهيل العملاء للتنبؤ الدقيق بالإيرادات.'
+        : 'Predictable B2B sales pipeline governance and conversion checkpoints.',
       icon: TrendingUp,
       link: '/services/revenue',
       avatars: [
@@ -84,8 +81,8 @@ export default function HeroSection({ t: propT }) {
       metric: '65%',
       metricLabel: isRtl ? 'استعادة وقت المؤسس' : 'Founder Time Saved',
       desc: isRtl
-        ? 'ربط العمليات وسلاسل الإمداد والفرق التجارية بين أسواق الخليج والهند.'
-        : 'Multi-jurisdiction operational architectures linking supply chains and regional governance.',
+        ? 'ربط العمليات وسلاسل الإمداد والفرق التجارية عبر أسواق الخليج والهند.'
+        : 'Multi-jurisdiction architectures linking regional commercial teams & supply chains.',
       icon: Globe2,
       link: '/services/expansion',
       avatars: [
@@ -98,12 +95,12 @@ export default function HeroSection({ t: propT }) {
     {
       id: 'finance',
       title: isRtl ? 'إدارة السيولة والمالية' : 'Finance & Cash Visibility',
-      subtitle: isRtl ? 'حوكمة التدفقات وهوامش الربح' : '13-Week Forward Cash Runway',
+      subtitle: isRtl ? 'حوكمة التدفقات وهوامش الربح' : '13-Week Cash Visibility',
       metric: '100%',
       metricLabel: isRtl ? 'وضوح مالي كامل' : 'Cash Runway Visibility',
       desc: isRtl
         ? 'لوحات تحكم مالية استشرافية واقتصاديات الوحدة وسقوف الإنفاق لحماية السيولة.'
-        : 'Real-time forward-looking cash dashboards, unit economics, and spend authority gates.',
+        : 'Real-time forward-looking cash dashboards, unit economics & spend authority gates.',
       icon: DollarSign,
       link: '/services/finance',
       avatars: [
@@ -190,8 +187,8 @@ export default function HeroSection({ t: propT }) {
         />
 
         {/* BOTTOM GRADIENT: SEAMLESS DEEP NAVY BASE FOR TEXT READABILITY */}
-        <div className="absolute inset-x-0 bottom-0 h-[50%] sm:h-[46%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/85 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-[#040E2A] pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-[48%] sm:h-[44%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/85 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-[#040E2A] pointer-events-none" />
       </div>
 
       {/* TOP RIGHT: VISUAL SWITCHER (SKYLINE VS ALPINE) */}
@@ -225,42 +222,41 @@ export default function HeroSection({ t: propT }) {
       </div>
 
       {/* TOP CLEARANCE FOR FLOATING NAVBAR */}
-      <div className="h-28 sm:h-36 relative z-30" />
+      <div className="h-24 sm:h-32 relative z-30" />
 
       {/* ========================================================
-          LAYER 3: FOREGROUND UI (MATCHING GROWMEDLINK 2ND IMAGE)
-          Left: Headline + Paragraph + Green CTA + Cursive Annotation
-          Right: Expanding Active Card Moving Carousel + Progress Bar
+          LAYER 3: FOREGROUND UI ANCHORED STRICTLY TO THE BOTTOM
+          Compact size, hugging the bottom side of the screen
           ======================================================== */}
-      <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pb-8 sm:pb-12 pt-8 sm:pt-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+      <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pb-4 sm:pb-6 pt-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
           
-          {/* LEFT COLUMN: HEADLINE, PARAGRAPH & GREEN CTA WITH CURSIVE ANNOTATION */}
-          <div className="lg:col-span-5 text-start space-y-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-extrabold text-white tracking-tight leading-[1.15] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] max-w-md">
+          {/* LEFT COLUMN: COMPACT HEADLINE, PARAGRAPH & GREEN CTA */}
+          <div className="lg:col-span-5 text-start space-y-2.5">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] max-w-sm">
               <span className="block">{triplio.headlineLine1 || "Architecting Systems for"}</span>
               <span className="block text-sky-100">{triplio.headlineLine2 || "Sustainable Enterprise Scale."}</span>
             </h2>
 
-            <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-normal max-w-md">
+            <p className="text-[11px] sm:text-xs text-zinc-300 leading-relaxed font-normal max-w-sm line-clamp-2">
               {triplio.desc ||
                 'SCALARK architects institutional operations, sales engines, and financial governance to replace founder bottlenecks with sustainable, autonomous enterprise scale across Saudi Arabia, UAE, and India.'}
             </p>
 
-            {/* GREEN CTA BUTTON + HANDWRITTEN CURSIVE GUARANTEE (MATCHING REFERENCE IMAGE 2) */}
-            <div className="pt-2 flex flex-col items-start gap-3">
+            {/* GREEN CTA BUTTON + HANDWRITTEN CURSIVE GUARANTEE */}
+            <div className="pt-1 flex flex-wrap items-center gap-3">
               <Link
                 href="/solutions"
-                className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-2xl bg-[#70A52E] hover:bg-[#5f8f26] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-[0_10px_30px_rgba(112,165,46,0.4)] hover:shadow-[0_15px_40px_rgba(112,165,46,0.6)] active:scale-95 inline-flex items-center gap-2"
+                className="px-5 py-2.5 rounded-xl bg-[#70A52E] hover:bg-[#5f8f26] text-white font-bold text-[11px] uppercase tracking-wider transition-all shadow-[0_8px_25px_rgba(112,165,46,0.35)] active:scale-95 inline-flex items-center gap-1.5"
               >
-                <span>{isRtl ? 'استكشف الحلول والأنظمة' : 'Explore Systems'}</span>
-                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                <span>{isRtl ? 'استكشف الأنظمة' : 'Explore Systems'}</span>
+                <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
               </Link>
 
-              {/* Cursive handwritten annotation with curved arrow (Exact match to Image 2) */}
-              <div className="flex items-center gap-2 text-[#70A52E] select-none pt-1">
+              {/* Cursive handwritten annotation with curved arrow */}
+              <div className="flex items-center gap-1.5 text-[#70A52E] select-none">
                 <svg
-                  className="w-8 sm:w-10 h-6 text-[#70A52E] rtl:-scale-x-100"
+                  className="w-7 h-5 text-[#70A52E] rtl:-scale-x-100"
                   viewBox="0 0 45 24"
                   fill="none"
                   stroke="currentColor"
@@ -278,7 +274,7 @@ export default function HeroSection({ t: propT }) {
                   />
                 </svg>
                 <span
-                  className="text-xs sm:text-sm text-[#70A52E] font-bold italic tracking-wide"
+                  className="text-xs text-[#70A52E] font-bold italic tracking-wide"
                   style={{ fontFamily: 'var(--font-geist-sans), cursive, sans-serif' }}
                 >
                   {isRtl ? 'ضمان سلامة النظم 100%' : '100% Systems Architecture Integrity'}
@@ -287,14 +283,14 @@ export default function HeroSection({ t: propT }) {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: EXPANDING ACTIVE CARDS MOVING CAROUSEL (MATCHING REFERENCE IMAGE 2) */}
+          {/* RIGHT COLUMN: COMPACT EXPANDING ACTIVE CARDS (DOWN SIDE) */}
           <div
             className="lg:col-span-7 flex flex-col justify-end"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            {/* CARDS ROW */}
-            <div className="flex items-center gap-2.5 sm:gap-3 w-full">
+            {/* CARDS ROW (REDUCED HEIGHT & PADDING) */}
+            <div className="flex items-center gap-2 sm:gap-2.5 w-full">
               {cards.map((card, idx) => {
                 const isActive = activeCard === idx;
                 const Icon = card.icon;
@@ -306,72 +302,72 @@ export default function HeroSection({ t: propT }) {
                       setActiveCard(idx);
                       setProgress(0);
                     }}
-                    className={`transition-all duration-500 ease-out cursor-pointer h-[230px] sm:h-[260px] select-none ${
+                    className={`transition-all duration-500 ease-out cursor-pointer h-[165px] sm:h-[185px] select-none ${
                       isActive
-                        ? 'flex-1 min-w-[270px] sm:min-w-[340px] md:min-w-[390px] rounded-3xl bg-white text-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white p-5 sm:p-6 flex flex-col justify-between'
-                        : 'w-14 sm:w-16 md:w-20 shrink-0 rounded-2xl sm:rounded-3xl bg-[#141C33]/90 hover:bg-[#1D2847] border border-white/10 hover:border-[#70A52E]/60 flex items-center justify-center p-2'
+                        ? 'flex-1 min-w-[260px] sm:min-w-[320px] md:min-w-[360px] rounded-2xl sm:rounded-3xl bg-white text-zinc-900 shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-white p-3.5 sm:p-4.5 flex flex-col justify-between'
+                        : 'w-11 sm:w-13 md:w-14 shrink-0 rounded-xl sm:rounded-2xl bg-[#141C33]/90 hover:bg-[#1D2847] border border-white/10 hover:border-[#70A52E]/60 flex items-center justify-center p-1.5'
                     }`}
                   >
                     {isActive ? (
-                      /* ================= ACTIVE / EXPANDED WHITE CARD ================= */
+                      /* ================= ACTIVE / EXPANDED COMPACT WHITE CARD ================= */
                       <div className="flex flex-col justify-between h-full text-start">
                         {/* Top Row: Title + Green Domain Icon */}
-                        <div className="flex items-start justify-between gap-3">
-                          <div>
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-700 font-bold block mb-1">
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="truncate">
+                            <span className="text-[9px] font-mono uppercase tracking-wider text-emerald-700 font-bold block mb-0.5 truncate">
                               {card.subtitle}
                             </span>
-                            <h3 className="text-base sm:text-lg md:text-xl font-bold font-sans text-zinc-900 leading-tight">
+                            <h3 className="text-sm sm:text-base font-bold font-sans text-zinc-900 leading-snug truncate">
                               {card.title}
                             </h3>
                           </div>
 
-                          <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#70A52E] shrink-0">
-                            <Icon className="w-5 h-5" />
+                          <div className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#70A52E] shrink-0">
+                            <Icon className="w-4 h-4" />
                           </div>
                         </div>
 
                         {/* Middle: Short Description Hook */}
-                        <p className="text-xs text-zinc-600 leading-relaxed font-normal my-2 line-clamp-2">
+                        <p className="text-[11px] text-zinc-600 leading-relaxed font-normal my-1 line-clamp-1">
                           {card.desc}
                         </p>
 
-                        {/* Bottom Row: Avatars Row on Left + Big Metric on Right (Matching Image 2) */}
-                        <div className="pt-3 border-t border-zinc-100 flex items-center justify-between">
-                          {/* Overlapping Avatars */}
-                          <div className="flex items-center -space-x-2 rtl:space-x-reverse">
+                        {/* Bottom Row: Avatars Row on Left + Big Metric on Right */}
+                        <div className="pt-2 border-t border-zinc-100 flex items-center justify-between">
+                          {/* Overlapping Avatars (Compact 24px) */}
+                          <div className="flex items-center -space-x-1.5 rtl:space-x-reverse">
                             {card.avatars.map((av, avIdx) => (
                               <div
                                 key={avIdx}
-                                className="relative w-8 h-8 rounded-full border-2 border-white overflow-hidden shadow-sm bg-zinc-200"
+                                className="relative w-6 h-6 rounded-full border border-white overflow-hidden shadow-sm bg-zinc-200"
                               >
                                 <Image
                                   src={av}
                                   alt="Leader"
                                   fill
-                                  sizes="32px"
+                                  sizes="24px"
                                   className="object-cover"
                                 />
                               </div>
                             ))}
                           </div>
 
-                          {/* Giant Metric in #70A52E Green */}
+                          {/* Metric in #70A52E Green */}
                           <div className="text-end">
-                            <span className="text-2xl sm:text-3xl md:text-4xl font-black font-sans text-[#70A52E] block leading-none">
+                            <span className="text-xl sm:text-2xl font-black font-sans text-[#70A52E] block leading-none">
                               {card.metric}
                             </span>
-                            <span className="text-[10px] font-mono text-zinc-500 font-bold block mt-0.5">
+                            <span className="text-[9px] font-mono text-zinc-500 font-bold block mt-0.5">
                               {card.metricLabel}
                             </span>
                           </div>
                         </div>
                       </div>
                     ) : (
-                      /* ================= INACTIVE / COLLAPSED DARK CARD ================= */
-                      <div className="flex flex-col items-center justify-center h-full gap-3 text-center">
-                        <Icon className="w-6 h-6 text-[#70A52E] transition-transform group-hover:scale-110" />
-                        <span className="hidden sm:block text-[9px] font-mono font-bold uppercase text-zinc-400 rotate-90 whitespace-nowrap mt-4">
+                      /* ================= INACTIVE / COLLAPSED COMPACT DARK CARD ================= */
+                      <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
+                        <Icon className="w-4 h-4 text-[#70A52E] transition-transform group-hover:scale-110" />
+                        <span className="hidden sm:block text-[8px] font-mono font-bold uppercase text-zinc-400 rotate-90 whitespace-nowrap mt-2">
                           {card.id}
                         </span>
                       </div>
@@ -381,10 +377,10 @@ export default function HeroSection({ t: propT }) {
               })}
             </div>
 
-            {/* PROGRESS BAR & PAGINATION INDICATORS (EXACT MATCH TO BOTTOM OF IMAGE 2) */}
-            <div className="w-full flex items-center justify-between gap-4 mt-4 pt-2">
+            {/* PROGRESS BAR & PAGINATION INDICATORS (COMPACT, CLOSE TO CARDS) */}
+            <div className="w-full flex items-center justify-between gap-3 mt-2.5 pt-1">
               {/* Smooth Filling Progress Line */}
-              <div className="flex-1 h-[3px] bg-white/15 rounded-full overflow-hidden">
+              <div className="flex-1 h-[2px] bg-white/15 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-[#70A52E] transition-all duration-75 ease-linear rounded-full"
                   style={{ width: `${progress}%` }}
@@ -392,7 +388,7 @@ export default function HeroSection({ t: propT }) {
               </div>
 
               {/* 4 Pagination Pill Indicators */}
-              <div className="flex items-center gap-1.5 shrink-0">
+              <div className="flex items-center gap-1 shrink-0">
                 {cards.map((_, dotIdx) => (
                   <button
                     key={dotIdx}
@@ -401,10 +397,10 @@ export default function HeroSection({ t: propT }) {
                       setActiveCard(dotIdx);
                       setProgress(0);
                     }}
-                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                       activeCard === dotIdx
-                        ? 'w-6 bg-[#70A52E]'
-                        : 'w-2 bg-white/25 hover:bg-white/50'
+                        ? 'w-5 bg-[#70A52E]'
+                        : 'w-1.5 bg-white/25 hover:bg-white/50'
                     }`}
                     aria-label={`Go to slide ${dotIdx + 1}`}
                   />
