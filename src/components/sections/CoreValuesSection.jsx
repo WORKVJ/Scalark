@@ -1,20 +1,17 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import {
   ChevronLeft,
   ChevronRight,
-  CheckCircle2,
   ArrowRight,
-  X,
   Layers,
   BarChart3,
   DollarSign,
   Users,
   Search,
   Globe2,
-  Calendar,
   Check
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -35,7 +32,6 @@ export default function CoreValuesSection() {
   // Duplicate for seamless infinite gliding stream
   const services = [...baseServices, ...baseServices];
 
-  const [selectedService, setSelectedService] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
 
   const scrollRef = useRef(null);
@@ -76,7 +72,7 @@ export default function CoreValuesSection() {
       const dt = Math.min(0.05, (currentTime - lastTime) / 1000);
       lastTime = currentTime;
 
-      if (!isPaused && !selectedService && !isDraggingRef.current && el) {
+      if (!isPaused && !isDraggingRef.current && el) {
         const step = SPEED_PPS * dt;
 
         if (isRtl) {
@@ -101,7 +97,7 @@ export default function CoreValuesSection() {
     return () => {
       if (animRef.current) cancelAnimationFrame(animRef.current);
     };
-  }, [isPaused, selectedService, isRtl, baseServices.length]);
+  }, [isPaused, isRtl, baseServices.length]);
 
   // Touch and drag support
   const onMouseDown = (e) => {
@@ -122,19 +118,8 @@ export default function CoreValuesSection() {
     isDraggingRef.current = false;
   };
 
-  // Close modal on Escape
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setSelectedService(null);
-    };
-    if (selectedService) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedService]);
-
   return (
-    <section className="relative z-20 w-full py-16 sm:py-24 bg-white text-black overflow-hidden border-t border-zinc-200">
+    <section id="services" className="relative w-full py-16 sm:py-24 bg-white text-black overflow-hidden border-t border-zinc-200">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         
         {/* 1. SECTION TITLE WITH HANDWRITTEN ANNOTATION (MATCHING REFERENCE IMAGE) */}
@@ -191,7 +176,7 @@ export default function CoreValuesSection() {
 
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
-                href="/solutions"
+                href="/services"
                 className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-2xl bg-[#70A52E] hover:bg-[#5f8f26] text-white font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-md hover:shadow-lg active:scale-95"
               >
                 <span>{sData.exploreBtn || 'Explore Services'}</span>
@@ -250,10 +235,10 @@ export default function CoreValuesSection() {
                 const IconComponent = SERVICE_ICONS[service.id] || Layers;
 
                 return (
-                  <div
+                  <Link
                     key={`${service.id}-${idx}`}
-                    onClick={() => setSelectedService(service)}
-                    className="w-[285px] sm:w-[320px] md:w-[340px] shrink-0 rounded-[26px] bg-[#1F1F21] text-white shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-zinc-800/80 hover:border-[#70A52E] hover:shadow-[0_20px_50px_rgba(112,165,46,0.22)] transition-all duration-300 hover:-translate-y-1.5 cursor-pointer flex flex-col justify-between overflow-hidden group"
+                    href={`/services/${service.id}`}
+                    className="w-[285px] sm:w-[320px] md:w-[340px] shrink-0 rounded-[26px] bg-[#1F1F21] text-white shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-zinc-800/80 hover:border-[#70A52E] hover:shadow-[0_20px_50px_rgba(112,165,46,0.25)] transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col justify-between overflow-hidden group text-start"
                   >
                     {/* TOP SECTION: EMERALD / TEAL GRADIENT BANNER (MATCHING REFERENCE) */}
                     <div className="relative p-5 sm:p-6 bg-gradient-to-br from-[#0F5342] via-[#0D4436] to-[#082C23] border-b border-white/10 flex flex-col justify-between min-h-[195px] overflow-hidden">
@@ -308,11 +293,11 @@ export default function CoreValuesSection() {
 
                       {/* Card Footer: Detail Link */}
                       <div className="pt-4 mt-4 border-t border-zinc-800 flex items-center justify-between text-[11px] font-semibold text-zinc-400 group-hover:text-white transition-colors">
-                        <span>{isRtl ? 'عرض تفاصيل النظام' : 'View Full Details'}</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#70A52E] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
+                        <span>{isRtl ? 'عرض تفاصيل النظام بالكامل' : 'View Full Details'}</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#70A52E] group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 rtl:rotate-180 transition-transform" />
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -333,121 +318,6 @@ export default function CoreValuesSection() {
         </div>
 
       </div>
-
-      {/* 3. SERVICE DETAIL MODAL (OPENED ON CARD CLICK) */}
-      {selectedService && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn"
-          onClick={() => setSelectedService(null)}
-        >
-          <div
-            className="w-full max-w-2xl rounded-3xl bg-[#18181B] border border-zinc-700 text-white shadow-2xl p-6 sm:p-9 relative max-h-[90vh] overflow-y-auto text-start"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between gap-4 mb-6 pb-4 border-b border-zinc-800">
-              <div>
-                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#70A52E]/20 text-[#70A52E] border border-[#70A52E]/40 mb-2 inline-block">
-                  {selectedService.badge} • {selectedService.acronym}
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight font-sans">
-                  {selectedService.title}
-                </h3>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setSelectedService(null)}
-                className="w-9 h-9 rounded-full bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Detailed Overview */}
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-xs font-mono uppercase tracking-wider text-[#70A52E] font-bold mb-2">
-                  {isRtl ? 'نظرة شاملة على النظام' : 'System Overview'}
-                </h4>
-                <p className="text-sm sm:text-base text-zinc-200 leading-relaxed font-normal">
-                  {selectedService.detailedOverview}
-                </p>
-              </div>
-
-              {/* Standard Deliverables */}
-              {selectedService.deliverables && (
-                <div className="p-4 sm:p-5 rounded-2xl bg-zinc-900/90 border border-zinc-800 space-y-3">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#70A52E]" />
-                    <span>{isRtl ? 'المخرجات والأنظمة المعتمدة' : 'Key Architecture Deliverables'}</span>
-                  </h4>
-                  <div className="space-y-2">
-                    {selectedService.deliverables.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#70A52E] mt-2 shrink-0" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Grid: Who this is for + Measurable Outcome */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-bold block mb-1">
-                    {isRtl ? 'الفئة المستهدفة' : 'Who This Is For'}
-                  </span>
-                  <p className="text-xs text-zinc-300 leading-relaxed">
-                    {selectedService.whoFor}
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-emerald-950/30 border border-emerald-800/40">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-bold block mb-1">
-                    {isRtl ? 'الأثر والنتيجة الملموسة' : 'Audited Outcome'}
-                  </span>
-                  <p className="text-xs text-emerald-200 font-semibold leading-relaxed">
-                    {selectedService.outcome}
-                  </p>
-                </div>
-              </div>
-
-              {/* Timeline */}
-              {selectedService.timeline && (
-                <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium">
-                  <Calendar className="w-4 h-4 text-[#70A52E]" />
-                  <span>
-                    {isRtl ? 'الجدول الزمني المقدر:' : 'Estimated Deployment:'}{' '}
-                    <strong className="text-white">{selectedService.timeline}</strong>
-                  </span>
-                </div>
-              )}
-            </div>
-
-            {/* Modal Footer CTA */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 mt-6 border-t border-zinc-800">
-              <button
-                type="button"
-                onClick={() => setSelectedService(null)}
-                className="px-5 py-2.5 rounded-full bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold text-zinc-300 transition-colors cursor-pointer text-center"
-              >
-                {sData.modalClose || 'Close'}
-              </button>
-
-              <Link
-                href="/contact"
-                onClick={() => setSelectedService(null)}
-                className="px-7 py-3 rounded-full bg-[#70A52E] hover:bg-[#5f8f26] text-white text-xs font-bold uppercase tracking-wider transition-all duration-200 text-center shadow-lg active:scale-95 flex items-center justify-center gap-2"
-              >
-                <span>{sData.modalBookCta || 'Schedule System Consultation →'}</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
