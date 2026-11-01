@@ -8,7 +8,6 @@ import {
   TrendingUp,
   DollarSign,
   Building2,
-  Mountain,
   ArrowRight
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -18,23 +17,13 @@ export default function HeroSection({ t: propT }) {
   const t = propT || ctxT;
   const triplio = t.triplio || {};
 
-  // Background visual mode: 'skyline' (modern architectural corporate scale) or 'alpine' (clean minimal mountain)
-  const [bgMode, setBgMode] = useState('skyline');
-
   // Active expanding card index (0 to 3)
   const [activeCard, setActiveCard] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const baseBgImage =
-    bgMode === 'skyline'
-      ? '/hero-skyline.jpg'
-      : '/hero-alpine.jpg';
-
-  const cutoutImage =
-    bgMode === 'skyline'
-      ? '/hero-skyline-cutout.png'
-      : '/hero-alpine-cutout.png';
+  const baseBgImage = '/hero-skyline.jpg';
+  const cutoutImage = '/hero-skyline-cutout.png';
 
   // 4 Core Enterprise Scaling Cards (Compact, matching GrowMedLink active expanding card)
   const cards = [
@@ -144,7 +133,6 @@ export default function HeroSection({ t: propT }) {
           ======================================================== */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
-          key={`base-${baseBgImage}`}
           src={baseBgImage}
           alt="SCALARK Background Sky"
           fill
@@ -180,7 +168,6 @@ export default function HeroSection({ t: propT }) {
           ======================================================== */}
       <div className="absolute inset-0 z-20 pointer-events-none select-none">
         <Image
-          key={`cutout-${cutoutImage}`}
           src={cutoutImage}
           alt="SCALARK Foreground Architecture"
           fill
@@ -190,8 +177,8 @@ export default function HeroSection({ t: propT }) {
         />
 
         {/* ========================================================
-            ENHANCED DEEP BOTTOM-TO-TOP DARK SHADE GRADIENT (MORE DARKNESS)
-            Rich midnight foundation spanning 56% height, creating
+            ENHANCED DEEP BOTTOM-TO-TOP DARK SHADE GRADIENT
+            Rich midnight foundation spanning 58% height, creating
             dramatic contrast for the active white card and headline.
             ======================================================== */}
         <div
@@ -209,36 +196,6 @@ export default function HeroSection({ t: propT }) {
             )`
           }}
         />
-      </div>
-
-      {/* TOP RIGHT: VISUAL SWITCHER (SKYLINE VS ALPINE) */}
-      <div className="absolute top-28 sm:top-24 right-4 sm:right-8 z-40 flex items-center gap-1.5 p-1 rounded-full bg-[#02071B]/80 backdrop-blur-xl border border-white/15 text-xs shadow-xl">
-        <button
-          type="button"
-          onClick={() => setBgMode('skyline')}
-          className={`px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all text-[11px] font-semibold cursor-pointer ${
-            bgMode === 'skyline'
-              ? 'bg-[#70A52E] text-white shadow-md'
-              : 'text-zinc-300 hover:text-white'
-          }`}
-          title="Architectural Corporate Skyline"
-        >
-          <Building2 className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Skyline</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => setBgMode('alpine')}
-          className={`px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all text-[11px] font-semibold cursor-pointer ${
-            bgMode === 'alpine'
-              ? 'bg-[#70A52E] text-white shadow-md'
-              : 'text-zinc-300 hover:text-white'
-          }`}
-          title="Minimal Alpine Horizon"
-        >
-          <Mountain className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Alpine</span>
-        </button>
       </div>
 
       {/* TOP CLEARANCE FOR FLOATING NAVBAR */}
