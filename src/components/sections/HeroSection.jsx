@@ -8,14 +8,14 @@ import {
   Layers,
   Globe2,
   Users,
-  Calendar,
-  MapPin,
   ChevronDown,
   ArrowRight,
   Check,
   TrendingUp,
   DollarSign,
-  Compass
+  Building2,
+  Mountain,
+  Sparkles
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -25,6 +25,9 @@ export default function HeroSection({ t: propT }) {
   const t = propT || ctxT;
   const triplio = t.triplio || {};
   const cData = triplio.console || {};
+
+  // Background visual mode: 'skyline' (modern architectural corporate scale) or 'alpine' (clean minimal mountain)
+  const [bgMode, setBgMode] = useState('skyline');
 
   // Interactive console states
   const [selectedSystem, setSelectedSystem] = useState(
@@ -84,50 +87,86 @@ export default function HeroSection({ t: propT }) {
     '200+ Enterprise ($25M+)'
   ];
 
+  const currentBgImage =
+    bgMode === 'skyline'
+      ? '/hero-skyline.jpg'
+      : '/hero-alpine.jpg';
+
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040E2A] text-white select-none"
+      className="relative min-h-[95vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040E2A] text-white select-none"
     >
-      {/* 1. PHOTOREALISTIC PANORAMIC MOUNTAIN HERO BACKGROUND (MATCHING TRIPLIO REFERENCE) */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+      {/* 1. CREATIVE CINEMATIC HERO BACKGROUND (CLEAN BLUE SKY IN UPPER 55% + NO NOISY ROCKS) */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none transition-opacity duration-700">
         <Image
-          src="/hero-pinnacle-mountain.jpg"
-          alt="SCALARK Pinnacle Scale"
+          key={currentBgImage}
+          src={currentBgImage}
+          alt="SCALARK Enterprise Scale"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_15%] sm:object-center"
+          className="object-cover object-top sm:object-center"
         />
 
-        {/* TOP AZURE SKY ENHANCEMENT TINT */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#1C68B6]/30 via-transparent to-transparent pointer-events-none" />
+        {/* TOP ATMOSPHERIC BLUE SKY ENHANCEMENT */}
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#0A266E]/40 via-transparent to-transparent pointer-events-none" />
 
-        {/* BOTTOM GRADIENT MIST: SEAMLESS DEEP NAVY BLEND FOR HEADLINE & CONSOLE CONTRAST */}
-        <div className="absolute inset-x-0 bottom-0 h-[68%] sm:h-[62%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/85 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-[#040E2A] pointer-events-none" />
+        {/* BOTTOM GRADIENT: SMOOTH BLEND INTO DEEP TWILIGHT NAVY */}
+        <div className="absolute inset-x-0 bottom-0 h-[55%] sm:h-[50%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/75 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-[#040E2A] pointer-events-none" />
       </div>
 
       {/* 2. GIGANTIC BRAND WATERMARK IN SKY (EXACT REPLICA OF "TRIPLIO" IN REFERENCE) */}
-      <div className="absolute top-[10%] sm:top-[12%] lg:top-[14%] left-0 right-0 w-full flex justify-center pointer-events-none select-none z-10 px-4">
+      <div className="absolute top-[13%] sm:top-[14%] lg:top-[15%] left-0 right-0 w-full flex justify-center pointer-events-none select-none z-10 px-4">
         <h1
-          className="text-[17vw] sm:text-[18vw] lg:text-[19vw] font-black tracking-[-0.04em] text-white uppercase leading-none drop-shadow-[0_4px_30px_rgba(0,0,0,0.18)] opacity-95 transition-transform"
+          className="text-[17vw] sm:text-[18vw] lg:text-[19vw] font-black tracking-[-0.035em] text-white uppercase leading-none drop-shadow-[0_8px_35px_rgba(0,0,0,0.22)] opacity-95 transition-transform"
           style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}
         >
           {triplio.watermark || 'SCALARK'}
         </h1>
       </div>
 
+      {/* TOP RIGHT: CREATIVE VISUAL SWITCHER (SKYLINE VS ALPINE) */}
+      <div className="absolute top-28 sm:top-24 right-4 sm:right-8 z-30 flex items-center gap-1.5 p-1 rounded-full bg-[#040E2A]/70 backdrop-blur-xl border border-white/15 text-xs shadow-xl">
+        <button
+          type="button"
+          onClick={() => setBgMode('skyline')}
+          className={`px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all text-[11px] font-semibold cursor-pointer ${
+            bgMode === 'skyline'
+              ? 'bg-[#0084FF] text-white shadow-md'
+              : 'text-zinc-300 hover:text-white'
+          }`}
+          title="Architectural Corporate Skyline"
+        >
+          <Building2 className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">Skyline</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setBgMode('alpine')}
+          className={`px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all text-[11px] font-semibold cursor-pointer ${
+            bgMode === 'alpine'
+              ? 'bg-[#0084FF] text-white shadow-md'
+              : 'text-zinc-300 hover:text-white'
+          }`}
+          title="Minimal Alpine Horizon"
+        >
+          <Mountain className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">Alpine</span>
+        </button>
+      </div>
+
       {/* SPACER FOR TOP FLOATING NAVBAR */}
       <div className="h-28 sm:h-36 relative z-10" />
 
       {/* 3. FOREGROUND CONTENT: TWO-COLUMN HERO (HEADLINE ON LEFT + WHITE CONSOLE ON RIGHT) */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pt-32 sm:pt-40 lg:pt-48 pb-8">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pt-36 sm:pt-44 lg:pt-52 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
           
           {/* LEFT COLUMN: HERO HEADLINE (MATCHING REFERENCE "Uncover the World's Natural Wonders.") */}
           <div className="lg:col-span-5 text-start space-y-2">
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08] font-sans drop-shadow-[0_2px_16px_rgba(0,0,0,0.6)]">
+            <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-white tracking-tight leading-[1.08] font-sans drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)]">
               <span className="block">{triplio.headlineLine1 || "Architecting Systems for"}</span>
               <span className="block text-sky-100">{triplio.headlineLine2 || "Sustainable Enterprise Scale."}</span>
             </h2>
@@ -146,7 +185,7 @@ export default function HeroSection({ t: propT }) {
                   }
                   className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2.5 cursor-pointer"
                 >
-                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-zinc-700 shrink-0">
                     <Layers className="w-4 h-4 text-emerald-600" />
                   </div>
                   <div className="truncate">
@@ -203,7 +242,7 @@ export default function HeroSection({ t: propT }) {
                   }
                   className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2.5 cursor-pointer"
                 >
-                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-zinc-700 shrink-0">
                     <Globe2 className="w-4 h-4 text-blue-600" />
                   </div>
                   <div className="truncate">
@@ -260,7 +299,7 @@ export default function HeroSection({ t: propT }) {
                   }
                   className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2 cursor-pointer"
                 >
-                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center text-zinc-700 shrink-0">
                     <Users className="w-4 h-4 text-purple-600" />
                   </div>
                   <div className="truncate flex-1">
