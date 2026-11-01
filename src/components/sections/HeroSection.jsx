@@ -99,7 +99,7 @@ export default function HeroSection({ t: propT }) {
   return (
     <section
       id="hero"
-      className="relative min-h-[96vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040E2A] text-white select-none"
+      className="relative min-h-[95vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040E2A] text-white select-none"
     >
       {/* ========================================================
           LAYER 0: BASE PHOTO BACKGROUND (BEHIND THE NAME)
@@ -116,16 +116,16 @@ export default function HeroSection({ t: propT }) {
         />
 
         {/* TOP ATMOSPHERIC BLUE SKY ENHANCEMENT */}
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#0A266E]/40 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#0A266E]/30 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* ========================================================
           LAYER 1: GIGANTIC BRAND WATERMARK (BEHIND BUILDINGS)
-          Placed at z-10 so the buildings overlap in front of it!
+          Placed at z-10, positioned higher so it never collides with headline!
           ======================================================== */}
-      <div className="absolute top-[12%] sm:top-[14%] lg:top-[16%] left-0 right-0 w-full flex justify-center pointer-events-none select-none z-10 px-4">
+      <div className="absolute top-[9%] sm:top-[10%] lg:top-[11%] left-0 right-0 w-full flex justify-center pointer-events-none select-none z-10 px-4">
         <h1
-          className="text-[17vw] sm:text-[18vw] lg:text-[19vw] font-black tracking-[-0.035em] text-white uppercase leading-none drop-shadow-[0_12px_45px_rgba(0,0,0,0.35)] opacity-95 transition-transform"
+          className="text-[17vw] sm:text-[18vw] lg:text-[19vw] font-black tracking-[-0.035em] text-white uppercase leading-none drop-shadow-[0_12px_45px_rgba(0,0,0,0.3)] opacity-95 transition-transform"
           style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}
         >
           {triplio.watermark || 'SCALARK'}
@@ -135,7 +135,6 @@ export default function HeroSection({ t: propT }) {
       {/* ========================================================
           LAYER 2: FOREGROUND BUILDING CUTOUT (IN FRONT OF NAME)
           Placed at z-20: Sky is transparent, buildings are opaque!
-          This creates the authentic 3D overlapping depth effect.
           ======================================================== */}
       <div className="absolute inset-0 z-20 pointer-events-none select-none">
         <Image
@@ -148,9 +147,9 @@ export default function HeroSection({ t: propT }) {
           className="object-cover object-top sm:object-center"
         />
 
-        {/* BOTTOM GRADIENT ON TOP OF CUTOUT: BLENDS INTO DEEP TWILIGHT NAVY */}
-        <div className="absolute inset-x-0 bottom-0 h-[52%] sm:h-[48%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/80 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-[#040E2A] pointer-events-none" />
+        {/* BOTTOM GRADIENT: SEAMLESS DEEP NAVY BASE FOR TEXT READABILITY */}
+        <div className="absolute inset-x-0 bottom-0 h-[48%] sm:h-[44%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/85 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-[#040E2A] pointer-events-none" />
       </div>
 
       {/* TOP RIGHT: CREATIVE VISUAL SWITCHER (SKYLINE VS ALPINE) */}
@@ -183,27 +182,32 @@ export default function HeroSection({ t: propT }) {
         </button>
       </div>
 
-      {/* SPACER FOR TOP FLOATING NAVBAR */}
+      {/* TOP SPACER (ENSURES FLOATING NAVBAR HAS AMPLE CLEARANCE) */}
       <div className="h-28 sm:h-36 relative z-30" />
 
       {/* ========================================================
-          LAYER 3: FOREGROUND UI CONTENT (HEADLINE + WHITE CONSOLE)
-          Placed at z-30 in front of everything with high contrast!
+          LAYER 3: FOREGROUND UI CONTENT (ANCHORED TO BOTTOM)
+          Placed at z-30 in front of everything, with spacious
+          vertical breathing room away from the SCALARK watermark!
           ======================================================== */}
-      <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pt-36 sm:pt-44 lg:pt-52 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+      <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pb-8 sm:pb-12 pt-12 sm:pt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
           
-          {/* LEFT COLUMN: HERO HEADLINE (MATCHING REFERENCE "Uncover the World's Natural Wonders.") */}
-          <div className="lg:col-span-5 text-start space-y-2">
-            <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-white tracking-tight leading-[1.08] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
-              <span className="block">{triplio.headlineLine1 || "Architecting Systems for"}</span>
-              <span className="block text-sky-100">{triplio.headlineLine2 || "Sustainable Enterprise Scale."}</span>
+          {/* LEFT COLUMN: HERO HEADLINE (EXACT 2-LINE ELEGANT COMPACT COMPOSITION) */}
+          <div className="lg:col-span-5 text-start">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] font-extrabold text-white tracking-tight leading-[1.18] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] max-w-md">
+              <span className="block whitespace-normal sm:whitespace-nowrap">
+                {triplio.headlineLine1 || "Architecting Systems for"}
+              </span>
+              <span className="block text-sky-100 whitespace-normal sm:whitespace-nowrap">
+                {triplio.headlineLine2 || "Sustainable Enterprise Scale."}
+              </span>
             </h2>
           </div>
 
           {/* RIGHT COLUMN: FLOATING WHITE INTERACTIVE CONSOLE (MATCHING REFERENCE BOOKING BAR) */}
           <div className="lg:col-span-7 flex justify-end" ref={consoleRef}>
-            <div className="w-full bg-white text-zinc-900 rounded-[28px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 relative">
+            <div className="w-full bg-white text-zinc-900 rounded-[28px] sm:rounded-full p-2 sm:p-2.5 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 relative">
               
               {/* FIELD 1: CORE FOCUS / SYSTEM (MATCHING "Location" IN REFERENCE) */}
               <div className="relative flex-1">
@@ -212,7 +216,7 @@ export default function HeroSection({ t: propT }) {
                   onClick={() =>
                     setOpenDropdown(openDropdown === 'system' ? null : 'system')
                   }
-                  className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2.5 cursor-pointer"
+                  className="w-full text-start px-3 py-1.5 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2.5 cursor-pointer"
                 >
                   <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-zinc-700 shrink-0">
                     <Layers className="w-4 h-4 text-emerald-600" />
@@ -260,7 +264,7 @@ export default function HeroSection({ t: propT }) {
               </div>
 
               {/* VERTICAL DIVIDER (DESKTOP) */}
-              <div className="hidden sm:block w-[1px] h-8 bg-zinc-200" />
+              <div className="hidden sm:block w-[1px] h-7 bg-zinc-200" />
 
               {/* FIELD 2: TARGET REGION (MATCHING "Date" IN REFERENCE) */}
               <div className="relative flex-1">
@@ -269,7 +273,7 @@ export default function HeroSection({ t: propT }) {
                   onClick={() =>
                     setOpenDropdown(openDropdown === 'market' ? null : 'market')
                   }
-                  className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2.5 cursor-pointer"
+                  className="w-full text-start px-3 py-1.5 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2.5 cursor-pointer"
                 >
                   <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-zinc-700 shrink-0">
                     <Globe2 className="w-4 h-4 text-blue-600" />
@@ -317,7 +321,7 @@ export default function HeroSection({ t: propT }) {
               </div>
 
               {/* VERTICAL DIVIDER (DESKTOP) */}
-              <div className="hidden sm:block w-[1px] h-8 bg-zinc-200" />
+              <div className="hidden sm:block w-[1px] h-7 bg-zinc-200" />
 
               {/* FIELD 3: SCALE & TEAM (MATCHING "Guest" IN REFERENCE) */}
               <div className="relative flex-1">
@@ -326,7 +330,7 @@ export default function HeroSection({ t: propT }) {
                   onClick={() =>
                     setOpenDropdown(openDropdown === 'scale' ? null : 'scale')
                   }
-                  className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2 cursor-pointer"
+                  className="w-full text-start px-3 py-1.5 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   <div className="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center text-zinc-700 shrink-0">
                     <Users className="w-4 h-4 text-purple-600" />
@@ -378,7 +382,7 @@ export default function HeroSection({ t: propT }) {
               <button
                 type="button"
                 onClick={handleBookSchedule}
-                className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-[#121826] hover:bg-black text-white font-bold text-xs sm:text-sm tracking-wide transition-all shadow-md active:scale-95 whitespace-nowrap flex items-center justify-center gap-2 group cursor-pointer shrink-0"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-[#121826] hover:bg-black text-white font-bold text-xs sm:text-sm tracking-wide transition-all shadow-md active:scale-95 whitespace-nowrap flex items-center justify-center gap-2 group cursor-pointer shrink-0"
               >
                 <span>{cData.bookBtn || 'Book schedule'}</span>
                 <ArrowRight className="w-4 h-4 text-emerald-400 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
@@ -390,7 +394,7 @@ export default function HeroSection({ t: propT }) {
         </div>
 
         {/* 4. BOTTOM ROW: STATS ON LEFT + DESCRIPTIVE PARAGRAPH ON RIGHT (MATCHING REFERENCE BOTTOM STRIP) */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-white/15 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center text-start">
+        <div className="mt-8 sm:mt-10 pt-6 border-t border-white/15 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center text-start">
           
           {/* BOTTOM LEFT: STAT BADGE + 4 CIRCULAR ICONS (MATCHING "300+ Iconic Spots Included" IN REFERENCE) */}
           <div className="lg:col-span-5 flex flex-wrap items-center gap-4">
