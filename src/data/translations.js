@@ -173,9 +173,172 @@ export const TRANSLATIONS = {
         }
       }
     },
+    servicesSection: {
+      headingPart1: "OUR ",
+      headingPart2: "SERVICES",
+      annotation: "Services we offer",
+      sideTitle: "Systems Engineered for Enterprise Scale",
+      sideDesc: "SCALARK architects institutional operations, sales engines, and financial governance to replace founder bottlenecks with sustainable, autonomous enterprise scale across Saudi Arabia, UAE, and India.",
+      exploreBtn: "Explore Services",
+      clickHint: "Click any card for full systems blueprint",
+      modalClose: "Close",
+      modalBookCta: "Schedule System Consultation →",
+      services: [
+        {
+          id: 'sops',
+          badge: 'OPERATIONS',
+          acronym: 'SOPs',
+          title: 'Operations & SOP Architecture',
+          shortDesc: 'Codify daily workflows into standard operating procedures and delegation matrices so your business operates smoothly without constant owner intervention.',
+          points: [
+            'End-to-End SOP Documentation',
+            'Delegation & Authority Matrices',
+            'Bottleneck & Friction Eradication',
+            'Cross-Department Workflow Sync',
+            'Zero Single-Person Dependency'
+          ],
+          detailedOverview: 'Most businesses suffer because critical knowledge exists only inside key people’s heads. When somebody is absent, execution stalls. We map, standardize, and document every operational workflow into airtight Standard Operating Procedures with clear delegation hierarchies.',
+          deliverables: [
+            'Complete Digital SOP Playbook (Operations, Admin, Customer Support)',
+            'Delegation of Authority (DoA) Matrix with Financial & Operational Thresholds',
+            'Process Flowcharts & Visual Standard Operating Frameworks',
+            'Role Scorecards and Task Ownership Architecture',
+            'Operational Cadence & Weekly Review Rhythm'
+          ],
+          whoFor: 'Founders trapped in daily firefighting, companies experiencing operational inconsistency across branches, and scaling teams needing structured handoffs.',
+          outcome: '65% Founder Time Recovered • 98% Process Consistency Rate',
+          timeline: '4 to 6 Weeks Architecture & Embedding'
+        },
+        {
+          id: 'revenue',
+          badge: 'REVENUE',
+          acronym: 'REV',
+          title: 'Sales & Revenue Engine',
+          shortDesc: 'Transform erratic sales activity into a governed, measurable revenue engine with clear pipeline accountability and conversion rigor.',
+          points: [
+            'B2B Pipeline Architecture',
+            'Lead Qualification SOPs',
+            'Sales Cadence Governance',
+            'Conversion Predictability Rigor',
+            'Rep Accountability Frameworks'
+          ],
+          detailedOverview: 'Erratic revenue is not a market problem — it is an architecture problem. We replace intuitive, unpredictable selling with a governed commercial engine featuring clear lead triage, conversion checkpoints, pipeline accountability, and forecasting rigor.',
+          deliverables: [
+            'Multi-Stage B2B Sales Pipeline Architecture',
+            'Inbound & Outbound Lead Qualification SOPs (ICP Criteria)',
+            'Sales Conversion Scripts, Objection Protocols & Pitch Playbooks',
+            'Commission Structure & Performance KPI Scorecards',
+            'Weekly Pipeline Review Rhythm & Win/Loss Forensic Tracking'
+          ],
+          whoFor: 'Companies with fluctuating monthly revenue, unorganized deal stages, or teams where sales depends on a single rainmaker.',
+          outcome: '3.4x Pipeline Predictability • +38% Deal Velocity',
+          timeline: '3 to 5 Weeks Architecture & Deployment'
+        },
+        {
+          id: 'finance',
+          badge: 'FINANCE',
+          acronym: 'CASH',
+          title: 'Finance & Cash-Flow Visibility',
+          shortDesc: 'Gain total clarity over your numbers with real-time management accounts, unit economics optimization, and forward cash runway dashboards.',
+          points: [
+            'Forward Cash Runway Dashboards',
+            'Unit Economics & Margins',
+            'Spend Thresholds & Cost Control',
+            'Real-Time Management Accounts',
+            'Capital Allocation Discipline'
+          ],
+          detailedOverview: 'Accounting looking backward at tax time is not financial management. We build real-time forward-looking financial dashboards, unit economics clarity, spend authority gates, and 13-week cash-flow visibility so leadership never gets caught off-guard.',
+          deliverables: [
+            '13-Week Rolling Forward Cash-Flow Dashboard',
+            'Unit Economics, Contribution Margin & Break-Even Modeling',
+            'Cost-Center Governance & Discretionary Spend Thresholds',
+            'Monthly Management Information System (MIS) Reporting Pack',
+            'Working Capital & Receivable Days Triage SOP'
+          ],
+          whoFor: 'Enterprises generating strong revenue but struggling with liquidity, margin erosion, or lack of forward cash visibility.',
+          outcome: '100% Cash Visibility • +15% Operating Margin Protection',
+          timeline: '4 Weeks Architecture & Financial Integration'
+        },
+        {
+          id: 'governance',
+          badge: 'GOVERNANCE',
+          acronym: 'EXEC',
+          title: 'People & Governance Framework',
+          shortDesc: 'Align team execution through clear role scorecards, accountability reviews, and executive leadership playbooks.',
+          points: [
+            'Role Clarity & Scorecards',
+            'Weekly Management Rhythms',
+            'Objective KPI Hierarchies',
+            'Executive Leadership Playbooks',
+            'Accountability Review Cadence'
+          ],
+          detailedOverview: 'People cannot perform when expectations are vague and KPIs are arbitrary. We design institutional governance systems: precise role scorecards, unambiguous accountability matrices, weekly execution cadences, and leadership operating rhythms.',
+          deliverables: [
+            'Role Scorecards defining primary objectives, inputs, and outputs',
+            'Executive Management Operating Cadence (Daily, Weekly, Monthly Rhythms)',
+            'KPI Tree linking department milestones to company enterprise valuation',
+            'Structured 1-on-1 Performance Calibration Reviews',
+            'Hiring, Onboarding & Offboarding Standard Playbooks'
+          ],
+          whoFor: 'Growing organizations experiencing communication friction, blurred accountability, or leadership team misalignment.',
+          outcome: '94.8% Team Execution Adoption • Autonomous Department Cadence',
+          timeline: '4 to 6 Weeks Cadence Implementation'
+        },
+        {
+          id: 'audit',
+          badge: 'DIAGNOSTIC',
+          acronym: 'SCAN',
+          title: '120-Point Enterprise Diagnostic',
+          shortDesc: 'A rigorous forensic audit examining current operations, pipelines, cash flow, and dependencies before prescribing solutions.',
+          points: [
+            'Forensic Operations Audit',
+            'Bottleneck Discovery Matrix',
+            'Founder Dependency Score',
+            'Cash Leakage Identification',
+            'Systems Prioritization Roadmap'
+          ],
+          detailedOverview: 'Prescription without diagnosis is malpractice. Before redesigning any business system, we conduct a forensic 120-point diagnostic scan across your business operations, commercial pipeline, cash conversion cycle, and leadership bottlenecks.',
+          deliverables: [
+            'Comprehensive 120-Point Systems Health Audit Report',
+            'Identified Core Bottlenecks Ranked by Financial & Operational Impact',
+            'Founder Dependency Index & Single-Point-of-Failure Map',
+            'Prioritized 90-Day Implementation Architecture Blueprint',
+            'Executive Boardroom Briefing & Strategy Debrief'
+          ],
+          whoFor: 'Business owners preparing to scale, struggling with plateaued growth, or planning to expand into new regional markets.',
+          outcome: '100% Root-Cause Clarity • 90-Day Tailored Action Blueprint',
+          timeline: '7 to 10 Business Days'
+        },
+        {
+          id: 'expansion',
+          badge: 'SCALE',
+          acronym: 'GLOBAL',
+          title: 'Cross-Border Expansion Systems',
+          shortDesc: 'Architect operational systems and commercial frameworks for seamless business growth across Saudi Arabia, UAE, and India.',
+          points: [
+            'Multi-Jurisdiction Operations',
+            'Cross-Border Financial Sync',
+            'Regional Distribution SOPs',
+            'Dual-Entity Governance',
+            'KSA • UAE • India Expansion'
+          ],
+          detailedOverview: 'Scaling across borders often fails due to fragmented operations and lack of regional compliance synchronization. We build cross-border operating architectures connecting supply chains, commercial teams, and financial governance across the GCC and India.',
+          deliverables: [
+            'Cross-Border Operational Synchronization Framework',
+            'Regional Commercial Hub & Distribution Playbook',
+            'Multi-Currency Financial Reporting & Capital Flow Dashboards',
+            'Regulatory & Operational Compliance SOPs (KSA, UAE & India)',
+            'Regional Branch Autonomy Architecture'
+          ],
+          whoFor: 'Enterprises expanding between India, Saudi Arabia, and the UAE seeking structured regional operational consistency.',
+          outcome: 'Seamless Multi-Market Operations • 2.8x Valuation Multiple',
+          timeline: '6 to 8 Weeks Cross-Border Systems Rollout'
+        }
+      ]
+    },
     coreValues: {
       headingPart1: "OUR ",
-      headingPart2: "PRINCIPLES",
+      headingPart2: "SERVICES",
       values: [
         {
           id: 'systems',
@@ -803,9 +966,172 @@ export const TRANSLATIONS = {
         }
       }
     },
+    servicesSection: {
+      headingPart1: "خدماتنا ",
+      headingPart2: "المؤسسية",
+      annotation: "الخدمات التي نقدمها",
+      sideTitle: "أنظمة مصممة لنمو الشركات وتوسعها",
+      sideDesc: "تبني سكالارك بنية تشغيلية مؤسسية، ومحركات مبيعات، وحوكمة مالية لتحرير المؤسسين من الاختناقات اليومية نحو نمو مستدام ومستقل عبر السعودية والإمارات والهند.",
+      exploreBtn: "استكشف الخدمات",
+      clickHint: "انقر على أي بطاقة لعرض التفاصيل الكاملة",
+      modalClose: "إغلاق",
+      modalBookCta: "احجز جلسة استشارية للنظام ←",
+      services: [
+        {
+          id: 'sops',
+          badge: 'العمليات',
+          acronym: 'SOPs',
+          title: 'هندسة العمليات وإجراءات العمل القياسية',
+          shortDesc: 'توثيق إجراءات العمل ومصفوفات التفويض لتسيير العمليات بسلاسة دون ارتهان دائم بوجود المؤسس.',
+          points: [
+            'توثيق شامل لإجراءات العمل (SOPs)',
+            'مصفوفات الصلاحيات والتفويض المعتمدة',
+            'القضاء على جذور الاختناقات التشغيلية',
+            'مزامنة مسارات العمل بين الأقسام',
+            'إلغاء الاعتماد الحصري على الأفراد'
+          ],
+          detailedOverview: 'تعاني معظم الشركات لأن المعرفة الحيوية محصورة فقط في رؤوس أفراد معينين. نقوم بحصر وتوحيد وتوثيق كل مسار عمل تشغيلي في أدلة إجراءات محكمة مع مصفوفات تفويض واضحة.',
+          deliverables: [
+            'دليل رقمي متكامل لإجراءات العمل (العمليات، الإدارة، خدمة العملاء)',
+            'مصفوفة تفويض الصلاحيات (DoA) بالحدود المالية والتشغيلية',
+            'مخططات تدفق العمليات وأطر العمل المعيارية المرئية',
+            'بطاقات وصف الأدوار وتحديد ملكية المهام بدقة',
+            'إيقاع الاجتماعات التشغيلية والمراجعات الأسبوعية'
+          ],
+          whoFor: 'المؤسسون العالقون في تفاصيل الإدارة اليومية، والشركات التي تعاني من تفاوت جودة التنفيذ بين الفروع.',
+          outcome: 'استعادة 65% من وقت المؤسس • اتساق تشغيلي بنسبة 98%',
+          timeline: 'من 4 إلى 6 أسابيع للبناء والتطبيق'
+        },
+        {
+          id: 'revenue',
+          badge: 'الإيرادات',
+          acronym: 'REV',
+          title: 'محرك المبيعات وتدفق الإيرادات',
+          shortDesc: 'تحويل نشاط المبيعات العشوائي إلى محرك إيرادات منضبط وقابل للقياس مع حوكمة واضحة للمسار التجاري.',
+          points: [
+            'بنية مسار صفقات B2B المعتمدة',
+            'إجراءات تأهيل العملاء المحتملين',
+            'حوكمة إيقاع المبيعات الأسبوعي',
+            'دقة التنبؤ بالإيرادات والتحويل',
+            'مصفوفات مساءلة فريق المبيعات'
+          ],
+          detailedOverview: 'تذبذب الإيرادات ليس مشكلة سوق بل مشكلة بنية تشغيلية. نستبدل البيع القائم على الاجتهاد بمحرك تجاري منظم يحدد معايير تأهيل الصفقات، ومراحل التحويل، ومساءلة مسار المبيعات بدقة.',
+          deliverables: [
+            'هندسة متكاملة لمسار مبيعات B2B متعدد المراحل',
+            'إجراءات تأهيل العملاء المتوافقة مع العميل المثالي (ICP)',
+            'أدلة وسيناريوهات البيع وبروتوكولات التعامل مع الاعتراضات',
+            'هيكلة العمولات وبطاقات مؤشرات الأداء لفريق البيع',
+            'إيقاع المراجعة الأسبوعية وتحليل أسباب كسب وخسارة الصفقات'
+          ],
+          whoFor: 'الشركات التي تعاني من تذبذب الإيرادات الشهرية أو التي تعتمد مبيعاتها على جهد المؤسس وحده.',
+          outcome: 'إمكانية التنبؤ بالإيرادات بمعدل 3.4x • تسريع وتيرة إغلاق الصفقات +38%',
+          timeline: 'من 3 إلى 5 أسابيع'
+        },
+        {
+          id: 'finance',
+          badge: 'المالية',
+          acronym: 'CASH',
+          title: 'وضوح المالية والتدفقات النقدية',
+          shortDesc: 'رؤية كاملة للأرقام الحقيقية عبر تقارير الإدارة اللحظية واقتصاديات الوحدة ولوحات مدرج السيولة النقدية.',
+          points: [
+            'لوحات مدرج السيولة النقدية المستقبلية',
+            'اقتصاديات الوحدة وحماية هوامش الربح',
+            'سقوف الإنفاق وحوكمة التكاليف',
+            'تقارير إدارية مالية فورية (MIS)',
+            'انضباط تخصيص وتوزيع رأس المال'
+          ],
+          detailedOverview: 'المحاسبة التقليدية التي تنظر للخلف عند الضرائب ليست إدارة مالية. نبني لوحات مالية استشرافية توضح التدفقات النقدية لـ 13 أسبوعاً قادماً، واقتصاديات الوحدة، وسقوف الصرف لضمان حماية السيولة.',
+          deliverables: [
+            'لوحة تدفقات نقدية استشرافية لـ 13 أسبوعاً مقبلاً',
+            'نمذجة اقتصاديات الوحدة وهوامش المساهمة ونقطة التعادل',
+            'حوكمة مراكز التكلفة وسقوف الصرف المالي التقديري',
+            'حزمة تقارير معلومات الإدارة الشهرية (MIS)',
+            'إجراءات تسريع تحصيل الذمم المدينة وإدارة رأس المال العامل'
+          ],
+          whoFor: 'الشركات التي تحقق مبيعات جيدة لكنها تعاني من نقص السيولة أو عدم وضوح أرقام الأرباح الحقيقية.',
+          outcome: 'وضوح السيولة بنسبة 100% • حماية هوامش الربحية التشغيلية +15%',
+          timeline: '4 أسابيع للبناء والربط المالي'
+        },
+        {
+          id: 'governance',
+          badge: 'الحوكمة',
+          acronym: 'EXEC',
+          title: 'منظومة الحوكمة والقيادة التنفيذية',
+          shortDesc: 'مواءمة أداء الفريق عبر بطاقات قياس واضحة للأدوار، ومراجعات المساءلة، وأدلة القيادة التنفيذية.',
+          points: [
+            'وضوح تام للأدوار وبطاقات الأداء',
+            'إيقاع إدارة أسبوعي منظم',
+            'هرمية مؤشرات أداء (KPIs) موضوعية',
+            'أدلة تشغيل القيادة التنفيذية',
+            'جلسات مساءلة ومعايرة الأداء'
+          ],
+          detailedOverview: 'لا يمكن للموظفين الإنجاز عندما تكون التوقعات غامضة ومؤشرات الأداء عشوائية. نصمم حوكمة مؤسسية: بطاقات وصف أدوار محددة، ومصفوفات مساءلة حاسمة، وإيقاع إدارة أسبوعي فعال.',
+          deliverables: [
+            'بطاقات وصف وتوصيف للأدوار توضح المدخلات والمخرجات المطلوبة',
+            'إيقاع التشغيل التنفيذي (اليومي، الأسبوعي، والشهري)',
+            'شجرة مؤشرات الأداء (KPIs) المرتبطة بقيمة الشركة الكلية',
+            'جلسات دورية ثنائية لمعايرة وتقييم الأداء الموضوعي',
+            'أدلة استقطاب وتأهيل وتدريب الموظفين الجدد'
+          ],
+          whoFor: 'الشركات التي تعاني من ضبابية المسؤوليات أو تداخل الصلاحيات أو ضعف المساءلة في الفريق.',
+          outcome: 'نسبة تبني وتنفيذ الفريق 94.8% • استقلالية تشغيلية للأقسام',
+          timeline: 'من 4 إلى 6 أسابيع'
+        },
+        {
+          id: 'audit',
+          badge: 'التشخيص',
+          acronym: 'SCAN',
+          title: 'التدقيق التشخيصي الشامل (120 نقطة)',
+          shortDesc: 'فحص جنائي دقيق يحلل العمليات الحالية ومسارات البيع والسيولة والاعتمادية قبل تقديم أي استشارة.',
+          points: [
+            'تدقيق تشغيلي جنائي شامل',
+            'مصفوفة كشف جذور الاختناقات',
+            'مؤشر قياس ارتهان العمل بالمؤسس',
+            'رصد مواطن تسرب السيولة والوقت',
+            'خريطة طريق 90 يوماً لبناء النظم'
+          ],
+          detailedOverview: 'تقديم الحلول دون تشخيص دقيق هو مجازفة خطيرة. قبل الشروع في بناء أي نظام، نجري مسحاً جنائياً دقيقاً يشمل 120 نقطة عبر العمليات والمبيعات ودورة رأس المال ومصادر التعطل.',
+          deliverables: [
+            'تقرير مفصل لفحص صحة النظم من 120 نقطة',
+            'تحديد الاختناقات الجذرية مرتبة حسب أثرها المالي والتشغيلي',
+            'مؤشر قياس درجة اعتمادية الشركة على المؤسس',
+            'خطة عمل تنفيذية مفصلة ومرتبة الأولويات لـ 90 يوماً',
+            'جلسة تقديم استراتيجية شاملة مع القيادة ومجلس الإدارة'
+          ],
+          whoFor: 'أصحاب الشركات المقبلون على التوسع أو الذين يواجهون ثباتاً في النمو بعد سنوات من التأسيس.',
+          outcome: 'وضوح جذري كامل 100% • خطة عمل تنفيذية مخصصة لـ 90 يوماً',
+          timeline: 'من 7 إلى 10 أيام عمل'
+        },
+        {
+          id: 'expansion',
+          badge: 'التوسع',
+          acronym: 'GLOBAL',
+          title: 'أنظمة التوسع والنمو عابر الحدود',
+          shortDesc: 'بناء أطر تشغيلية وتجارية موحدة لدعم نمو الشركات وتوسعها عبر السعودية والإمارات والهند.',
+          points: [
+            'عمليات موحدة متعددة الاختصاصات',
+            'مزامنة مالية عابرة للحدود',
+            'إجراءات قنوات التوزيع الإقليمية',
+            'حوكمة الكيانات المتعددة',
+            'توسع موثوق في السعودية والإمارات والهند'
+          ],
+          detailedOverview: 'غالباً ما يتعثر التوسع الإقليمي بسبب تباين العمليات وغياب المزامنة التشغيلية. نبني أطراً تشغيلية متكاملة تربط سلاسل التوريد والفرق التجارية والحوكمة المالية عبر أسواق الخليج والهند.',
+          deliverables: [
+            'إطار المزامنة التشغيلية المتكاملة عبر الحدود',
+            'دليل تشغيل المراكز التجارية وقنوات التوزيع الإقليمية',
+            'لوحات تقارير متعددة العملات والكيانات القانونية',
+            'إجراءات الامتثال التشغيلي في السعودية والإمارات والهند',
+            'بنية تشغيل ذاتية لفروع الشركة الخارجية'
+          ],
+          whoFor: 'الشركات المتوسعة إقليمياً في السعودية والإمارات والهند والباحثة عن استقرار العمليات عبر الحدود.',
+          outcome: 'عمليات سلسة متعددة الأسواق • مضاعفة تقييم الشركة 2.8x',
+          timeline: 'من 6 إلى 8 أسابيع'
+        }
+      ]
+    },
     coreValues: {
-      headingPart1: "مبادئنا ",
-      headingPart2: "الجوهرية",
+      headingPart1: "خدماتنا ",
+      headingPart2: "المؤسسية",
       values: [
         {
           id: 'systems',
