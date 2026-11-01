@@ -2,12 +2,9 @@
 
 import { LanguageProvider } from '@/context/LanguageContext';
 import SmoothScroll from '@/components/common/SmoothScroll';
-import BackgroundCanvas from '@/components/canvas/BackgroundCanvas';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import LogoLoader from '@/components/common/LogoLoader';
-import { MessageSquare } from 'lucide-react';
-
 import ScalarkChatbot from '@/components/chat/ScalarkChatbot';
 
 export default function AppLayout({ children }) {
@@ -18,9 +15,6 @@ export default function AppLayout({ children }) {
         <LogoLoader />
 
         <div className="relative bg-[#061233] text-white min-h-screen font-sans selection:bg-[#0084FF] selection:text-white overflow-x-hidden flex flex-col justify-between">
-          {/* AMBIENT CANVAS */}
-          <BackgroundCanvas />
-
           {/* FLOATING CAPSULE NAVBAR */}
           <Header />
 
