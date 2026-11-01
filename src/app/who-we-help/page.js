@@ -17,7 +17,10 @@ export default function WhoWeHelpPage() {
         title={t.whoWeHelpPage?.headerTitle}
         subtitle={t.whoWeHelpPage?.headerSubtitle}
         breadcrumb={[{ label: t.nav.whoWeHelp }]}
-        image="/assets/heroes/hero-who-we-help-v2.jpg"
+        image="/assets/heroes/hero-who-we-help-blue.jpg"
+        insightsMetric="65%"
+        insightsLabel={isRtl ? 'وقت القيادة المحرر' : 'Founder Hours Reclaimed'}
+        insightsGrowth="+5.1x"
       />
 
       {/* CORE AUDIENCE GRID */}

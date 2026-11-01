@@ -18,7 +18,10 @@ export default function SolutionsPage() {
         title={t.solutionsPage?.headerTitle}
         subtitle={t.solutionsPage?.headerSubtitle}
         breadcrumb={[{ label: t.nav.whatWeSolve }]}
-        image="/assets/heroes/hero-solutions-v2.jpg"
+        image="/assets/heroes/hero-solutions-blue.jpg"
+        insightsMetric="98.4%"
+        insightsLabel={isRtl ? 'اعتماد الإجراءات التشغيلية' : 'SOP & Systems Adoption'}
+        insightsGrowth="+3.4x"
       />
 
       {/* 4 INTERACTIVE DUAL-TONE PILLARS */}

@@ -17,7 +17,10 @@ export default function HowWeWorkPage() {
         title={t.howWeWorkPage?.headerTitle}
         subtitle={t.howWeWorkPage?.headerSubtitle}
         breadcrumb={[{ label: t.nav.howWeWork }]}
-        image="/assets/heroes/hero-how-we-work-v2.jpg"
+        image="/assets/heroes/hero-how-we-work-blue.jpg"
+        insightsMetric="14 Wks"
+        insightsLabel={isRtl ? 'متوسط مدة التحول المؤسسي' : 'Full Architecture Deployment'}
+        insightsGrowth="+4.2x"
       />
 
       {/* CORE 5-PHASE INTERACTIVE FRAMEWORK */}
