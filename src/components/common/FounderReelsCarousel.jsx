@@ -361,7 +361,7 @@ export default function FounderReelsCarousel() {
       <div className="flex flex-col sm:flex-row items-end sm:items-center justify-between gap-4 mb-6 px-4">
         
         {/* HINT BADGE */}
-        <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80 text-xs font-mono text-zinc-600 shadow-sm">
+        <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#061233] border border-[#0084FF]/30 text-xs font-mono text-blue-200/80 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[#70A52E] animate-ping" />
           <span>
             {isRtl ? 'شهادات موثقة للمؤسسين • مرر للاطلاع' : 'Verified Founder Quotes • Hover to Inspect'}
@@ -373,12 +373,12 @@ export default function FounderReelsCarousel() {
           {/* AUTO-MOVE TOGGLE BUTTON */}
           <button
             onClick={() => setIsAutoMoving(!isAutoMoving)}
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/90 text-xs font-mono font-bold text-zinc-800 transition-all shadow-sm"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#061233] hover:bg-[#081B4E] border border-[#0084FF]/30 text-xs font-mono font-bold text-white transition-all shadow-sm cursor-pointer"
             title={isAutoMoving ? (isRtl ? 'إيقاف الحركة التلقائية' : 'Pause auto-moving') : (isRtl ? 'تشغيل الحركة التلقائية' : 'Resume auto-moving')}
           >
             {isAutoMoving ? (
               <>
-                <Pause className="w-3.5 h-3.5 text-zinc-600" />
+                <Pause className="w-3.5 h-3.5 text-blue-300" />
                 <span>{isRtl ? 'إيقاف مؤقت' : 'Pause Motion'}</span>
               </>
             ) : (
@@ -393,14 +393,14 @@ export default function FounderReelsCarousel() {
           <div className="flex items-center gap-1">
             <button
               onClick={() => handleManualScroll('left')}
-              className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 hover:text-black transition-all shadow-sm"
+              className="p-2 rounded-full bg-[#061233] hover:bg-[#081B4E] border border-[#0084FF]/30 text-blue-200 hover:text-white transition-all shadow-sm cursor-pointer"
               aria-label="Previous quote"
             >
               <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
             </button>
             <button
               onClick={() => handleManualScroll('right')}
-              className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 hover:text-black transition-all shadow-sm"
+              className="p-2 rounded-full bg-[#061233] hover:bg-[#081B4E] border border-[#0084FF]/30 text-blue-200 hover:text-white transition-all shadow-sm cursor-pointer"
               aria-label="Next quote"
             >
               <ChevronRight className="w-4 h-4 rtl:rotate-180" />
@@ -417,8 +417,8 @@ export default function FounderReelsCarousel() {
         className="w-full overflow-hidden no-scrollbar py-8 px-4 relative"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none rtl:rotate-180" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none rtl:rotate-180" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#040E2A] via-[#040E2A]/80 to-transparent z-20 pointer-events-none rtl:rotate-180" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#040E2A] via-[#040E2A]/80 to-transparent z-20 pointer-events-none rtl:rotate-180" />
 
         <div className={`flex items-center gap-4 sm:gap-6 w-max ${
           isAutoMoving && !isUserHovering && !selectedReel ? 'animate-marquee-slow' : ''

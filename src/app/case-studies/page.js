@@ -11,7 +11,7 @@ export default function CaseStudiesPage() {
   const cp = t.caseStudiesPage;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#040E2A] text-white">
       <PageHeader
         badge={cp.headerBadge}
         title={cp.headerTitle}
