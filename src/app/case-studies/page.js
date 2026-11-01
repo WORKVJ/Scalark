@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function CaseStudiesPage() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
   const cp = t.caseStudiesPage;
 
   return (
@@ -17,10 +17,7 @@ export default function CaseStudiesPage() {
         title={cp.headerTitle}
         subtitle={cp.headerSubtitle}
         breadcrumb={[{ label: t.nav.caseStudies }]}
-        image="/assets/heroes/hero-case-studies-blue.jpg"
-        insightsMetric="3.4x"
-        insightsLabel={isRtl ? 'تسارع الإيرادات الموثق' : 'Verified Revenue Acceleration'}
-        insightsGrowth="+340%"
+        image="/assets/heroes/hero-case-studies-v2.jpg"
       />
 
       {/* CORE CASE STUDIES & FOUNDER REELS */}

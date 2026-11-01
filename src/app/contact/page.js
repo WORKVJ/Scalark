@@ -6,7 +6,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { ShieldCheck, Clock, Lock } from 'lucide-react';
 
 export default function ContactPage() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
   const cp = t.contactPage;
 
   return (
@@ -16,10 +16,7 @@ export default function ContactPage() {
         title={cp.headerTitle}
         subtitle={cp.headerSubtitle}
         breadcrumb={[{ label: t.nav.bookCall || 'Contact' }]}
-        image="/assets/heroes/hero-contact-blue.jpg"
-        insightsMetric="24 Hrs"
-        insightsLabel={isRtl ? 'زمن الاستجابة المباشر' : 'Executive Response SLA'}
-        insightsGrowth="100%"
+        image="/assets/heroes/hero-contact-v2.jpg"
       />
 
       {/* CORE CONTACT & INTAKE FORM */}

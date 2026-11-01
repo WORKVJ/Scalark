@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function AboutPage() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
   const ap = t.aboutPage;
 
   return (
@@ -17,10 +17,7 @@ export default function AboutPage() {
         title={ap.headerTitle}
         subtitle={ap.headerSubtitle}
         breadcrumb={[{ label: t.nav.about }]}
-        image="/assets/heroes/hero-about-blue.jpg"
-        insightsMetric="100%"
-        insightsLabel={isRtl ? 'التزام المعمارية المؤسسية' : 'Systems Integrity Doctrine'}
-        insightsGrowth="+60+"
+        image="/assets/heroes/hero-about-v2.jpg"
       />
 
       {/* ARCHITECTS SQUAD CAROUSEL */}
