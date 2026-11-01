@@ -173,34 +173,23 @@ export const TRANSLATIONS = {
       }
     },
     coreValues: {
-      eyebrow: "OPERATING DOCTRINE",
       headingPart1: "OUR ",
-      headingPart2: "CORE PRINCIPLES",
-      subtitle: "Three non-negotiable standards that guide how we architect, govern, and scale enterprises.",
+      headingPart2: "PRINCIPLES",
       values: [
         {
           id: 'systems',
-          num: '01',
-          tag: 'Governance',
-          title: 'Systems Over Heroes',
-          description: 'Every process, operational SOP, and management dashboard is structured to replace founder firefighting with sustainable institutional governance.',
-          points: ['Documented SOPs & Workflows', 'Delegation & Authority Matrices', 'Zero Single-Person Dependencies']
+          title: 'Systems\nOver\nHeroes',
+          description: 'Every process, operational SOP, and management dashboard is structured to replace founder firefighting with sustainable institutional governance.'
         },
         {
           id: 'integrity',
-          num: '02',
-          tag: 'Truth First',
-          title: 'Diagnostic Integrity',
-          description: 'We maintain uncompromising diagnostic standards — uncovering true cash-flow, sales, and operational bottlenecks before prescribing solutions.',
-          points: ['Evidence-Based Operational Audits', 'Unfiltered Cash-Flow Visibility', 'Treat Root Causes, Not Symptoms']
+          title: 'Diagnostic\nIntegrity',
+          description: 'We maintain uncompromising diagnostic standards — uncovering true cash-flow, sales, and operational bottlenecks before prescribing solutions.'
         },
         {
           id: 'growth',
-          num: '03',
-          tag: 'Multi-Market',
-          title: 'Border-Free Growth',
-          description: 'We build solid operational systems connecting enterprise growth across regional commercial hubs in Saudi Arabia, UAE, and India.',
-          points: ['Cross-Border Operational Sync', 'KSA, UAE & India Commerce Ready', 'Scalable Multi-Entity Dashboards']
+          title: 'Border-Free\nGrowth',
+          description: 'We build solid operational systems connecting enterprise growth across regional commercial hubs in Saudi Arabia, UAE, and India.'
         }
       ]
     },
@@ -813,34 +802,23 @@ export const TRANSLATIONS = {
       }
     },
     coreValues: {
-      eyebrow: "عقيدة العمل المؤسسي",
       headingPart1: "مبادئنا ",
       headingPart2: "الجوهرية",
-      subtitle: "ثلاثة معايير راسخة تحرر المؤسسين من الاختناقات اليومية وتستبدلها بحوكمة مؤسسية مستدامة.",
       values: [
         {
           id: 'systems',
-          num: '٠١',
-          tag: 'الحوكمة',
-          title: 'الأنظمة قبل الأبطال',
-          description: 'كل إجراء تشغيلي ولوحة قيادة مصممة لاستبدال الفوضى التشغيلية والارتهان بالمؤسس بحوكمة مؤسسية مستدامة.',
-          points: ['إجراءات عمل موثقة ومعتمدة', 'مصفوفات الصلاحيات والتفويض', 'إلغاء الاعتماد الحصري على الأفراد']
+          title: 'الأنظمة\nقبل\nالأبطال',
+          description: 'كل إجراء تشغيلي ولوحة قيادة مصممة لاستبدال الفوضى التشغيلية والارتهان بالمؤسس بحوكمة مؤسسية مستدامة.'
         },
         {
           id: 'integrity',
-          num: '٠٢',
-          tag: 'الحياد والنزاهة',
-          title: 'النزاهة في التشخيص',
-          description: 'نلتزم بأعلى معايير التشخيص الحيادي لكشف الاختناقات المالية والتشغيلية الحقيقية قبل تقديم الحلول.',
-          points: ['تدقيق تشغيلي مبني على الأدلة', 'رؤية مالية واضحة للتدفقات', 'معالجة الجذور لا مجرد الأعراض']
+          title: 'النزاهة\nفي\nالتشخيص',
+          description: 'نلتزم بأعلى معايير التشخيص الحيادي لكشف الاختناقات المالية والتشغيلية الحقيقية قبل تقديم الحلول.'
         },
         {
           id: 'growth',
-          num: '٠٣',
-          tag: 'توسع إقليمي',
-          title: 'نمو عابر للحدود',
-          description: 'نبني أنظمة تشغيلية متكاملة تدعم توسع الشركات عبر المراكز التجارية الإقليمية في السعودية والإمارات والهند.',
-          points: ['مزامنة تشغيلية عابرة للحدود', 'جاهزية تجارية بالسعودية والإمارات والهند', 'لوحات قيادة موحدة للكيانات المتعددة']
+          title: 'نمو\nعابر\nللحدود',
+          description: 'نبني أنظمة تشغيلية متكاملة تدعم توسع الشركات عبر المراكز التجارية الإقليمية في السعودية والإمارات والهند.'
         }
       ]
     },
