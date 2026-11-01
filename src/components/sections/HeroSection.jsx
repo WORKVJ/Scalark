@@ -14,8 +14,7 @@ import {
   TrendingUp,
   DollarSign,
   Building2,
-  Mountain,
-  Sparkles
+  Mountain
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -87,22 +86,29 @@ export default function HeroSection({ t: propT }) {
     '200+ Enterprise ($25M+)'
   ];
 
-  const currentBgImage =
+  const baseBgImage =
     bgMode === 'skyline'
       ? '/hero-skyline.jpg'
       : '/hero-alpine.jpg';
 
+  const cutoutImage =
+    bgMode === 'skyline'
+      ? '/hero-skyline-cutout.png'
+      : '/hero-alpine-cutout.png';
+
   return (
     <section
       id="hero"
-      className="relative min-h-[95vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040E2A] text-white select-none"
+      className="relative min-h-[96vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040E2A] text-white select-none"
     >
-      {/* 1. CREATIVE CINEMATIC HERO BACKGROUND (CLEAN BLUE SKY IN UPPER 55% + NO NOISY ROCKS) */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none transition-opacity duration-700">
+      {/* ========================================================
+          LAYER 0: BASE PHOTO BACKGROUND (BEHIND THE NAME)
+          ======================================================== */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
-          key={currentBgImage}
-          src={currentBgImage}
-          alt="SCALARK Enterprise Scale"
+          key={`base-${baseBgImage}`}
+          src={baseBgImage}
+          alt="SCALARK Background Sky"
           fill
           priority
           sizes="100vw"
@@ -111,24 +117,44 @@ export default function HeroSection({ t: propT }) {
 
         {/* TOP ATMOSPHERIC BLUE SKY ENHANCEMENT */}
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#0A266E]/40 via-transparent to-transparent pointer-events-none" />
-
-        {/* BOTTOM GRADIENT: SMOOTH BLEND INTO DEEP TWILIGHT NAVY */}
-        <div className="absolute inset-x-0 bottom-0 h-[55%] sm:h-[50%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/75 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-[#040E2A] pointer-events-none" />
       </div>
 
-      {/* 2. GIGANTIC BRAND WATERMARK IN SKY (EXACT REPLICA OF "TRIPLIO" IN REFERENCE) */}
-      <div className="absolute top-[13%] sm:top-[14%] lg:top-[15%] left-0 right-0 w-full flex justify-center pointer-events-none select-none z-10 px-4">
+      {/* ========================================================
+          LAYER 1: GIGANTIC BRAND WATERMARK (BEHIND BUILDINGS)
+          Placed at z-10 so the buildings overlap in front of it!
+          ======================================================== */}
+      <div className="absolute top-[12%] sm:top-[14%] lg:top-[16%] left-0 right-0 w-full flex justify-center pointer-events-none select-none z-10 px-4">
         <h1
-          className="text-[17vw] sm:text-[18vw] lg:text-[19vw] font-black tracking-[-0.035em] text-white uppercase leading-none drop-shadow-[0_8px_35px_rgba(0,0,0,0.22)] opacity-95 transition-transform"
+          className="text-[17vw] sm:text-[18vw] lg:text-[19vw] font-black tracking-[-0.035em] text-white uppercase leading-none drop-shadow-[0_12px_45px_rgba(0,0,0,0.35)] opacity-95 transition-transform"
           style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}
         >
           {triplio.watermark || 'SCALARK'}
         </h1>
       </div>
 
+      {/* ========================================================
+          LAYER 2: FOREGROUND BUILDING CUTOUT (IN FRONT OF NAME)
+          Placed at z-20: Sky is transparent, buildings are opaque!
+          This creates the authentic 3D overlapping depth effect.
+          ======================================================== */}
+      <div className="absolute inset-0 z-20 pointer-events-none select-none">
+        <Image
+          key={`cutout-${cutoutImage}`}
+          src={cutoutImage}
+          alt="SCALARK Foreground Architecture"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top sm:object-center"
+        />
+
+        {/* BOTTOM GRADIENT ON TOP OF CUTOUT: BLENDS INTO DEEP TWILIGHT NAVY */}
+        <div className="absolute inset-x-0 bottom-0 h-[52%] sm:h-[48%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-[#040E2A] pointer-events-none" />
+      </div>
+
       {/* TOP RIGHT: CREATIVE VISUAL SWITCHER (SKYLINE VS ALPINE) */}
-      <div className="absolute top-28 sm:top-24 right-4 sm:right-8 z-30 flex items-center gap-1.5 p-1 rounded-full bg-[#040E2A]/70 backdrop-blur-xl border border-white/15 text-xs shadow-xl">
+      <div className="absolute top-28 sm:top-24 right-4 sm:right-8 z-40 flex items-center gap-1.5 p-1 rounded-full bg-[#040E2A]/75 backdrop-blur-xl border border-white/15 text-xs shadow-xl">
         <button
           type="button"
           onClick={() => setBgMode('skyline')}
@@ -158,15 +184,18 @@ export default function HeroSection({ t: propT }) {
       </div>
 
       {/* SPACER FOR TOP FLOATING NAVBAR */}
-      <div className="h-28 sm:h-36 relative z-10" />
+      <div className="h-28 sm:h-36 relative z-30" />
 
-      {/* 3. FOREGROUND CONTENT: TWO-COLUMN HERO (HEADLINE ON LEFT + WHITE CONSOLE ON RIGHT) */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pt-36 sm:pt-44 lg:pt-52 pb-8">
+      {/* ========================================================
+          LAYER 3: FOREGROUND UI CONTENT (HEADLINE + WHITE CONSOLE)
+          Placed at z-30 in front of everything with high contrast!
+          ======================================================== */}
+      <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pt-36 sm:pt-44 lg:pt-52 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
           
           {/* LEFT COLUMN: HERO HEADLINE (MATCHING REFERENCE "Uncover the World's Natural Wonders.") */}
           <div className="lg:col-span-5 text-start space-y-2">
-            <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-white tracking-tight leading-[1.08] font-sans drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)]">
+            <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-white tracking-tight leading-[1.08] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
               <span className="block">{triplio.headlineLine1 || "Architecting Systems for"}</span>
               <span className="block text-sky-100">{triplio.headlineLine2 || "Sustainable Enterprise Scale."}</span>
             </h2>
@@ -174,7 +203,7 @@ export default function HeroSection({ t: propT }) {
 
           {/* RIGHT COLUMN: FLOATING WHITE INTERACTIVE CONSOLE (MATCHING REFERENCE BOOKING BAR) */}
           <div className="lg:col-span-7 flex justify-end" ref={consoleRef}>
-            <div className="w-full bg-white text-zinc-900 rounded-[28px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_25px_60px_rgba(0,0,0,0.45)] border border-white/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 relative">
+            <div className="w-full bg-white text-zinc-900 rounded-[28px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 relative">
               
               {/* FIELD 1: CORE FOCUS / SYSTEM (MATCHING "Location" IN REFERENCE) */}
               <div className="relative flex-1">
