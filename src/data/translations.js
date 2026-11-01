@@ -2,9 +2,10 @@ export const TRANSLATIONS = {
   EN: {
     nav: {
       home: "Home",
-      whoWeHelp: "Who We Help",
-      whatWeSolve: "What We Solve",
+      solutions: "Solutions",
+      whatWeSolve: "Solutions",
       howWeWork: "How We Work",
+      whoWeHelp: "Who We Help",
       caseStudies: "Case Studies",
       about: "About",
       bookCall: "Book a Call",
@@ -631,9 +632,10 @@ export const TRANSLATIONS = {
   AR: {
     nav: {
       home: "الرئيسية",
-      whoWeHelp: "من نساعد",
-      whatWeSolve: "ما نحله",
+      solutions: "الحلول",
+      whatWeSolve: "الحلول",
       howWeWork: "طريقة عملنا",
+      whoWeHelp: "من نساعد",
       caseStudies: "دراسات الحالة",
       about: "عن سكالارك",
       bookCall: "احجز مكالمة",

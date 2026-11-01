@@ -88,9 +88,9 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
 
   const navLinks = [
     { href: '/', label: t.nav.home },
-    { href: '/who-we-help', label: t.nav.whoWeHelp },
-    { href: '/solutions', label: t.nav.whatWeSolve },
+    { href: '/solutions', label: t.nav.solutions || t.nav.whatWeSolve },
     { href: '/how-we-work', label: t.nav.howWeWork },
+    { href: '/who-we-help', label: t.nav.whoWeHelp },
     { href: '/case-studies', label: t.nav.caseStudies },
     { href: '/about', label: t.nav.about }
   ];
@@ -138,7 +138,7 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
           </Link>
 
           {/* CENTER FLOATING PILL NAVBAR (DESKTOP) */}
-          <nav className="hidden md:flex items-center space-x-1 rtl:space-x-reverse bg-[#061438]/85 backdrop-blur-xl border border-[#0084FF]/30 rounded-full px-3 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+          <nav className="hidden md:flex items-center gap-1 bg-[#040E2A]/75 backdrop-blur-2xl border border-white/10 rounded-full p-1 shadow-[0_4px_24px_rgba(0,0,0,0.35)]">
             {navLinks.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -150,10 +150,10 @@ export default function Header({ currentLang: propLang, setLang: propSetLang }) 
                       handleSamePageScroll();
                     }
                   }}
-                  className={`px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all rounded-full ${
+                  className={`px-3.5 sm:px-4 py-1.5 text-[13px] font-medium tracking-normal transition-all duration-200 rounded-full select-none whitespace-nowrap ${
                     isActive
-                      ? 'bg-[#0084FF] text-white font-semibold shadow-sm'
-                      : 'text-zinc-300 hover:text-white hover:bg-white/[0.06]'
+                      ? 'bg-[#0084FF] text-white font-semibold shadow-[0_2px_12px_rgba(0,132,255,0.45)]'
+                      : 'text-slate-300 hover:text-white hover:bg-white/[0.08]'
                   }`}
                 >
                   {item.label}
