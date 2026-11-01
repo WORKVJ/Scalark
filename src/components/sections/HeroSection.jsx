@@ -137,7 +137,7 @@ export default function HeroSection({ t: propT }) {
   return (
     <section
       id="hero"
-      className="relative min-h-[96vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040E2A] text-white select-none"
+      className="relative min-h-[96vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#02071B] text-white select-none"
     >
       {/* ========================================================
           LAYER 0: BASE PHOTO BACKGROUND (BEHIND THE NAME)
@@ -186,13 +186,20 @@ export default function HeroSection({ t: propT }) {
           className="object-cover object-top sm:object-center"
         />
 
-        {/* BOTTOM GRADIENT: SEAMLESS DEEP NAVY BASE FOR TEXT READABILITY */}
-        <div className="absolute inset-x-0 bottom-0 h-[48%] sm:h-[44%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/85 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-[#040E2A] pointer-events-none" />
+        {/* ========================================================
+            BOTTOM-TO-TOP RICH DARK SHADE GRADIENT (REQUESTED)
+            Gradually transitions from solid deep midnight navy at bottom
+            upwards into the mid-skyline, giving total legibility & mood.
+            ======================================================== */}
+        <div className="absolute inset-x-0 bottom-0 h-[65%] sm:h-[60%] bg-gradient-to-t from-[#02071B] from-20% via-[#030D29]/92 via-50% to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-[#02071B] pointer-events-none" />
+
+        {/* RADIAL CORNER DARK SHADE BEHIND LEFT HEADLINE */}
+        <div className="absolute bottom-0 left-0 w-[60%] h-[55%] bg-gradient-to-tr from-[#02071B]/95 via-[#030D29]/70 to-transparent pointer-events-none" />
       </div>
 
       {/* TOP RIGHT: VISUAL SWITCHER (SKYLINE VS ALPINE) */}
-      <div className="absolute top-28 sm:top-24 right-4 sm:right-8 z-40 flex items-center gap-1.5 p-1 rounded-full bg-[#040E2A]/75 backdrop-blur-xl border border-white/15 text-xs shadow-xl">
+      <div className="absolute top-28 sm:top-24 right-4 sm:right-8 z-40 flex items-center gap-1.5 p-1 rounded-full bg-[#02071B]/80 backdrop-blur-xl border border-white/15 text-xs shadow-xl">
         <button
           type="button"
           onClick={() => setBgMode('skyline')}
@@ -233,7 +240,7 @@ export default function HeroSection({ t: propT }) {
           
           {/* LEFT COLUMN: COMPACT HEADLINE, PARAGRAPH & GREEN CTA */}
           <div className="lg:col-span-5 text-start space-y-2.5">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] max-w-sm">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] max-w-sm">
               <span className="block">{triplio.headlineLine1 || "Architecting Systems for"}</span>
               <span className="block text-sky-100">{triplio.headlineLine2 || "Sustainable Enterprise Scale."}</span>
             </h2>
@@ -304,8 +311,8 @@ export default function HeroSection({ t: propT }) {
                     }}
                     className={`transition-all duration-500 ease-out cursor-pointer h-[165px] sm:h-[185px] select-none ${
                       isActive
-                        ? 'flex-1 min-w-[260px] sm:min-w-[320px] md:min-w-[360px] rounded-2xl sm:rounded-3xl bg-white text-zinc-900 shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-white p-3.5 sm:p-4.5 flex flex-col justify-between'
-                        : 'w-11 sm:w-13 md:w-14 shrink-0 rounded-xl sm:rounded-2xl bg-[#141C33]/90 hover:bg-[#1D2847] border border-white/10 hover:border-[#70A52E]/60 flex items-center justify-center p-1.5'
+                        ? 'flex-1 min-w-[260px] sm:min-w-[320px] md:min-w-[360px] rounded-2xl sm:rounded-3xl bg-white text-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.65)] border border-white p-3.5 sm:p-4.5 flex flex-col justify-between'
+                        : 'w-11 sm:w-13 md:w-14 shrink-0 rounded-xl sm:rounded-2xl bg-[#081026]/95 hover:bg-[#131E3D] border border-white/10 hover:border-[#70A52E]/60 flex items-center justify-center p-1.5'
                     }`}
                   >
                     {isActive ? (
