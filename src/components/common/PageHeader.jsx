@@ -21,8 +21,8 @@ export default function PageHeader({ badge, title, subtitle, breadcrumb = [], im
             className="object-cover object-[center_right] sm:object-right"
           />
           {/* DEEP BLUE GRADIENT OVERLAY SO TEXT IS BOLD AND LEGIBLE WHILE PORTRAIT GLOWS ON RIGHT */}
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r rtl:md:bg-gradient-to-l from-[#061233] via-[#061233]/92 md:via-[#061233]/70 to-[#061233]/25" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#061233]/75 via-transparent to-[#061233]" />
+          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r rtl:md:bg-gradient-to-l from-[#061233] via-[#061233]/90 md:via-[#061233]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061233]/60 via-transparent to-[#061233]/90" />
           {/* AMBIENT BRAND BLUE GLOW ACCENT */}
           <div className="absolute top-1/4 left-1/4 rtl:left-auto rtl:right-1/4 w-[450px] h-[300px] bg-[#0084FF]/25 rounded-full blur-[100px] pointer-events-none" />
         </div>

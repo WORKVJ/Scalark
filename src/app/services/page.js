@@ -39,7 +39,7 @@ export default function ServicesDirectoryPage() {
           'Codified operating procedures, governed revenue engines, and real-time financial visibility engineered for autonomous enterprise scale.'
         }
         breadcrumb={[{ label: isRtl ? 'الخدمات' : 'Services' }]}
-        image="/assets/heroes/hero-solutions-v2.jpg"
+        image="/assets/heroes/hero-services-v2.jpg"
       />
 
       <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto w-full text-start">
