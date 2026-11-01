@@ -205,7 +205,7 @@ export default function CoreValuesSection() {
             </div>
 
             <p className="text-[11px] text-zinc-400 font-medium">
-              💡 {sData.clickHint || 'Click any card for full systems blueprint'}
+              {sData.clickHint || 'Click any card for full systems blueprint'}
             </p>
           </div>
 
