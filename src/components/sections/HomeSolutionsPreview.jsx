@@ -112,6 +112,7 @@ export default function HomeSolutionsPreview() {
             return (
               <div
                 key={p.id}
+                onMouseEnter={() => handleSelect(idx)}
                 onClick={() => handleSelect(idx)}
                 style={{
                   flex: isActive ? '3.4 1 0%' : '1 1 0%',
@@ -206,7 +207,7 @@ export default function HomeSolutionsPreview() {
                 {/* Pillar Footer CTA */}
                 <div className="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-zinc-300">
                   <span className="font-mono text-[11px] text-zinc-400">
-                    {isActive ? (isRtl ? 'بنية سكالارك' : 'SCALARK ARCHITECTURE') : (isRtl ? 'انقر للتوسيع' : 'CLICK TO EXPAND')}
+                    {isActive ? (isRtl ? 'بنية سكالارك' : 'SCALARK ARCHITECTURE') : (isRtl ? 'مرر للتوسيع' : 'HOVER TO EXPAND')}
                   </span>
 
                   <Link

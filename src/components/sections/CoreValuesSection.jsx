@@ -73,6 +73,7 @@ export default function CoreValuesSection() {
             return (
               <div
                 key={val.id}
+                onMouseEnter={() => handleSelectCard(idx)}
                 onClick={() => handleSelectCard(idx)}
                 style={{
                   flex: isActive ? '2.25 1 0%' : '1 1 0%',
