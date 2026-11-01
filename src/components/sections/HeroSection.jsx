@@ -137,7 +137,7 @@ export default function HeroSection({ t: propT }) {
   return (
     <section
       id="hero"
-      className="relative min-h-[96vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#02071B] text-white select-none"
+      className="relative min-h-[96vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#010514] text-white select-none"
     >
       {/* ========================================================
           LAYER 0: BASE PHOTO BACKGROUND (BEHIND THE NAME)
@@ -155,6 +155,9 @@ export default function HeroSection({ t: propT }) {
 
         {/* TOP ATMOSPHERIC BLUE SKY ENHANCEMENT */}
         <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#0A266E]/30 via-transparent to-transparent pointer-events-none" />
+
+        {/* BASE DARK UNDERLAY */}
+        <div className="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-[#010514] via-[#02071B]/95 to-transparent pointer-events-none" />
       </div>
 
       {/* ========================================================
@@ -187,20 +190,21 @@ export default function HeroSection({ t: propT }) {
         />
 
         {/* ========================================================
-            PROPER SEAMLESS EASED BOTTOM-TO-TOP DARK SHADE
-            No diagonal lines, no splotches, 100% smooth gradient
+            ENHANCED DEEP BOTTOM-TO-TOP DARK SHADE GRADIENT (MORE DARKNESS)
+            Rich midnight foundation spanning 56% height, creating
+            dramatic contrast for the active white card and headline.
             ======================================================== */}
         <div
-          className="absolute inset-x-0 bottom-0 h-[48%] sm:h-[46%] pointer-events-none select-none"
+          className="absolute inset-x-0 bottom-0 h-[58%] sm:h-[55%] pointer-events-none select-none"
           style={{
             background: `linear-gradient(
               to top,
-              #02071B 0%,
-              rgba(2, 7, 27, 0.98) 14%,
-              rgba(2, 7, 27, 0.82) 28%,
-              rgba(2, 7, 27, 0.52) 48%,
-              rgba(2, 7, 27, 0.22) 68%,
-              rgba(2, 7, 27, 0.05) 86%,
+              #010514 0%,
+              #02071B 22%,
+              rgba(2, 7, 27, 0.97) 36%,
+              rgba(2, 7, 27, 0.86) 52%,
+              rgba(2, 7, 27, 0.55) 72%,
+              rgba(2, 7, 27, 0.18) 88%,
               transparent 100%
             )`
           }}
@@ -320,7 +324,7 @@ export default function HeroSection({ t: propT }) {
                     }}
                     className={`transition-all duration-500 ease-out cursor-pointer h-[165px] sm:h-[185px] select-none ${
                       isActive
-                        ? 'flex-1 min-w-[260px] sm:min-w-[320px] md:min-w-[360px] rounded-2xl sm:rounded-3xl bg-white text-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.65)] border border-white p-3.5 sm:p-4.5 flex flex-col justify-between'
+                        ? 'flex-1 min-w-[260px] sm:min-w-[320px] md:min-w-[360px] rounded-2xl sm:rounded-3xl bg-white text-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white p-3.5 sm:p-4.5 flex flex-col justify-between'
                         : 'w-11 sm:w-13 md:w-14 shrink-0 rounded-xl sm:rounded-2xl bg-[#081026]/95 hover:bg-[#131E3D] border border-white/10 hover:border-[#70A52E]/60 flex items-center justify-center p-1.5'
                     }`}
                   >
