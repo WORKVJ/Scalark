@@ -187,15 +187,24 @@ export default function HeroSection({ t: propT }) {
         />
 
         {/* ========================================================
-            BOTTOM-TO-TOP RICH DARK SHADE GRADIENT (REQUESTED)
-            Gradually transitions from solid deep midnight navy at bottom
-            upwards into the mid-skyline, giving total legibility & mood.
+            PROPER SEAMLESS EASED BOTTOM-TO-TOP DARK SHADE
+            No diagonal lines, no splotches, 100% smooth gradient
             ======================================================== */}
-        <div className="absolute inset-x-0 bottom-0 h-[65%] sm:h-[60%] bg-gradient-to-t from-[#02071B] from-20% via-[#030D29]/92 via-50% to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-[#02071B] pointer-events-none" />
-
-        {/* RADIAL CORNER DARK SHADE BEHIND LEFT HEADLINE */}
-        <div className="absolute bottom-0 left-0 w-[60%] h-[55%] bg-gradient-to-tr from-[#02071B]/95 via-[#030D29]/70 to-transparent pointer-events-none" />
+        <div
+          className="absolute inset-x-0 bottom-0 h-[48%] sm:h-[46%] pointer-events-none select-none"
+          style={{
+            background: `linear-gradient(
+              to top,
+              #02071B 0%,
+              rgba(2, 7, 27, 0.98) 14%,
+              rgba(2, 7, 27, 0.82) 28%,
+              rgba(2, 7, 27, 0.52) 48%,
+              rgba(2, 7, 27, 0.22) 68%,
+              rgba(2, 7, 27, 0.05) 86%,
+              transparent 100%
+            )`
+          }}
+        />
       </div>
 
       {/* TOP RIGHT: VISUAL SWITCHER (SKYLINE VS ALPINE) */}
@@ -240,12 +249,12 @@ export default function HeroSection({ t: propT }) {
           
           {/* LEFT COLUMN: COMPACT HEADLINE, PARAGRAPH & GREEN CTA */}
           <div className="lg:col-span-5 text-start space-y-2.5">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] max-w-sm">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18] font-sans drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] max-w-sm">
               <span className="block">{triplio.headlineLine1 || "Architecting Systems for"}</span>
               <span className="block text-sky-100">{triplio.headlineLine2 || "Sustainable Enterprise Scale."}</span>
             </h2>
 
-            <p className="text-[11px] sm:text-xs text-zinc-300 leading-relaxed font-normal max-w-sm line-clamp-2">
+            <p className="text-[11px] sm:text-xs text-zinc-300 leading-relaxed font-normal max-w-sm line-clamp-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {triplio.desc ||
                 'SCALARK architects institutional operations, sales engines, and financial governance to replace founder bottlenecks with sustainable, autonomous enterprise scale across Saudi Arabia, UAE, and India.'}
             </p>
