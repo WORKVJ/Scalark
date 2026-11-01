@@ -31,30 +31,20 @@ const SERVICE_ICONS = {
 export default function CoreValuesSection() {
   const { t, isRtl } = useLanguage();
   const sData = t.servicesSection || {};
-  const services = sData.services || [];
+  const baseServices = sData.services || [];
+  // Duplicate for seamless infinite gliding stream
+  const services = [...baseServices, ...baseServices];
 
   const [selectedService, setSelectedService] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const scrollRef = useRef(null);
-  const autoScrollTimerRef = useRef(null);
+  const animRef = useRef(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollStartRef = useRef(0);
 
-  // Check scroll bounds
-  const checkScrollBounds = useCallback(() => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    if (isRtl) {
-      setCanScrollRight(Math.abs(scrollLeft) > 10);
-      setCanScrollLeft(Math.abs(scrollLeft) < scrollWidth - clientWidth - 10);
-    } else {
-      setCanScrollLeft(scrollLeft > 10);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    }
-  }, [isRtl]);
-
-  // Smooth scroll handler
+  // Smooth step scroll via buttons
   const scroll = (direction) => {
     if (!scrollRef.current) return;
     const scrollAmount = 360;
@@ -71,39 +61,66 @@ export default function CoreValuesSection() {
       left: target,
       behavior: 'smooth'
     });
-
-    setTimeout(checkScrollBounds, 350);
   };
 
-  // Continuous / timed auto-scroll
+  // Continuous fluid auto-gliding animation loop
   useEffect(() => {
-    if (isPaused || selectedService || services.length === 0) return;
+    const el = scrollRef.current;
+    if (!el || baseServices.length === 0) return;
 
-    autoScrollTimerRef.current = setInterval(() => {
-      if (!scrollRef.current) return;
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    let lastTime = performance.now();
+    // Brisk, smooth speed: 70 pixels/second (active & fluid, not sluggish!)
+    const SPEED_PPS = 70;
 
-      if (isRtl) {
-        if (Math.abs(scrollLeft) >= scrollWidth - clientWidth - 20) {
-          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+    const loop = (currentTime) => {
+      const dt = Math.min(0.05, (currentTime - lastTime) / 1000);
+      lastTime = currentTime;
+
+      if (!isPaused && !selectedService && !isDraggingRef.current && el) {
+        const step = SPEED_PPS * dt;
+
+        if (isRtl) {
+          el.scrollLeft -= step;
+          const half = el.scrollWidth / 2;
+          if (Math.abs(el.scrollLeft) >= half) {
+            el.scrollLeft = 0;
+          }
         } else {
-          scrollRef.current.scrollBy({ left: -340, behavior: 'smooth' });
-        }
-      } else {
-        if (scrollLeft >= scrollWidth - clientWidth - 20) {
-          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          scrollRef.current.scrollBy({ left: 340, behavior: 'smooth' });
+          el.scrollLeft += step;
+          const half = el.scrollWidth / 2;
+          if (el.scrollLeft >= half) {
+            el.scrollLeft = 0;
+          }
         }
       }
 
-      setTimeout(checkScrollBounds, 350);
-    }, 3800);
-
-    return () => {
-      if (autoScrollTimerRef.current) clearInterval(autoScrollTimerRef.current);
+      animRef.current = requestAnimationFrame(loop);
     };
-  }, [isPaused, selectedService, isRtl, services.length, checkScrollBounds]);
+
+    animRef.current = requestAnimationFrame(loop);
+    return () => {
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+    };
+  }, [isPaused, selectedService, isRtl, baseServices.length]);
+
+  // Touch and drag support
+  const onMouseDown = (e) => {
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    scrollStartRef.current = scrollRef.current?.scrollLeft || 0;
+  };
+
+  const onMouseMove = (e) => {
+    if (!isDraggingRef.current || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollRef.current.offsetLeft || 0);
+    const walk = (x - startXRef.current) * 1.5;
+    scrollRef.current.scrollLeft = scrollStartRef.current - walk;
+  };
+
+  const onMouseUp = () => {
+    isDraggingRef.current = false;
+  };
 
   // Close modal on Escape
   useEffect(() => {
@@ -123,8 +140,10 @@ export default function CoreValuesSection() {
         {/* 1. SECTION TITLE WITH HANDWRITTEN ANNOTATION (MATCHING REFERENCE IMAGE) */}
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10 sm:mb-14">
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-sans font-black tracking-tight uppercase flex items-center">
-            <span className="text-[#1F1F21]">{sData.headingPart1 || 'OUR '}</span>
-            <span className="text-[#70A52E]">{sData.headingPart2 || 'SERVICES'}</span>
+            <span className="text-[#1F1F21] mr-3 sm:mr-4 rtl:mr-0 rtl:ml-3 rtl:ml-4">
+              {sData.headingPart1?.trim() || 'OUR'}
+            </span>
+            <span className="text-[#70A52E]">{sData.headingPart2?.trim() || 'SERVICES'}</span>
           </h2>
 
           {/* Handwritten Annotation + Curved Arrow */}
@@ -156,7 +175,7 @@ export default function CoreValuesSection() {
           </div>
         </div>
 
-        {/* 2. TWO-COLUMN LAYOUT (LEFT BRIEF + RIGHT AUTO-MOVING CAROUSEL) */}
+        {/* 2. TWO-COLUMN LAYOUT (LEFT BRIEF + RIGHT CONTINUOUS AUTO-MOVING CAROUSEL) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* LEFT COLUMN: TITLE, INTRO & EXPLORE CTA */}
@@ -184,12 +203,7 @@ export default function CoreValuesSection() {
                 <button
                   type="button"
                   onClick={() => scroll('prev')}
-                  disabled={!canScrollLeft}
-                  className={`w-10 h-10 rounded-full border border-zinc-300 flex items-center justify-center transition-all ${
-                    canScrollLeft
-                      ? 'bg-white hover:bg-zinc-100 text-black cursor-pointer shadow-sm active:scale-90'
-                      : 'bg-zinc-100 text-zinc-400 cursor-not-allowed opacity-50'
-                  }`}
+                  className="w-10 h-10 rounded-full border border-zinc-300 bg-white hover:bg-zinc-100 text-black flex items-center justify-center transition-all shadow-sm active:scale-90 cursor-pointer"
                   aria-label="Previous service"
                 >
                   <ChevronLeft className="w-5 h-5 rtl:rotate-180" />
@@ -197,12 +211,7 @@ export default function CoreValuesSection() {
                 <button
                   type="button"
                   onClick={() => scroll('next')}
-                  disabled={!canScrollRight}
-                  className={`w-10 h-10 rounded-full border border-zinc-300 flex items-center justify-center transition-all ${
-                    canScrollRight
-                      ? 'bg-white hover:bg-zinc-100 text-black cursor-pointer shadow-sm active:scale-90'
-                      : 'bg-zinc-100 text-zinc-400 cursor-not-allowed opacity-50'
-                  }`}
+                  className="w-10 h-10 rounded-full border border-zinc-300 bg-white hover:bg-zinc-100 text-black flex items-center justify-center transition-all shadow-sm active:scale-90 cursor-pointer"
                   aria-label="Next service"
                 >
                   <ChevronRight className="w-5 h-5 rtl:rotate-180" />
@@ -215,27 +224,34 @@ export default function CoreValuesSection() {
             </p>
           </div>
 
-          {/* RIGHT COLUMN: HORIZONTAL AUTO-MOVING CAROUSEL */}
+          {/* RIGHT COLUMN: HORIZONTAL FLUID AUTO-MOVING CAROUSEL */}
           <div
-            className="lg:col-span-8 overflow-hidden relative select-none"
+            className="lg:col-span-8 overflow-hidden relative select-none cursor-grab active:cursor-grabbing"
             onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            onMouseLeave={() => {
+              setIsPaused(false);
+              onMouseUp();
+            }}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
           >
             <div
               ref={scrollRef}
-              onScroll={checkScrollBounds}
-              className="flex gap-5 sm:gap-6 overflow-x-auto scrollbar-none py-4 px-1 scroll-smooth"
+              className="flex gap-5 sm:gap-6 overflow-x-auto scrollbar-none py-4 px-1"
               style={{
                 scrollbarWidth: 'none',
                 msOverflowStyle: 'none'
               }}
             >
-              {services.map((service) => {
+              {services.map((service, idx) => {
                 const IconComponent = SERVICE_ICONS[service.id] || Layers;
 
                 return (
                   <div
-                    key={service.id}
+                    key={`${service.id}-${idx}`}
                     onClick={() => setSelectedService(service)}
                     className="w-[285px] sm:w-[320px] md:w-[340px] shrink-0 rounded-[26px] bg-[#1F1F21] text-white shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-zinc-800/80 hover:border-[#70A52E] hover:shadow-[0_20px_50px_rgba(112,165,46,0.22)] transition-all duration-300 hover:-translate-y-1.5 cursor-pointer flex flex-col justify-between overflow-hidden group"
                   >
