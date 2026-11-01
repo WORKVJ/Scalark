@@ -1,202 +1,384 @@
 'use client';
 
+import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  ArrowRight, 
-  Layers, 
-  TrendingUp, 
-  DollarSign, 
-  Target 
+import { useRouter } from 'next/navigation';
+import {
+  Layers,
+  Globe2,
+  Users,
+  Calendar,
+  MapPin,
+  ChevronDown,
+  ArrowRight,
+  Check,
+  TrendingUp,
+  DollarSign,
+  Compass
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function HeroSection({ t: propT }) {
+  const router = useRouter();
   const { isRtl, t: ctxT } = useLanguage();
   const t = propT || ctxT;
+  const triplio = t.triplio || {};
+  const cData = triplio.console || {};
 
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  // Interactive console states
+  const [selectedSystem, setSelectedSystem] = useState(
+    cData.systemDefault || 'Operations & SOP Architecture'
+  );
+  const [selectedMarket, setSelectedMarket] = useState(
+    cData.marketDefault || 'Saudi Arabia (KSA)'
+  );
+  const [selectedScale, setSelectedScale] = useState(
+    cData.scaleDefault || '20 - 150 Staff'
+  );
+
+  // Dropdown open states
+  const [openDropdown, setOpenDropdown] = useState(null); // 'system' | 'market' | 'scale' | null
+  const consoleRef = useRef(null);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (consoleRef.current && !consoleRef.current.contains(e.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleBookSchedule = (e) => {
+    e.preventDefault();
+    const query = new URLSearchParams({
+      focus: selectedSystem,
+      market: selectedMarket,
+      scale: selectedScale
+    }).toString();
+    router.push(`/contact?${query}`);
   };
 
-  const coreServices = [
-    {
-      id: 'operations',
-      num: '01',
-      icon: Layers,
-      title: isRtl ? 'العمليات والإجراءات القياسية' : 'Operations & SOPs',
-      desc: isRtl 
-        ? 'توثيق إجراءات العمل ومصفوفات التفويض ليعمل عملك باستقلالية تامة عن المالك.'
-        : 'Codify workflows, SOPs, and delegation matrices so your business runs without owner bottlenecks.'
-    },
-    {
-      id: 'sales',
-      num: '02',
-      icon: TrendingUp,
-      title: isRtl ? 'المبيعات والإيرادات' : 'Sales & Revenue',
-      desc: isRtl
-        ? 'تحويل نشاط المبيعات العشوائي إلى مسار إيرادات منضبط وقابل للتنبؤ والقياس.'
-        : 'Transform erratic sales activity into a predictable, governed pipeline with conversion rigor.'
-    },
-    {
-      id: 'finance',
-      num: '03',
-      icon: DollarSign,
-      title: isRtl ? 'المالية والتدفق النقدي' : 'Finance & Cash Flow',
-      desc: isRtl
-        ? 'تحقيق وضوح مالي فوري لاقتصاديات الوحدة، وهوامش الربح، وتوقعات السيولة النقدية.'
-        : 'Gain real-time visibility into unit economics, profit margins, and forward cash runway dashboards.'
-    },
-    {
-      id: 'governance',
-      num: '04',
-      icon: Target,
-      title: isRtl ? 'الكادر والحوكمة' : 'People & Governance',
-      desc: isRtl
-        ? 'مواءمة القيادة وفرق العمل ببطاقات قياس أداء واضحة، ومؤشرات أداء شفافة، وإيقاع إداري منضبط.'
-        : 'Align leadership and teams with clear role scorecards, transparent KPIs, and executive review rhythms.'
-    }
+  const systemOptions = cData.systemOptions || [
+    'Operations & SOP Architecture',
+    'Sales & Revenue Engine',
+    'Finance & Cash-Flow Visibility',
+    'People & Governance Framework',
+    '120-Point Enterprise Diagnostic',
+    'Cross-Border Expansion Systems'
+  ];
+
+  const marketOptions = cData.marketOptions || [
+    'Saudi Arabia (KSA)',
+    'United Arab Emirates (UAE)',
+    'India (GCC Expansion)',
+    'Pan-GCC & Global'
+  ];
+
+  const scaleOptions = cData.scaleOptions || [
+    '10 - 50 Staff ($1M - $5M)',
+    '50 - 200 Staff ($5M - $25M)',
+    '200+ Enterprise ($25M+)'
   ];
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#0E4BC9] via-[#155DEC] to-[#0A39A2] text-white selection:bg-[#38BDF8] selection:text-[#081B4E]"
+      className="relative min-h-[92vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#040E2A] text-white select-none"
     >
-      {/* 1. ELEGANT AMBIENT BACKGROUND */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-b from-[#38BDF8]/30 via-[#0084FF]/20 to-transparent blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+      {/* 1. PHOTOREALISTIC PANORAMIC MOUNTAIN HERO BACKGROUND (MATCHING TRIPLIO REFERENCE) */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <Image
+          src="/hero-pinnacle-mountain.jpg"
+          alt="SCALARK Pinnacle Scale"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_15%] sm:object-center"
+        />
 
-      {/* 2. HERO HEADLINE & VALUE PROPOSITION */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center flex flex-col items-center">
-        
-        {/* SUBTLE EDITORIAL EYEBROW (NO PULSING DOT, NO MONO) */}
-        <span className="text-xs sm:text-sm font-semibold tracking-wider text-sky-200 uppercase mb-4">
-          {isRtl ? 'استشارات وهندسة نظم الأعمال' : 'Business Systems Architecture'}
-        </span>
+        {/* TOP AZURE SKY ENHANCEMENT TINT */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#1C68B6]/30 via-transparent to-transparent pointer-events-none" />
 
-        {/* EDITORIAL HEADLINE */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] sm:leading-[1.1] max-w-4xl mx-auto mb-6 text-white font-sans px-2">
-          {t.hero.titleMain}{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300">
-            {t.hero.titleAccent}
-          </span>
-        </h1>
-
-        {/* SUBTITLE */}
-        <p className="text-sm sm:text-base md:text-lg text-blue-100/90 max-w-2xl mx-auto font-normal leading-relaxed mb-8 px-2">
-          {t.hero.desc}
-        </p>
-
-        {/* DUAL ACTION BUTTONS */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 w-full max-w-xs sm:max-w-none mx-auto sm:w-auto">
-          <Link
-            href="/contact"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[#0A39A2] hover:bg-sky-50 font-bold text-sm rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95"
-          >
-            <span>{t.hero.ctaPrimary}</span>
-            <ArrowRight className="w-4 h-4 stroke-[2.5] rtl:rotate-180" />
-          </Link>
-
-          <Link
-            href="/solutions"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-sm rounded-full backdrop-blur-md transition-all duration-200 active:scale-95"
-          >
-            <span>{t.hero.ctaSecondary}</span>
-            <ArrowRight className="w-3.5 h-3.5 text-sky-200 rtl:rotate-180" />
-          </Link>
-        </div>
+        {/* BOTTOM GRADIENT MIST: SEAMLESS DEEP NAVY BLEND FOR HEADLINE & CONSOLE CONTRAST */}
+        <div className="absolute inset-x-0 bottom-0 h-[68%] sm:h-[62%] bg-gradient-to-t from-[#040E2A] via-[#040E2A]/85 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-[#040E2A] pointer-events-none" />
       </div>
 
-      {/* 3. CORE SERVICES LIST — BESPOKE, CLEAN & PROFESSIONAL */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full mt-14 sm:mt-18">
-        
-        {/* EDITORIAL SECTION HEADER */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 pb-3 border-b border-white/15 text-start">
-          <div>
-            <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-              {isRtl ? 'مجالات العمل والخدمات الرئيسية' : 'Core Practice Areas & Services'}
+      {/* 2. GIGANTIC BRAND WATERMARK IN SKY (EXACT REPLICA OF "TRIPLIO" IN REFERENCE) */}
+      <div className="absolute top-[10%] sm:top-[12%] lg:top-[14%] left-0 right-0 w-full flex justify-center pointer-events-none select-none z-10 px-4">
+        <h1
+          className="text-[17vw] sm:text-[18vw] lg:text-[19vw] font-black tracking-[-0.04em] text-white uppercase leading-none drop-shadow-[0_4px_30px_rgba(0,0,0,0.18)] opacity-95 transition-transform"
+          style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}
+        >
+          {triplio.watermark || 'SCALARK'}
+        </h1>
+      </div>
+
+      {/* SPACER FOR TOP FLOATING NAVBAR */}
+      <div className="h-28 sm:h-36 relative z-10" />
+
+      {/* 3. FOREGROUND CONTENT: TWO-COLUMN HERO (HEADLINE ON LEFT + WHITE CONSOLE ON RIGHT) */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-auto pt-32 sm:pt-40 lg:pt-48 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+          
+          {/* LEFT COLUMN: HERO HEADLINE (MATCHING REFERENCE "Uncover the World's Natural Wonders.") */}
+          <div className="lg:col-span-5 text-start space-y-2">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08] font-sans drop-shadow-[0_2px_16px_rgba(0,0,0,0.6)]">
+              <span className="block">{triplio.headlineLine1 || "Architecting Systems for"}</span>
+              <span className="block text-sky-100">{triplio.headlineLine2 || "Sustainable Enterprise Scale."}</span>
             </h2>
-            <p className="text-xs text-blue-100/75 mt-0.5">
-              {isRtl ? 'أنظمة عملية لاستبدال ارتهان العمل بالمؤسس بوضوح تشغيلي مستدام.' : 'Practical systems designed to replace founder firefighting with operational clarity.'}
+          </div>
+
+          {/* RIGHT COLUMN: FLOATING WHITE INTERACTIVE CONSOLE (MATCHING REFERENCE BOOKING BAR) */}
+          <div className="lg:col-span-7 flex justify-end" ref={consoleRef}>
+            <div className="w-full bg-white text-zinc-900 rounded-[28px] sm:rounded-full p-2.5 sm:p-3 shadow-[0_25px_60px_rgba(0,0,0,0.45)] border border-white/90 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 relative">
+              
+              {/* FIELD 1: CORE FOCUS / SYSTEM (MATCHING "Location" IN REFERENCE) */}
+              <div className="relative flex-1">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpenDropdown(openDropdown === 'system' ? null : 'system')
+                  }
+                  className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2.5 cursor-pointer"
+                >
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 shrink-0">
+                    <Layers className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <div className="truncate">
+                    <span className="text-[10px] uppercase font-mono font-bold text-zinc-400 block tracking-wider leading-none mb-1">
+                      {cData.systemLabel || 'Core Focus'}
+                    </span>
+                    <span className="text-xs sm:text-[13px] font-bold text-zinc-900 block truncate">
+                      {selectedSystem}
+                    </span>
+                  </div>
+                </button>
+
+                {/* Dropdown Menu */}
+                {openDropdown === 'system' && (
+                  <div className="absolute bottom-full mb-2 left-0 w-64 sm:w-72 bg-white rounded-2xl shadow-2xl border border-zinc-200 p-2 z-50 animate-fadeIn text-start">
+                    <div className="text-[10px] font-mono uppercase text-zinc-400 font-bold px-3 py-1.5 border-b border-zinc-100">
+                      {cData.systemLabel || 'Select Core System'}
+                    </div>
+                    <div className="max-h-48 overflow-y-auto py-1 space-y-0.5">
+                      {systemOptions.map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => {
+                            setSelectedSystem(opt);
+                            setOpenDropdown(null);
+                          }}
+                          className={`w-full text-start px-3 py-2 rounded-xl text-xs font-medium flex items-center justify-between transition-colors ${
+                            selectedSystem === opt
+                              ? 'bg-emerald-50 text-emerald-800 font-bold'
+                              : 'text-zinc-700 hover:bg-zinc-100'
+                          }`}
+                        >
+                          <span className="truncate">{opt}</span>
+                          {selectedSystem === opt && (
+                            <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* VERTICAL DIVIDER (DESKTOP) */}
+              <div className="hidden sm:block w-[1px] h-8 bg-zinc-200" />
+
+              {/* FIELD 2: TARGET REGION (MATCHING "Date" IN REFERENCE) */}
+              <div className="relative flex-1">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpenDropdown(openDropdown === 'market' ? null : 'market')
+                  }
+                  className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2.5 cursor-pointer"
+                >
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 shrink-0">
+                    <Globe2 className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <div className="truncate">
+                    <span className="text-[10px] uppercase font-mono font-bold text-zinc-400 block tracking-wider leading-none mb-1">
+                      {cData.marketLabel || 'Market'}
+                    </span>
+                    <span className="text-xs sm:text-[13px] font-bold text-zinc-900 block truncate">
+                      {selectedMarket}
+                    </span>
+                  </div>
+                </button>
+
+                {/* Dropdown Menu */}
+                {openDropdown === 'market' && (
+                  <div className="absolute bottom-full mb-2 left-0 w-60 sm:w-64 bg-white rounded-2xl shadow-2xl border border-zinc-200 p-2 z-50 animate-fadeIn text-start">
+                    <div className="text-[10px] font-mono uppercase text-zinc-400 font-bold px-3 py-1.5 border-b border-zinc-100">
+                      {cData.marketLabel || 'Select Regional Market'}
+                    </div>
+                    <div className="py-1 space-y-0.5">
+                      {marketOptions.map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => {
+                            setSelectedMarket(opt);
+                            setOpenDropdown(null);
+                          }}
+                          className={`w-full text-start px-3 py-2 rounded-xl text-xs font-medium flex items-center justify-between transition-colors ${
+                            selectedMarket === opt
+                              ? 'bg-blue-50 text-blue-800 font-bold'
+                              : 'text-zinc-700 hover:bg-zinc-100'
+                          }`}
+                        >
+                          <span className="truncate">{opt}</span>
+                          {selectedMarket === opt && (
+                            <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* VERTICAL DIVIDER (DESKTOP) */}
+              <div className="hidden sm:block w-[1px] h-8 bg-zinc-200" />
+
+              {/* FIELD 3: SCALE & TEAM (MATCHING "Guest" IN REFERENCE) */}
+              <div className="relative flex-1">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpenDropdown(openDropdown === 'scale' ? null : 'scale')
+                  }
+                  className="w-full text-start px-3.5 py-2 rounded-2xl hover:bg-zinc-100 transition-colors flex items-center gap-2 cursor-pointer"
+                >
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 shrink-0">
+                    <Users className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <div className="truncate flex-1">
+                    <span className="text-[10px] uppercase font-mono font-bold text-zinc-400 block tracking-wider leading-none mb-1">
+                      {cData.scaleLabel || 'Scale'}
+                    </span>
+                    <span className="text-xs sm:text-[13px] font-bold text-zinc-900 block truncate">
+                      {selectedScale}
+                    </span>
+                  </div>
+                  <ChevronDown className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+                </button>
+
+                {/* Dropdown Menu */}
+                {openDropdown === 'scale' && (
+                  <div className="absolute bottom-full mb-2 right-0 w-60 sm:w-64 bg-white rounded-2xl shadow-2xl border border-zinc-200 p-2 z-50 animate-fadeIn text-start">
+                    <div className="text-[10px] font-mono uppercase text-zinc-400 font-bold px-3 py-1.5 border-b border-zinc-100">
+                      {cData.scaleLabel || 'Select Company Scale'}
+                    </div>
+                    <div className="py-1 space-y-0.5">
+                      {scaleOptions.map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => {
+                            setSelectedScale(opt);
+                            setOpenDropdown(null);
+                          }}
+                          className={`w-full text-start px-3 py-2 rounded-xl text-xs font-medium flex items-center justify-between transition-colors ${
+                            selectedScale === opt
+                              ? 'bg-purple-50 text-purple-800 font-bold'
+                              : 'text-zinc-700 hover:bg-zinc-100'
+                          }`}
+                        >
+                          <span className="truncate">{opt}</span>
+                          {selectedScale === opt && (
+                            <Check className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* ACTION BUTTON: DARK PILL (MATCHING "Book schedule" BUTTON IN REFERENCE) */}
+              <button
+                type="button"
+                onClick={handleBookSchedule}
+                className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full bg-[#121826] hover:bg-black text-white font-bold text-xs sm:text-sm tracking-wide transition-all shadow-md active:scale-95 whitespace-nowrap flex items-center justify-center gap-2 group cursor-pointer shrink-0"
+              >
+                <span>{cData.bookBtn || 'Book schedule'}</span>
+                <ArrowRight className="w-4 h-4 text-emerald-400 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+
+        {/* 4. BOTTOM ROW: STATS ON LEFT + DESCRIPTIVE PARAGRAPH ON RIGHT (MATCHING REFERENCE BOTTOM STRIP) */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-white/15 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center text-start">
+          
+          {/* BOTTOM LEFT: STAT BADGE + 4 CIRCULAR ICONS (MATCHING "300+ Iconic Spots Included" IN REFERENCE) */}
+          <div className="lg:col-span-5 flex flex-wrap items-center gap-4">
+            <div className="space-y-0.5">
+              <span className="text-xl sm:text-2xl font-black text-white font-mono block leading-none">
+                {triplio.statNumber || '60+'}
+              </span>
+              <span className="text-xs text-zinc-300 font-medium block">
+                {triplio.statLabel || 'Enterprise Systems Architected'}
+              </span>
+            </div>
+
+            {/* 4 Circular Action Badges */}
+            <div className="flex items-center gap-2 pt-0.5">
+              <Link
+                href="/services/sops"
+                title="Operations & SOPs"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center text-white transition-all shadow-sm active:scale-90"
+              >
+                <Layers className="w-3.5 h-3.5 text-emerald-300" />
+              </Link>
+              <Link
+                href="/services/revenue"
+                title="Sales & Revenue"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center text-white transition-all shadow-sm active:scale-90"
+              >
+                <TrendingUp className="w-3.5 h-3.5 text-blue-300" />
+              </Link>
+              <Link
+                href="/services/finance"
+                title="Finance & Cash Flow"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center text-white transition-all shadow-sm active:scale-90"
+              >
+                <DollarSign className="w-3.5 h-3.5 text-amber-300" />
+              </Link>
+              <Link
+                href="/services/expansion"
+                title="Cross-Border Expansion"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 flex items-center justify-center text-white transition-all shadow-sm active:scale-90"
+              >
+                <Globe2 className="w-3.5 h-3.5 text-sky-300" />
+              </Link>
+            </div>
+          </div>
+
+          {/* BOTTOM RIGHT: EDITORIAL DESCRIPTIVE PARAGRAPH (MATCHING REFERENCE PARAGRAPH) */}
+          <div className="lg:col-span-7">
+            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+              {triplio.desc ||
+                'SCALARK architects institutional operations, sales engines, and financial governance to replace founder bottlenecks with sustainable, autonomous enterprise scale across Saudi Arabia, UAE, and India.'}
             </p>
           </div>
 
-          <Link
-            href="/solutions"
-            className="text-xs font-semibold text-sky-200 hover:text-white transition-colors flex items-center gap-1 shrink-0 group self-start sm:self-auto"
-          >
-            <span>{isRtl ? 'عرض كافة الحلول' : 'View All Solutions'}</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform rtl:rotate-180" />
-          </Link>
         </div>
 
-        {/* 4 CLEAN CARDS IN ONE ROW */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {coreServices.map((service) => {
-            const Icon = service.icon;
-            return (
-              <Link
-                key={service.id}
-                href="/solutions"
-                className="group relative rounded-2xl bg-white/[0.07] hover:bg-white/[0.14] border border-white/15 hover:border-white/40 backdrop-blur-md p-6 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-md text-start"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-sky-200 group-hover:bg-white group-hover:text-[#0A39A2] transition-colors">
-                      <Icon className="w-5 h-5 stroke-[2]" />
-                    </div>
-                    <span className="text-xs font-semibold text-sky-200/50 group-hover:text-white transition-colors">
-                      {service.num}
-                    </span>
-                  </div>
-
-                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-sky-200 transition-colors">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-xs text-blue-100/80 leading-relaxed font-normal">
-                    {service.desc}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-sky-200 group-hover:text-white transition-colors">
-                  <span>{isRtl ? 'تفاصيل الخدمة' : 'Learn More'}</span>
-                  <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
       </div>
-
-      {/* 4. AUDIENCE STRIP (TASTEFUL, EDITORIAL, NO NEON LIGHTS) */}
-      <div className="relative z-10 w-full pt-12 sm:pt-14 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 py-4 px-6 rounded-2xl bg-white/[0.06] border border-white/15 backdrop-blur-md text-center sm:text-start">
-          <span className="text-xs font-medium text-sky-200/90 whitespace-nowrap">
-            {isRtl ? 'أنظمة مخصصة لكل مرحلة نمو:' : 'Systems tailored for every growth stage:'}
-          </span>
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2 text-xs font-semibold text-white">
-            {[
-              { label: isRtl ? 'الشركات الناشئة' : 'Startups' },
-              { label: isRtl ? 'رواد الأعمال' : 'Entrepreneurs' },
-              { label: isRtl ? 'الشركات النامية' : 'Growing Businesses' },
-              { label: isRtl ? 'الشركات الصغيرة والمتوسطة' : 'SMEs & MSMEs' },
-              { label: isRtl ? 'الشركات في أزمات' : 'Turnaround & Crisis' },
-            ].map((stage) => (
-              <button
-                key={stage.label}
-                type="button"
-                onClick={() => scrollTo('who-we-help')}
-                className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white hover:text-[#0A39A2] transition-colors cursor-pointer text-xs"
-              >
-                {stage.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
     </section>
   );
 }

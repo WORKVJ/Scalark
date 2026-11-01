@@ -12,6 +12,42 @@ export const TRANSLATIONS = {
       langLabel: "Language",
       diagnoseCta: "Diagnose My Business →"
     },
+    triplio: {
+      watermark: "SCALARK",
+      headlineLine1: "Architecting Systems for",
+      headlineLine2: "Sustainable Enterprise Scale.",
+      console: {
+        systemLabel: "Core Focus",
+        systemDefault: "Operations & SOP Architecture",
+        systemOptions: [
+          "Operations & SOP Architecture",
+          "Sales & Revenue Engine",
+          "Finance & Cash-Flow Visibility",
+          "People & Governance Framework",
+          "120-Point Enterprise Diagnostic",
+          "Cross-Border Expansion Systems"
+        ],
+        marketLabel: "Market",
+        marketDefault: "Saudi Arabia (KSA)",
+        marketOptions: [
+          "Saudi Arabia (KSA)",
+          "United Arab Emirates (UAE)",
+          "India (GCC Expansion)",
+          "Pan-GCC & Global"
+        ],
+        scaleLabel: "Scale",
+        scaleDefault: "20 - 150 Staff",
+        scaleOptions: [
+          "10 - 50 Staff ($1M - $5M)",
+          "50 - 200 Staff ($5M - $25M)",
+          "200+ Enterprise ($25M+)"
+        ],
+        bookBtn: "Book schedule"
+      },
+      statNumber: "60+",
+      statLabel: "Enterprise Systems Architected",
+      desc: "SCALARK architects institutional operations, sales engines, and financial governance to replace founder bottlenecks with sustainable, autonomous enterprise scale across Saudi Arabia, UAE, and India."
+    },
     hero: {
       bannerPill: "Find the Problem. Fix the System. Scale the Business.",
       titleMain: "Your business doesn't need more effort.",
@@ -804,6 +840,42 @@ export const TRANSLATIONS = {
       bookCall: "احجز مكالمة",
       langLabel: "اللغة",
       diagnoseCta: "شخّص عملي الآن ←"
+    },
+    triplio: {
+      watermark: "SCALARK",
+      headlineLine1: "هندسة النظم للمؤسسات نحو",
+      headlineLine2: "نمو مستدام وتوسع مؤسسي.",
+      console: {
+        systemLabel: "المجال الأساسي",
+        systemDefault: "هندسة العمليات وإجراءات العمل",
+        systemOptions: [
+          "هندسة العمليات وإجراءات العمل",
+          "محرك المبيعات والإيرادات",
+          "وضوح المالية والتدفقات النقدية",
+          "منظومة الحوكمة والقيادة التنفيذية",
+          "التدقيق التشخيصي الشامل (120 نقطة)",
+          "أنظمة التوسع والنمو عابر الحدود"
+        ],
+        marketLabel: "المنطقة",
+        marketDefault: "المملكة العربية السعودية",
+        marketOptions: [
+          "المملكة العربية السعودية",
+          "الإمارات العربية المتحدة",
+          "الهند (التوسع الخليجي)",
+          "الخليج العربي وعالمياً"
+        ],
+        scaleLabel: "حجم المؤسسة",
+        scaleDefault: "20 - 150 موظف",
+        scaleOptions: [
+          "10 - 50 موظف (1 - 5 مليون دولار)",
+          "50 - 200 موظف (5 - 25 مليون دولار)",
+          "+200 موظف مؤسسي (أكثر من 25 مليون)"
+        ],
+        bookBtn: "حجز موعد تشخيصي"
+      },
+      statNumber: "+60",
+      statLabel: "نظاماً مؤسسياً تم بناؤه بنجاح",
+      desc: "تبني سكيلارك نظماً تشغيلية وتجارية ومالية متكاملة لتحل محل ارتهان العمل بالمؤسس، محققة نمواً ذاتياً مستداماً للشركات عبر السعودية والإمارات والهند."
     },
     hero: {
       bannerPill: "حدد المشكلة. أصلح النظام. وسّع نطاق عملك.",
