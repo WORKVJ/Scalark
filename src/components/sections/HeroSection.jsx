@@ -1,36 +1,51 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Check, CheckCircle2, ChevronRight, Activity, Layers, TrendingUp, ShieldCheck, BarChart3, Clock } from 'lucide-react';
+import { 
+  ArrowRight, 
+  ArrowUpRight, 
+  ChevronRight, 
+  Check, 
+  Layers, 
+  TrendingUp, 
+  DollarSign, 
+  Target, 
+  Building2, 
+  Globe 
+} from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function HeroSection({ t: propT }) {
   const { currentLang, isRtl, t: ctxT } = useLanguage();
   const t = propT || ctxT;
 
-  // Active workflow stage in the interactive Systems Console
-  const [activeStage, setActiveStage] = useState('diagnose');
-
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const STAGES = t.hero.stages || {};
-  const currentStage = STAGES[activeStage] || STAGES.diagnose || {
-    num: '01',
-    title: 'Diagnose',
-    tagline: 'Understand Before We Recommend',
-    desc: '',
-    metric1: { label: '', value: '' },
-    metric2: { label: '', value: '' },
-    metric3: { label: '', value: '' },
-    status: '',
-    domains: []
+  const servicesData = t.hero.servicesList || {
+    badge: "PRACTICE AREAS & SERVICES",
+    title: "Core Business Systems & Advisory Services",
+    subtitle: "We replace founder bottlenecks with institutional systems across every stage of enterprise growth.",
+    viewAll: "Explore Complete Solutions Catalogue",
+    services: [],
+    metrics: {
+      companies: "60+ Companies Supported",
+      timeRecovered: "65% Owner Time Recovered",
+      valuation: "2.8x Valuation & Revenue Generated",
+      cta: "Request Diagnostic Audit"
+    }
   };
 
-  const stageKeys = ['diagnose', 'design', 'implement', 'measure'];
+  const serviceIcons = [
+    Layers,      // 01 Operations
+    TrendingUp,  // 02 Sales
+    DollarSign,  // 03 Finance
+    Target,      // 04 KPI / Governance
+    Building2,   // 05 Foundation / Structuring
+    Globe        // 06 Growth / Expansion
+  ];
 
   return (
     <section
@@ -98,141 +113,113 @@ export default function HeroSection({ t: propT }) {
         </div>
       </div>
 
-      {/* 3. INTERACTIVE ENTERPRISE SYSTEMS CONSOLE */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 w-full mt-12 md:mt-16">
-        <div className="rounded-3xl bg-[#082260]/85 backdrop-blur-2xl border border-white/20 shadow-[0_25px_80px_rgba(0,10,50,0.4)] p-5 sm:p-7 relative overflow-hidden">
+      {/* 3. CORE SERVICES LIST (SIMPLE, MODERN & PROFESSIONAL) */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full mt-12 md:mt-16">
+        <div className="rounded-3xl bg-[#082260]/85 backdrop-blur-2xl border border-white/20 shadow-[0_25px_80px_rgba(0,10,50,0.4)] p-6 sm:p-10 relative overflow-hidden">
           
           {/* Subtle top inner border highlight */}
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-300/60 to-transparent" />
 
-          {/* CONSOLE TOP BAR */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/15 mb-6">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center space-x-1.5 rtl:space-x-reverse">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+          {/* SECTION HEADER */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10 text-start">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-sky-200 font-bold mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                <span>{servicesData.badge}</span>
               </div>
-              <span className="text-xs font-mono uppercase tracking-widest text-white/90 font-bold">
-                {t.hero.consoleTitle}
-              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight font-sans">
+                {servicesData.title}
+              </h2>
+              <p className="mt-2 text-xs sm:text-base text-blue-100/80 leading-relaxed font-normal">
+                {servicesData.subtitle}
+              </p>
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[11px] font-mono text-sky-300 font-semibold uppercase tracking-wider">
-                {t.hero.consoleStatus}: {currentStage.status}
-              </span>
-            </div>
+            <Link
+              href="/solutions"
+              className="inline-flex items-center gap-1.5 text-sky-300 hover:text-white text-xs font-bold uppercase tracking-wider transition-colors shrink-0 self-start md:self-auto group"
+            >
+              <span>{servicesData.viewAll}</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform rtl:rotate-180" />
+            </Link>
           </div>
 
-          {/* WORKFLOW PIPELINE TABS */}
-          <div className="flex sm:grid sm:grid-cols-4 gap-1.5 sm:gap-2 mb-6 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
-            {stageKeys.map((key) => {
-              const stage = STAGES[key];
-              if (!stage) return null;
-              const isActive = activeStage === stage.id;
+          {/* 6-CARD SERVICES GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            {servicesData.services?.map((service, idx) => {
+              const Icon = serviceIcons[idx % serviceIcons.length];
               return (
-                <button
-                  key={stage.id}
-                  onClick={() => setActiveStage(stage.id)}
-                  className={`px-3 py-2.5 rounded-xl text-start transition-all duration-200 border shrink-0 min-w-[96px] sm:min-w-0 flex-1 sm:flex-initial cursor-pointer ${
-                    isActive
-                      ? 'bg-[#0084FF] border-[#38BDF8] text-white shadow-lg shadow-blue-500/40'
-                      : 'bg-white/10 border-white/15 text-blue-100 hover:text-white hover:bg-white/20'
-                  }`}
+                <div
+                  key={service.id}
+                  className="rounded-2xl bg-white/[0.06] hover:bg-white/[0.11] border border-white/15 hover:border-sky-400/50 p-5 sm:p-6 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 hover:shadow-xl text-start"
                 >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-mono font-semibold opacity-90">
-                      {stage.num}
-                    </span>
-                    {isActive && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                  <div>
+                    {/* TOP ROW: ICON + TAG + NUM */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-sky-300 group-hover:scale-105 group-hover:bg-[#0084FF] group-hover:text-white transition-all shadow-sm">
+                        <Icon className="w-5 h-5 stroke-[2.2]" />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/10 border border-white/15 text-sky-200 uppercase tracking-wider font-semibold">
+                          {service.tag}
+                        </span>
+                        <span className="text-xs font-mono font-bold text-white/40">
+                          {service.num}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* TITLE & DESCRIPTION */}
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-sky-200 transition-colors font-sans">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs text-blue-100/75 leading-relaxed mb-4 font-normal">
+                      {service.desc}
+                    </p>
+
+                    {/* 4 DELIVERABLE BULLETS */}
+                    <div className="space-y-1.5 pt-2 border-t border-white/10 mb-5">
+                      {service.items.map((item, i) => (
+                        <div key={i} className="flex items-start gap-2 text-[11px] sm:text-xs text-blue-100/90">
+                          <Check className="w-3.5 h-3.5 text-sky-300 shrink-0 mt-0.5 stroke-[2.5]" />
+                          <span className="leading-snug">{item}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider font-sans">
-                    {stage.title}
-                  </div>
-                </button>
+
+                  {/* BOTTOM LINK */}
+                  <Link
+                    href="/solutions"
+                    className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-sky-300 group-hover:text-white transition-colors"
+                  >
+                    <span>{isRtl ? 'تفاصيل النظام' : 'Explore System'}</span>
+                    <ArrowUpRight className="w-4 h-4 rtl:rotate-90 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                </div>
               );
             })}
           </div>
 
-          {/* DYNAMIC ACTIVE STAGE SHOWCASE */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            {/* LEFT: STAGE DOCTRINE & SCOPE */}
-            <div className="lg:col-span-6 space-y-3 text-start">
-              <div className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
-                {currentStage.num} • {currentStage.tagline}
-              </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                {currentStage.tagline}
-              </h3>
-              <p className="text-xs sm:text-sm text-blue-100/85 leading-relaxed font-normal">
-                {currentStage.desc}
-              </p>
-
-              {/* DOMAIN TAGS */}
-              <div className="pt-2 flex flex-wrap gap-2">
-                {currentStage.domains?.map((dom, i) => (
-                  <span
-                    key={i}
-                    className="px-2.5 py-1 rounded-md bg-white/10 border border-white/20 text-[11px] font-mono text-sky-200 font-semibold"
-                  >
-                    {dom}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT: 3 LIVE TELEMETRY CARDS */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="p-4 rounded-xl bg-white/10 border border-white/15 flex flex-col justify-between shadow-inner text-start">
-                <span className="text-[10px] font-mono text-blue-200 uppercase tracking-wider font-semibold mb-2">
-                  {currentStage.metric1?.label}
-                </span>
-                <span className="text-lg font-black text-white tracking-tight font-tech">
-                  {currentStage.metric1?.value}
-                </span>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/10 border border-white/15 flex flex-col justify-between shadow-inner text-start">
-                <span className="text-[10px] font-mono text-blue-200 uppercase tracking-wider font-semibold mb-2">
-                  {currentStage.metric2?.label}
-                </span>
-                <span className="text-lg font-black text-white tracking-tight font-tech">
-                  {currentStage.metric2?.value}
-                </span>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/10 border border-white/15 flex flex-col justify-between shadow-inner text-start">
-                <span className="text-[10px] font-mono text-blue-200 uppercase tracking-wider font-semibold mb-2">
-                  {currentStage.metric3?.label}
-                </span>
-                <span className="text-lg font-black text-white tracking-tight font-tech">
-                  {currentStage.metric3?.value}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* CONSOLE FOOTER */}
-          <div className="mt-6 pt-5 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-blue-100">
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] sm:text-xs">
+          {/* BOTTOM METRICS & AUDIT CTA BAR */}
+          <div className="mt-8 pt-6 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-blue-100">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs">
               <div>
-                <span className="text-white font-bold">60+</span> {isRtl ? 'شركة مدعومة' : 'Companies Supported'}
+                <span className="text-white font-bold">60+</span> {isRtl ? 'شركة مدعومة' : 'Companies Advised'}
               </div>
               <div>
                 <span className="text-white font-bold">65%</span> {isRtl ? 'استعادة وقت المؤسس' : 'Owner Time Recovered'}
               </div>
               <div>
-                <span className="text-white font-bold">2.8x</span> {isRtl ? 'مضاعفة التقييم والإيرادات' : 'Valuation & Revenue Generated'}
+                <span className="text-white font-bold">2.8x</span> {isRtl ? 'مضاعفة التقييم والإيرادات' : 'Average Valuation Growth'}
               </div>
             </div>
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1.5 text-sky-300 hover:text-white font-sans font-bold text-xs transition-colors self-start sm:self-auto"
+              className="inline-flex items-center gap-1.5 text-white bg-white/15 hover:bg-white hover:text-[#0A39A2] px-4 py-2 rounded-full font-sans font-bold text-xs transition-all duration-200 self-start sm:self-auto shadow-sm active:scale-95"
             >
-              <span>{isRtl ? 'طلب تدقيق تشخيصي' : 'Request Diagnostic Audit'}</span>
+              <span>{servicesData.metrics?.cta || (isRtl ? 'طلب تدقيق تشخيصي' : 'Request Diagnostic Audit')}</span>
               <ArrowRight className="w-3.5 h-3.5 stroke-[2.5] rtl:rotate-180" />
             </Link>
           </div>

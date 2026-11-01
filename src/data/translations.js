@@ -26,6 +26,99 @@ export const TRANSLATIONS = {
         "Technology",
         "Performance"
       ],
+            servicesList: {
+        badge: "PRACTICE AREAS & SERVICES",
+        title: "Core Business Systems & Advisory Services",
+        subtitle: "We replace founder bottlenecks with institutional systems across every stage of enterprise growth.",
+        viewAll: "Explore Complete Solutions Catalogue",
+        bookConsult: "Book a Consultation Call",
+        services: [
+          {
+            id: "operations",
+            num: "01",
+            title: "Operations & SOP Architecture",
+            desc: "Codify daily workflows into standard operating procedures and delegation matrices so your business operates smoothly without constant owner intervention.",
+            items: [
+              "SOP Documentation & Workflows",
+              "Delegation & Authority Matrices",
+              "Process Bottleneck Eradication",
+              "Management Control Cadence"
+            ],
+            tag: "Operations"
+          },
+          {
+            id: "sales",
+            num: "02",
+            title: "Sales & Revenue Engine",
+            desc: "Transform erratic sales activity into a governed, measurable revenue engine with clear pipeline accountability and conversion rigor.",
+            items: [
+              "Sales Pipeline Architecture",
+              "Lead Qualification SOPs",
+              "B2B Conversion Governance",
+              "Sales Team KPI Accountability"
+            ],
+            tag: "Revenue"
+          },
+          {
+            id: "finance",
+            num: "03",
+            title: "Finance & Cash-Flow Visibility",
+            desc: "Gain total clarity over your numbers with real-time management accounts, unit economics optimization, and forward cash runway dashboards.",
+            items: [
+              "Unit Economics & Margins",
+              "Real-Time Cash Runway Clarity",
+              "Cost-Control & Spend Thresholds",
+              "Management Reporting Cadence"
+            ],
+            tag: "Finance"
+          },
+          {
+            id: "kpi",
+            num: "04",
+            title: "KPI & Performance Management",
+            desc: "Align teams and department leaders with clear role scorecards, transparent performance benchmarks, and recurring review rhythms.",
+            items: [
+              "Role Scorecards & KPI Design",
+              "Departmental Governance Rhythms",
+              "Performance Review Frameworks",
+              "Recruitment & Onboarding SOPs"
+            ],
+            tag: "Governance"
+          },
+          {
+            id: "foundation",
+            num: "05",
+            title: "Business Foundation & Structuring",
+            desc: "Build rock-solid legal, operational, and organizational foundations for startups and expanding enterprises to prevent costly structural mistakes.",
+            items: [
+              "Company Structuring & Setup",
+              "Business Process Foundations",
+              "Management System Setup",
+              "Early-Stage Risk Safeguards"
+            ],
+            tag: "Structuring"
+          },
+          {
+            id: "growth",
+            num: "06",
+            title: "Growth & Regional Expansion",
+            desc: "Scale into new regional markets across Saudi Arabia, UAE, and India with disciplined commercial playbooks and cross-border advisory.",
+            items: [
+              "Growth Strategy & Roadmaps",
+              "Market Entry & Expansion",
+              "Distribution Network Architecture",
+              "Commercial Scaling Models"
+            ],
+            tag: "Expansion"
+          }
+        ],
+        metrics: {
+          companies: "60+ Companies Supported",
+          timeRecovered: "65% Owner Time Recovered",
+          valuation: "2.8x Valuation & Revenue Generated",
+          cta: "Request Diagnostic Audit"
+        }
+      },
       consoleTitle: "SCALARK Systems Architecture Console",
       consoleStatus: "Status",
       stages: {
@@ -562,6 +655,99 @@ export const TRANSLATIONS = {
         "التكنولوجيا",
         "الأداء"
       ],
+            servicesList: {
+        badge: "مجالات العمل والخدمات الرئيسية",
+        title: "أنظمة الأعمال والخدمات الاستشارية الرئيسية",
+        subtitle: "نستبدل ارتهان العمل بالمؤسس بأنظمة مؤسسية متينة وموثقة عبر مختلف مراحل نمو الشركات.",
+        viewAll: "استكشف دليل الحلول الشامل",
+        bookConsult: "احجز مكالمة استشارية",
+        services: [
+          {
+            id: "operations",
+            num: "01",
+            title: "هندسة العمليات والإجراءات القياسية (SOPs)",
+            desc: "توثيق مسارات العمل اليومية في إجراءات تشغيلية ومصفوفات تفويض واضحة ليعمل عملك بسلاسة دون الحاجة لتدخل المالك الدائم.",
+            items: [
+              "توثيق الإجراءات وسير العمل",
+              "مصفوفات تفويض الصلاحيات",
+              "القضاء على اختناقات العمليات",
+              "إيقاع الرقابة الإدارية"
+            ],
+            tag: "العمليات"
+          },
+          {
+            id: "sales",
+            num: "02",
+            title: "محرك المبيعات والإيرادات",
+            desc: "تحويل نشاط المبيعات العشوائي إلى محرك إيرادات منظم وقابل للقياس مع مساءلة واضحة لمسار الصفقات ومعدلات التحويل.",
+            items: [
+              "هندسة مسارات المبيعات",
+              "معايير تأهيل العملاء المحتملين",
+              "حوكمة تحويل صفقات B2B",
+              "مساءلة مؤشرات أداء فريق البيع"
+            ],
+            tag: "الإيرادات"
+          },
+          {
+            id: "finance",
+            num: "03",
+            title: "المالية ووضوح التدفق النقدي",
+            desc: "تحقيق ووضوح كامل للأرقام المالية مع حسابات إدارية آنية، وتحسين اقتصاديات الوحدة، ولوحات تتبع السيولة النقدية المستقبلية.",
+            items: [
+              "اقتصاديات الوحدة وهامش الربح",
+              "وضوح فوري لمسار السيولة النقدية",
+              "عتبات ضبط التكاليف والمصروفات",
+              "إيقاع التقارير الإدارية الدورية"
+            ],
+            tag: "المالية"
+          },
+          {
+            id: "kpi",
+            num: "04",
+            title: "إدارة مؤشرات الأداء (KPIs) والمساءلة",
+            desc: "مواءمة فرق العمل وقادة الأقسام مع بطاقات تقييم واضحة للمناصب، ومعايير أداء شفافة، وإيقاع منتظم للمراجعات والمساءلة.",
+            items: [
+              "تصميم بطاقات قياس أداء الأدوار",
+              "إيقاع الحوكمة بين الإدارات",
+              "أطر مراجعة وتقييم الأداء",
+              "أدلة التوظيف والتهيئة التشغيلية"
+            ],
+            tag: "الحوكمة"
+          },
+          {
+            id: "foundation",
+            num: "05",
+            title: "تأسيس وهيكلة الأعمال",
+            desc: "بناء أسس قانونية وتشغيلية وتنظيمية متينة للشركات الناشئة والمؤسسات المتوسعة لتفادي الأخطاء الهيكلية باهظة التكلفة.",
+            items: [
+              "هيكلة وتأسيس الشركات",
+              "وضع حجر الأساس للعمليات",
+              "بناء النظم الإدارية الأولية",
+              "ضمانات حماية المخاطر المبكرة"
+            ],
+            tag: "التأسيس"
+          },
+          {
+            id: "growth",
+            num: "06",
+            title: "النمو والتوسع الإقليمي",
+            desc: "التوسع نحو أسواق إقليمية جديدة في السعودية والإمارات والهند مع أدلة تجارية منضبطة واستشارات عابرة للحدود.",
+            items: [
+              "استراتيجية وخرائط طريق النمو",
+              "دخول الأسواق والتوسع التجاري",
+              "هندسة شبكات التوزيع والشراكات",
+              "نماذج التوسع التجاري المؤسسي"
+            ],
+            tag: "التوسع"
+          }
+        ],
+        metrics: {
+          companies: "60+ شركة مدعومة",
+          timeRecovered: "65% استعادة وقت المؤسس",
+          valuation: "2.8x مضاعفة التقييم والإيرادات",
+          cta: "طلب تدقيق تشخيصي"
+        }
+      },
       consoleTitle: "لوحة تحكم بنية نظم سكالارك",
       consoleStatus: "الحالة",
       stages: {
